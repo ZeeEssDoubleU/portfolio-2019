@@ -1,0 +1,45 @@
+{
+  "name": "Portfolio",
+  "private": true,
+  "description": "Zachary Williams' portfolio.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop -o",
+    "dev-m": "gatsby develop -o -H $HOSTNAME -p 8000",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "serve-m": "gatsby serve -o -H $HOSTNAME -p 9000",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "gatsby": "^2.8.8",
+    "gatsby-background-image": "^0.7.2",
+    "gatsby-image": "^2.1.3",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-source-filesystem": "^2.0.39",
+    "gatsby-transformer-sharp": "^2.1.21",
+    "hamburgers": "^1.1.3",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
