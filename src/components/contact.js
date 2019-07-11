@@ -54,10 +54,6 @@ const ContactGrid = styled.div`
 `
 
 const Contact = () => {
-  const submitForm = event => {
-    document.querySelector(".contact-form").submit()
-  }
-
   return (
     <ContactSection>
       <Icon name="stripes" className="stripes" />
