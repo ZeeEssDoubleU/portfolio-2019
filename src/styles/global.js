@@ -1,11 +1,22 @@
 import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
-   html, body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(122deg, #323232 0%, #000000 70%);
-      background-attachment: fixed;
-      font-family: Avenir;
+   * {
+      box-sizing: border-box;
+      html, body {
+         margin: 0;
+         padding: 0;
+         background: black;
+         font-family: Avenir;
+         /* handles scroll behavior when app menu is open */
+         height: ${props => (props.menuExpanded ? "100vh" : "inherit")};
+         overflow: ${props => (props.menuExpanded ? "hidden" : "inherit")};
+         button {
+            font-family: inherit;
+         }
+         &.using-mouse :focus {
+            outline: none;
+         }
+      }
    }
 `

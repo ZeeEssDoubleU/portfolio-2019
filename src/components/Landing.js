@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
-
 // import components
-import Icon from "./Icon"
+import Icon from "./Layout/Icon"
+import { NavContext } from "../pages"
 
 // styled components
 const LandingSection = styled.section`
   display: grid;
   height: 100vh;
-  width: 100vw;
   justify-items: center;
   align-items: center;
   align-content: center;
@@ -17,18 +17,41 @@ const LandingSection = styled.section`
     width: calc(0.7 * 100vw);
     max-width: calc(0.3 * 100vh);
   }
+  /* TODO: make down arrow have focus outline on tab only */
   .down-arrow {
     position: absolute;
     width: 30px;
     top: calc(100vh - 40px);
     left: calc(50vw - 30px / 2);
+    cursor: pointer;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 `
 
-const Landing = () => {
+const Landing = props => {
+  // react-intersection-observer
+  const [ref, inView, entry] = useInView({
+    // set margin equal to height of nav bar
+    rootMargin: "-80px 0px 0px 0px",
+  })
+
+  // toggleNav function of NavContext
+  const toggleNav = useContext(NavContext).toggleNav
+  useEffect(() => {
+    if (entry) {
+      toggleNav(inView, entry)
+    }
+  }, [inView])
+
+  // debug
+  if (entry) console.log("Landing in view?", inView)
+
   return (
-    <LandingSection>
-      <Icon name="logo" className="logo" />
+    <LandingSection ref={ref}>
+      <Icon name="logo-landing" className="logo" />
       <Icon name="down arrow" className="down-arrow" />
     </LandingSection>
   )

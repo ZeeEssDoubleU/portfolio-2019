@@ -16,23 +16,26 @@
   },
   "dependencies": {
     "bulma": "^0.7.5",
-    "gatsby": "^2.8.8",
-    "gatsby-background-image": "^0.7.2",
-    "gatsby-image": "^2.1.3",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-plugin-sharp": "^2.1.3",
-    "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-source-filesystem": "^2.0.39",
-    "gatsby-transformer-sharp": "^2.1.21",
+    "gatsby": "^2.13.57",
+    "gatsby-background-image": "^0.7.6",
+    "gatsby-image": "^2.2.8",
+    "gatsby-plugin-sass": "^2.1.6",
+    "gatsby-plugin-sharp": "^2.2.11",
+    "gatsby-plugin-styled-components": "^3.1.2",
+    "gatsby-source-filesystem": "^2.1.9",
+    "gatsby-transformer-sharp": "^2.2.6",
+    "gsap": "^2.1.3",
     "hamburgers": "^1.1.3",
+    "intersection-observer": "^0.7.0",
     "node-sass": "^4.12.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-icons": "^3.7.0",
-    "styled-components": "^4.3.1"
+    "react-intersection-observer": "^8.24.1",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-styled-components": "^1.10.6",
     "prettier": "^1.18.2"
   },
   "repository": {

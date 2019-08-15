@@ -1,34 +1,30 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 // import components
-import SidePanel from "./SidePanel"
-// import elements
-import { Action } from "../elements/Action"
+import SidePanel from "./Layout/SidePanel"
 
 // styled components
 const AboutSection = styled.section`
   position: relative;
   height: 100vh;
-  width: 100vw;
 `
-const BgImage = styled(BackgroundImage)`
-  height: 60vh;
-  background-position: 80% 100%;
-  background-size: auto 130%;
+const BgImage = styled(Img)`
+  position: relative;
+  height: 100%;
   mask-image: linear-gradient(to bottom, black, transparent);
+  img {
+    object-position: 80% 50% !important;
+  }
 `
 const AboutGrid = styled.div`
   display: grid;
-  grid-template-rows: auto 1fr auto;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  justify-content: start;
-  align-content: start;
   padding: 30px 0;
 `
 const AboutBody = styled.div`
@@ -65,13 +61,7 @@ const About = () => {
         alt="About Section Selfie Background Image"
       />
       <AboutGrid>
-        <SidePanel
-          columns="2"
-          fontFam="American Typewriter"
-          fontSize="12px"
-          justifySelf="start"
-          background
-        >
+        <SidePanel columns="2" fontFam="American Typewriter" fontSize="12px">
           <Highlight>Name:</Highlight>
           <span>Zachary Williams</span>
           <Highlight>Profession:</Highlight>
@@ -91,8 +81,8 @@ const About = () => {
             want to say what’s up, give me a shout!
           </p>
         </AboutBody>
-        <SidePanel justifySelf="end" background>
-          <Action>contact me</Action>
+        <SidePanel button icon="email">
+          contact me
         </SidePanel>
       </AboutGrid>
     </AboutSection>

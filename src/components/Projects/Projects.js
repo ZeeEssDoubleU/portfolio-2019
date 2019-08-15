@@ -2,11 +2,10 @@ import React from "react"
 import styled from "styled-components"
 
 // import components
-import SidePanel from "./SidePanel"
+import SidePanel from "../Layout/SidePanel"
 import Project from "./Project"
 // import elements
-import { Action } from "../elements/Action"
-import { SectionHeader } from "../elements/SectionHeader"
+import { SectionHeader } from "../../elements/SectionHeader"
 
 // styled components
 const ProjectsSection = styled.section`
@@ -18,7 +17,6 @@ const ProjectsSection = styled.section`
 `
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-auto-rows: 40px;
   align-items: end;
   margin: 30px 34px;
 `
@@ -26,18 +24,16 @@ const ProjectsGrid = styled.div`
 const Projects = () => {
   return (
     <ProjectsSection>
-      <SidePanel justifySelf="start">
-        <SectionHeader>projects</SectionHeader>
-      </SidePanel>
+      <SidePanel header>projects</SidePanel>
       <ProjectsGrid>
         <Project>WatchStuff</Project>
         <Project>Github Issue Tracker</Project>
         <Project>Portfolio</Project>
         <Project>DevConnector</Project>
-        <Project>Charizard</Project>
+        <Project>Chartizard</Project>
       </ProjectsGrid>
-      <SidePanel justifySelf="end">
-        <Action>show more +</Action>
+      <SidePanel button icon="plus">
+        show more
       </SidePanel>
     </ProjectsSection>
   )
