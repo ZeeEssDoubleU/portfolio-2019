@@ -52,7 +52,9 @@ const Landing = props => {
   return (
     <LandingSection ref={ref}>
       <Icon name="logo-landing" className="logo" />
-      <Icon name="down arrow" className="down-arrow" />
+      <a href="#about">
+        <Icon name="down arrow" className="down-arrow" />
+      </a>
     </LandingSection>
   )
 }

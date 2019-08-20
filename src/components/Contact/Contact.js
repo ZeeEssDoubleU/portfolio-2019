@@ -41,7 +41,7 @@ const Copyright = styled.p`
 const Contact = props => {
   const currentDate = new Date().getFullYear()
   return (
-    <ContactSection tabIndex="-1">
+    <ContactSection tabIndex="-1" id="contact">
       <Icon name="stripes" className="stripes" />
       <ContactGrid>
         <SidePanel header>get in touch</SidePanel>
@@ -51,8 +51,8 @@ const Contact = props => {
         </SidePanel>
         <Social />
         <Copyright>
-          Constructed by me <Icon name="copyright" className="icon-copyright" />{" "}
-          {currentDate}
+          Zachary Williams <Icon name="copyright" className="icon-copyright" /> Copyright
+          {" " + currentDate}
         </Copyright>
       </ContactGrid>
     </ContactSection>

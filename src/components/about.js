@@ -55,7 +55,7 @@ const About = () => {
     }
   `)
   return (
-    <AboutSection>
+    <AboutSection id="about">
       <BgImage
         title="Selfie"
         fluid={{ ...data.file.childImageSharp.fluid }}
@@ -82,7 +82,7 @@ const About = () => {
             want to say what’s up, give me a shout!
           </p>
         </AboutBody>
-        <SidePanel button icon="email">
+        <SidePanel link icon="email" href="#contact">
           contact me
         </SidePanel>
       </AboutGrid>

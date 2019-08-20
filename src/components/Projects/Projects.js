@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 
 // import components
 import SidePanel from "../Layout/SidePanel"
@@ -20,17 +21,47 @@ const ProjectsGrid = styled.div`
 `
 
 const Projects = () => {
+  // gql query for project data
+  const data = useStaticQuery(graphql`
+    {
+      allProjectsJson {
+        edges {
+          node {
+            id
+            project
+            description
+            tech
+            link
+          }
+        }
+      }
+    }
+  `)
+
+  // display show more button if all projects aren't shown
+  // display show less button if more than 5 projects are shown
+  // display nothing if there are less than 5 projects
+  const isHidden = data.allProjectsJson.edges.length <= 5 ? true : false
+
+  // array to display projects below in render
+  const projectArray = []
+  data.allProjectsJson.edges.forEach(project =>
+    projectArray.push(
+      <Project
+        key={project.node.id}
+        name={project.node.project}
+        description={project.node.description}
+        tech={project.node.tech}
+        link={project.node.link}
+      ></Project>
+    )
+  )
+
   return (
-    <ProjectsSection>
+    <ProjectsSection id="projects">
       <SidePanel header>projects</SidePanel>
-      <ProjectsGrid>
-        <Project>WatchStuff</Project>
-        <Project>Github Issue Tracker</Project>
-        <Project>Portfolio</Project>
-        <Project>DevConnector</Project>
-        <Project>Chartizard</Project>
-      </ProjectsGrid>
-      <SidePanel button icon="plus">
+      <ProjectsGrid>{projectArray}</ProjectsGrid>
+      <SidePanel button icon="plus" hidden={isHidden}>
         show more
       </SidePanel>
     </ProjectsSection>

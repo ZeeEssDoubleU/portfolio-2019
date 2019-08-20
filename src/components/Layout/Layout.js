@@ -45,6 +45,7 @@ const Nav = styled.div`
       grid-template-columns: auto auto auto;
       align-items: center;
       height: 80px;
+      text-decoration: none;
       cursor: pointer;
       /* hover effect */
       transition: transform 0.2s !important;
@@ -97,9 +98,7 @@ const Nav = styled.div`
       .menu-items {
         font-size: ${props => (props.menuExpanded ? "1.5em" : "inherit")};
         color: ${props => props.theme.appBlue};
-        padding: 0;
-        background: none;
-        border: none;
+        text-decoration: none;
         cursor: pointer;
         /* hover effect */
         transition: color 0.2s !important;
@@ -204,13 +203,17 @@ const Layout = props => {
         menuExpanded={menuExpanded}
       >
         <div className="nav-grid">
-          <div className="nav-logo" tabIndex="0">
+          <a
+            className="nav-logo"
+            href="#"
+            onClick={() => setMenuExpanded(false)}
+          >
             <span className="logo-names first-name logo-items">Zachary</span>
             <span className="logo-items">
               <Icon className="logo" name="logo-nav" />
             </span>
             <span className="logo-names last-name logo-items">Williams</span>
-          </div>
+          </a>
           {/* TODO: hamburger imported from npm. Go to node_modules/hamburgers/_sass/hamburgers/hamburgers.scss to edit layout */}
           {/* TODO: make hamburger have focus outline on tab only */}
           <button
@@ -223,10 +226,34 @@ const Layout = props => {
             </span>
           </button>{" "}
           <div className="nav-menu">
-            <button className="menu-items menu-home">Home</button>
-            <button className="menu-items">About</button>
-            <button className="menu-items">Projects</button>
-            <button className="menu-items">Contact</button>
+            <a
+              className="menu-items menu-home"
+              href="#"
+              onClick={() => setMenuExpanded(false)}
+            >
+              Home
+            </a>
+            <a
+              className="menu-items"
+              href="#about"
+              onClick={() => setMenuExpanded(false)}
+            >
+              About
+            </a>
+            <a
+              className="menu-items"
+              href="#projects"
+              onClick={() => setMenuExpanded(false)}
+            >
+              Projects
+            </a>
+            <a
+              className="menu-items"
+              href="#contact"
+              onClick={() => setMenuExpanded(false)}
+            >
+              Contact
+            </a>
           </div>
           <div className="nav-center"></div>
         </div>

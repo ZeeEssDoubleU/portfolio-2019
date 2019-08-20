@@ -1,27 +1,32 @@
 [
   {
     "project": "WatchStuff",
-    "description": "",
-    "tech": ["React", "Redux", "Youtube Api", "Netlify", "Sass"]
+    "description": "A YouTube clone built with React, Redux and the Youtube API.",
+    "tech": ["React", "Redux", "Youtube Api", "Netlify", "Sass"],
+    "link": "https://www.google.com"
   },
   {
     "project": "Github Issue Tracker",
-    "description": "",
-    "tech": ["React", "Apollo", "GraphQL"]
+    "description": "App that tracks repository issues on Github.  Features search function.  Built with Apollo and React.",
+    "tech": ["React", "Apollo", "GraphQL"],
+    "link": "https://www.facebook.com"
   },
   {
     "project": "Portfolio",
-    "description": "",
-    "tech": ["React", "Gatsby", "GraphQL", "Styled-Components", "GSAP"]
+    "description": "The website you're on right now!  Built using Gatsby and React.",
+    "tech": ["React", "Gatsby", "GraphQL", "Styled-Components", "GSAP"],
+    "link": "https://www.steam.com"
   },
   {
     "project": "DevConnector",
-    "description": "",
-    "tech": ["React", "Express", "Node", "MongoDb", "Heroku", "Passport"]
+    "description": "Social networking app.  Built using React, Node and MongoDb.  Features user authenticatin with Passport.  Deployed on Heroku.",
+    "tech": ["React", "Express", "Node", "MongoDb", "Heroku", "Passport"],
+    "link": "https://www.ign.com"
   },
   {
     "project": "Chartizard",
-    "description": "",
-    "tech": ["HTML", "CSS"]
+    "description": "Fun Project from teamtreehouse.com Tech Degree program.",
+    "tech": ["HTML", "CSS"],
+    "link": "https://www.msn.com"
   }
 ]

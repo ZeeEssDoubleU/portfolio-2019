@@ -5,6 +5,9 @@ import styled from "styled-components"
 import Icon from "../Layout/Icon"
 
 // styled components
+const Container = styled.div`
+  display: ${props => (props.hidden ? "none" : "inherit")};
+`
 const PanelHeader = styled.div`
   display: grid;
   justify-self: start;
@@ -63,39 +66,75 @@ const PanelButton = styled.button`
     }
   }
 `
+const PanelLink = styled.a`
+  justify-self: end;
+  color: ${props => props.theme.appBlue};
+  font-size: 18px;
+  text-decoration: none;
+  padding: 20px 34px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px 0 0 15px;
+  box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
+  transform: translateX(25px);
+  cursor: pointer;
+  /* hover effect */
+  transition: color 0.2s, transform 0.2s !important;
+  .action-grid {
+    display: grid;
+    grid-template-columns: auto 25px;
+    align-items: center;
+    .action-icon {
+      font-size: 14px;
+      justify-self: end;
+      opacity: 0;
+    }
+  }
+  &:hover {
+    color: ${props => props.theme.appGreen} !important;
+    transform: translateX(0px) !important;
+    .action-icon {
+      opacity: 1 !important;
+      transition: opacity 0.3s 0.1s !important;
+    }
+  }
+`
 
 const SidePanel = props => {
-  if (props.header) {
-    return (
-      <PanelHeader justifySelf={props.justifySelf}>
-        {props.children}
-      </PanelHeader>
-    )
-  } else if (props.button) {
-    return (
-      <PanelButton
-        justifySelf={props.justifySelf}
-        type={props.type}
-        form={props.form}
-      >
-        <div className="action-grid">
+  const panelType = () => {
+    if (props.header) {
+      return <PanelHeader>{props.children}</PanelHeader>
+    } else if (props.button) {
+      return (
+        <PanelButton type={props.type} form={props.form}>
+          <div className="action-grid">
+            {props.children}
+            <Icon name={props.icon} className="action-icon" />
+          </div>
+        </PanelButton>
+      )
+    } else if (props.link) {
+      return (
+        <PanelLink form={props.form} href={props.href}>
+          <div className="action-grid">
+            {props.children}
+            <Icon name={props.icon} className="action-icon" />
+          </div>
+        </PanelLink>
+      )
+    } else {
+      return (
+        <PanelDiv
+          columns={props.columns}
+          fontFam={props.fontFam}
+          fontSize={props.fontSize}
+        >
           {props.children}
-          <Icon name={props.icon} className="action-icon" />
-        </div>
-      </PanelButton>
-    )
-  } else {
-    return (
-      <PanelDiv
-        columns={props.columns}
-        fontFam={props.fontFam}
-        fontSize={props.fontSize}
-        justifySelf={props.justifySelf}
-      >
-        {props.children}
-      </PanelDiv>
-    )
+        </PanelDiv>
+      )
+    }
   }
+
+  return <Container hidden={props.hidden}>{panelType()}</Container>
 }
 
 export default SidePanel
