@@ -6,8 +6,6 @@ import SidePanel from "../Layout/SidePanel"
 import Icon from "../Layout/Icon"
 import ContactForm from "./ContactForm"
 import Social from "./Social"
-// import elements
-import { SectionHeader } from "../../elements/SectionHeader"
 
 // styled components
 const ContactSection = styled.section`

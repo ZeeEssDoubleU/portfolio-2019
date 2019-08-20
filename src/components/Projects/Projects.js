@@ -4,8 +4,6 @@ import styled from "styled-components"
 // import components
 import SidePanel from "../Layout/SidePanel"
 import Project from "./Project"
-// import elements
-import { SectionHeader } from "../../elements/SectionHeader"
 
 // styled components
 const ProjectsSection = styled.section`

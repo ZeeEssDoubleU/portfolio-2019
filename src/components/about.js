@@ -9,11 +9,14 @@ import SidePanel from "./Layout/SidePanel"
 // styled components
 const AboutSection = styled.section`
   position: relative;
-  height: 100vh;
 `
 const BgImage = styled(Img)`
-  position: relative;
-  height: 100%;
+  /* stretch image across background */
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  /* creates fade to black effect on background image */
   mask-image: linear-gradient(to bottom, black, transparent);
   img {
     object-position: 80% 50% !important;
@@ -21,11 +24,9 @@ const BgImage = styled(Img)`
 `
 const AboutGrid = styled.div`
   display: grid;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   padding: 30px 0;
+  z-index: 1;
 `
 const AboutBody = styled.div`
   display: grid;

@@ -1,22 +1,27 @@
 [
   {
     "project": "WatchStuff",
+    "description": "",
     "tech": ["React", "Redux", "Youtube Api", "Netlify", "Sass"]
   },
   {
     "project": "Github Issue Tracker",
+    "description": "",
     "tech": ["React", "Apollo", "GraphQL"]
   },
   {
     "project": "Portfolio",
+    "description": "",
     "tech": ["React", "Gatsby", "GraphQL", "Styled-Components", "GSAP"]
   },
   {
     "project": "DevConnector",
+    "description": "",
     "tech": ["React", "Express", "Node", "MongoDb", "Heroku", "Passport"]
   },
   {
     "project": "Chartizard",
+    "description": "",
     "tech": ["HTML", "CSS"]
   }
 ]
