@@ -45,10 +45,17 @@ const Container = styled.div`
     transition: top 0.3s;
     .project-info-container {
       position: relative;
-      height: calc(100% - 80px);
+      height: calc(100% - 70px);
       width: 100%;
       padding: 30px 24px;
       overflow-y: auto;
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 3%,
+        black 97%,
+        transparent 100%
+      );
       .project-info-grid {
         display: grid;
         justify-items: center;
@@ -98,7 +105,7 @@ const Container = styled.div`
     }
     .project-info-footer {
       display: grid;
-      grid-template-rows: 80px;
+      grid-template-rows: 70px;
       justify-content: center;
       align-content: center;
       position: absolute;
