@@ -11,20 +11,13 @@ import Icon from "./Icon"
 
 // styled components
 const Nav = styled.div`
+  /* overflow: hidden; */
   position: fixed;
   top: 0;
   width: 100vw;
-  /* TODO: Make responsive.  Remove max-width */
-  max-width: 1000px;
   height: ${props => (props.menuExpanded ? "100vh" : "80px")};
   background: black;
-  border-bottom: 1px solid;
-  border-image: linear-gradient(
-      to right,
-      rgba(${props => props.theme.appGreenPartial}, 0.5),
-      rgba(${props => props.theme.appBluePartial}, 0.5)
-    )
-    1;
+  border-bottom: solid 1px rgba(20, 20, 20, 0.8);
   box-shadow: 0px 6px 6px 0 rgba(0, 0, 0, 0.5);
   z-index: 99;
   /* showNav animation */
@@ -37,47 +30,13 @@ const Nav = styled.div`
     justify-content: space-between;
     align-items: center;
     height: ${props => (props.menuExpanded ? "100%" : "inherit")};
+    /* TODO: Make responsive.  Remove max-width */
     max-width: 1400px;
-    padding: 0 35px;
     margin: 0 auto;
-    .nav-logo {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      align-items: center;
-      height: 80px;
-      text-decoration: none;
-      cursor: pointer;
-      /* hover effect */
-      transition: transform 0.2s !important;
-      &:hover {
-        transform: scale(1.1) !important;
-      }
-      .logo-names {
-        display: none;
-      }
-      .logo {
-        height: 56px;
-        /* removes space below image (aligns like letters)*/
-        vertical-align: middle;
-      }
-      @media (min-width: ${props => props.theme.tablet + "px"}) {
-        grid-template-columns: auto auto auto;
-        grid-gap: 7px;
-        .logo-names {
-          display: inherit;
-        }
-        .first-name {
-          color: ${props => props.theme.appGreen};
-        }
-        .last-name {
-          color: ${props => props.theme.appBlue};
-        }
-      }
-    }
+    padding: 0 24px;
     .nav-hamburger {
       display: grid;
       align-items: center;
-      height: 80px;
       justify-self: end;
       .hamburger-box {
         /* hover effect */
@@ -86,33 +45,9 @@ const Nav = styled.div`
           transform: scale(1.2) !important;
         }
       }
+      /* .nav-hamburger */
       @media (min-width: ${props => props.theme.tablet + "px"}) {
         display: none;
-      }
-    }
-    .nav-menu {
-      display: ${props => (props.menuExpanded ? "grid" : "none")};
-      grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};
-      grid-row-gap: 60px;
-      justify-items: center;
-      .menu-items {
-        font-size: ${props => (props.menuExpanded ? "1.5em" : "inherit")};
-        color: ${props => props.theme.appBlue};
-        text-decoration: none;
-        cursor: pointer;
-        /* hover effect */
-        transition: color 0.2s !important;
-        &:hover {
-          color: ${props => props.theme.appGreen} !important;
-        }
-        &.menu-home {
-          display: ${props => (props.menuExpanded ? "inherit" : "none")};
-        }
-      }
-      @media (min-width: ${props => props.theme.tablet + "px"}) {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-gap: 30px;
       }
     }
     .nav-center {
@@ -123,6 +58,66 @@ const Nav = styled.div`
     height: 80px;
   }
 `
+const NavLogo = styled.a`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 7px;
+  align-items: center;
+  height: 80px;
+  text-decoration: none;
+  cursor: pointer;
+  /* hover effect */
+  transition: transform 0.2s !important;
+  &:hover {
+    transform: scale(1.1) !important;
+  }
+  .logo {
+    height: 56px;
+    /* removes space below image (aligns like letters)*/
+    vertical-align: middle;
+  }
+  .first-name {
+    display: none;
+    color: ${props => props.theme.appGreen};
+  }
+  .last-name {
+    display: none;
+    color: ${props => props.theme.appBlue};
+  }
+  /* NavLogo tablet and bigger */
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    .first-name,
+    .last-name {
+      display: inherit;
+    }
+  }
+`
+const NavMenu = styled.div`
+  display: ${props => (props.menuExpanded ? "grid" : "none")};
+  grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};
+  grid-row-gap: 60px;
+  justify-items: center;
+  .menu-items {
+    font-size: ${props => (props.menuExpanded ? "1.5em" : "inherit")};
+    color: ${props => props.theme.appBlue};
+    text-decoration: none;
+    cursor: pointer;
+    /* hover effect */
+    transition: color 0.2s !important;
+    &:hover {
+      color: ${props => props.theme.appGreen} !important;
+    }
+    &.menu-home {
+      display: ${props => (props.menuExpanded ? "inherit" : "none")};
+    }
+  }
+  /* NavMenu tablet and bigger */
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 30px;
+  }
+`
 
 // exported component
 const Layout = props => {
@@ -131,23 +126,35 @@ const Layout = props => {
   const showNav = useContext(NavContext).showNav
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
-  const [screenMobile, setScreenMobile] = useState(
+  const [windowMobile, setWindowMobile] = useState(
     window.innerWidth < themeContext.tablet
   )
 
+  // debug
+  console.log("Menu Expanded?", menuExpanded)
+  console.log("WIndow mobile?", windowMobile)
+
   // shrink mobile menu down to nav bar when screen increases in size
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= themeContext.tablet && menuExpanded === true) {
-      setMenuExpanded(false)
-    }
-    window.innerWidth < themeContext.tablet
-      ? setScreenMobile(true)
-      : setScreenMobile(false)
-  })
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= themeContext.tablet && menuExpanded === true) {
+        setMenuExpanded(false)
+      }
+    })
+  }, [menuExpanded])
+
+  // set window size state
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      window.innerWidth < themeContext.tablet
+        ? setWindowMobile(true)
+        : setWindowMobile(false)
+    })
+  }, [window.innerWidth < themeContext.tablet])
 
   // create new timeline instance
   const tl = new TimelineMax()
-  // gsap animation - mobile menu
+  // gsap animation - mobile menu.  Triggers on menuExpanded
   useEffect(() => {
     menuExpanded
       ? tl.staggerFromTo(
@@ -160,7 +167,7 @@ const Layout = props => {
         )
       : tl.set(".menu-items", { autoAlpha: 0, x: -40 }, 0)
   }, [menuExpanded])
-  // gsap animation - nav header
+  // gsap animation - nav header.  Triggers on showNav and windowMobile
   useEffect(() => {
     showNav
       ? tl
@@ -191,7 +198,7 @@ const Layout = props => {
           .set(".logo-items", { autoAlpha: 0, x: 0, y: -40 }, 0)
           .set(".nav-hamburger", { autoAlpha: 0, x: 0, y: -40 }, 0)
           .set(".menu-items", { autoAlpha: 0, x: 0, y: -40 }, 0)
-  }, [showNav, screenMobile])
+  }, [showNav, windowMobile])
 
   return (
     <>
@@ -203,21 +210,16 @@ const Layout = props => {
         menuExpanded={menuExpanded}
       >
         <div className="nav-grid">
-          <a
-            className="nav-logo"
-            href="#"
-            onClick={() => setMenuExpanded(false)}
-          >
-            <span className="logo-names first-name logo-items">Zachary</span>
+          <NavLogo href="#" onClick={() => setMenuExpanded(false)}>
+            <span className="logo-items first-name">Zachary</span>
             <span className="logo-items">
               <Icon className="logo" name="logo-nav" />
             </span>
-            <span className="logo-names last-name logo-items">Williams</span>
-          </a>
+            <span className="logo-items last-name">Williams</span>
+          </NavLogo>
           {/* TODO: hamburger imported from npm. Go to node_modules/hamburgers/_sass/hamburgers/hamburgers.scss to edit layout */}
-          {/* TODO: make hamburger have focus outline on tab only */}
           <button
-            className={"nav-hamburger hamburger hamburger--spin" + menuState}
+            className={"nav-hamburger hamburger hamburger--spring" + menuState}
             type="button"
             onClick={() => setMenuExpanded(!menuExpanded)}
           >
@@ -225,7 +227,7 @@ const Layout = props => {
               <span className="hamburger-inner" />
             </span>
           </button>{" "}
-          <div className="nav-menu">
+          <NavMenu menuExpanded={menuExpanded}>
             <a
               className="menu-items menu-home"
               href="#"
@@ -254,7 +256,7 @@ const Layout = props => {
             >
               Contact
             </a>
-          </div>
+          </NavMenu>
           <div className="nav-center"></div>
         </div>
       </Nav>

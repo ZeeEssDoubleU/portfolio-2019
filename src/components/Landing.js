@@ -6,18 +6,18 @@ import Icon from "./Layout/Icon"
 import { NavContext } from "../pages"
 
 // styled components
-const LandingSection = styled.section`
+const Section = styled.section`
   display: grid;
   height: 100vh;
   justify-items: center;
   align-items: center;
   align-content: center;
+  background: ${props => props.theme.appBgColor};
   /* svg icons down in component */
   .logo {
     width: calc(0.7 * 100vw);
     max-width: calc(0.3 * 100vh);
   }
-  /* TODO: make down arrow have focus outline on tab only */
   .down-arrow {
     position: absolute;
     width: 30px;
@@ -50,12 +50,12 @@ const Landing = props => {
   if (entry) console.log("Landing in view?", inView)
 
   return (
-    <LandingSection ref={ref}>
+    <Section ref={ref}>
       <Icon name="logo-landing" className="logo" />
       <a href="#about">
-        <Icon name="down arrow" className="down-arrow" />
+        <Icon name="down-arrow" className="down-arrow" />
       </a>
-    </LandingSection>
+    </Section>
   )
 }
 

@@ -4,13 +4,18 @@ export default createGlobalStyle`
    * {
       box-sizing: border-box;
       html, body {
-         margin: 0;
-         padding: 0;
-         background: black;
+         margin: 0 !important;
+         padding: 0 !important;
+         background: ${props => props.theme.appBgColor2};
          font-family: Avenir;
          /* handles scroll behavior when app menu is open */
-         height: ${props => (props.menuExpanded ? "100vh" : "inherit")};
-         overflow: ${props => (props.menuExpanded ? "hidden" : "inherit")};
+         height: ${props =>
+           props.menuExpanded || props.activeIndex ? "100vh" : "inherit"};
+         overflow-y: ${props =>
+           props.menuExpanded || props.activeIndex ? "hidden" : "inherit"};
+         section {
+            overflow-x: hidden;
+         }
          button {
             font-family: inherit;
          }

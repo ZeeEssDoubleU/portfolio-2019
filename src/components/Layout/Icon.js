@@ -5,6 +5,7 @@ import Logo from "../../assets/icons/logo"
 import LogoLanding from "../../assets/icons/logo-landing"
 import LogoNav from "../../assets/icons/logo-nav"
 import DownArrow from "../../assets/icons/downArrow"
+import DownArrowA from "../../assets/icons/downArrow-anim"
 import Stripes from "../../assets/other/stripes.js"
 // import react-icons
 import {
@@ -20,6 +21,7 @@ import {
   FaRegCopyright,
   FaPlus,
   FaCheck,
+  FaEllipsisH,
 } from "react-icons/fa"
 import {
   DiReact,
@@ -41,12 +43,16 @@ import {
 
 const Icon = props => {
   switch (props.name) {
+    case "logo":
+      return <Logo {...props} />
     case "logo-landing":
       return <LogoLanding {...props} />
     case "logo-nav":
       return <LogoNav {...props} />
-    case "down arrow":
+    case "down-arrow":
       return <DownArrow {...props} />
+    case "down-arrow-a":
+      return <DownArrowA {...props} />
     case "stripes":
       return <Stripes {...props} />
     case "github":
@@ -65,6 +71,8 @@ const Icon = props => {
       return <FaPlus {...props} />
     case "check":
       return <FaCheck {...props} />
+    case "ellipsis":
+      return <FaEllipsisH {...props} />
     default:
       return null
   }

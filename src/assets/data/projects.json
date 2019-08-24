@@ -28,5 +28,11 @@
     "description": "Fun Project from teamtreehouse.com Tech Degree program.",
     "tech": ["HTML", "CSS"],
     "link": "https://www.msn.com"
+  },
+  {
+    "project": "Chartizard",
+    "description": "Fun Project from teamtreehouse.com Tech Degree program.",
+    "tech": ["HTML", "CSS"],
+    "link": "https://www.msn.com"
   }
 ]

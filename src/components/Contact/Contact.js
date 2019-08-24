@@ -8,21 +8,23 @@ import ContactForm from "./ContactForm"
 import Social from "./Social"
 
 // styled components
-const ContactSection = styled.section`
+const Section = styled.section`
   position: relative;
   overflow-y: hidden;
   .stripes {
     position: absolute;
     width: 100%;
     bottom: 0;
-    left: 0;
   }
 `
-const ContactGrid = styled.div`
+const Layout = styled.div`
   display: grid;
   position: relative;
   z-index: 2;
   padding: 30px 0;
+  /* TODO: Make responsive.  Remove max-width */
+  max-width: 1400px;
+  margin: 0 auto;
 `
 const Copyright = styled.p`
   display: grid;
@@ -41,9 +43,9 @@ const Copyright = styled.p`
 const Contact = props => {
   const currentDate = new Date().getFullYear()
   return (
-    <ContactSection tabIndex="-1" id="contact">
+    <Section tabIndex="-1" id="contact">
       <Icon name="stripes" className="stripes" />
-      <ContactGrid>
+      <Layout>
         <SidePanel header>get in touch</SidePanel>
         <ContactForm id="contact-form" />
         <SidePanel button icon="check" type="submit" form="contact-form">
@@ -51,11 +53,12 @@ const Contact = props => {
         </SidePanel>
         <Social />
         <Copyright>
-          Zachary Williams <Icon name="copyright" className="icon-copyright" /> Copyright
+          Zachary Williams <Icon name="copyright" className="icon-copyright" />{" "}
+          Copyright
           {" " + currentDate}
         </Copyright>
-      </ContactGrid>
-    </ContactSection>
+      </Layout>
+    </Section>
   )
 }
 

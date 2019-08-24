@@ -6,11 +6,8 @@ export const theme = {
   appGreenPartial: "80, 227, 194",
   appBlue: "rgb(65, 94, 250)",
   appBluePartial: "65, 94, 250",
-  // appGreenToBlueGradient: ,
-  // appBlueToGreenGradient: ,
-  // about section
-  // projects section
-  // contact section
+  appGreenBlue: `linear-gradient(to right, rgb(80, 227, 194) 0%, rgb(65, 94, 250) 100%)`,
+  appBlueGreen: `linear-gradient(to right, rgb(65, 94, 250) 0%, rgb(80, 227, 194) 100%)`,
 
   // media queries (px)
   mobile: "320",

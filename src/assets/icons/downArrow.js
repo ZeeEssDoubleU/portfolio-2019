@@ -7,9 +7,9 @@ const SVG = ({ className }) => (
     className={`svg-icon ${className || ""}`}
   >
     <defs>
-      <linearGradient id="down-arrow-a" x1="100%" x2="0%" y1="50%" y2="50%">
-        <stop offset="0%" stopColor="#415EFA" />
-        <stop offset="100%" stopColor="#50E3C2" />
+      <linearGradient id="down-arrow-a" x1="0%" x2="100%">
+        <stop offset="0%" stopColor="#50E3C2" />
+        <stop offset="100%" stopColor="#415EFA" />
       </linearGradient>
     </defs>
     <path

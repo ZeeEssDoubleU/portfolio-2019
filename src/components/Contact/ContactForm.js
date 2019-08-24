@@ -1,10 +1,10 @@
 import React from "react"
 import styled, { withTheme } from "styled-components"
 
-const StyledForm = styled.form`
+const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;
-  margin: 30px 34px;
+  margin: 30px 24px;
   div {
     & > * {
       position: relative;
@@ -15,9 +15,9 @@ const StyledForm = styled.form`
         rgba(${props => props.theme.appBluePartial}, 0.2)
       );
       color: ${props => props.theme.appGreen};
-      font-size: 12px;
-      font-family: Avenir;
-      padding: 12px;
+      font-size: 16px;
+      font-family: inherit;
+      padding: 12px 24px;
       border-style: none;
       border-radius: 5px;
       box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
@@ -28,7 +28,7 @@ const StyledForm = styled.form`
       }
       &:focus {
         outline: none;
-        transform: scale(1.05);
+        transform: scale(1.02);
         box-shadow: 0 0 0 1px rgba(${props => props.theme.appGreenPartial}, 0.5);
         &::placeholder {
           opacity: 0;
@@ -44,7 +44,7 @@ const StyledForm = styled.form`
 
 const ContactForm = props => {
   return (
-    <StyledForm
+    <Grid
       id={props.id}
       onSubmit={event => {
         event.preventDefault()
@@ -82,7 +82,7 @@ const ContactForm = props => {
           spellCheck={true}
         />
       </div>
-    </StyledForm>
+    </Grid>
   )
 }
 

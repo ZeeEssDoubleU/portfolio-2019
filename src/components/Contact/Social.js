@@ -35,6 +35,7 @@ const SocialLink = styled.a`
 `
 const InnerBorder = styled.div`
   position: absolute;
+  /* center element */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -49,6 +50,7 @@ const InnerBorder = styled.div`
   }
   .social-icon {
     position: absolute;
+    /* center element */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

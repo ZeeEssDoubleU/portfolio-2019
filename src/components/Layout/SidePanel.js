@@ -8,18 +8,6 @@ import Icon from "../Layout/Icon"
 const Container = styled.div`
   display: ${props => (props.hidden ? "none" : "inherit")};
 `
-const PanelHeader = styled.div`
-  display: grid;
-  justify-self: start;
-  font-family: Avenir-Book;
-  font-size: 18px;
-  color: ${props => props.theme.appGreen};
-  padding: 20px 34px;
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  border-radius: 0 15px 15px 0;
-  box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
-`
 const PanelDiv = styled.div`
   display: grid;
   grid-template-columns: ${props =>
@@ -29,27 +17,37 @@ const PanelDiv = styled.div`
   color: white;
   font-family: ${props => props.fontFam};
   font-size: ${props => props.fontSize};
-  padding: 20px 34px;
+  padding: 20px 24px;
   background: rgba(0, 0, 0, 0.6);
-  border-radius: 0 15px 15px 0;
+  border-radius: 15px;
   box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
+`
+const PanelHeader = styled.div`
+  display: grid;
+  justify-self: start;
+  font-family: Avenir-Book;
+  font-size: 24px;
+  color: ${props => props.theme.appGreen};
+  padding: 20px 24px;
+  /* background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5); */
 `
 const PanelButton = styled.button`
   justify-self: end;
   color: ${props => props.theme.appBlue};
   font-size: 18px;
-  padding: 20px 34px 20px;
+  padding: 20px 24px;
   background: rgba(0, 0, 0, 0.6);
   border: none;
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px;
   box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
-  transform: translateX(25px);
   cursor: pointer;
   /* hover effect */
-  transition: color 0.2s, transform 0.2s !important;
+  transition: color 0.2s !important;
   .action-grid {
     display: grid;
-    grid-template-columns: auto 25px;
+    grid-template-columns: auto 0;
     align-items: center;
     .action-icon {
       font-size: 14px;
@@ -59,7 +57,9 @@ const PanelButton = styled.button`
   }
   &:hover {
     color: ${props => props.theme.appGreen} !important;
-    transform: translateX(0px) !important;
+    .action-grid {
+      grid-template-columns: auto 25px;
+    }
     .action-icon {
       opacity: 1 !important;
       transition: opacity 0.3s 0.1s !important;
@@ -71,17 +71,16 @@ const PanelLink = styled.a`
   color: ${props => props.theme.appBlue};
   font-size: 18px;
   text-decoration: none;
-  padding: 20px 34px 20px;
+  padding: 20px 24px;
   background: rgba(0, 0, 0, 0.6);
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px;
   box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
-  transform: translateX(25px);
   cursor: pointer;
   /* hover effect */
-  transition: color 0.2s, transform 0.2s !important;
+  transition: color 0.2s !important;
   .action-grid {
     display: grid;
-    grid-template-columns: auto 25px;
+    grid-template-columns: auto 0;
     align-items: center;
     .action-icon {
       font-size: 14px;
@@ -91,7 +90,9 @@ const PanelLink = styled.a`
   }
   &:hover {
     color: ${props => props.theme.appGreen} !important;
-    transform: translateX(0px) !important;
+    .action-grid {
+      grid-template-columns: auto 25px;
+    }
     .action-icon {
       opacity: 1 !important;
       transition: opacity 0.3s 0.1s !important;
