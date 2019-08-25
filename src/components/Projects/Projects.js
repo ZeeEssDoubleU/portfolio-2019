@@ -77,9 +77,7 @@ const Projects = () => {
             button
             icon="plus"
             hidden={isHidden}
-            onClick={() => {
-              setShowMoreIndex(showMoreIndex + 5)
-            }}
+            onClick={() => setShowMoreIndex(showMoreIndex + 5)}
           >
             show more
           </SidePanel>
