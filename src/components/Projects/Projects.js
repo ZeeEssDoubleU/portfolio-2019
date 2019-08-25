@@ -43,26 +43,28 @@ const Projects = () => {
   `)
 
   const [activeIndex, setActiveIndex] = useState()
+  const [showMoreIndex, setShowMoreIndex] = useState(5)
 
-  // TODO: Correct projects section to 'show more' correctly
-  // display show more button if all projects aren't shown
-  // display show less button if more than 5 projects are shown
-  // display nothing if there are less than 5 projects
-  const isHidden = data.allProjectsJson.edges.length <= 5 ? true : false
+  // display 'show more' button if all projects aren't shown
+  // display nothing if all project are shown
+  const isHidden =
+    data.allProjectsJson.edges.length <= showMoreIndex ? true : false
 
   // array to display projects below in render
-  const projectArray = data.allProjectsJson.edges.map((project, index) => (
-    <Project
-      key={index}
-      index={index}
-      title={project.node.project}
-      description={project.node.description}
-      tech={project.node.tech}
-      link={project.node.link}
-      toggleClass={result => setActiveIndex(result)}
-      className={activeIndex === index ? "active" : ""}
-    ></Project>
-  ))
+  const projectArray = data.allProjectsJson.edges
+    .slice(0, showMoreIndex)
+    .map((project, index) => (
+      <Project
+        key={index}
+        index={index}
+        title={project.node.project}
+        description={project.node.description}
+        tech={project.node.tech}
+        link={project.node.link}
+        toggleClass={result => setActiveIndex(result)}
+        className={activeIndex === index ? "active" : ""}
+      ></Project>
+    ))
 
   return (
     <>
@@ -71,7 +73,14 @@ const Projects = () => {
         <Layout>
           <SidePanel header>projects</SidePanel>
           <Grid>{projectArray}</Grid>
-          <SidePanel button icon="plus" hidden={isHidden}>
+          <SidePanel
+            button
+            icon="plus"
+            hidden={isHidden}
+            onClick={() => {
+              setShowMoreIndex(showMoreIndex + 5)
+            }}
+          >
             show more
           </SidePanel>
         </Layout>

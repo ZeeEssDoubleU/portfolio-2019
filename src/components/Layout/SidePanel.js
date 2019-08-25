@@ -29,9 +29,6 @@ const PanelHeader = styled.div`
   font-size: 24px;
   color: ${props => props.theme.appGreen};
   padding: 20px 24px;
-  /* background: rgba(0, 0, 0, 0.6);
-  border-radius: 15px;
-  box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5); */
 `
 const PanelButton = styled.button`
   justify-self: end;
@@ -106,7 +103,11 @@ const SidePanel = props => {
       return <PanelHeader>{props.children}</PanelHeader>
     } else if (props.button) {
       return (
-        <PanelButton type={props.type} form={props.form}>
+        <PanelButton
+          type={props.type}
+          form={props.form}
+          onClick={props.onClick}
+        >
           <div className="action-grid">
             {props.children}
             <Icon name={props.icon} className="action-icon" />
