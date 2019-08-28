@@ -32,7 +32,7 @@ const Projects = () => {
         edges {
           node {
             id
-            project
+            title
             description
             tech
             link
@@ -57,7 +57,7 @@ const Projects = () => {
       <Project
         key={index}
         index={index}
-        title={project.node.project}
+        title={project.node.title}
         description={project.node.description}
         tech={project.node.tech}
         link={project.node.link}
