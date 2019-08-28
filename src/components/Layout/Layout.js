@@ -21,15 +21,16 @@ const Nav = styled.div`
   box-shadow: 0px 6px 6px 0 rgba(0, 0, 0, 0.5);
   z-index: 99;
   /* showNav animation */
-  transition: opacity 0.3s, height 0.3s;
+  transition: opacity 0.3s, height 0.4s;
   opacity: ${props => (props.showNav ? "1" : "0")};
+  overflow: hidden;
   .nav-grid {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 80px auto 80px;
     justify-content: space-between;
     align-items: center;
-    height: ${props => (props.menuExpanded ? "100%" : "inherit")};
+    height: 100%;
     /* TODO: Make responsive.  Remove max-width */
     max-width: 1400px;
     margin: 0 auto;
@@ -134,21 +135,16 @@ const Layout = props => {
   console.log("Menu Expanded?", menuExpanded)
   console.log("WIndow mobile?", windowMobile)
 
+  // set window size state
   // shrink mobile menu down to nav bar when screen increases in size
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth >= themeContext.tablet && menuExpanded === true) {
+      if (window.innerWidth < themeContext.tablet) {
+        setWindowMobile(true)
+      } else {
+        setWindowMobile(false)
         setMenuExpanded(false)
       }
-    })
-  }, [menuExpanded])
-
-  // set window size state
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      window.innerWidth < themeContext.tablet
-        ? setWindowMobile(true)
-        : setWindowMobile(false)
     })
   }, [window.innerWidth < themeContext.tablet])
 
@@ -159,11 +155,11 @@ const Layout = props => {
     menuExpanded
       ? tl.staggerFromTo(
           ".menu-items",
-          0.5,
+        .5,
           { autoAlpha: 0, x: -40 },
           { autoAlpha: 1, x: 0 },
           0.1,
-          0
+          .3
         )
       : tl.set(".menu-items", { autoAlpha: 0, x: -40 }, 0)
   }, [menuExpanded])

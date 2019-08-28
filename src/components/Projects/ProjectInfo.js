@@ -34,9 +34,10 @@ const Modal = styled.div`
       grid-gap: 30px;
       .project-image {
         content: "";
-        width: 50%;
-        padding-top: 50%;
-        height: 0;
+        width: calc(0.5 * 100vw);
+        height: calc(0.5 * 100vw);
+        max-width: calc(0.3 * 100vh);
+        max-height: calc(0.3 * 100vh);
         background: ${props => props.theme.appGreenBlue};
       }
       .project-info-header {
