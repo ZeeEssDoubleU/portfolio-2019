@@ -14,6 +14,7 @@ const Section = styled.section`
   .stripes {
     position: absolute;
     width: 100%;
+    height: inherit;
     bottom: 0;
   }
 `

@@ -1,12 +1,14 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
-// import icons (from icons folder)
-import Logo from "../../assets/icons/logo"
-import LogoLanding from "../../assets/icons/logo-landing"
-import LogoNav from "../../assets/icons/logo-nav"
-import DownArrow from "../../assets/icons/downArrow"
+// import icons (from icons folder - local file system)
+// now using svg inline directly with gatsby-plugin-react-svg plugin
+import Logo from "../../assets/icons/logo.svg"
+import LogoLanding from "../../assets/icons/logo-landing.svg"
+import LogoNav from "../../assets/icons/logo-nav.svg"
+import DownArrow from "../../assets/icons/downArrow.svg"
 import DownArrowA from "../../assets/icons/downArrow-anim"
-import Stripes from "../../assets/other/stripes.js"
+import Stripes from "../../assets/other/stripes.svg"
 // import react-icons
 import {
   FaReact,

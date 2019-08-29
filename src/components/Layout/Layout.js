@@ -74,6 +74,7 @@ const NavLogo = styled.a`
   }
   .logo {
     height: 56px;
+    width: 56px;
     /* removes space below image (aligns like letters)*/
     vertical-align: middle;
   }

@@ -27,13 +27,34 @@ const Grid = styled.div`
 const Projects = () => {
   // gql query for project data
   const data = useStaticQuery(graphql`
+    # original query using gatsby-source-filesystem
+    # {
+    #   allProjectsJson {
+    #     edges {
+    #       node {
+    #         id
+    #         title
+    #         description
+    #         tech
+    #         link
+    #       }
+    #     }
+    #   }
+    # }
+
+    # new query using gatsby-source-contentful
     {
-      allProjectsJson {
+      allContentfulProject {
         edges {
           node {
             id
             title
-            description
+            description {
+              id
+              internal {
+                content
+              }
+            }
             tech
             link
           }
@@ -48,17 +69,17 @@ const Projects = () => {
   // display 'show more' button if all projects aren't shown
   // display nothing if all project are shown
   const isHidden =
-    data.allProjectsJson.edges.length <= showMoreIndex ? true : false
+    data.allContentfulProject.edges.length <= showMoreIndex ? true : false
 
   // array to display projects below in render
-  const projectArray = data.allProjectsJson.edges
+  const projectArray = data.allContentfulProject.edges
     .slice(0, showMoreIndex)
     .map((project, index) => (
       <Project
         key={index}
         index={index}
         title={project.node.title}
-        description={project.node.description}
+        description={project.node.description.internal.content}
         tech={project.node.tech}
         link={project.node.link}
         toggleClass={result => setActiveIndex(result)}

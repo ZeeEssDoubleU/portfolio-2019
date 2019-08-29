@@ -1,3 +1,9 @@
+const dotenv = require("dotenv")
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
+
 module.exports = {
   siteMetadata: {
     title: `Zachary Williams | Portfolio`,
@@ -15,6 +21,20 @@ module.exports = {
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "nm1f42dx9p9w",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
       options: {
         path: `${__dirname}/src/assets/`,
       },

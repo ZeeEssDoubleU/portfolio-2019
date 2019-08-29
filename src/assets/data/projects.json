@@ -2,7 +2,7 @@
   {
     "title": "WatchStuff",
     "description": "A YouTube clone built with React, Redux and the Youtube API.",
-    "tech": ["React", "Redux", "Youtube Api", "Netlify", "Sass"],
+    "tech": ["React", "Redux", "Youtube API", "Netlify", "Sass"],
     "link": "https://www.google.com"
   },
   {
@@ -25,7 +25,7 @@
   },
   {
     "title": "Chartizard",
-    "description": "Fun Project from teamtreehouse.com Tech Degree program.",
+    "description": "Fun project from teamtreehouse.com Tech Degree program.",
     "tech": ["HTML", "CSS"],
     "link": "https://www.msn.com"
   }

@@ -16,7 +16,12 @@ const BgImage = styled(Img)`
   height: 100%;
   width: 100%;
   /* creates fade to black effect on background image */
-  mask-image: linear-gradient(to bottom, transparent -10%, black, transparent 110%);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent -10%,
+    black,
+    transparent 110%
+  );
   img {
     object-position: 80% 50% !important;
   }
@@ -46,12 +51,22 @@ const Highlight = styled.span`
 
 const About = () => {
   const data = useStaticQuery(graphql`
+    # original query using gatsby-source-filesystem
+    # {
+    #   file(relativePath: { eq: "images/selfie-tinted.png" }) {
+    #     childImageSharp {
+    #       fluid(maxWidth: 1400) {
+    #         ...GatsbyImageSharpFluid
+    #       }
+    #     }
+    #   }
+    # }
+
+    # new query using gatsby-source-contentful
     {
-      file(relativePath: { eq: "images/selfie-tinted.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1400) {
-            ...GatsbyImageSharpFluid
-          }
+      contentfulAsset(title: { eq: "selfie-tinted" }) {
+        fluid(maxWidth: 1400) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
@@ -60,7 +75,7 @@ const About = () => {
     <Section id="about">
       <BgImage
         title="Selfie"
-        fluid={{ ...data.file.childImageSharp.fluid }}
+        fluid={{ ...data.contentfulAsset.fluid }}
         alt="About Section Selfie Background Image"
       />
       <Layout>
