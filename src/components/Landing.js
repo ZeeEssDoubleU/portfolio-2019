@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
 // import components
-import Icon from "./Layout/Icon"
+import Icon from "./Icons/Icon"
 import { NavContext } from "../pages"
 
 // styled components
@@ -18,7 +18,7 @@ const Section = styled.section`
     width: calc(0.7 * 100vw);
     max-width: calc(0.3 * 100vh);
   }
-  .down-arrow {
+  .arrow-down {
     position: absolute;
     width: 30px;
     top: calc(100vh - 40px);
@@ -53,7 +53,7 @@ const Landing = props => {
     <Section ref={ref}>
       <Icon name="logo-landing" className="logo" />
       <a href="#about">
-        <Icon name="down-arrow" className="down-arrow" />
+        <Icon name="arrow-down" className="arrow-down" />
       </a>
     </Section>
   )

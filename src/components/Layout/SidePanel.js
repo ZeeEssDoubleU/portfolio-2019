@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 // import components
-import Icon from "../Layout/Icon"
+import Icon from "../Icons/Icon"
 
 // styled components
 const Container = styled.div`

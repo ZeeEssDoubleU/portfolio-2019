@@ -19,7 +19,6 @@
     "dotenv": "^8.1.0",
     "gatsby": "^2.14.1",
     "gatsby-image": "^2.2.14",
-    "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-plugin-styled-components": "^3.1.3",

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 // import components
-import Icon from "../Layout/Icon"
+import Icon from "../Icons/Icon"
 import ProjectInfo from "./ProjectInfo"
 
 // styled components

@@ -2,7 +2,7 @@ import React from "react"
 import styled, { withTheme } from "styled-components"
 
 // import components
-import Icon from "../Layout/Icon"
+import Icon from "../Icons/Icon"
 
 // styled components
 const Container = styled.div`
@@ -63,27 +63,27 @@ const InnerBorder = styled.div`
 const Social = props => {
   return (
     <Container>
-      <SocialLink tabIndex="0">
+      <SocialLink tabIndex={0}>
         <InnerBorder>
           <Icon name="github" className="social-icon" />
         </InnerBorder>
       </SocialLink>
-      <SocialLink tabIndex="0">
+      <SocialLink tabIndex={0}>
         <InnerBorder>
           <Icon name="linkedin" className="social-icon" />
         </InnerBorder>
       </SocialLink>
-      <SocialLink tabIndex="0">
+      <SocialLink tabIndex={0}>
         <InnerBorder>
           <Icon name="dribbble" className="social-icon" />
         </InnerBorder>
       </SocialLink>
-      <SocialLink tabIndex="0">
+      <SocialLink tabIndex={0}>
         <InnerBorder>
           <Icon name="twitter" className="social-icon" />
         </InnerBorder>
       </SocialLink>
-      <SocialLink tabIndex="0">
+      <SocialLink tabIndex={0}>
         <InnerBorder>
           <Icon name="email" className="social-icon" />
         </InnerBorder>

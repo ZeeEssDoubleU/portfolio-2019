@@ -1,14 +1,12 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 // import icons (from icons folder - local file system)
-// now using svg inline directly with gatsby-plugin-react-svg plugin
-import Logo from "../../assets/icons/logo.svg"
-import LogoLanding from "../../assets/icons/logo-landing.svg"
-import LogoNav from "../../assets/icons/logo-nav.svg"
-import DownArrow from "../../assets/icons/downArrow.svg"
-import DownArrowA from "../../assets/icons/downArrow-anim"
-import Stripes from "../../assets/other/stripes.svg"
+import Logo from "./logo"
+import LogoLanding from "./logo-landing"
+import LogoNav from "./logo-nav"
+import ArrowDown from "./arrow-down"
+import ArrowDownA from "./arrow-down-anim"
+import Stripes from "./stripes"
 // import react-icons
 import {
   FaReact,
@@ -34,7 +32,7 @@ import {
   DiHtml5,
 } from "react-icons/di"
 
-// TODO
+// TODO: Find the icons for the following
 // gatsby
 // graphQL
 // netlify
@@ -51,10 +49,10 @@ const Icon = props => {
       return <LogoLanding {...props} />
     case "logo-nav":
       return <LogoNav {...props} />
-    case "down-arrow":
-      return <DownArrow {...props} />
-    case "down-arrow-a":
-      return <DownArrowA {...props} />
+    case "arrow-down":
+      return <ArrowDown {...props} />
+    case "arrow-down-a":
+      return <ArrowDownA {...props} />
     case "stripes":
       return <Stripes {...props} />
     case "github":

@@ -1,5 +1,6 @@
+// dotenv needed to protect contentful API keys
 const dotenv = require("dotenv")
-
+// run dotenv if in development mode
 if (process.env.NODE_ENV !== "production") {
   dotenv.config()
 }
@@ -22,7 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/`,
+        path: `${__dirname}/src/data/`,
       },
     },
     {
@@ -31,12 +32,6 @@ module.exports = {
         spaceId: "nm1f42dx9p9w",
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: true,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        path: `${__dirname}/src/assets/`,
       },
     },
   ],

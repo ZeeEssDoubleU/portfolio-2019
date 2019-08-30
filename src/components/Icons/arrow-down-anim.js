@@ -34,4 +34,8 @@ const Arrow = styled.div`
   }
 `
 
-export default () => <Arrow />
+const SVG = props => {
+  return <Arrow className={props.className} />
+}
+
+export default SVG

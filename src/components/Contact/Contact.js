@@ -3,7 +3,7 @@ import styled, { withTheme } from "styled-components"
 
 // import components
 import SidePanel from "../Layout/SidePanel"
-import Icon from "../Layout/Icon"
+import Icon from "../Icons/Icon"
 import ContactForm from "./ContactForm"
 import Social from "./Social"
 
@@ -44,7 +44,7 @@ const Copyright = styled.p`
 const Contact = props => {
   const currentDate = new Date().getFullYear()
   return (
-    <Section tabIndex="-1" id="contact">
+    <Section tabIndex={-1} id="contact">
       <Icon name="stripes" className="stripes" />
       <Layout>
         <SidePanel header>get in touch</SidePanel>

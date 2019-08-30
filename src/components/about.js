@@ -71,6 +71,7 @@ const About = () => {
       }
     }
   `)
+
   return (
     <Section id="about">
       <BgImage

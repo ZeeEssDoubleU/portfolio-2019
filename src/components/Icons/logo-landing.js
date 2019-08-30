@@ -1,11 +1,11 @@
 import React from "react"
 
-const SVG = ({ className }) => (
+const SVG = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 267 387"
-    className={`svg-icon ${className || ""}`}
+    className={props.className}
   >
     <defs>
       <path

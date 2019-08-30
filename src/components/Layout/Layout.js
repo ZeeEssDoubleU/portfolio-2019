@@ -7,7 +7,7 @@ import GlobalStyle from "../../styles/global"
 // import context
 import { NavContext } from "../../pages/index"
 // import components
-import Icon from "./Icon"
+import Icon from "../Icons/Icon"
 
 // styled components
 const Nav = styled.div`

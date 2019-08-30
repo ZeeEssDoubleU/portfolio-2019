@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 // import components
-import Icon from "../Layout/Icon"
+import Icon from "../Icons/Icon"
 
 // styled components
 const Modal = styled.div`
@@ -115,7 +115,7 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <a href={props.link} target="_blank">
+            <a href={`https://${props.link}`} target="_blank">
               <div className="project-info-link">view project</div>
             </a>
           </div>

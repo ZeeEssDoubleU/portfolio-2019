@@ -74,18 +74,21 @@ const Projects = () => {
   // array to display projects below in render
   const projectArray = data.allContentfulProject.edges
     .slice(0, showMoreIndex)
-    .map((project, index) => (
-      <Project
-        key={index}
-        index={index}
-        title={project.node.title}
-        description={project.node.description.internal.content}
-        tech={project.node.tech}
-        link={project.node.link}
-        toggleClass={result => setActiveIndex(result)}
-        className={activeIndex === index ? "active" : ""}
-      ></Project>
-    ))
+    .map((edge, index) => {
+      const project = edge.node
+      return (
+        <Project
+          key={index}
+          index={index}
+          title={project.title}
+          description={project.description.internal.content}
+          tech={project.tech}
+          link={project.link}
+          toggleClass={result => setActiveIndex(result)}
+          className={activeIndex === index ? "active" : ""}
+        ></Project>
+      )
+    })
 
   return (
     <>
