@@ -12,7 +12,7 @@ const PanelDiv = styled.div`
   display: grid;
   grid-template-columns: ${props =>
     props.columns ? `repeat(${props.columns}, auto)` : 1};
-  grid-gap: ${props => (props.columns ? "10px 14px" : null)};
+  grid-gap: ${props => (props.columns ? "10px 14px" : "")};
   justify-self: start;
   color: white;
   font-family: ${props => props.fontFam};

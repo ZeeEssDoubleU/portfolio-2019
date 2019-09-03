@@ -7,7 +7,7 @@ import Icon from "../Icons/Icon"
 const Modal = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
   position: fixed;
-  z-index: 99;
+  z-index: 999;
   top: 100%;
   left: 0;
   height: 100vh;
