@@ -7,7 +7,6 @@ const Grid = styled.form`
   margin: 30px 24px;
   div {
     & > * {
-      position: relative;
       width: 100%;
       background: linear-gradient(
         to left,
@@ -50,8 +49,16 @@ const ContactForm = props => {
         event.preventDefault()
         console.log("Email sent!")
       }}
+      method="POST"
+      netlify
+      netlify-honeypot="honeypot-field"
+      name="portfolio contact form"
     >
       {/* TODO: make form elements have focus outline on tab only */}
+      <div style={{ display: "none" }}>
+        {/* hidden honeypot field meant to capture bots */}
+        <input name="honeypot-field" />
+      </div>
       <div>
         <input type="text" name="name" id="name" placeholder="Name" required />
       </div>

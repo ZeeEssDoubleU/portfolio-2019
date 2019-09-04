@@ -233,6 +233,7 @@ const Layout = props => {
             </span>
             <span className="logo-items last-name">Williams</span>
           </NavLogo>
+          {/* TODO: Need to move hamburger from node_modules to local file tree */}
           {/* TODO: hamburger imported from npm. Go to node_modules/hamburgers/_sass/hamburgers/hamburgers.scss to edit layout */}
           <button
             className={"nav-hamburger hamburger hamburger--spring" + menuState}
