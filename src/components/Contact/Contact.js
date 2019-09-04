@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { withTheme } from "styled-components"
+import styled from "styled-components"
 
 // import components
 import SidePanel from "../Layout/SidePanel"
@@ -63,4 +63,4 @@ const Contact = props => {
   )
 }
 
-export default withTheme(Contact)
+export default Contact

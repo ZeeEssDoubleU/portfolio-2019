@@ -1,1 +1,0 @@
-{"errors":[{"message":"Cannot read property '0' of null","locations":[{"line":4,"column":7}],"path":["file","childImageSharp","fluid"]}],"data":{"file":{"childImageSharp":{"fluid":null}}}}

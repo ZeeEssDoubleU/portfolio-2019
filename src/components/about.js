@@ -49,7 +49,7 @@ const Highlight = styled.span`
   color: #50e3c2;
 `
 
-const About = () => {
+const About = props => {
   const data = useStaticQuery(graphql`
     # new query using gatsby-source-contentful
     {

@@ -24,7 +24,7 @@ const Grid = styled.div`
   align-items: end;
   margin: 30px 24px;
 `
-const Projects = () => {
+const Projects = props => {
   // gql query for project data
   const data = useStaticQuery(graphql`
     # new query using gatsby-source-contentful
