@@ -166,7 +166,7 @@ const Layout = props => {
           0.1,
           0.3
         )
-      : tl.set(".menu-items", { autoAlpha: 0, x: -40 }, 0)
+      : tl.set(".menu-items", { autoAlpha: 0, x: -40, immediateRender: true })
   }, [menuExpanded])
   // gsap animation - nav header.  Triggers on showNav and windowMobile
   useEffect(() => {
@@ -196,9 +196,24 @@ const Layout = props => {
             0
           )
       : tl
-          .set(".logo-items", { autoAlpha: 0, x: 0, y: -40 }, 0)
-          .set(".nav-hamburger", { autoAlpha: 0, x: 0, y: -40 }, 0)
-          .set(".menu-items", { autoAlpha: 0, x: 0, y: -40 }, 0)
+          .set(".logo-items", {
+            autoAlpha: 0,
+            x: 0,
+            y: -40,
+            immediateRender: true,
+          })
+          .set(".nav-hamburger", {
+            autoAlpha: 0,
+            x: 0,
+            y: -40,
+            immediateRender: true,
+          })
+          .set(".menu-items", {
+            autoAlpha: 0,
+            x: 0,
+            y: -40,
+            immediateRender: true,
+          })
   }, [showNav, windowMobile])
 
   return (
