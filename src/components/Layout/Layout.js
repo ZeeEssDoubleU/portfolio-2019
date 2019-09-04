@@ -128,26 +128,30 @@ const Layout = props => {
   const showNav = useContext(NavContext).showNav
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
-  const [windowMobile, setWindowMobile] = useState(
-    window.innerWidth < themeContext.tablet
-  )
+  const windowMobileCheck = () => {
+    // check if window is defined.  If not, set windowMobile true
+    if (typeof window !== "undefined") {
+      return window.innerWidth < themeContext.tablet
+    }
+  }
+  const [windowMobile, setWindowMobile] = useState(windowMobileCheck())
 
-  // debug
-  console.log("Menu Expanded?", menuExpanded)
-  console.log("WIndow mobile?", windowMobile)
+  // // debug
+  // console.log("Menu Expanded?", menuExpanded)
+  // console.log("Window mobile?", windowMobileCheck())
 
   // set window size state
   // shrink mobile menu down to nav bar when screen increases in size
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth < themeContext.tablet) {
+      if (windowMobileCheck()) {
         setWindowMobile(true)
       } else {
         setWindowMobile(false)
         setMenuExpanded(false)
       }
     })
-  }, [window.innerWidth < themeContext.tablet])
+  }, [windowMobileCheck()])
 
   // create new timeline instance
   const tl = new TimelineMax()
@@ -156,11 +160,11 @@ const Layout = props => {
     menuExpanded
       ? tl.staggerFromTo(
           ".menu-items",
-        .5,
+          0.5,
           { autoAlpha: 0, x: -40 },
           { autoAlpha: 1, x: 0 },
           0.1,
-          .3
+          0.3
         )
       : tl.set(".menu-items", { autoAlpha: 0, x: -40 }, 0)
   }, [menuExpanded])

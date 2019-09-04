@@ -1,9 +1,5 @@
 // dotenv needed to protect contentful API keys
-const dotenv = require("dotenv")
-// run dotenv if in development mode
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config()
-}
+require("dotenv/config")
 
 module.exports = {
   siteMetadata: {

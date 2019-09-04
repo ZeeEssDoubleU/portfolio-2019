@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import styled, { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components"
 // import styles
 import { theme } from "../styles/theme"
 // import components
@@ -19,8 +19,8 @@ const App = () => {
     setShowNav(!landingInView)
   }
 
-  // debug
-  console.log("Show nav?", showNav)
+  // // debug
+  // console.log("Show nav?", showNav)
 
   // let the document know when mouse is being used
   useEffect(() => {

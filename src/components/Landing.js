@@ -46,8 +46,8 @@ const Landing = props => {
     }
   }, [inView])
 
-  // debug
-  if (entry) console.log("Landing in view?", inView)
+  // // debug
+  // if (entry) console.log("Landing in view?", inView)
 
   return (
     <Section ref={ref}>

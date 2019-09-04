@@ -9,10 +9,10 @@ import ArrowDownA from "./arrow-down-anim"
 import Stripes from "./stripes"
 // import react-icons
 import {
-  FaReact,
-  FaCss3,
-  FaNode,
-  FaSass,
+  // FaReact,
+  // FaCss3,
+  // FaNode,
+  // FaSass,
   FaGithub,
   FaRegEnvelope,
   FaLinkedinIn,
@@ -23,14 +23,14 @@ import {
   FaCheck,
   FaEllipsisH,
 } from "react-icons/fa"
-import {
-  DiReact,
-  DiMongodb,
-  DiNodejs,
-  DiSass,
-  DiCss3Full,
-  DiHtml5,
-} from "react-icons/di"
+// import {
+//   DiReact,
+//   DiMongodb,
+//   DiNodejs,
+//   DiSass,
+//   DiCss3Full,
+//   DiHtml5,
+// } from "react-icons/di"
 
 // TODO: Find the icons for the following
 // gatsby
