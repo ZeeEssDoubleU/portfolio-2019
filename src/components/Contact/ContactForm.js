@@ -49,6 +49,7 @@ const ContactForm = props => {
       data-netlify="true"
       netlify-honeypot="honeypot-field"
       name="portfolio contact form"
+      action="/"
     >
       {/* TODO: make form elements have focus outline on tab only */}
       <div style={{ display: "none" }}>
