@@ -92,6 +92,7 @@ const Modal = styled.div`
       font-size: inherit;
       background: none;
       border: none;
+      cursor: pointer;
     }
   }
   &.active {

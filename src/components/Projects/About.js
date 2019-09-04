@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 // import components
-import SidePanel from "./Layout/SidePanel"
+import SidePanel from "../Layout/SidePanel"
 
 // styled components
 const Section = styled.section`

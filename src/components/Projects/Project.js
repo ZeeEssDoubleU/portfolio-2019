@@ -12,7 +12,6 @@ const Container = styled.div`
   padding: 24px 0 4px;
   font-size: 16px;
   transition: color 0.2s;
-  cursor: pointer;
   .project-title {
     grid-row: 1/2;
     grid-column: 1/2;
@@ -32,6 +31,7 @@ const Container = styled.div`
     align-self: center;
     justify-self: end;
     color: darkgrey;
+    cursor: pointer;
   }
   &.active {
     .project-title {
