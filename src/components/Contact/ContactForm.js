@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { withTheme } from "styled-components"
+import styled from "styled-components"
 
 const Grid = styled.form`
   display: grid;
@@ -49,7 +49,7 @@ const ContactForm = props => {
       data-netlify="true"
       netlify-honeypot="honeypot-field"
       name="portfolio contact form"
-      action="/form-submission"
+      action="/success"
     >
       {/* TODO: make form elements have focus outline on tab only */}
       <div style={{ display: "none" }}>
@@ -90,4 +90,4 @@ const ContactForm = props => {
   )
 }
 
-export default withTheme(ContactForm)
+export default ContactForm
