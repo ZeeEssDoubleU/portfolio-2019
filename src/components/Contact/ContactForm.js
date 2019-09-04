@@ -50,6 +50,8 @@ const ContactForm = props => {
       netlify-honeypot="honeypot-field"
       name="portfolio-contact-form"
     >
+      {/* input required by netlify for SSGs like gatsby */}
+      <input type="hidden" name="form-name"  value="portfolio-contact-form" />
       {/* TODO: make form elements have focus outline on tab only */}
       <div style={{ display: "none" }}>
         {/* hidden honeypot field meant to capture bots */}
