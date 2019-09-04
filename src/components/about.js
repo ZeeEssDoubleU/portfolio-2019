@@ -50,24 +50,24 @@ const Highlight = styled.span`
 `
 
 const About = props => {
-  // const data = useStaticQuery(graphql`
-  //   # new query using gatsby-source-contentful
-  //   {
-  //     contentfulAsset(title: { eq: "selfie-tinted" }) {
-  //       fluid(maxWidth: 1400) {
-  //         ...GatsbyContentfulFluid_withWebp
-  //       }
-  //     }
-  //   }
-  // `)
+  const data = useStaticQuery(graphql`
+    # new query using gatsby-source-contentful
+    {
+      contentfulAsset(title: { eq: "selfie-tinted" }) {
+        fluid(maxWidth: 1400) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
+    }
+  `)
 
   return (
     <Section id="about">
-      {/* <BgImage
+      <BgImage
         title="Selfie"
         fluid={{ ...data.contentfulAsset.fluid }}
         alt="About Section Selfie Background Image"
-      /> */}
+      />
       <Layout>
         <SidePanel header>about</SidePanel>
         <Body>

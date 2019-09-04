@@ -44,7 +44,7 @@ const Landing = props => {
     if (entry) {
       toggleNav(inView, entry)
     }
-  }, [inView])
+  }, [inView, toggleNav, entry])
 
   // // debug
   // if (entry) console.log("Landing in view?", inView)
