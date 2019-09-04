@@ -46,7 +46,7 @@ const ContactForm = props => {
     <Grid
       id={props.id}
       method="POST"
-      netlify
+      data-netlify="true"
       netlify-honeypot="honeypot-field"
       name="portfolio contact form"
     >
