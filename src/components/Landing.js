@@ -16,7 +16,8 @@ const Section = styled.section`
   /* svg icons down in component */
   .logo {
     width: calc(0.7 * 100vw);
-    max-width: calc(0.3 * 100vh);
+    max-width: calc(0.4 * 100vh);
+    max-height: 868px;
   }
   .arrow-down {
     position: absolute;
@@ -51,6 +52,7 @@ const Landing = props => {
 
   return (
     <Section ref={ref}>
+      {/* TODO: Fade in icon and name */}
       <Icon name="logo-landing" className="logo" />
       <a href="#about">
         <Icon name="arrow-down" className="arrow-down" />
