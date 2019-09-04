@@ -45,10 +45,6 @@ const ContactForm = props => {
   return (
     <Grid
       id={props.id}
-      onSubmit={event => {
-        event.preventDefault()
-        console.log("Email sent!")
-      }}
       method="POST"
       netlify
       netlify-honeypot="honeypot-field"
