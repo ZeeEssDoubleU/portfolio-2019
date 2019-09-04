@@ -51,17 +51,6 @@ const Highlight = styled.span`
 
 const About = () => {
   const data = useStaticQuery(graphql`
-    # original query using gatsby-source-filesystem
-    # {
-    #   file(relativePath: { eq: "images/selfie-tinted.png" }) {
-    #     childImageSharp {
-    #       fluid(maxWidth: 1400) {
-    #         ...GatsbyImageSharpFluid
-    #       }
-    #     }
-    #   }
-    # }
-
     # new query using gatsby-source-contentful
     {
       contentfulAsset(title: { eq: "selfie-tinted" }) {

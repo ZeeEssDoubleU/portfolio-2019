@@ -27,21 +27,6 @@ const Grid = styled.div`
 const Projects = () => {
   // gql query for project data
   const data = useStaticQuery(graphql`
-    # original query using gatsby-source-filesystem
-    # {
-    #   allProjectsJson {
-    #     edges {
-    #       node {
-    #         id
-    #         title
-    #         description
-    #         tech
-    #         link
-    #       }
-    #     }
-    #   }
-    # }
-
     # new query using gatsby-source-contentful
     {
       allContentfulProject {
