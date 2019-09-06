@@ -12,7 +12,7 @@ const Section = styled.section`
   justify-items: center;
   align-items: center;
   align-content: center;
-  background: ${props => props.theme.appBgColor};
+  background: ${props => props.theme.appBgDarkGrad};
   /* svg icons down in component */
   .logo {
     width: calc(0.7 * 100vw);

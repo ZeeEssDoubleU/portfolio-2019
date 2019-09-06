@@ -8,9 +8,6 @@ import Project from "./Project"
 // import styles
 import GlobalStyle from "../../styles/global"
 // styled components
-const Section = styled.section`
-  color: white;
-`
 const Layout = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -78,7 +75,7 @@ const Projects = props => {
   return (
     <>
       <GlobalStyle activeIndex={activeIndex} />
-      <Section id="projects">
+      <section>
         <Layout>
           <SidePanel header>projects</SidePanel>
           <Grid>{projectArray}</Grid>
@@ -91,7 +88,7 @@ const Projects = props => {
             show more
           </SidePanel>
         </Layout>
-      </Section>
+      </section>
     </>
   )
 }

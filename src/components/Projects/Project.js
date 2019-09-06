@@ -11,6 +11,7 @@ const Container = styled.div`
   grid-template-columns: auto 40px;
   padding: 24px 0 4px;
   font-size: 16px;
+  color: ${props => props.theme.appTextWhiteL};
   transition: color 0.2s;
   .project-title {
     grid-row: 1/2;
@@ -20,7 +21,7 @@ const Container = styled.div`
     grid-row: 2/3;
     grid-column: 1/2;
     font-size: 12px;
-    color: darkgrey;
+    color: ${props => props.theme.appTextWhiteM};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -30,7 +31,7 @@ const Container = styled.div`
     grid-column: 2/3;
     align-self: center;
     justify-self: end;
-    color: darkgrey;
+    color: ${props => props.theme.appTextWhiteM};
     cursor: pointer;
   }
   &.active {
@@ -46,8 +47,8 @@ const Border = styled.div`
   border: 1px solid;
   border-image-source: linear-gradient(
     to left,
-    rgba(${props => props.theme.appGreenPartial}, 0.5),
-    rgba(${props => props.theme.appBluePartial}, 0.5)
+    hsla(${props => props.theme.appGreenPartial}, 0.5),
+    hsla(${props => props.theme.appBluePartial}, 0.5)
   );
   border-image-slice: 1;
   border-image-width: 0 0 1px 0;

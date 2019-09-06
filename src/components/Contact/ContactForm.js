@@ -10,8 +10,8 @@ const Grid = styled.form`
       width: 100%;
       background: linear-gradient(
         to left,
-        rgba(${props => props.theme.appGreenPartial}, 0.2),
-        rgba(${props => props.theme.appBluePartial}, 0.2)
+        hsla(${props => props.theme.appGreenPartial}, 0.2),
+        hsla(${props => props.theme.appBluePartial}, 0.2)
       );
       color: ${props => props.theme.appGreen};
       font-size: 16px;
@@ -19,7 +19,7 @@ const Grid = styled.form`
       padding: 12px 24px;
       border-style: none;
       border-radius: 5px;
-      box-shadow: 4px 6px 6px 0 rgba(0, 0, 0, 0.5);
+      box-shadow: 4px 6px 6px 0 hsla(0, 0, 0, 0.5);
       transition: transform 0.2s;
       &::placeholder {
         color: ${props => props.theme.appGreen};
@@ -28,7 +28,7 @@ const Grid = styled.form`
       &:focus {
         outline: none;
         transform: scale(1.02);
-        box-shadow: 0 0 0 1px rgba(${props => props.theme.appGreenPartial}, 0.5);
+        box-shadow: 0 0 0 1px hsla(${props => props.theme.appGreenPartial}, 0.5);
         &::placeholder {
           opacity: 0;
         }

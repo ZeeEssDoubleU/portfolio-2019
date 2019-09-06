@@ -16,8 +16,8 @@ const SocialLink = styled.a`
   display: inline-block;
   background: linear-gradient(
     to left,
-    rgba(${props => props.theme.appGreenPartial}, 0.5),
-    rgba(${props => props.theme.appBluePartial}, 0.5)
+    hsla(${props => props.theme.appGreenPartial}, 0.5),
+    hsla(${props => props.theme.appBluePartial}, 0.5)
   );
   height: 40px;
   width: 40px;
@@ -29,7 +29,7 @@ const SocialLink = styled.a`
   &:hover {
     transform: scale(1.2) !important;
   }
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
+  @media (min-width: ${props => props.theme.tablet}) {
     margin: 10px 20px;
   }
 `

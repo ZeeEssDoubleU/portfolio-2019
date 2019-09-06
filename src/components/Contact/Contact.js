@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 
 // import components
 import SidePanel from "../Layout/SidePanel"
@@ -11,12 +12,7 @@ import Social from "./Social"
 const Section = styled.section`
   position: relative;
   overflow-y: hidden;
-  .stripes {
-    position: absolute;
-    width: 100%;
-    height: inherit;
-    bottom: 0;
-  }
+  background: bottom/cover url(${props => props.bgSvgUrl});
 `
 const Layout = styled.div`
   display: grid;
@@ -43,9 +39,17 @@ const Copyright = styled.p`
 
 const Contact = props => {
   const currentDate = new Date().getFullYear()
+  const data = useStaticQuery(graphql`
+    # query for background image using gatsby-source-contentful
+    {
+      file(name: { eq: "stripes" }) {
+        url
+      }
+    }
+  `)
+
   return (
-    <Section tabIndex={-1} id="contact">
-      <Icon name="stripes" className="stripes" />
+    <Section tabIndex={-1} id="contact" bgSvgUrl={data.file.url}>
       <Layout>
         <SidePanel header>get in touch</SidePanel>
         <ContactForm id="contact-form" />

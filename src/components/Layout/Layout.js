@@ -16,9 +16,9 @@ const Nav = styled.div`
   top: 0;
   width: 100vw;
   height: ${props => (props.menuExpanded ? "100vh" : "80px")};
-  background: black;
-  border-bottom: solid 1px rgba(20, 20, 20, 0.8);
-  box-shadow: 0px 6px 6px 0 rgba(0, 0, 0, 0.5);
+  background: ${props => props.theme.appBgDark};
+  border-bottom: solid 1px hsla(0, 0%, 8%, 1);
+  box-shadow: 0px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
   z-index: 99;
   /* showNav animation */
   transition: opacity 0.3s, height 0.4s;
@@ -47,7 +47,7 @@ const Nav = styled.div`
         }
       }
       /* .nav-hamburger */
-      @media (min-width: ${props => props.theme.tablet + "px"}) {
+      @media (min-width: ${props => props.theme.tablet}) {
         display: none;
       }
     }
@@ -55,7 +55,7 @@ const Nav = styled.div`
       display: ${props => (props.menuExpanded ? "grid" : "none")};
     }
   }
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
+  @media (min-width: ${props => props.theme.tablet}) {
     height: 80px;
   }
 `
@@ -87,7 +87,7 @@ const NavLogo = styled.a`
     color: ${props => props.theme.appBlue};
   }
   /* NavLogo tablet and bigger */
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
+  @media (min-width: ${props => props.theme.tablet}) {
     .first-name,
     .last-name {
       display: inherit;
@@ -114,7 +114,7 @@ const NavMenu = styled.div`
     }
   }
   /* NavMenu tablet and bigger */
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
+  @media (min-width: ${props => props.theme.tablet}) {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 30px;

@@ -51,7 +51,7 @@ const Highlight = styled.span`
 
 const About = props => {
   const data = useStaticQuery(graphql`
-    # new query using gatsby-source-contentful
+    # query for background image using gatsby-source-contentful
     {
       contentfulAsset(title: { eq: "selfie-tinted" }) {
         fluid(maxWidth: 1400) {

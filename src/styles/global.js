@@ -6,7 +6,7 @@ export default createGlobalStyle`
       html, body {
          margin: 0 !important;
          padding: 0 !important;
-         background: ${props => props.theme.appBgColor2};
+         background: ${props => props.theme.appBgDark};
          font-family: Avenir;
          /* handles scroll behavior when app menu is open */
          height: ${props =>

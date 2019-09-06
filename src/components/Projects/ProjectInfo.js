@@ -13,7 +13,7 @@ const Modal = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
   backdrop-filter: blur(5px);
   transition: top 0.3s;
   .project-info {
@@ -47,7 +47,7 @@ const Modal = styled.div`
           margin-bottom: 0;
         }
         .project-info-desc {
-          color: darkgrey;
+          color: ${props => props.theme.appTextWhiteM};
           margin-bottom: 20px;
         }
         a {
@@ -69,6 +69,7 @@ const Modal = styled.div`
           padding: 0;
           margin: 0;
           list-style: none;
+          color: ${props => props.theme.appTextWhiteM};
           li {
             display: grid;
             grid-template-columns: 20px auto;
@@ -88,7 +89,7 @@ const Modal = styled.div`
     width: 100%;
     z-index: 200;
     button {
-      color: white;
+      color: ${props => props.theme.appTextWhiteL};
       font-size: inherit;
       background: none;
       border: none;
