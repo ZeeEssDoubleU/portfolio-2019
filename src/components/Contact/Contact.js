@@ -20,9 +20,9 @@ const Section = styled.section`
   overflow: hidden;
   margin: 0 auto;
   @media (min-width: ${props => props.theme.desktop}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.8) bottom/cover
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.95) bottom/cover
       url(${props => props.bgSvgUrl});
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     border-radius: 10px;
   }
 `

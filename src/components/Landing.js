@@ -21,6 +21,7 @@ const Layout = styled.div`
   @media (min-width: ${props => props.theme.desktop}) {
     position: fixed;
     background: ${props => props.theme.appBgDarkGrad};
+    will-change: transform;
   }
   .logo {
     width: calc(0.7 * 100vw);

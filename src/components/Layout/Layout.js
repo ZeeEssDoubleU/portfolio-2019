@@ -16,8 +16,8 @@ const Nav = styled.div`
   top: 0;
   width: 100vw;
   height: ${props => (props.menuExpanded ? "100vh" : "80px")};
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
-  backdrop-filter: blur(10px);
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.95);
+  /* backdrop-filter: blur(10px); */
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
   box-shadow: 0px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
   z-index: 99;

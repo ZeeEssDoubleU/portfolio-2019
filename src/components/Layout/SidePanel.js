@@ -36,7 +36,7 @@ const PanelButton = styled.button`
   padding: 20px 24px;
   margin-right: 24px;
   background: hsla(0, 0%, 0%, 0.6);
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -71,7 +71,7 @@ const PanelLink = styled.a`
   padding: 20px 24px;
   margin-right: 24px;
   background: hsla(0, 0%, 0%, 0.6);
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   border-radius: 10px;
   cursor: pointer;
   /* hover effect */
