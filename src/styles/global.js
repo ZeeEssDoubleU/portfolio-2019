@@ -6,16 +6,13 @@ export default createGlobalStyle`
       html, body {
          margin: 0 !important;
          padding: 0 !important;
-         background: ${props => props.theme.appBgDark};
+         background: ${props => props.theme.appBgDarkGrad};
          font-family: Avenir;
          /* handles scroll behavior when app menu is open */
-         height: ${props =>
-           props.menuExpanded || props.activeIndex ? "100vh" : "inherit"};
-         overflow-y: ${props =>
-           props.menuExpanded || props.activeIndex ? "hidden" : "inherit"};
-         section {
-            overflow-x: hidden;
-         }
+         overflow: ${props =>
+           props.menuExpanded || Number.isInteger(props.activeIndex)
+             ? "hidden"
+             : "auto"};
          button {
             font-family: inherit;
          }

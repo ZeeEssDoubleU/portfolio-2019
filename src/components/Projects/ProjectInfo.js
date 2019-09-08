@@ -5,23 +5,13 @@ import styled from "styled-components"
 // import Icon from "../Icons/Icon"
 
 // styled components
-const Modal = styled.div`
-  /* project info originally hidden off screen and revealed when clicked */
-  position: fixed;
-  z-index: 999;
-  top: 100%;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
-  backdrop-filter: blur(5px);
-  transition: top 0.3s;
+const Container = styled.div`
   .project-info {
-    position: relative;
-    height: calc(100% - 70px);
+    /* use vh instead of % because fixed modal */
+    height: calc(100vh - 70px);
     width: 100%;
     padding: 30px 24px;
-    overflow-y: auto;
+    overflow: auto;
     mask-image: linear-gradient(
       to bottom,
       transparent 0%,
@@ -83,11 +73,10 @@ const Modal = styled.div`
     grid-template-rows: 70px;
     justify-content: center;
     align-content: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 200;
     button {
       color: ${props => props.theme.appTextWhiteL};
       font-size: inherit;
@@ -95,9 +84,6 @@ const Modal = styled.div`
       border: none;
       cursor: pointer;
     }
-  }
-  &.active {
-    top: 0;
   }
 `
 
@@ -111,7 +97,7 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Modal className={props.className}>
+    <Container>
       <div className="project-info">
         <div className="project-info-grid">
           <div className="project-image"></div>
@@ -135,7 +121,7 @@ const ProjectInfo = props => {
       <div className="project-info-footer">
         <button onClick={() => props.toggleClass()}>Close</button>
       </div>
-    </Modal>
+    </Container>
   )
 }
 

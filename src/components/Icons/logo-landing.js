@@ -84,10 +84,10 @@ const SVG = props => (
       </filter>
       <linearGradient
         id="logo-+-name-+-title---ring-style-2-e"
-        x1="-30.143%"
-        x2="129.298%"
-        y1="0%"
-        y2="100%"
+        x1="0%"
+        x2="100%"
+        y1="-50%"
+        y2="150%"
       >
         <stop offset="0%" stopColor="#323232" />
         <stop offset="100%" />

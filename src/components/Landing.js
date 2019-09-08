@@ -7,13 +7,21 @@ import { NavContext } from "../pages"
 
 // styled components
 const Section = styled.section`
+  height: 100vh;
+  width: 100vw;
+`
+const Layout = styled.div`
   display: grid;
   height: 100vh;
+  width: 100vw;
   justify-items: center;
   align-items: center;
   align-content: center;
-  background: ${props => props.theme.appBgDarkGrad};
   /* svg icons down in component */
+  @media (min-width: ${props => props.theme.desktop}) {
+    position: fixed;
+    background: ${props => props.theme.appBgDarkGrad};
+  }
   .logo {
     width: calc(0.7 * 100vw);
     max-width: calc(0.4 * 100vh);
@@ -52,11 +60,13 @@ const Landing = props => {
 
   return (
     <Section ref={ref}>
-      {/* TODO: Fade in icon and name */}
-      <Icon name="logo-landing" className="logo" />
-      <a href="#about">
-        <Icon name="arrow-down" className="arrow-down" />
-      </a>
+      <Layout>
+        {/* TODO: Fade in icon and name */}
+        <Icon name="logo-landing" className="logo" />
+        <a href="#about">
+          <Icon name="arrow-down" className="arrow-down" />
+        </a>
+      </Layout>
     </Section>
   )
 }

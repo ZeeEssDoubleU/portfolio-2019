@@ -19,8 +19,7 @@ const PanelDiv = styled.div`
   font-size: ${props => props.fontSize};
   padding: 20px 24px;
   background: hsla(0, 0%, 0%, 0.6);
-  border-radius: 15px;
-  box-shadow: 4px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
+  border-radius: 10px;
 `
 const PanelHeader = styled.div`
   display: grid;
@@ -35,10 +34,11 @@ const PanelButton = styled.button`
   color: ${props => props.theme.appBlue};
   font-size: 18px;
   padding: 20px 24px;
+  margin-right: 24px;
   background: hsla(0, 0%, 0%, 0.6);
+  backdrop-filter: blur(5px);
   border: none;
-  border-radius: 15px;
-  box-shadow: 4px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
+  border-radius: 10px;
   cursor: pointer;
   /* hover effect */
   transition: color 0.2s !important;
@@ -69,9 +69,10 @@ const PanelLink = styled.a`
   font-size: 18px;
   text-decoration: none;
   padding: 20px 24px;
+  margin-right: 24px;
   background: hsla(0, 0%, 0%, 0.6);
-  border-radius: 15px;
-  box-shadow: 4px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
   cursor: pointer;
   /* hover effect */
   transition: color 0.2s !important;

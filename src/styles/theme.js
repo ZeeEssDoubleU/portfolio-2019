@@ -2,7 +2,7 @@ export const theme = {
   // general
   appBgDark: "black",
   appBgDarkPartial: "0, 0%, 0%",
-  appBgDarkGrad: "linear-gradient(122deg, #323232 0%, black 70%)",
+  appBgDarkGrad: "linear-gradient(153deg, #323232 0%, black 100vh)",
   appBgLight: "white",
   appGreen: "hsl(167, 73%, 60%)",
   appGreenPartial: "167, 73%, 60%",
@@ -17,7 +17,7 @@ export const theme = {
   // media queries (px)
   mobile: "320px",
   tablet: "769px",
-  desktop: "1024px",
+  desktop: "1025px",
   widescreen: "1216px",
   fullhd: "1408px",
 }

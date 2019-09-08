@@ -8,13 +8,21 @@ import Project from "./Project"
 // import styles
 import GlobalStyle from "../../styles/global"
 // styled components
-const Layout = styled.div`
+const Section = styled.section`
+  position: relative;
+  z-index: 10;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding: 30px 0;
   /* TODO: Make responsive.  Remove max-width */
   max-width: 1400px;
-  margin: 0 auto;
+  padding: 30px 0;
+  overflow: hidden;
+  margin: 20px auto;
+  @media (min-width: ${props => props.theme.desktop}) {
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+  }
 `
 const Grid = styled.div`
   display: grid;
@@ -75,20 +83,18 @@ const Projects = props => {
   return (
     <>
       <GlobalStyle activeIndex={activeIndex} />
-      <section>
-        <Layout>
-          <SidePanel header>projects</SidePanel>
-          <Grid>{projectArray}</Grid>
-          <SidePanel
-            button
-            icon="plus"
-            hidden={isHidden}
-            onClick={() => setShowMoreIndex(showMoreIndex + 5)}
-          >
-            show more
-          </SidePanel>
-        </Layout>
-      </section>
+      <Section>
+        <SidePanel header>projects</SidePanel>
+        <Grid>{projectArray}</Grid>
+        <SidePanel
+          button
+          icon="plus"
+          hidden={isHidden}
+          onClick={() => setShowMoreIndex(showMoreIndex + 5)}
+        >
+          show more
+        </SidePanel>
+      </Section>
     </>
   )
 }

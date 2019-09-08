@@ -11,19 +11,19 @@ import Icon from "../Icons/Icon"
 
 // styled components
 const Nav = styled.div`
-  /* overflow: hidden; */
+  overflow: hidden;
   position: fixed;
   top: 0;
   width: 100vw;
   height: ${props => (props.menuExpanded ? "100vh" : "80px")};
-  background: ${props => props.theme.appBgDark};
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
+  backdrop-filter: blur(10px);
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
   box-shadow: 0px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
   z-index: 99;
   /* showNav animation */
   transition: opacity 0.3s, height 0.4s;
   opacity: ${props => (props.showNav ? "1" : "0")};
-  overflow: hidden;
   .nav-grid {
     display: grid;
     grid-template-columns: auto auto;

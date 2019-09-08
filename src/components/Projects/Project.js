@@ -1,17 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 // import components
 import Icon from "../Icons/Icon"
 import ProjectInfo from "./ProjectInfo"
+import Portal from "../Layout/Portal"
 
 // styled components
 const Container = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: auto 40px;
-  padding: 24px 0 4px;
   font-size: 16px;
   color: ${props => props.theme.appTextWhiteL};
+  padding: 4px 0;
+  margin-top: 20px;
   transition: color 0.2s;
   .project-title {
     grid-row: 1/2;
@@ -35,10 +37,24 @@ const Container = styled.div`
     cursor: pointer;
   }
   &.active {
-    .project-title {
-      color: ${props => props.theme.appGreen};
-    }
+    color: ${props => props.theme.appGreen};
   }
+`
+const Modal = styled.div`
+  /* project info originally hidden off screen and revealed when clicked */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  color: ${props => props.theme.appTextWhiteL};
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
+  backdrop-filter: blur(5px);
+  transition: top 0.3s 1s;
+  /* &.active {
+    top: 0;
+  } */
 `
 const Border = styled.div`
   position: absolute;
@@ -57,6 +73,7 @@ const Border = styled.div`
 `
 
 const Project = props => {
+  const [positioned, setPositioned] = useState()
   return (
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>
@@ -66,14 +83,20 @@ const Project = props => {
         name="ellipsis"
         onClick={() => props.toggleClass(props.index)}
       />
-      <ProjectInfo
-        className={props.className}
-        toggleClass={props.toggleClass}
-        title={props.title}
-        description={props.description}
-        link={props.link}
-        tech={props.tech}
-      />
+      {/* creates modal on portal root if className contains active */}
+      {props.className === "active" && (
+        <Portal>
+          <Modal>
+            <ProjectInfo
+              toggleClass={props.toggleClass}
+              title={props.title}
+              description={props.description}
+              link={props.link}
+              tech={props.tech}
+            />
+          </Modal>
+        </Portal>
+      )}
       <Border></Border>
     </Container>
   )
