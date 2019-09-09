@@ -76,6 +76,7 @@ const Container = styled.div`
     }
   }
 `
+// Wrapper styled-component pulled from ButtonOrLink component style
 const Link = styled(Wrapper)`
   display: inline-block;
   margin-right: 0;
@@ -104,7 +105,7 @@ const ProjectInfo = props => {
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
             <Link
-              as='a'
+              as="a"
               href={`https://${props.link}`}
               target="_blank"
               rel="noopener noreferrer"

@@ -41,6 +41,7 @@ const Container = styled.div`
   }
 `
 const Modal = styled.div`
+  will-change: transform;
   /* project info originally hidden off screen and revealed when clicked */
   position: fixed;
   z-index: 999;

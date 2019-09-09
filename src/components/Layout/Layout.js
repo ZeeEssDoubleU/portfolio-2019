@@ -11,6 +11,7 @@ import Icon from "../Icons/Icon"
 
 // styled components
 const Nav = styled.div`
+  will-change: transform;
   overflow: hidden;
   position: fixed;
   z-index: 99;

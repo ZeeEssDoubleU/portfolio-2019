@@ -7,6 +7,7 @@ const Grid = styled.form`
   margin: 30px 24px;
   div {
     & > * {
+      will-change: transform;
       width: 100%;
       background: linear-gradient(
         to left,

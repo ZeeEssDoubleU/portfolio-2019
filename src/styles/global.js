@@ -31,11 +31,12 @@ export const Section = styled.section`
   overflow: hidden;
   margin: 0 auto;
   @media (min-width: ${props => props.theme.desktop}) {
+    will-change: transform;
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.4);
-    backdrop-filter: blur(10px);
     margin: 20px auto;
     border-radius: 10px;
     filter: drop-shadow(2px 4px 6px black);
+    backdrop-filter: blur(5px);
   }
 `
 export const Header = styled.div`

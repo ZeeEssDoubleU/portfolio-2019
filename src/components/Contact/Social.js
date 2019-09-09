@@ -12,6 +12,7 @@ const Container = styled.div`
   justify-content: center;
 `
 const Border = styled.a`
+  will-change: transform;
   position: relative;
   background: linear-gradient(
     to left,

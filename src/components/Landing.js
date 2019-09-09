@@ -25,6 +25,7 @@ const Layout = styled.div`
     will-change: transform;
   }
   .logo {
+    will-change: transform;
     width: calc(0.7 * 100vw);
     max-width: calc(0.4 * 100vh);
     max-height: 868px;
