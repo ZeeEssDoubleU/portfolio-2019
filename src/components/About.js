@@ -4,24 +4,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 // import components
-import SidePanel from "./Layout/SidePanel"
+import ButtonOrLink from "./Layout/ButtonOrLink"
+// import styles
+import { Section, Header } from "../styles/global"
 
 // styled components
-const Section = styled.section`
-  position: relative;
-  z-index: 10;
-  display: grid;
-  /* TODO: Make responsive.  Remove max-width */
-  max-width: 1400px;
-  padding: 30px 0;
-  overflow: hidden;
-  margin: 0 auto;
-  @media (min-width: ${props => props.theme.desktop}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.95);
-    /* backdrop-filter: blur(10px); */
-    border-radius: 10px;
-  }
-`
 const BgImage = styled(Img)`
   /* stretch image across background */
   position: absolute !important;
@@ -38,6 +25,12 @@ const BgImage = styled(Img)`
   img {
     object-position: 80% 50% !important;
   }
+  /* TODO: Adjust bgImage on desktops */
+  /* @media (min-width: ${props => props.theme.desktop}) {
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+  } */
 `
 const Body = styled.div`
   display: grid;
@@ -72,7 +65,7 @@ const About = props => {
         fluid={{ ...data.contentfulAsset.fluid }}
         alt="About Section Selfie Background Image"
       />
-      <SidePanel header>about</SidePanel>
+      <Header>about</Header>
       <Body>
         <p>
           My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
@@ -85,9 +78,9 @@ const About = props => {
           want to say what’s up, give me a shout!
         </p>
       </Body>
-      <SidePanel link icon="email" href="#contact">
+      <ButtonOrLink link icon="email" href="#contact">
         contact me
-      </SidePanel>
+      </ButtonOrLink>
     </Section>
   )
 }

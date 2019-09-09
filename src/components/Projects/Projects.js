@@ -3,27 +3,12 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
-import SidePanel from "../Layout/SidePanel"
+import ButtonOrLink from "../Layout/ButtonOrLink"
 import Project from "./Project"
 // import styles
-import GlobalStyle from "../../styles/global"
+import GlobalStyle, { Section, Header } from "../../styles/global"
+
 // styled components
-const Section = styled.section`
-  position: relative;
-  z-index: 10;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  /* TODO: Make responsive.  Remove max-width */
-  max-width: 1400px;
-  padding: 30px 0;
-  overflow: hidden;
-  margin: 20px auto;
-  @media (min-width: ${props => props.theme.desktop}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.95);
-    /* backdrop-filter: blur(10px); */
-    border-radius: 10px;
-  }
-`
 const Grid = styled.div`
   display: grid;
   align-items: end;
@@ -84,16 +69,16 @@ const Projects = props => {
     <>
       <GlobalStyle activeIndex={activeIndex} />
       <Section>
-        <SidePanel header>projects</SidePanel>
+        <Header>projects</Header>
         <Grid>{projectArray}</Grid>
-        <SidePanel
+        <ButtonOrLink
           button
           icon="plus"
           hidden={isHidden}
           onClick={() => setShowMoreIndex(showMoreIndex + 5)}
         >
           show more
-        </SidePanel>
+        </ButtonOrLink>
       </Section>
     </>
   )

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styled from "styled-components"
+
 // import components
 import Icon from "./Icons/Icon"
 import { NavContext } from "../pages"
@@ -27,6 +28,7 @@ const Layout = styled.div`
     width: calc(0.7 * 100vw);
     max-width: calc(0.4 * 100vh);
     max-height: 868px;
+    filter: drop-shadow(2px 4px 6px black);
   }
   .arrow-down {
     position: absolute;

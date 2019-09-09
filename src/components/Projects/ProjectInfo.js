@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 // import components
+import { Wrapper } from "../Layout/ButtonOrLink"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 
@@ -40,17 +41,6 @@ const Container = styled.div`
           color: ${props => props.theme.appTextWhiteM};
           margin-bottom: 20px;
         }
-        a {
-          .project-info-link {
-            display: inline-block;
-            padding: 10px;
-            border: 2px solid ${props => props.theme.appGreen};
-            border-radius: 10px;
-            color: ${props => props.theme.appGreen};
-            font-size: 14px;
-            text-decoration: none;
-          }
-        }
       }
       .project-info-details {
         ul {
@@ -79,11 +69,20 @@ const Container = styled.div`
     width: 100%;
     button {
       color: ${props => props.theme.appTextWhiteL};
-      font-size: inherit;
+      font-size: 20px;
       background: none;
       border: none;
       cursor: pointer;
     }
+  }
+`
+const Link = styled(Wrapper)`
+  display: inline-block;
+  margin-right: 0;
+  border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
+  transition: color 0.2s, border-color 0.2s !important;
+  &:hover {
+    border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
   }
 `
 
@@ -104,13 +103,14 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <a
+            <Link
+              as='a'
               href={`https://${props.link}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="project-info-link">view project</div>
-            </a>
+              view project
+            </Link>
           </div>
           <div className="project-info-details">
             <h3>Development Tools</h3>

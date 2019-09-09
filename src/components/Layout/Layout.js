@@ -13,17 +13,20 @@ import Icon from "../Icons/Icon"
 const Nav = styled.div`
   overflow: hidden;
   position: fixed;
+  z-index: 99;
   top: 0;
   width: 100vw;
   height: ${props => (props.menuExpanded ? "100vh" : "80px")};
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.95);
-  /* backdrop-filter: blur(10px); */
+  background: ${props => props.theme.appBgDark};
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
-  box-shadow: 0px 6px 6px 0 hsla(0, 0%, 0%, 0.5);
-  z-index: 99;
+  filter: drop-shadow(2px 4px 6px black);
   /* showNav animation */
   transition: opacity 0.3s, height 0.4s;
   opacity: ${props => (props.showNav ? "1" : "0")};
+  @media (min-width: ${props => props.theme.desktop}) {
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
+    backdrop-filter: blur(10px);
+  }
   .nav-grid {
     display: grid;
     grid-template-columns: auto auto;

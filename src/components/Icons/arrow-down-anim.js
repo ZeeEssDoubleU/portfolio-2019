@@ -15,7 +15,7 @@ const Arrow = styled.div`
     z-index: 100;
     background: white;
     border-radius: 10px;
-    transition: all 0.2s ease 0s;
+    transition: transform 0.2s ease 0s;
   }
   &::before {
     left: calc(50% - 33%);

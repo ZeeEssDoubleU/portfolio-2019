@@ -11,43 +11,34 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `
-const SocialLink = styled.a`
+const Border = styled.a`
   position: relative;
-  display: inline-block;
   background: linear-gradient(
     to left,
     hsla(${props => props.theme.appGreenPartial}, 0.5),
     hsla(${props => props.theme.appBluePartial}, 0.5)
   );
-  height: 40px;
-  width: 40px;
+  padding: 1px;
   border-radius: 50%;
   margin: 10px 10px;
+  filter: drop-shadow(2px 4px 6px black);
   cursor: pointer;
   /* hover effect */
   transition: transform 0.2s !important;
-  &:hover {
+  &:hover,
+  &:active {
     transform: scale(1.2) !important;
   }
   @media (min-width: ${props => props.theme.tablet}) {
     margin: 10px 20px;
   }
 `
-const InnerBorder = styled.div`
-  position: absolute;
-  /* center element */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+const Inner = styled.div`
   background: black;
   height: 38px;
   width: 38px;
   border-radius: 50%;
   /* hover effect */
-  &:hover {
-    height: 36px !important;
-    width: 36px !important;
-  }
   .social-icon {
     position: absolute;
     /* center element */
@@ -63,31 +54,31 @@ const InnerBorder = styled.div`
 const Social = props => {
   return (
     <Container>
-      <SocialLink tabIndex={0}>
-        <InnerBorder>
+      <Border tabIndex={0}>
+        <Inner>
           <Icon name="github" className="social-icon" />
-        </InnerBorder>
-      </SocialLink>
-      <SocialLink tabIndex={0}>
-        <InnerBorder>
+        </Inner>
+      </Border>
+      <Border tabIndex={0}>
+        <Inner>
           <Icon name="linkedin" className="social-icon" />
-        </InnerBorder>
-      </SocialLink>
-      <SocialLink tabIndex={0}>
-        <InnerBorder>
+        </Inner>
+      </Border>
+      <Border tabIndex={0}>
+        <Inner>
           <Icon name="dribbble" className="social-icon" />
-        </InnerBorder>
-      </SocialLink>
-      <SocialLink tabIndex={0}>
-        <InnerBorder>
+        </Inner>
+      </Border>
+      <Border tabIndex={0}>
+        <Inner>
           <Icon name="twitter" className="social-icon" />
-        </InnerBorder>
-      </SocialLink>
-      <SocialLink tabIndex={0}>
-        <InnerBorder>
+        </Inner>
+      </Border>
+      <Border tabIndex={0}>
+        <Inner>
           <Icon name="email" className="social-icon" />
-        </InnerBorder>
-      </SocialLink>
+        </Inner>
+      </Border>
     </Container>
   )
 }

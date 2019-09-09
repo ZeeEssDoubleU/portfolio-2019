@@ -3,27 +3,19 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
-import SidePanel from "../Layout/SidePanel"
+import ButtonOrLink from "../Layout/ButtonOrLink"
 import Icon from "../Icons/Icon"
 import ContactForm from "./ContactForm"
 import Social from "./Social"
+// import styles
+import { Section, Header } from "../../styles/global"
 
 // styled components
-const Section = styled.section`
-  position: relative;
-  z-index: 10;
-  display: grid;
-  /* TODO: Make responsive.  Remove max-width */
-  max-width: 1400px;
+const StyledSection = styled(Section)`
   background: bottom/cover url(${props => props.bgSvgUrl});
-  padding: 30px 0;
-  overflow: hidden;
-  margin: 0 auto;
   @media (min-width: ${props => props.theme.desktop}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.95) bottom/cover
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.4) bottom/cover
       url(${props => props.bgSvgUrl});
-    /* backdrop-filter: blur(10px); */
-    border-radius: 10px;
   }
 `
 const Copyright = styled.p`
@@ -52,19 +44,19 @@ const Contact = props => {
   `)
 
   return (
-    <Section tabIndex={-1} id="contact" bgSvgUrl={data.file.url}>
-      <SidePanel header>get in touch</SidePanel>
+    <StyledSection tabIndex={-1} id="contact" bgSvgUrl={data.file.url}>
+      <Header>get in touch</Header>
       <ContactForm id="contact-form" />
-      <SidePanel button icon="check" type="submit" form="contact-form">
+      <ButtonOrLink button icon="check" type="submit" form="contact-form">
         submit
-      </SidePanel>
+      </ButtonOrLink>
       <Social />
       <Copyright>
         Zachary Williams <Icon name="copyright" className="icon-copyright" />{" "}
         Copyright
         {" " + currentDate}
       </Copyright>
-    </Section>
+    </StyledSection>
   )
 }
 

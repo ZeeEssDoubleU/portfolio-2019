@@ -17,16 +17,15 @@ const Grid = styled.form`
       font-size: 16px;
       font-family: inherit;
       padding: 12px 24px;
-      border-style: none;
+      border: none;
       border-radius: 5px;
-      box-shadow: 4px 6px 6px 0 hsla(0, 0, 0, 0.5);
+      filter: drop-shadow(2px 4px 6px black);
       transition: transform 0.2s;
       &::placeholder {
         color: ${props => props.theme.appGreen};
         opacity: 0.6;
       }
       &:focus {
-        outline: none;
         transform: scale(1.02);
         box-shadow: 0 0 0 1px hsla(${props => props.theme.appGreenPartial}, 0.5);
         &::placeholder {
@@ -51,7 +50,7 @@ const ContactForm = props => {
       name="portfolio-contact-form"
     >
       {/* input required by netlify for SSGs like gatsby */}
-      <input type="hidden" name="form-name"  value="portfolio-contact-form" />
+      <input type="hidden" name="form-name" value="portfolio-contact-form" />
       {/* TODO: make form elements have focus outline on tab only */}
       <div style={{ display: "none" }}>
         {/* hidden honeypot field meant to capture bots */}
