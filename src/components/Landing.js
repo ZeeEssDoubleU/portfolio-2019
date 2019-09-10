@@ -1,10 +1,8 @@
-import React, { useContext, useEffect } from "react"
-import { useInView } from "react-intersection-observer"
+import React from "react"
 import styled from "styled-components"
 
 // import components
 import Icon from "./Icons/Icon"
-import { NavContext } from "../pages"
 
 // styled components
 const Section = styled.section`
@@ -12,24 +10,21 @@ const Section = styled.section`
   width: 100vw;
 `
 const Layout = styled.div`
+  will-change: transform !important;
   display: grid;
   height: 100vh;
   width: 100vw;
   justify-items: center;
-  align-items: center;
   align-content: center;
   /* svg icons down in component */
-  @media (min-width: ${props => props.theme.desktop}) {
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
     position: fixed;
     background: ${props => props.theme.appBgDarkGrad};
-    will-change: transform;
   }
   .logo {
-    will-change: transform;
     width: calc(0.7 * 100vw);
     max-width: calc(0.4 * 100vh);
     max-height: 868px;
-    filter: drop-shadow(2px 4px 6px black);
   }
   .arrow-down {
     position: absolute;
@@ -45,25 +40,8 @@ const Layout = styled.div`
 `
 
 const Landing = props => {
-  // react-intersection-observer
-  const [ref, inView, entry] = useInView({
-    // set margin equal to height of nav bar
-    rootMargin: "-80px 0px 0px 0px",
-  })
-
-  // toggleNav function of NavContext
-  const toggleNav = useContext(NavContext).toggleNav
-  useEffect(() => {
-    if (entry) {
-      toggleNav(inView, entry)
-    }
-  }, [inView, toggleNav, entry])
-
-  // // debug
-  // if (entry) console.log("Landing in view?", inView)
-
   return (
-    <Section ref={ref}>
+    <Section id="landing">
       <Layout>
         {/* TODO: Fade in icon and name */}
         <Icon name="logo-landing" className="logo" />

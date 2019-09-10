@@ -13,7 +13,7 @@ import { Section, Header } from "../../styles/global"
 // styled components
 const StyledSection = styled(Section)`
   background: bottom/cover url(${props => props.bgSvgUrl});
-  @media (min-width: ${props => props.theme.desktop}) {
+  @media (min-width: ${props => props.theme.desktop + 'px'}) {
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.4) bottom/cover
       url(${props => props.bgSvgUrl});
   }

@@ -26,9 +26,8 @@ const BgImage = styled(Img)`
     object-position: 80% 50% !important;
   }
   /* TODO: Adjust bgImage on desktops */
-  /* @media (min-width: ${props => props.theme.desktop}) {
+  /* @media (min-width: ${props => props.theme.desktop + 'px'}) {
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
-    backdrop-filter: blur(10px);
     border-radius: 10px;
   } */
 `

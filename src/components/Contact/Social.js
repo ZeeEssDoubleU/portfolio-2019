@@ -12,7 +12,6 @@ const Container = styled.div`
   justify-content: center;
 `
 const Border = styled.a`
-  will-change: transform;
   position: relative;
   background: linear-gradient(
     to left,
@@ -22,7 +21,6 @@ const Border = styled.a`
   padding: 1px;
   border-radius: 50%;
   margin: 10px 10px;
-  filter: drop-shadow(2px 4px 6px black);
   cursor: pointer;
   /* hover effect */
   transition: transform 0.2s !important;
@@ -30,7 +28,7 @@ const Border = styled.a`
   &:active {
     transform: scale(1.2) !important;
   }
-  @media (min-width: ${props => props.theme.tablet}) {
+  @media (min-width: ${props => props.theme.tablet + 'px'}) {
     margin: 10px 20px;
   }
 `

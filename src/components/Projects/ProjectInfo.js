@@ -77,7 +77,7 @@ const Container = styled.div`
   }
 `
 // Wrapper styled-component pulled from ButtonOrLink component style
-const Link = styled(Wrapper)`
+const ButtonOrLink = styled(Wrapper)`
   display: inline-block;
   margin-right: 0;
   border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
@@ -104,14 +104,15 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <Link
+            <ButtonOrLink
+              link
               as="a"
               href={`https://${props.link}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               view project
-            </Link>
+            </ButtonOrLink>
           </div>
           <div className="project-info-details">
             <h3>Development Tools</h3>

@@ -6,7 +6,6 @@ import Icon from "../Icons/Icon"
 
 // styled components
 export const Wrapper = styled.div`
-  will-change: transform;
   display: ${props => (props.hidden ? "none" : "inherit")};
   justify-self: end;
   color: ${props => props.theme.appBlue};
@@ -17,8 +16,6 @@ export const Wrapper = styled.div`
   margin-right: 24px;
   border: none;
   border-radius: 10px;
-  filter: drop-shadow(2px 4px 6px black);
-  backdrop-filter: blur(5px);
   cursor: pointer;
   /* hover effect */
   transition: color 0.2s !important;

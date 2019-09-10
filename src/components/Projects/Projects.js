@@ -68,7 +68,7 @@ const Projects = props => {
   return (
     <>
       <GlobalStyle activeIndex={activeIndex} />
-      <Section>
+      <Section id="projects">
         <Header>projects</Header>
         <Grid>{projectArray}</Grid>
         <ButtonOrLink

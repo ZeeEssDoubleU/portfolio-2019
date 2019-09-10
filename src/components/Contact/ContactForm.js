@@ -5,9 +5,8 @@ const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;
   margin: 30px 24px;
-  div {
-    & > * {
-      will-change: transform;
+  .form-div {
+    .form-field {
       width: 100%;
       background: linear-gradient(
         to left,
@@ -20,7 +19,6 @@ const Grid = styled.form`
       padding: 12px 24px;
       border: none;
       border-radius: 5px;
-      filter: drop-shadow(2px 4px 6px black);
       transition: transform 0.2s;
       &::placeholder {
         color: ${props => props.theme.appGreen};
@@ -34,7 +32,7 @@ const Grid = styled.form`
         }
       }
     }
-    textarea {
+    .form-textarea {
       height: 120px;
       resize: none;
     }
@@ -53,15 +51,23 @@ const ContactForm = props => {
       {/* input required by netlify for SSGs like gatsby */}
       <input type="hidden" name="form-name" value="portfolio-contact-form" />
       {/* TODO: make form elements have focus outline on tab only */}
-      <div style={{ display: "none" }}>
+      <div className="form-div" style={{ display: "none" }}>
         {/* hidden honeypot field meant to capture bots */}
-        <input name="honeypot-field" />
+        <input className="form-field" name="honeypot-field" />
       </div>
-      <div>
-        <input type="text" name="name" id="name" placeholder="Name" required />
-      </div>
-      <div>
+      <div className="form-div">
         <input
+          className="form-field"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          required
+        />
+      </div>
+      <div className="form-div">
+        <input
+          className="form-field"
           type="email"
           name="email"
           id="email"
@@ -69,8 +75,9 @@ const ContactForm = props => {
           required
         />
       </div>
-      <div>
+      <div className="form-div">
         <input
+          className="form-field"
           type="text"
           name="subject"
           id="subject"
@@ -78,8 +85,9 @@ const ContactForm = props => {
           required
         />
       </div>
-      <div>
+      <div className="form-div">
         <textarea
+          className="form-field form-textarea"
           name="message"
           id="message"
           placeholder="Message"

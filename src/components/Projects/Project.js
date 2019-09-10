@@ -41,7 +41,6 @@ const Container = styled.div`
   }
 `
 const Modal = styled.div`
-  will-change: transform;
   /* project info originally hidden off screen and revealed when clicked */
   position: fixed;
   z-index: 999;
@@ -53,9 +52,6 @@ const Modal = styled.div`
   background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
   backdrop-filter: blur(5px);
   transition: top 0.3s 1s;
-  /* &.active {
-    top: 0;
-  } */
 `
 const Border = styled.div`
   position: absolute;
@@ -74,7 +70,6 @@ const Border = styled.div`
 `
 
 const Project = props => {
-  const [positioned, setPositioned] = useState()
   return (
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>

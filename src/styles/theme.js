@@ -15,9 +15,9 @@ export const theme = {
   appTextWhiteD: "hsla(0, 0%, 100%, .38)",
 
   // media queries (px)
-  mobile: "320px",
-  tablet: "769px",
-  desktop: "1025px",
-  widescreen: "1216px",
-  fullhd: "1408px",
+  mobile: "320",
+  tablet: "769",
+  desktop: "1025",
+  widescreen: "1216",
+  fullhd: "1408",
 }
