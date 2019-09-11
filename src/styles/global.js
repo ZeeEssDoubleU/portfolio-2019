@@ -19,6 +19,15 @@ export default createGlobalStyle`
          &.using-mouse :focus {
             outline: none !important;
          }
+         /* // hidden out of way initially */
+         #portal {
+            position: fixed;
+            z-index: 999;
+            top: 100vh;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+         }
       }
    }
 `
@@ -30,11 +39,11 @@ export const Section = styled.section`
   padding: 30px 0;
   overflow: hidden;
   margin: 0 auto;
-  @media (min-width: ${props => props.theme.desktop + 'px'}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
     margin: 20px auto;
     border-radius: 10px;
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
   }
 `
 export const Header = styled.div`

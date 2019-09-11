@@ -7,6 +7,7 @@ import NavMenu from "./NavMenu"
 
 const NavBar = styled.div`
   overflow: hidden;
+  will-change: transform !important;
   position: fixed;
   z-index: 99;
   top: 0;
@@ -18,8 +19,8 @@ const NavBar = styled.div`
   opacity: ${props => (props.showNav ? "1" : "0")};
   transition: opacity 0.3s, height 0.4s;
   @media (min-width: ${props => props.theme.desktop + "px"}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
-    backdrop-filter: blur(5px);
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
+    /* backdrop-filter: blur(5px); */
   }
   .nav-grid {
     display: grid;
@@ -28,7 +29,6 @@ const NavBar = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    /* TODO: Make responsive.  Remove max-width */
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;

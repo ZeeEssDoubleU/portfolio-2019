@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
+import { TimelineMax } from "gsap"
 // import components
 import Icon from "../Icons/Icon"
 import ProjectInfo from "./ProjectInfo"
@@ -40,19 +41,6 @@ const Container = styled.div`
     color: ${props => props.theme.appGreen};
   }
 `
-const Modal = styled.div`
-  /* project info originally hidden off screen and revealed when clicked */
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  color: ${props => props.theme.appTextWhiteL};
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
-  backdrop-filter: blur(5px);
-  transition: top 0.3s 1s;
-`
 const Border = styled.div`
   position: absolute;
   height: 100%;
@@ -70,6 +58,8 @@ const Border = styled.div`
 `
 
 const Project = props => {
+  const tl = new TimelineMax()
+
   return (
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>
@@ -77,20 +67,21 @@ const Project = props => {
       <Icon
         className="project-ellipsis"
         name="ellipsis"
-        onClick={() => props.toggleClass(props.index)}
+        onClick={() => {
+          props.toggleClass(props.index)
+          tl.to("#portal", 0.3, { transform: "translateY(-100vh)" })
+        }}
       />
       {/* creates modal on portal root if className contains active */}
       {props.className === "active" && (
         <Portal>
-          <Modal>
-            <ProjectInfo
-              toggleClass={props.toggleClass}
-              title={props.title}
-              description={props.description}
-              link={props.link}
-              tech={props.tech}
-            />
-          </Modal>
+          <ProjectInfo
+            toggleClass={props.toggleClass}
+            title={props.title}
+            description={props.description}
+            link={props.link}
+            tech={props.tech}
+          />
         </Portal>
       )}
       <Border></Border>

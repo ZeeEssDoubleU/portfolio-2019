@@ -1,12 +1,23 @@
 import React from "react"
 import styled from "styled-components"
+import { TimelineMax } from "gsap"
 // import components
 import { Wrapper } from "../Layout/ButtonOrLink"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 
 // styled components
-const Container = styled.div`
+const Modal = styled.div`
+  /* project info originally hidden off screen and revealed when clicked */
+  /* modal positioned relative to #portal */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  color: ${props => props.theme.appTextWhiteL};
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
+  backdrop-filter: blur(5px);
   .project-info {
     /* use vh instead of % because fixed modal */
     height: calc(100vh - 70px);
@@ -63,7 +74,7 @@ const Container = styled.div`
     grid-template-rows: 70px;
     justify-content: center;
     align-content: center;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -96,8 +107,10 @@ const ProjectInfo = props => {
     </li>
   ))
 
+  const tl = new TimelineMax()
+
   return (
-    <Container>
+    <Modal>
       <div className="project-info">
         <div className="project-info-grid">
           <div className="project-image"></div>
@@ -121,9 +134,17 @@ const ProjectInfo = props => {
         </div>
       </div>
       <div className="project-info-footer">
-        <button onClick={() => props.toggleClass()}>Close</button>
+        <button
+          onClick={() => {
+            // timeout set equal to portal gsap animation
+            setTimeout(() => props.toggleClass(), 300)
+            tl.to("#portal", 0.3, { transform: "translateY(0)" })
+          }}
+        >
+          Close
+        </button>
       </div>
-    </Container>
+    </Modal>
   )
 }
 

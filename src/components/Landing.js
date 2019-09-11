@@ -10,7 +10,6 @@ const Section = styled.section`
   width: 100vw;
 `
 const Layout = styled.div`
-  will-change: transform !important;
   display: grid;
   height: 100vh;
   width: 100vw;
@@ -18,6 +17,7 @@ const Layout = styled.div`
   align-content: center;
   /* svg icons down in component */
   @media (min-width: ${props => props.theme.desktop + "px"}) {
+    will-change: transform !important;
     position: fixed;
     background: ${props => props.theme.appBgDarkGrad};
   }

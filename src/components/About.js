@@ -26,7 +26,7 @@ const BgImage = styled(Img)`
     object-position: 80% 50% !important;
   }
   /* TODO: Adjust bgImage on desktops */
-  /* @media (min-width: ${props => props.theme.desktop + 'px'}) {
+  /* @media (min-width: ${props => props.theme.desktop + "px"}) {
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.8);
     border-radius: 10px;
   } */
@@ -54,8 +54,27 @@ const About = props => {
           ...GatsbyContentfulFluid_withWebp
         }
       }
+      # EXTRA SEARCH PARAM.  DO NOT USE FOR NOW
+      # contentfulAbout(subject: { eq: "Body" }) {
+      #   subject
+      #   children {
+      #     internal {
+      #       content
+      #     }
+      #   }
+      # }
     }
   `)
+
+  // QUERY FORMATTING.  DO NOT USE FOR NOW
+  // const result = data.contentfulAbout.children[0].internal.content
+  // const search = /__(.*)__/
+  // const matchRaw = result.match(search)[0]
+  // const match = result.match(search)[1]
+  // const indexFirst = result.indexOf(matchRaw)
+  // const indexLast = indexFirst + matchRaw.length
+  // const beforeMatch = result.slice(0, indexFirst)
+  // const afterMatch = result.slice(indexLast)
 
   return (
     <Section id="about">

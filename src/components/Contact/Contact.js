@@ -14,7 +14,7 @@ import { Section, Header } from "../../styles/global"
 const StyledSection = styled(Section)`
   background: bottom/cover url(${props => props.bgSvgUrl});
   @media (min-width: ${props => props.theme.desktop + 'px'}) {
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.4) bottom/cover
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.9) bottom/cover
       url(${props => props.bgSvgUrl});
   }
 `

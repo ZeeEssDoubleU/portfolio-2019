@@ -20,6 +20,9 @@ const Grid = styled.form`
       border: none;
       border-radius: 5px;
       transition: transform 0.2s;
+      &:required {
+        box-shadow: none;
+      }
       &::placeholder {
         color: ${props => props.theme.appGreen};
         opacity: 0.6;
