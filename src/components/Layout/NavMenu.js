@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { scrollToAnim } from "../../utils/scrollToAnim"
 
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
@@ -13,7 +14,8 @@ const Container = styled.div`
     cursor: pointer;
     /* hover effect */
     transition: color 0.2s !important;
-    &:hover {
+    &:hover,
+    &:active {
       color: ${props => props.theme.appGreen} !important;
     }
     &.menu-home {
@@ -33,29 +35,37 @@ const NavMenu = props => {
     <Container menuExpanded={props.menuExpanded}>
       <a
         className="menu-items menu-home"
-        href="#"
-        onClick={() => props.setMenuExpanded(false)}
+        onClick={() => {
+          props.setMenuExpanded(false)
+          scrollToAnim(props.menuExpanded, 0)
+        }}
       >
         Home
       </a>
       <a
         className="menu-items"
-        href="#about"
-        onClick={() => props.setMenuExpanded(false)}
+        onClick={() => {
+          props.setMenuExpanded(false)
+          scrollToAnim(props.menuExpanded, "#about")
+        }}
       >
         About
       </a>
       <a
         className="menu-items"
-        href="#projects"
-        onClick={() => props.setMenuExpanded(false)}
+        onClick={() => {
+          props.setMenuExpanded(false)
+          scrollToAnim(props.menuExpanded, "#projects")
+        }}
       >
         Projects
       </a>
       <a
         className="menu-items"
-        href="#contact"
-        onClick={() => props.setMenuExpanded(false)}
+        onClick={() => {
+          props.setMenuExpanded(false)
+          scrollToAnim(props.menuExpanded, "#contact")
+        }}
       >
         Contact
       </a>

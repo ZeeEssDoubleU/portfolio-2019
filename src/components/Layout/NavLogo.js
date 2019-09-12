@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { scrollToAnim } from "../../utils/scrollToAnim"
 
 // import components
 import Icon from "../Icons/Icon"
@@ -42,7 +43,12 @@ const Container = styled.a`
 
 const NavLogo = props => {
   return (
-    <Container href="#" onClick={() => props.setMenuExpanded(false)}>
+    <Container
+      onClick={() => {
+        props.setMenuExpanded(false)
+        scrollToAnim(props.menuExpanded, 0)
+      }}
+    >
       <span className="logo-items first-name">Zachary</span>
       <span className="logo-items">
         <Icon className="logo" name="logo-nav" />

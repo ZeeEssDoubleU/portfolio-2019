@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineMax } from "gsap"
+
 // import components
 import { Wrapper } from "../Layout/ButtonOrLink"
 // TODO: Import icons for tech stack
@@ -10,14 +11,13 @@ import { Wrapper } from "../Layout/ButtonOrLink"
 const Modal = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
   /* modal positioned relative to #portal */
-  position: relative;
-  height: 100vh;
+  position: absolute;
+  height: 100%;
   width: 100vw;
   color: ${props => props.theme.appTextWhiteL};
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
   .project-info {
     /* use vh instead of % because fixed modal */
-    height: calc(100vh - 70px);
+    height: calc(100% - 70px);
     width: 100%;
     padding: 30px 24px;
     overflow: auto;
@@ -28,6 +28,7 @@ const Modal = styled.div`
       black 97%,
       transparent 100%
     );
+    -webkit-overflow-scrolling: touch;
     .project-info-grid {
       display: grid;
       justify-items: center;
@@ -104,7 +105,11 @@ const ProjectInfo = props => {
     </li>
   ))
 
+  // animate/show portal when component mounts
   const tl = new TimelineMax()
+  useEffect(() => {
+    tl.to("#portal", 0.3, { transform: "translateY(-100vh)" })
+  }, [tl])
 
   return (
     <Modal>

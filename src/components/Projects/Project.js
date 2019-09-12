@@ -1,6 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
-import { TimelineMax } from "gsap"
 // import components
 import Icon from "../Icons/Icon"
 import ProjectInfo from "./ProjectInfo"
@@ -58,8 +57,6 @@ const Border = styled.div`
 `
 
 const Project = props => {
-  const tl = new TimelineMax()
-
   return (
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>
@@ -69,7 +66,6 @@ const Project = props => {
         name="ellipsis"
         onClick={() => {
           props.toggleClass(props.index)
-          tl.to("#portal", 0.3, { transform: "translateY(-100vh)" })
         }}
       />
       {/* creates modal on portal root if className contains active */}

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { scrollToAnim } from "../utils/scrollToAnim"
 
 // import components
 import Icon from "./Icons/Icon"
@@ -43,9 +44,12 @@ const Landing = props => {
   return (
     <Section id="landing">
       <Layout>
-        {/* TODO: Fade in icon and name */}
         <Icon name="logo-landing" className="logo" />
-        <a href="#about">
+        <a
+          onClick={() => {
+            scrollToAnim(null, "#about")
+          }}
+        >
           <Icon name="arrow-down" className="arrow-down" />
         </a>
       </Layout>

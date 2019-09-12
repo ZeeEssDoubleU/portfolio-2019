@@ -25,8 +25,10 @@ export default createGlobalStyle`
             z-index: 999;
             top: 100vh;
             left: 0;
-            height: 100vh;
+            /* use 100% vs 100vh because mobile browsers use % to read VISIBLE space */
+            height: 100%;
             width: 100vw;
+            background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
          }
       }
    }

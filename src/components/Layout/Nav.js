@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
 // import components
 import NavLogo from "./NavLogo"
 import NavMenu from "./NavMenu"
 
 const NavBar = styled.div`
-  overflow: hidden;
+  overflow: auto;
   will-change: transform !important;
   position: fixed;
   z-index: 99;
@@ -57,10 +58,21 @@ const NavBar = styled.div`
 `
 
 const Nav = props => {
+  // disables body scroll when navmenu expanded
+  useEffect(() => {
+    const targetElem = document.querySelector(".nav-grid")
+    props.menuExpanded
+      ? disableBodyScroll(targetElem)
+      : enableBodyScroll(targetElem)
+  }, [props.menuExpanded])
+
   return (
     <NavBar showNav={props.showNav} menuExpanded={props.menuExpanded}>
       <div className="nav-grid">
-        <NavLogo href="#" setMenuExpanded={props.setMenuExpanded} />
+        <NavLogo
+          menuExpanded={props.menuExpanded}
+          setMenuExpanded={props.setMenuExpanded}
+        />
         {/* TODO: Need to move hamburger from node_modules to local file tree */}
         {/* TODO: hamburger imported from npm. Go to node_modules/hamburgers/_sass/hamburgers/hamburgers.scss to edit layout */}
         <button

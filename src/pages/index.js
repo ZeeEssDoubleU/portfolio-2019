@@ -9,9 +9,6 @@ import About from "../components/About"
 import Projects from "../components/Projects/Projects"
 import Contact from "../components/Contact/Contact"
 
-// TODO: FIX PROJECT INFO MODAL ANIMATION
-// TODO: FIX MENU ICON TO DISPLAY PROPERLY IN PROD
-
 const App = () => {
   // let the document know when mouse is being used
   useEffect(() => {
