@@ -43,12 +43,12 @@ export const Section = styled.section`
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
     margin: 20px auto;
     border-radius: 10px;
-    /* backdrop-filter: blur(5px); */
   }
 `
 export const Header = styled.div`
   justify-self: start;
-  font-family: Avenir-Book;
+  font-family: Avenir;
+  font-weight: 300;
   font-size: 24px;
   color: ${props => props.theme.appGreen};
   padding: 20px 24px;

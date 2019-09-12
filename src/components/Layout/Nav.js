@@ -20,7 +20,6 @@ const NavBar = styled.div`
   transition: opacity 0.3s, height 0.4s;
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
-    /* backdrop-filter: blur(5px); */
   }
   .nav-grid {
     display: grid;

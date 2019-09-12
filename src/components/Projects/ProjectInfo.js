@@ -10,14 +10,11 @@ import { Wrapper } from "../Layout/ButtonOrLink"
 const Modal = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
   /* modal positioned relative to #portal */
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   height: 100vh;
   width: 100vw;
   color: ${props => props.theme.appTextWhiteL};
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.6);
-  backdrop-filter: blur(5px);
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
   .project-info {
     /* use vh instead of % because fixed modal */
     height: calc(100vh - 70px);
