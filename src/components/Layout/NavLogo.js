@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
+import { TweenLite, ScrollToPlugin, Power2 } from "gsap/all"
 
 // import components
 import Icon from "../Icons/Icon"

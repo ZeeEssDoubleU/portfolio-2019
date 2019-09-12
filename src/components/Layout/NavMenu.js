@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
+import { TweenLite, ScrollToPlugin, Power2 } from "gsap/all"
 
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
