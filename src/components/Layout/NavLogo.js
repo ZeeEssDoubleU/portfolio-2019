@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-// import { scrollToAnim } from "../../utils/scrollToAnim"
-import { TweenLite, ScrollToPlugin, Power2 } from "gsap/all"
+import { scrollToAnim } from "../../utils/scrollToAnim"
 
 // import components
 import Icon from "../Icons/Icon"
@@ -47,11 +46,7 @@ const NavLogo = props => {
     <Container
       onClick={() => {
         props.setMenuExpanded(false)
-
-        TweenLite.to(window, duration, {
-          scrollTo: { y: 0, offsetY: 0 },
-          ease: Power2.easeOut,
-        })
+        scrollToAnim(props.menuExpanded, 0)
       }}
     >
       <span className="logo-items first-name">Zachary</span>
