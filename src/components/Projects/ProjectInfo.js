@@ -115,7 +115,10 @@ const ProjectInfo = props => {
     <Modal>
       <div className="project-info">
         <div className="project-info-grid">
-          <div className="project-image"></div>
+          <div
+            className="project-image"
+            alt={`preview image of ${props.title} project`}
+          ></div>
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>

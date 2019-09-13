@@ -5,6 +5,11 @@ const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;
   margin: 30px 24px;
+  .form-label {
+    position: absolute;
+    top: 0;
+    left: -500vh;
+  }
   .form-field {
     width: 100%;
     background: linear-gradient(
@@ -57,40 +62,60 @@ const ContactForm = props => {
         name="honeypot-field"
         style={{ display: "none" }}
       />
-      <input
-        className="form-field"
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-        required
-      />
-      <input
-        className="form-field"
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Email"
-        required
-      />
-      <input
-        className="form-field"
-        type="text"
-        name="subject"
-        id="subject"
-        placeholder="Subject"
-        required
-      />
-      <textarea
-        className="form-field form-textarea"
-        name="message"
-        id="message"
-        placeholder="Message"
-        required
-        spellCheck={true}
-        // TODO: May need to revise in future in case Grammarly needed
-        data-gramm_editor="false"
-      />
+      <div className="form-div">
+        <label className="form-label" for="name">
+          Name
+        </label>
+        <input
+          className="form-field"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          required
+        />
+      </div>
+      <div className="form-div">
+        <label className="form-label" for="email">
+          Email
+        </label>
+        <input
+          className="form-field"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div className="form-div">
+        <label className="form-label" for="subject">
+          Subject
+        </label>
+        <input
+          className="form-field"
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="Subject"
+          required
+        />
+      </div>
+      <div className="form-div">
+        <label className="form-label" for="message">
+          Message
+        </label>
+        <textarea
+          className="form-field form-textarea"
+          name="message"
+          id="message"
+          placeholder="Message"
+          required
+          spellCheck={true}
+          // TODO: May need to revise in future in case Grammarly needed
+          data-gramm_editor="false"
+        />
+      </div>
     </Grid>
   )
 }

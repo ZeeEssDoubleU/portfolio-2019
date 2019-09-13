@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { scrollToAnim } from "../utils/scrollToAnim"
 
 // import components
 import ButtonOrLink from "./Layout/ButtonOrLink"
@@ -9,7 +10,7 @@ import ButtonOrLink from "./Layout/ButtonOrLink"
 import { Section, Header } from "../styles/global"
 
 // styled components
-const BgImage = styled(Img)`
+const Selfie = styled(Img)`
   /* stretch image across background */
   position: absolute !important;
   height: 100%;
@@ -50,6 +51,7 @@ const About = props => {
         }
       }
       # EXTRA SEARCH PARAM.  DO NOT USE FOR NOW
+      # POSSIBLY USED TO EDIT ABOUT BODY
       # contentfulAbout(subject: { eq: "Body" }) {
       #   subject
       #   children {
@@ -73,10 +75,10 @@ const About = props => {
 
   return (
     <Section id="about">
-      <BgImage
+      <Selfie
         title="Selfie"
         fluid={{ ...data.contentfulAsset.fluid }}
-        alt="About Section Selfie Background Image"
+        alt="selfie image for about section"
       />
       <Header>about</Header>
       <Body>
@@ -91,7 +93,14 @@ const About = props => {
           want to say what’s up, give me a shout!
         </p>
       </Body>
-      <ButtonOrLink link icon="email" href="#contact">
+      <ButtonOrLink
+        link
+        icon="email"
+        onClick={() => {
+          scrollToAnim(null, "#contact")
+          setTimeout(() => document.querySelector("#name").focus(), 700)
+        }}
+      >
         contact me
       </ButtonOrLink>
     </Section>

@@ -28,7 +28,7 @@ const Border = styled.a`
   &:active {
     transform: scale(1.2) !important;
   }
-  @media (min-width: ${props => props.theme.tablet + 'px'}) {
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
     margin: 10px 20px;
   }
 `
@@ -53,27 +53,27 @@ const Inner = styled.div`
 const Social = props => {
   return (
     <Container>
-      <Border tabIndex={0}>
+      <Border tabIndex={0} aria-label="github profile">
         <Inner>
           <Icon name="github" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0}>
+      <Border tabIndex={0} aria-label="linkedin profile">
         <Inner>
           <Icon name="linkedin" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0}>
+      <Border tabIndex={0} aria-label="dribbble profile">
         <Inner>
           <Icon name="dribbble" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0}>
+      <Border tabIndex={0} aria-label="twitter profile">
         <Inner>
           <Icon name="twitter" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0}>
+      <Border tabIndex={0} aria-label="email">
         <Inner>
           <Icon name="email" className="social-icon" />
         </Inner>
