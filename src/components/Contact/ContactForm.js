@@ -63,7 +63,7 @@ const ContactForm = props => {
         style={{ display: "none" }}
       />
       <div className="form-div">
-        <label className="form-label" for="name">
+        <label className="form-label" htmlFor="name">
           Name
         </label>
         <input
@@ -76,7 +76,7 @@ const ContactForm = props => {
         />
       </div>
       <div className="form-div">
-        <label className="form-label" for="email">
+        <label className="form-label" htmlFor="email">
           Email
         </label>
         <input
@@ -89,7 +89,7 @@ const ContactForm = props => {
         />
       </div>
       <div className="form-div">
-        <label className="form-label" for="subject">
+        <label className="form-label" htmlFor="subject">
           Subject
         </label>
         <input
@@ -102,7 +102,7 @@ const ContactForm = props => {
         />
       </div>
       <div className="form-div">
-        <label className="form-label" for="message">
+        <label className="form-label" htmlFor="message">
           Message
         </label>
         <textarea

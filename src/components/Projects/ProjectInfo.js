@@ -19,7 +19,9 @@ const Modal = styled.div`
     /* use vh instead of % because fixed modal */
     height: calc(100% - 70px);
     width: 100%;
+    max-width: 1400px;
     padding: 30px 24px;
+    margin: 0 auto;
     overflow: auto;
     mask-image: linear-gradient(
       to bottom,
@@ -44,11 +46,12 @@ const Modal = styled.div`
       .project-info-header {
         text-align: center;
         .project-info-title {
-          margin-bottom: 0;
+          margin-bottom: 8px;
         }
         .project-info-desc {
           color: ${props => props.theme.appTextWhiteM};
-          margin-bottom: 20px;
+          margin-bottom: 30px;
+          white-space: pre-wrap;
         }
       }
       .project-info-details {

@@ -68,5 +68,7 @@
 	"[jsonc]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"emmet.triggerExpansionOnTab": true
+	"emmet.triggerExpansionOnTab": true,
+	"todo-tree.tree.expanded": true,
+	"todo-tree.tree.showCountsInTree": true
 }
