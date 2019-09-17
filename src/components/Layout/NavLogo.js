@@ -45,11 +45,11 @@ const Container = styled.a`
 const NavLogo = props => {
   return (
     <Container
-      href="#"
+      href="#landing"
       onClick={e => {
         e.preventDefault()
         props.setMenuExpanded(false)
-        scrollToAnim(props.menuExpanded, 0)
+        scrollToAnim(props.menuExpanded, "#landing")
       }}
     >
       <span className="logo-items first-name">Zachary</span>

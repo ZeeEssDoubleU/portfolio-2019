@@ -35,11 +35,11 @@ const NavMenu = props => {
     <Container menuExpanded={props.menuExpanded}>
       <a
         className="menu-items menu-home"
-        href="#"
+        href="#landing"
         onClick={e => {
           e.preventDefault()
           props.setMenuExpanded(false)
-          scrollToAnim(props.menuExpanded, 0)
+          scrollToAnim(props.menuExpanded, "#landing")
         }}
       >
         Home

@@ -15,7 +15,7 @@ export const scrollToAnim = (menuExpanded, destination) => {
   //   console.log("target", target)
 
   TweenLite.to(window, duration, {
-    scrollTo: { y: destination, offsetY },
+    scrollTo: { y: destination, offsetY, autoKill: false },
     ease: Power2.easeOut,
   })
 }
