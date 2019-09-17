@@ -11,9 +11,10 @@ const Section = styled.section`
   width: 100vw;
 `
 const Layout = styled.div`
-  display: grid;
+  position: relative;
   height: 100vh;
   width: 100vw;
+  display: grid;
   justify-items: center;
   align-content: center;
   /* svg icons down in component */

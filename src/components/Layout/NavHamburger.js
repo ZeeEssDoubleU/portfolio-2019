@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
+import { TimelineMax } from "gsap"
 
 // styled components
 const hamVars = {
@@ -38,32 +39,42 @@ const Shape = styled.div`
   border-radius: ${hamVars.layerRadius}px;
 `
 const Top = styled(Shape)`
-  top: 0;
-  transition: transform 0.2s, top 0.2s 0.2s;
-  &.is-active {
-    top: calc(50% - ${hamVars.layerHeight / 2}px);
-    transform: rotate(45deg);
-    transition: top 0.2s, transform 0.2s 0.2s;
-  }
+  top: calc(50% - ${hamVars.layerHeight / 2}px);
+  transform: translateY(-400%);
 `
 const Middle = styled(Shape)`
   top: calc(50% - ${hamVars.layerHeight / 2}px);
-  transition: opacity 0s 0.2s;
-  &.is-active {
-    opacity: 0;
-  }
 `
 const Bottom = styled(Shape)`
-  top: calc(100% - ${hamVars.layerHeight}px);
-  transition: transform 0.2s, top 0.2s 0.2s;
-  &.is-active {
-    top: calc(50% - ${hamVars.layerHeight / 2}px);
-    transform: rotate(-45deg);
-    transition: top 0.2s, transform 0.2s 0.2s;
-  }
+  top: calc(50% - ${hamVars.layerHeight / 2}px);
+  transform: translateY(400%);
 `
 
 const NavHamburger = props => {
+  const tl = new TimelineMax()
+  // use useRef to detect first render
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    // prevent hamburger from animating on first render
+    if (isFirstRender.current === true) {
+      isFirstRender.current = false
+    } else {
+      props.menuExpanded === true
+        ? tl
+            .to([".top", ".bottom"], 0.2, { y: "0%" }, 0)
+            .to(".middle", 0, { autoAlpha: 0 }, 0.2)
+            .to(".top", 0.2, { transform: "rotate(45deg)" }, 0.2)
+            .to(".bottom", 0.2, { transform: "rotate(-45deg)" }, 0.2)
+        : tl
+            .to([".top", ".bottom"], 0.2, { transform: "rotate(0)" }, 0)
+            .to(".bottom", 0.2, { transform: "rotate(0)" }, 0)
+            .to(".middle", 0, { autoAlpha: 1 }, 0.2)
+            .to(".top", 0.2, { y: "-400%" }, 0.2)
+            .to(".bottom", 0.2, { y: "400%" }, 0.2)
+    }
+  }, [props.menuExpanded])
+
   return (
     <Container
       className="nav-hamburger"
@@ -71,9 +82,9 @@ const NavHamburger = props => {
     >
       <Inner>
         {/* bars of hamburger */}
-        <Top className={"shapes top" + props.menuState}></Top>
-        <Middle className={"shapes middle" + props.menuState}></Middle>
-        <Bottom className={"shapes bottom" + props.menuState}></Bottom>
+        <Top className={"top" + props.menuState}></Top>
+        <Middle className={"middle" + props.menuState}></Middle>
+        <Bottom className={"bottom" + props.menuState}></Bottom>
       </Inner>
     </Container>
   )
