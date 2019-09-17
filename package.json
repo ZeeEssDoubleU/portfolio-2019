@@ -31,7 +31,6 @@
     "gatsby-transformer-json": "^2.2.8",
     "gatsby-transformer-sharp": "^2.2.14",
     "gsap": "^2.1.3",
-    "hamburgers": "^1.1.3",
     "intersection-observer": "^0.7.0",
     "node-sass": "^4.12.0",
     "npm": "^6.11.3",

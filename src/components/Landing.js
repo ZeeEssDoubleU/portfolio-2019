@@ -30,12 +30,13 @@ const Layout = styled.div`
   .arrow-down {
     position: absolute;
     width: 30px;
-    top: calc(100vh - 40px);
-    left: calc(50vw - 30px / 2);
+    bottom: 20px;
+    left: 50vw;
+    transform: translateX(-50%);
     cursor: pointer;
     transition: transform 0.2s;
     &:hover {
-      transform: scale(1.1);
+      transform: translateX(-50%) scale(1.1);
     }
   }
 `
@@ -46,7 +47,10 @@ const Landing = props => {
       <Layout>
         <Icon name="logo-landing" className="logo" />
         <a
-          onClick={() => {
+          href="#about"
+          onClick={e => {
+            e.preventDefault()
+            if (window.scrollY >= window.innerHeight) return
             scrollToAnim(null, "#about")
           }}
         >

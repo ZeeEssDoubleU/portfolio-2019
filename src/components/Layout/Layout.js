@@ -3,7 +3,6 @@ import { useInView } from "react-intersection-observer"
 import styled, { ThemeContext } from "styled-components"
 import { TimelineMax } from "gsap"
 // import styles
-import "../../styles/style.scss"
 import GlobalStyle from "../../styles/global"
 // import components
 import Nav from "./Nav"
@@ -12,7 +11,7 @@ import Nav from "./Nav"
 const ShowNavIntersection = styled.div`
   position: absolute;
   /* subtract height of Nav bar below */
-  height: calc(100vh - 80px);
+  height: calc(100vh - 100px);
   visibility: hidden;
   z-index: -1;
 `
@@ -68,50 +67,30 @@ const Layout = props => {
   }, [menuExpanded])
   // gsap animation - nav header.  Triggers on showNav and windowMobile
   useEffect(() => {
-    showNav
-      ? tl
-          .staggerFromTo(
-            ".logo-items",
-            0.5,
-            { autoAlpha: 0, x: 0, y: -40 },
-            { autoAlpha: 1, x: 0, y: 0 },
-            0.1,
-            0
-          )
-          .fromTo(
-            ".nav-hamburger",
-            0.5,
-            { autoAlpha: 0, x: 0, y: -40 },
-            { autoAlpha: 1, x: 0, y: 0 },
-            0
-          )
-          .staggerFromTo(
-            ".menu-items",
-            0.5,
-            { autoAlpha: 0, x: 0, y: -40 },
-            { autoAlpha: 1, x: 0, y: 0 },
-            0.1,
-            0
-          )
-      : tl
-          .set(".logo-items", {
-            autoAlpha: 0,
-            x: 0,
-            y: -40,
-            immediateRender: true,
-          })
-          .set(".nav-hamburger", {
-            autoAlpha: 0,
-            x: 0,
-            y: -40,
-            immediateRender: true,
-          })
-          .set(".menu-items", {
-            autoAlpha: 0,
-            x: 0,
-            y: -40,
-            immediateRender: true,
-          })
+    if (showNav)
+      tl.staggerFromTo(
+        ".logo-items",
+        0.5,
+        { autoAlpha: 0, x: 0, y: -40 },
+        { autoAlpha: 1, x: 0, y: 0 },
+        0.1,
+        0
+      )
+        .fromTo(
+          ".nav-hamburger",
+          0.5,
+          { autoAlpha: 0, x: 0, y: -40 },
+          { autoAlpha: 1, x: 0, y: 0 },
+          0
+        )
+        .staggerFromTo(
+          ".menu-items",
+          0.5,
+          { autoAlpha: 0, x: 0, y: -40 },
+          { autoAlpha: 1, x: 0, y: 0 },
+          0.1,
+          0
+        )
   }, [showNav, windowMobile])
 
   return (

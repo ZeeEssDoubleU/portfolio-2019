@@ -96,7 +96,9 @@ const About = props => {
       <ButtonOrLink
         link
         icon="email"
-        onClick={() => {
+        href="#contact"
+        onClick={e => {
+          e.preventDefault()
           scrollToAnim(null, "#contact")
           setTimeout(() => document.querySelector("#name").focus(), 700)
         }}

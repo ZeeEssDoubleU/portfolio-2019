@@ -4,6 +4,7 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 
 // import components
 import NavLogo from "./NavLogo"
+import NavHamburger from "./NavHamburger"
 import NavMenu from "./NavMenu"
 
 const NavBar = styled.div`
@@ -18,8 +19,9 @@ const NavBar = styled.div`
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
   /* showNav animation */
   opacity: ${props => (props.showNav ? "1" : "0")};
-  transition: opacity 0.3s, height 0.4s;
+  transition: height 0.4s;
   @media (min-width: ${props => props.theme.desktop + "px"}) {
+    transition: opacity 0.3s, height 0.4s;
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
   }
   .nav-grid {
@@ -32,22 +34,6 @@ const NavBar = styled.div`
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;
-    .nav-hamburger {
-      display: grid;
-      align-items: center;
-      justify-self: end;
-      .hamburger-box {
-        /* hover effect */
-        transition: transform 0.2s !important;
-        &:hover {
-          transform: scale(1.2) !important;
-        }
-      }
-      /* .nav-hamburger */
-      @media (min-width: ${props => props.theme.tablet + "px"}) {
-        display: none;
-      }
-    }
     .nav-center {
       display: ${props => (props.menuExpanded ? "grid" : "none")};
     }
@@ -73,19 +59,11 @@ const Nav = props => {
           menuExpanded={props.menuExpanded}
           setMenuExpanded={props.setMenuExpanded}
         />
-        {/* TODO: Need to move hamburger from node_modules to local file tree */}
-        {/* TODO: hamburger imported from npm. Go to node_modules/hamburgers/_sass/hamburgers/hamburgers.scss to edit layout */}
-        <button
-          className={
-            "nav-hamburger hamburger hamburger--spring" + props.menuState
-          }
-          type="button"
-          onClick={() => props.setMenuExpanded(!props.menuExpanded)}
-        >
-          <span className="hamburger-box">
-            <span className="hamburger-inner" />
-          </span>
-        </button>{" "}
+        <NavHamburger
+          menuExpanded={props.menuExpanded}
+          setMenuExpanded={props.setMenuExpanded}
+          menuState={props.menuState}
+        />
         <NavMenu
           menuExpanded={props.menuExpanded}
           setMenuExpanded={props.setMenuExpanded}

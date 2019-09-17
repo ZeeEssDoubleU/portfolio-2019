@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
-import { TweenLite, ScrollToPlugin, Power2 } from "gsap/all"
 
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
@@ -36,7 +35,9 @@ const NavMenu = props => {
     <Container menuExpanded={props.menuExpanded}>
       <a
         className="menu-items menu-home"
-        onClick={() => {
+        href="#"
+        onClick={e => {
+          e.preventDefault()
           props.setMenuExpanded(false)
           scrollToAnim(props.menuExpanded, 0)
         }}
@@ -45,7 +46,9 @@ const NavMenu = props => {
       </a>
       <a
         className="menu-items"
-        onClick={() => {
+        href="#about"
+        onClick={e => {
+          e.preventDefault()
           props.setMenuExpanded(false)
           scrollToAnim(props.menuExpanded, "#about")
         }}
@@ -54,7 +57,9 @@ const NavMenu = props => {
       </a>
       <a
         className="menu-items"
-        onClick={() => {
+        href="#projects"
+        onClick={e => {
+          e.preventDefault()
           props.setMenuExpanded(false)
           scrollToAnim(props.menuExpanded, "#projects")
         }}
@@ -63,7 +68,9 @@ const NavMenu = props => {
       </a>
       <a
         className="menu-items"
-        onClick={() => {
+        href="#contact"
+        onClick={e => {
+          e.preventDefault()
           props.setMenuExpanded(false)
           scrollToAnim(props.menuExpanded, "#contact")
         }}
