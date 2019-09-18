@@ -25,6 +25,7 @@ const App = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
+        <html lang="en" />
         <title>Zachary Williams | Portfolio</title>
         <meta
           name="description"
