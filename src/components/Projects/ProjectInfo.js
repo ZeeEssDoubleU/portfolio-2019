@@ -128,7 +128,7 @@ const ProjectInfo = props => {
             <ButtonOrLink
               link
               as="a"
-              href={`https://${props.link}`}
+              href={props.link}
               target="_blank"
               rel="noopener noreferrer"
             >

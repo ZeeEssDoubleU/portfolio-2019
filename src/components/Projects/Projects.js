@@ -32,6 +32,7 @@ const Projects = props => {
             }
             tech
             link
+            order
           }
         }
       }
@@ -53,8 +54,9 @@ const Projects = props => {
       const project = edge.node
       return (
         <Project
-          key={index}
+          key={project.id}
           index={index}
+          order={project.order}
           title={project.title}
           description={project.description.internal.content}
           tech={project.tech}
@@ -64,6 +66,13 @@ const Projects = props => {
         ></Project>
       )
     })
+    .sort((a, b) => {
+      // sort in descending order based on order prop
+      return b.props.order - a.props.order
+    })
+
+  // // debug
+  // console.log("PROJECT ARRAY", projectArray)
 
   return (
     <>
