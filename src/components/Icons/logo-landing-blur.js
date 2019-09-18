@@ -2,8 +2,8 @@ import React from "react"
 
 const SVG = props => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
+    xmlns="https://www.w3.org/2000/svg"
+    xmlnsXlink="https://www.w3.org/1999/xlink"
     width="289"
     height="409"
     viewBox="0 0 289 409"
