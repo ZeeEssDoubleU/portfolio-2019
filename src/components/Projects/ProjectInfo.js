@@ -109,10 +109,10 @@ const ProjectInfo = props => {
   ))
 
   // animate/show portal when component mounts
-  const tl = new TimelineMax()
-  useEffect(() => {
-    tl.to("#portal", 0.3, { transform: "translateY(-100vh)" })
-  }, [tl])
+  // timeline destroyed when component unmounts
+  const tl = new TimelineMax().to("#portal", 0.3, {
+    transform: "translateY(-100vh)",
+  })
 
   return (
     <Modal>
@@ -146,7 +146,7 @@ const ProjectInfo = props => {
           onClick={() => {
             // timeout set equal to portal gsap animation
             setTimeout(() => props.toggleClass(), 300)
-            tl.to("#portal", 0.3, { transform: "translateY(0)" })
+            tl.reverse()
           }}
         >
           Close

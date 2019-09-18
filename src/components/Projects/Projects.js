@@ -54,7 +54,7 @@ const Projects = props => {
       const project = edge.node
       return (
         <Project
-          key={project.id}
+          key={index}
           index={index}
           order={project.order}
           title={project.title}

@@ -50,7 +50,7 @@ const Layout = props => {
     })
   }, [windowMobileCheck()])
 
-  // create new timeline instance
+  // create new timeline instance ON EACH RENDER
   const tl = new TimelineMax()
   // gsap animation - mobile menu.  Triggers on menuExpanded
   useEffect(() => {

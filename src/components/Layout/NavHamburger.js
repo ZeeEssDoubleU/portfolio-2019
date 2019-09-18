@@ -51,27 +51,29 @@ const Bottom = styled(Shape)`
 `
 
 const NavHamburger = props => {
-  const tl = new TimelineMax()
+  const top = useRef(null)
+  const middle = useRef(null)
+  const bottom = useRef(null)
+  const tl = useRef(null)
   // use useRef to detect first render
   const isFirstRender = useRef(true)
 
+  // componentDidMount.  Assign new timeline to tl
+  useEffect(() => {
+    tl.current = new TimelineMax({ paused: true })
+      .to([top.current, bottom.current], 0.2, { y: "0%" }, 0)
+      .to(middle.current, 0, { autoAlpha: 0 }, 0.2)
+      .to(top.current, 0.2, { transform: "rotate(45deg)" }, 0.2)
+      .to(bottom.current, 0.2, { transform: "rotate(-45deg)" }, 0.2)
+  }, [])
+
+  // componentDidUpdate.  Play/reverse timeline
   useEffect(() => {
     // prevent hamburger from animating on first render
     if (isFirstRender.current === true) {
       isFirstRender.current = false
     } else {
-      props.menuExpanded === true
-        ? tl
-            .to([".top", ".bottom"], 0.2, { y: "0%" }, 0)
-            .to(".middle", 0, { autoAlpha: 0 }, 0.2)
-            .to(".top", 0.2, { transform: "rotate(45deg)" }, 0.2)
-            .to(".bottom", 0.2, { transform: "rotate(-45deg)" }, 0.2)
-        : tl
-            .to([".top", ".bottom"], 0.2, { transform: "rotate(0)" }, 0)
-            .to(".bottom", 0.2, { transform: "rotate(0)" }, 0)
-            .to(".middle", 0, { autoAlpha: 1 }, 0.2)
-            .to(".top", 0.2, { y: "-400%" }, 0.2)
-            .to(".bottom", 0.2, { y: "400%" }, 0.2)
+      props.menuExpanded === true ? tl.current.play() : tl.current.reverse()
     }
   }, [props.menuExpanded])
 
@@ -82,9 +84,9 @@ const NavHamburger = props => {
     >
       <Inner>
         {/* bars of hamburger */}
-        <Top className={"top" + props.menuState}></Top>
-        <Middle className={"middle" + props.menuState}></Middle>
-        <Bottom className={"bottom" + props.menuState}></Bottom>
+        <Top ref={top} className={"top" + props.menuState}></Top>
+        <Middle ref={middle} className={"middle" + props.menuState}></Middle>
+        <Bottom ref={bottom} className={"bottom" + props.menuState}></Bottom>
       </Inner>
     </Container>
   )
