@@ -22,6 +22,7 @@
     "gatsby-plugin-manifest": "^2.2.16",
     "gatsby-plugin-offline": "^3.0.6",
     "gatsby-plugin-portal": "^1.0.7",
+    "gatsby-plugin-react-helmet": "^3.1.7",
     "gatsby-plugin-sass": "^2.1.14",
     "gatsby-plugin-sharp": "^2.2.21",
     "gatsby-plugin-sitemap": "^2.2.12",
@@ -36,6 +37,7 @@
     "npm": "^6.11.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-intersection-observer": "^8.24.2",
     "styled-components": "^4.3.2"

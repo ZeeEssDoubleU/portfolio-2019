@@ -37,5 +37,6 @@ module.exports = {
         id: "portal",
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 }

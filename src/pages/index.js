@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { ThemeProvider } from "styled-components"
+import { Helmet } from "react-helmet"
 // import styles
 import { theme } from "../styles/theme"
 // import components
@@ -21,14 +22,28 @@ const App = () => {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Landing />
-        <About />
-        <Projects />
-        <Contact />
-      </Layout>
-    </ThemeProvider>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Zachary Williams Portfolio</title>
+        <meta
+          name="description"
+          content="Zachary Williams' web development portfolio."
+        />
+        <meta
+          name="theme-color"
+          content="linear-gradient(153deg, #323232 0%, black 100vh)"
+        />{" "}
+      </Helmet>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Landing />
+          <About />
+          <Projects />
+          <Contact />
+        </Layout>
+      </ThemeProvider>
+    </>
   )
 }
 
