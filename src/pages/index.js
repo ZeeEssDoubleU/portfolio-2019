@@ -25,7 +25,7 @@ const App = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Zachary Williams Portfolio</title>
+        <title>Zachary Williams | Portfolio</title>
         <meta
           name="description"
           content="Zachary Williams' web development portfolio."
@@ -33,7 +33,11 @@ const App = () => {
         <meta
           name="theme-color"
           content="linear-gradient(153deg, #323232 0%, black 100vh)"
-        />{" "}
+        />
+        <meta
+          name="keywords"
+          content="HTML, CSS, JavaScript, React, Web app, Web dev, Web developer, Web dev for hire, Gatsby, Mobile app, Build custom website"
+        />
       </Helmet>
       <ThemeProvider theme={theme}>
         <Layout>
