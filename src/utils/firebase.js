@@ -11,16 +11,16 @@ const config = {
   appId: process.env.GATSBY_FIREBASE_APP_ID,
 }
 
-// initializeApp method requires window object.  Check for window
-if (typeof window !== "undefined") {
+export const firebaseInit = () => {
   // initialize firebase
   firebase.initializeApp(config)
 }
-// Get a reference to the database service
-const database = firebase.database()
 
+// function pushes contact form submissions to firebase database
 export const pushInquiry = (name, email, subject, message) => {
-  database
+  // Get a reference to the database service using database() method
+  firebase
+    .database()
     .ref("inquiries")
     .push()
     .set(
