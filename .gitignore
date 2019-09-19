@@ -57,3 +57,6 @@ typings/
 
 # Mac files
 .DS_Store
+
+# firebase folder
+.firebase

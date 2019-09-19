@@ -1,6 +1,8 @@
 import React, { useEffect } from "react"
 import { ThemeProvider } from "styled-components"
 import { Helmet } from "react-helmet"
+// // import firebase database functionality
+// import { firebaseInitialize } from "../databases/firebase"
 // import styles
 import { theme } from "../styles/theme"
 // import components
@@ -20,6 +22,10 @@ const App = () => {
       document.body.classList.remove("using-mouse")
     })
   }, [])
+
+  // useEffect(() => {
+  //   firebaseInitialize()
+  // }, [])
 
   return (
     <>

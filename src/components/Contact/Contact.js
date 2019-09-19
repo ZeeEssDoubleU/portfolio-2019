@@ -45,8 +45,6 @@ const Contact = props => {
     }
   `)
 
-  console.log(data)
-
   return (
     <StyledSection
       tabIndex={-1}
@@ -54,7 +52,7 @@ const Contact = props => {
       bgSvgUrl={data.contentfulAsset.file.url}
     >
       <Header>get in touch</Header>
-      <ContactForm id="contact-form" />
+      <ContactForm />
       <ButtonOrLink button icon="check" type="submit" form="contact-form">
         submit
       </ButtonOrLink>

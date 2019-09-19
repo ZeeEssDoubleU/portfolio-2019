@@ -1,5 +1,8 @@
-import React from "react"
+import React, { useRef } from "react"
 import styled from "styled-components"
+
+// import utils
+import { pushInquiry } from "../../utils/firebase"
 
 const Grid = styled.form`
   display: grid;
@@ -46,13 +49,27 @@ const Grid = styled.form`
 `
 
 const ContactForm = props => {
+  const inputName = useRef()
+  const inputEmail = useRef()
+  const inputSubject = useRef()
+  const inputMessage = useRef()
+
   return (
     <Grid
-      id={props.id}
+      id="contact-form"
       method="POST"
       data-netlify="true"
       netlify-honeypot="honeypot-field"
       name="portfolio-contact-form"
+      onSubmit={event => {
+        event.preventDefault()
+        pushInquiry(
+          inputName.current,
+          inputEmail.current,
+          inputSubject.current,
+          inputMessage.current
+        )
+      }}
     >
       {/* input required by netlify for SSGs like gatsby */}
       <input type="hidden" name="form-name" value="portfolio-contact-form" />
@@ -72,6 +89,7 @@ const ContactForm = props => {
           name="name"
           id="name"
           placeholder="Name"
+          ref={inputName}
           required
         />
       </div>
@@ -85,6 +103,7 @@ const ContactForm = props => {
           name="email"
           id="email"
           placeholder="Email"
+          ref={inputEmail}
           required
         />
       </div>
@@ -98,6 +117,7 @@ const ContactForm = props => {
           name="subject"
           id="subject"
           placeholder="Subject"
+          ref={inputSubject}
           required
         />
       </div>
@@ -110,6 +130,7 @@ const ContactForm = props => {
           name="message"
           id="message"
           placeholder="Message"
+          ref={inputMessage}
           required
           spellCheck={true}
           // TODO: May need to revise in future in case Grammarly needed
