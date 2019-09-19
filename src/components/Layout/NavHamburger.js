@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { TimelineMax } from "gsap"
 
 // styled components
-const hamVars = {
-  layerSpacing: 6,
-  layerHeight: 2,
-  layerWidth: 25,
-  layerRadius: 4,
-}
+// variables for quick customization of hamburger
+const hamVars = {}
+hamVars.layerHeight = 2
+hamVars.layerSpacing = 3 * hamVars.layerHeight
+hamVars.layerWidth = 25
+hamVars.layerRadius = 4
+
 const Container = styled.button`
   background: none;
   padding: 0;
@@ -54,28 +55,23 @@ const NavHamburger = props => {
   const top = useRef(null)
   const middle = useRef(null)
   const bottom = useRef(null)
-  const tl = useRef(null)
-  // use useRef to detect first render
-  const isFirstRender = useRef(true)
+  const [tl, setTl] = useState(new TimelineMax({ paused: true }))
 
   // componentDidMount.  Assign new timeline to tl
   useEffect(() => {
-    tl.current = new TimelineMax({ paused: true })
-      .to([top.current, bottom.current], 0.2, { y: "0%" }, 0)
-      .to(middle.current, 0, { autoAlpha: 0 }, 0.2)
-      .to(top.current, 0.2, { transform: "rotate(45deg)" }, 0.2)
-      .to(bottom.current, 0.2, { transform: "rotate(-45deg)" }, 0.2)
+    tl.to([top.current, bottom.current], 0.2, { y: 0 }, 0)
+      .to(middle.current, 0.01, { autoAlpha: 0 }, 0.2)
+      .to(top.current, 0.2, { rotation: 45 }, 0.2)
+      .to(bottom.current, 0.2, { rotation: -45 }, 0.2)
   }, [])
 
   // componentDidUpdate.  Play/reverse timeline
   useEffect(() => {
-    // prevent hamburger from animating on first render
-    if (isFirstRender.current === true) {
-      isFirstRender.current = false
-    } else {
-      props.menuExpanded === true ? tl.current.play() : tl.current.reverse()
-    }
+    props.menuExpanded === true ? tl.play() : tl.reverse()
   }, [props.menuExpanded])
+
+  // // DEBUG
+  // console.log("timeline", tl)
 
   return (
     <Container

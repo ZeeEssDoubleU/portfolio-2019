@@ -26,10 +26,10 @@ const App = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <html lang="en" />
-        <title>Zachary Williams | Portfolio</title>
+        <title>Web Developer | Zachary Williams | New York City</title>
         <meta
           name="description"
-          content="Zachary Williams' web development portfolio."
+          content="Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more."
         />
         <meta
           name="theme-color"
@@ -37,7 +37,7 @@ const App = () => {
         />
         <meta
           name="keywords"
-          content="HTML, CSS, JavaScript, React, Web app, Web dev, Web developer, Web dev for hire, Gatsby, Mobile app, Build custom website"
+          content="react developer, javascript developer, front end developer, web developer, freelance web developer, web developer new york city, new york city, new york city web development, gatsby developer, developer for hire"
         />
       </Helmet>
       <ThemeProvider theme={theme}>

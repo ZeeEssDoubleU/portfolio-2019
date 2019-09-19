@@ -13,7 +13,7 @@ import { Section, Header } from "../../styles/global"
 // styled components
 const StyledSection = styled(Section)`
   background: bottom/cover url(${props => props.bgSvgUrl});
-  @media (min-width: ${props => props.theme.desktop + 'px'}) {
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9) bottom/cover
       url(${props => props.bgSvgUrl});
   }
@@ -37,14 +37,22 @@ const Contact = props => {
   const data = useStaticQuery(graphql`
     # query for background image using gatsby-source-contentful
     {
-      file(name: { eq: "stripes" }) {
-        url
+      contentfulAsset(title: { eq: "stripes" }) {
+        file {
+          url
+        }
       }
     }
   `)
 
+  console.log(data)
+
   return (
-    <StyledSection tabIndex={-1} id="contact" bgSvgUrl={data.file.url}>
+    <StyledSection
+      tabIndex={-1}
+      id="contact"
+      bgSvgUrl={data.contentfulAsset.file.url}
+    >
       <Header>get in touch</Header>
       <ContactForm id="contact-form" />
       <ButtonOrLink button icon="check" type="submit" form="contact-form">

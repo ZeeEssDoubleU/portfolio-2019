@@ -53,7 +53,11 @@ const Nav = props => {
   }, [props.menuExpanded])
 
   return (
-    <NavBar showNav={props.showNav} menuExpanded={props.menuExpanded}>
+    <NavBar
+      showNav={props.showNav}
+      menuExpanded={props.menuExpanded}
+      tabIndex={-1}
+    >
       <div className="nav-grid">
         <NavLogo
           menuExpanded={props.menuExpanded}
