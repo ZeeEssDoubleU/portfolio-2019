@@ -62,7 +62,6 @@ const ContactForm = props => {
       netlify-honeypot="honeypot-field"
       name="portfolio-contact-form"
       onSubmit={event => {
-        event.preventDefault()
         pushInquiry(
           inputName.current,
           inputEmail.current,
