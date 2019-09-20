@@ -33,7 +33,7 @@ export const pushInquiry = (name, email, subject, message) => {
       error => {
         error
           ? console.log("Form submission failed :(", error)
-          : console.log("Form submission success :D")
+          : console.log("Form submitted successfully to Firebase :D")
       }
     )
 }

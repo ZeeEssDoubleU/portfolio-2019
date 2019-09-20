@@ -70,5 +70,6 @@
 	},
 	"emmet.triggerExpansionOnTab": true,
 	"todo-tree.tree.expanded": true,
-	"todo-tree.tree.showCountsInTree": true
+	"todo-tree.tree.showCountsInTree": true,
+	"typescript.validate.enable": false
 }
