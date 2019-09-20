@@ -1,8 +1,6 @@
 import React, { useEffect } from "react"
 import { ThemeProvider } from "styled-components"
 import { Helmet } from "react-helmet"
-// // import firebase database functionality
-import { firebaseInit } from "../utils/firebase"
 // import styles
 import { theme } from "../styles/theme"
 // import components
@@ -21,12 +19,6 @@ const App = () => {
     document.body.addEventListener("keydown", () => {
       document.body.classList.remove("using-mouse")
     })
-  }, [])
-
-  // initialize firebase (imported above)
-  // moved here because window object required
-  useEffect(() => {
-    firebaseInit()
   }, [])
 
   return (

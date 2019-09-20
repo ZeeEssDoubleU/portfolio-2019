@@ -1,9 +1,6 @@
 import React, { useRef } from "react"
 import styled from "styled-components"
 
-// import utils
-import { pushInquiry } from "../../utils/firebase"
-
 const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;
@@ -61,14 +58,6 @@ const ContactForm = props => {
       data-netlify="true"
       netlify-honeypot="honeypot-field"
       name="portfolio-contact-form"
-      onSubmit={event => {
-        pushInquiry(
-          inputName.current,
-          inputEmail.current,
-          inputSubject.current,
-          inputMessage.current
-        )
-      }}
     >
       {/* input required by netlify for SSGs like gatsby */}
       <input type="hidden" name="form-name" value="portfolio-contact-form" />
