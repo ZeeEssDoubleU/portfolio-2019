@@ -2,6 +2,7 @@ import firebase from "firebase/app"
 import "firebase/database"
 import "firebase/firestore"
 
+// bring in env vars
 const config = {
   apiKey: process.env.GATSBY_FIREBASE_API_KEY,
   authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
@@ -24,41 +25,30 @@ export const pushInquiry = (name, email, subject, message) => {
   // get refs to databases
   const realtimeDb = firebase.database()
   const firestore = firebase.firestore()
+  // capture contact-form data
+  const formData = {
+    name: name.value,
+    email: email.value,
+    subject: subject.value,
+    message: message.value,
+  }
 
   // push contact-form data to realtime db
   realtimeDb
     .ref("contact-form")
     .push()
-    .set(
-      {
-        name: name.value,
-        email: email.value,
-        subject: subject.value,
-        message: message.value,
-      },
-      error => {
-        error
-          ? console.log("Form submission failed :(", error)
-          : console.log(
-              "Form submitted successfully to Firebase' realtime db :D"
-            )
-      }
-    )
+    .set(formData, error => {
+      error
+        ? console.log("Form submission failed :(", error)
+        : console.log("Form submitted successfully to Firebase' realtime db :D")
+    })
 
-  // push contact form data to firestore
+  // push contact-form data to firestore
   firestore
     .collection("contact-form")
-    .add({
-      name: name.value,
-      email: email.value,
-      subject: subject.value,
-      message: message.value,
-    })
+    .add(formData)
     .then(function(docRef) {
-      console.log(
-        "Document written to Firebase' Firestore with ID: ",
-        docRef.id
-      )
+      console.log("Document written to Firestore with ID: ", docRef.id)
     })
     .catch(function(error) {
       console.error("Error adding document: ", error)

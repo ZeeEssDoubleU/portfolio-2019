@@ -32,7 +32,7 @@ const Body = styled.div`
   align-content: center;
   color: white;
   font-family: American Typewriter;
-  font-size: 12px;
+  font-size: 14px;
   margin: 30px 24px;
   line-height: 2.5;
   white-space: pre-wrap;

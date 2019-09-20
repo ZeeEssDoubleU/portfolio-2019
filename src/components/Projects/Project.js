@@ -22,7 +22,7 @@ const Container = styled.div`
   .project-description {
     grid-row: 2/3;
     grid-column: 1/2;
-    font-size: 12px;
+    font-size: 14px;
     color: ${props => props.theme.appTextWhiteM};
     white-space: nowrap;
     overflow: hidden;
