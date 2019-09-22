@@ -17,7 +17,7 @@
   "dependencies": {
     "body-scroll-lock": "^2.6.4",
     "firebase": "^6.6.2",
-    "gatsby": "^2.15.19",
+    "gatsby": "^2.15.20",
     "gatsby-image": "^2.2.20",
     "gatsby-plugin-google-analytics": "^2.1.17",
     "gatsby-plugin-manifest": "^2.2.18",
@@ -28,7 +28,7 @@
     "gatsby-plugin-sharp": "^2.2.25",
     "gatsby-plugin-sitemap": "^2.2.14",
     "gatsby-plugin-styled-components": "^3.1.6",
-    "gatsby-source-contentful": "^2.1.39",
+    "gatsby-source-contentful": "^2.1.40",
     "gatsby-transformer-json": "^2.2.9",
     "gatsby-transformer-sharp": "^2.2.16",
     "gsap": "^2.1.3",
