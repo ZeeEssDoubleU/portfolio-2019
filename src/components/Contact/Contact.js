@@ -56,7 +56,9 @@ const Contact = props => {
     >
       <StyledLayout>
         <Header>get in touch</Header>
-        <ContactForm />
+        <Body>
+          <ContactForm />
+        </Body>
         <ButtonOrLink button icon="check" type="submit" form="contact-form">
           submit
         </ButtonOrLink>

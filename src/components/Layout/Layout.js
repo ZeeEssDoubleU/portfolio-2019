@@ -11,7 +11,7 @@ import Nav from "./Nav"
 const ShowNavIntersection = styled.div`
   position: absolute;
   /* subtract height of Nav bar below */
-  height: calc(100vh - 100px);
+  height: calc(100vh - 40px);
   visibility: hidden;
   z-index: -1;
 `

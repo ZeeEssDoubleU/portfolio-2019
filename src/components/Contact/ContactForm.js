@@ -7,7 +7,6 @@ import { pushInquiry } from "../../utils/firebase"
 const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;
-  margin: 30px 0;
   .form-label {
     position: absolute;
     top: 0;
