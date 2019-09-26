@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 
 // import components
 import ButtonOrLink from "../Layout/ButtonOrLink"
@@ -11,6 +12,12 @@ import Social from "./Social"
 import { Section, Layout, Header, Body } from "../../styles/global"
 
 // styled components
+const StyledSection = styled(Section)`
+  background: bottom/cover url(${props => props.bgSvgUrl});
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    background: none;
+  }
+`
 const StyledLayout = styled(Layout)`
   background: none;
 `
@@ -30,9 +37,23 @@ const Copyright = styled.p`
 
 const Contact = props => {
   const currentDate = new Date().getFullYear()
+  const data = useStaticQuery(graphql`
+    # query for background image using gatsby-source-contentful
+    {
+      contentfulAsset(title: { eq: "stripes" }) {
+        file {
+          url
+        }
+      }
+    }
+  `)
 
   return (
-    <Section tabIndex={-1} id="contact">
+    <StyledSection
+      tabIndex={-1}
+      id="contact"
+      bgSvgUrl={data.contentfulAsset.file.url}
+    >
       <StyledLayout>
         <Header>get in touch</Header>
         <ContactForm />
@@ -46,7 +67,7 @@ const Contact = props => {
           {" " + currentDate}
         </Copyright>
       </StyledLayout>
-    </Section>
+    </StyledSection>
   )
 }
 

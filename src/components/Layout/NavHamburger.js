@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineMax } from "gsap"
 
@@ -54,11 +54,12 @@ const NavHamburger = props => {
   const top = useRef(null)
   const middle = useRef(null)
   const bottom = useRef(null)
-  const [tl, setTl] = useState(new TimelineMax({ paused: true }))
+  const tl = useRef(new TimelineMax({ paused: true }))
 
   // componentDidMount.  Assign new timeline to tl
   useEffect(() => {
-    tl.to([top.current, bottom.current], 0.2, { y: 0 }, 0)
+    tl.current
+      .to([top.current, bottom.current], 0.2, { y: 0 }, 0)
       .to(middle.current, 0.01, { autoAlpha: 0 }, 0.2)
       .to(top.current, 0.2, { rotation: 45 }, 0.2)
       .to(bottom.current, 0.2, { rotation: -45 }, 0.2)
@@ -66,7 +67,7 @@ const NavHamburger = props => {
 
   // componentDidUpdate.  Play/reverse timeline
   useEffect(() => {
-    props.menuExpanded === true ? tl.play() : tl.reverse()
+    props.menuExpanded === true ? tl.current.play() : tl.current.reverse()
   }, [props.menuExpanded])
 
   // // DEBUG

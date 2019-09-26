@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import { scrollToAnim } from "../utils/scrollToAnim"
-
 // import components
 import Icon from "./Icons/Icon"
 
@@ -17,11 +17,11 @@ const Layout = styled.div`
   display: grid;
   justify-items: center;
   align-content: center;
+  background: black bottom/cover url(${props => props.bgSvgUrl});
   /* svg icons down in component */
-  @media (min-width: ${props => props.theme.desktop + "px"}) {
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
     will-change: transform !important;
     position: fixed;
-    background: ${props => props.theme.appBgDarkGrad};
   }
   .logo {
     width: calc(0.7 * 100vw);
@@ -43,9 +43,19 @@ const Layout = styled.div`
 `
 
 const Landing = props => {
+  const data = useStaticQuery(graphql`
+    # query for background image using gatsby-source-contentful
+    {
+      contentfulAsset(title: { eq: "stripes" }) {
+        file {
+          url
+        }
+      }
+    }
+  `)
   return (
     <Section id="landing">
-      <Layout>
+      <Layout bgSvgUrl={data.contentfulAsset.file.url}>
         <Icon name="logo-landing" className="logo" />
         <a
           href="#about"

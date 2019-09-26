@@ -7,6 +7,7 @@ export default createGlobalStyle`
          margin: 0 !important;
          padding: 0 !important;
          font-family: Avenir;
+         background: black;
          /* handles scroll behavior when app menu is open */
          overflow: ${props =>
            props.menuExpanded || Number.isInteger(props.activeIndex)
@@ -37,7 +38,7 @@ export const Section = styled.section`
   z-index: 10;
   display: grid;
   justify-items: center;
-  @media (min-width: ${props => props.theme.desktop + "px"}) {
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
     margin: 48px auto;
   }
 `

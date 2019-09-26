@@ -20,7 +20,7 @@ const NavBar = styled.div`
   /* showNav animation */
   opacity: ${props => (props.showNav ? "1" : "0")};
   transition: height 0.4s;
-  @media (min-width: ${props => props.theme.desktop + "px"}) {
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
     transition: opacity 0.3s, height 0.4s;
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
   }
@@ -36,9 +36,6 @@ const NavBar = styled.div`
     padding: 0 24px;
     .nav-center {
       display: ${props => (props.menuExpanded ? "grid" : "none")};
-    }
-    @media (min-width: ${props => props.theme.tablet + "px"}) {
-      padding: 0;
     }
   }
   @media (min-width: ${props => props.theme.tablet + "px"}) {

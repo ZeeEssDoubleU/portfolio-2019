@@ -2,21 +2,12 @@ import React, { useState, useContext, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import styled, { ThemeContext } from "styled-components"
 import { TimelineMax } from "gsap"
-import { useStaticQuery, graphql } from "gatsby"
 // import styles
 import GlobalStyle from "../../styles/global"
 // import components
 import Nav from "./Nav"
 
 // styled components
-const Container = styled.div`
-  height: 100%;
-  width: 100%;
-  background: black bottom/cover url(${props => props.bgSvgUrl});
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    grid-template-columns: auto 1fr;
-  }
-`
 const ShowNavIntersection = styled.div`
   position: absolute;
   /* subtract height of Nav bar below */
@@ -101,20 +92,9 @@ const Layout = props => {
           0
         )
   }, [showNav, windowMobile])
-
-  const data = useStaticQuery(graphql`
-    # query for background image using gatsby-source-contentful
-    {
-      contentfulAsset(title: { eq: "stripes" }) {
-        file {
-          url
-        }
-      }
-    }
-  `)
-
+  
   return (
-    <Container bgSvgUrl={data.contentfulAsset.file.url}>
+    <>
       <GlobalStyle menuExpanded={menuExpanded} />
       <ShowNavIntersection ref={ref} />
       <Nav
@@ -126,7 +106,7 @@ const Layout = props => {
         menuState={menuState}
       ></Nav>
       {props.children}
-    </Container>
+    </>
   )
 }
 export default Layout

@@ -39,9 +39,7 @@ const Bio = styled(Body)`
 `
 const Selfie = styled(Img)`
   /* stretch image across background */
-  position: absolute !important;
-  z-index: -1;
-  height: 100%;
+  height: 240px;
   width: 100%;
   /* creates fade to black effect on background image */
   mask-image: linear-gradient(
@@ -55,8 +53,6 @@ const Selfie = styled(Img)`
   }
   /* creates fade to black effect on background image */
   @media (min-width: ${props => props.theme.tablet + "px"}) {
-    position: relative !important;
-    z-index: 1;
     height: 240px;
     width: 240px;
     mask-image: radial-gradient(black 30%, transparent 100%);
