@@ -2,20 +2,47 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { showSection } from "../utils/showSection"
 import { scrollToAnim } from "../utils/scrollToAnim"
 
 // import components
 import ButtonOrLink from "./Layout/ButtonOrLink"
+import Icon from "../components/Icons/Icon"
 // import styles
-import { Section, Header } from "../styles/global"
+import { Section, Layout, Header, Body } from "../styles/global"
 
 // styled components
+const StyledLayout = styled(Layout)`
+  background: none;
+`
+const Bio = styled(Body)`
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  justify-items: center;
+  color: white;
+  font-size: 15px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  .bio-name {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  p {
+    margin: 12px 0;
+  }
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    grid-template-rows: auto;
+    grid-template-columns: auto auto;
+    align-items: center;
+  }
+`
 const Selfie = styled(Img)`
   /* stretch image across background */
   position: absolute !important;
+  z-index: -1;
   height: 100%;
   width: 100%;
-  z-index: -1;
   /* creates fade to black effect on background image */
   mask-image: linear-gradient(
     to bottom,
@@ -26,16 +53,19 @@ const Selfie = styled(Img)`
   img {
     object-position: 80% 50% !important;
   }
-`
-const Body = styled.div`
-  display: grid;
-  align-content: center;
-  color: white;
-  font-family: American Typewriter;
-  font-size: 14px;
-  margin: 30px 24px;
-  line-height: 2.5;
-  white-space: pre-wrap;
+  /* creates fade to black effect on background image */
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    position: relative !important;
+    z-index: 1;
+    height: 240px;
+    width: 240px;
+    mask-image: radial-gradient(black 30%, transparent 100%);
+    img {
+      object-position: 100% 50% !important;
+    }
+    border-radius: 50%;
+    margin-right: 36px;
+  }
 `
 const Highlight = styled.span`
   color: #50e3c2;
@@ -50,61 +80,56 @@ const About = props => {
           ...GatsbyContentfulFluid_withWebp
         }
       }
-      # EXTRA SEARCH PARAM.  DO NOT USE FOR NOW
-      # POSSIBLY USED TO EDIT ABOUT BODY
-      # contentfulAbout(subject: { eq: "Body" }) {
-      #   subject
-      #   children {
-      #     internal {
-      #       content
-      #     }
-      #   }
-      # }
     }
   `)
 
-  // QUERY FORMATTING.  DO NOT USE FOR NOW
-  // const result = data.contentfulAbout.children[0].internal.content
-  // const search = /__(.*)__/
-  // const matchRaw = result.match(search)[0]
-  // const match = result.match(search)[1]
-  // const indexFirst = result.indexOf(matchRaw)
-  // const indexLast = indexFirst + matchRaw.length
-  // const beforeMatch = result.slice(0, indexFirst)
-  // const afterMatch = result.slice(indexLast)
-
   return (
     <Section id="about">
-      <Selfie
-        title="Selfie"
-        fluid={{ ...data.contentfulAsset.fluid }}
-        alt="selfie image for about section"
-      />
-      <Header>about</Header>
-      <Body>
-        <p>
-          My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
-          <Highlight>front-end developer</Highlight> based in New York CIty.
-          {"  "}I enjoy creating clean, intuitive web interfaces that provide a
-          satisfying user experience.
-        </p>
-        <p>
-          If you’re in need of a website, mobile or web application, or just
-          want to say what’s up, give me a shout!
-        </p>
-      </Body>
-      <ButtonOrLink
-        link
-        icon="email"
-        href="#contact"
-        onClick={e => {
-          e.preventDefault()
-          scrollToAnim(null, "#contact")
-          setTimeout(() => document.querySelector("#name").focus(), 700)
-        }}
-      >
-        contact me
-      </ButtonOrLink>
+      <StyledLayout>
+        <Header>about</Header>
+        <Bio>
+          <Selfie
+            title="Selfie"
+            fluid={{ ...data.contentfulAsset.fluid }}
+            alt="selfie image for about section"
+          />
+          <div>
+            <p className="bio-name">Zachary Williams</p>
+            <p>
+              <Highlight>
+                <Icon name="map-marker" />
+                {"  "}New York, NY, USA
+              </Highlight>
+            </p>
+            <p>
+              My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
+              <Highlight>front-end developer</Highlight> based in New York CIty.
+              {"  "}I enjoy creating clean, intuitive web interfaces that
+              provide a satisfying user experience.
+            </p>
+            <p>
+              If you’re in need of a website, mobile or web application, or just
+              want to say what’s up, give me a shout!
+            </p>
+          </div>
+        </Bio>
+        <ButtonOrLink
+          link
+          icon="email"
+          href="#contact"
+          onClick={e => {
+            e.preventDefault()
+            // only run on mobile mode
+            scrollToAnim(null, "#contact")
+            setTimeout(() => document.querySelector("#name").focus(), 700)
+            // only run on tablet or greater mode
+            // showSection("contact")
+            // setTimeout(() => document.querySelector("#name").focus(), 1000)
+          }}
+        >
+          contact me
+        </ButtonOrLink>
+      </StyledLayout>
     </Section>
   )
 }

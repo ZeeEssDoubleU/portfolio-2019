@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import ButtonOrLink from "../Layout/ButtonOrLink"
 import Project from "./Project"
 // import styles
-import GlobalStyle, { Section, Header } from "../../styles/global"
+import GlobalStyle, { Section, Layout, Header, Body } from "../../styles/global"
 
 // styled components
 const Grid = styled.div`
@@ -78,16 +78,18 @@ const Projects = props => {
     <>
       <GlobalStyle activeIndex={activeIndex} />
       <Section id="projects">
-        <Header>projects</Header>
-        <Grid>{projectArray}</Grid>
-        <ButtonOrLink
-          button
-          icon="plus"
-          hidden={isHidden}
-          onClick={() => setShowMoreIndex(showMoreIndex + 5)}
-        >
-          show more
-        </ButtonOrLink>
+        <Layout>
+          <Header>projects</Header>
+          <Body>{projectArray}</Body>
+          <ButtonOrLink
+            button
+            icon="plus"
+            hidden={isHidden}
+            onClick={() => setShowMoreIndex(showMoreIndex + 5)}
+          >
+            show more
+          </ButtonOrLink>
+        </Layout>
       </Section>
     </>
   )

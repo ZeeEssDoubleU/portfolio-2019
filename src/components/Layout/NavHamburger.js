@@ -12,7 +12,6 @@ hamVars.layerRadius = 4
 
 const Container = styled.button`
   background: none;
-  padding: 0;
   border: none;
   cursor: pointer;
   @media (min-width: ${props => props.theme.tablet + "px"}) {

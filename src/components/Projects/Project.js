@@ -40,21 +40,6 @@ const Container = styled.div`
     color: ${props => props.theme.appGreen};
   }
 `
-const Border = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border: 1px solid;
-  border-image-source: linear-gradient(
-    to left,
-    hsla(${props => props.theme.appGreenPartial}, 0.5),
-    hsla(${props => props.theme.appBluePartial}, 0.5)
-  );
-  border-image-slice: 1;
-  border-image-width: 0 0 1px 0;
-  mask-image: linear-gradient(to right, black 55%, transparent 100%);
-  z-index: -1;
-`
 
 const Project = props => {
   return (
@@ -80,7 +65,6 @@ const Project = props => {
           />
         </Portal>
       )}
-      <Border></Border>
     </Container>
   )
 }

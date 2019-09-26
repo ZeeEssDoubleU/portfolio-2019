@@ -7,7 +7,8 @@ import Icon from "../Icons/Icon"
 // styled components
 const Container = styled.div`
   display: flex;
-  margin: 20px 34px;
+  margin: 20px auto;
+  height: fit-content;
   flex-wrap: wrap;
   justify-content: center;
 `
@@ -33,7 +34,7 @@ const Border = styled.a`
   }
 `
 const Inner = styled.div`
-  background: black;
+  background: ${props => props.theme.appBgDark};
   height: 38px;
   width: 38px;
   border-radius: 50%;

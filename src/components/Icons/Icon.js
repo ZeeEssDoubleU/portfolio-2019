@@ -22,6 +22,7 @@ import {
   FaPlus,
   FaCheck,
   FaEllipsisH,
+  FaMapMarkerAlt,
 } from "react-icons/fa"
 // import {
 //   DiReact,
@@ -73,6 +74,8 @@ const Icon = props => {
       return <FaCheck {...props} />
     case "ellipsis":
       return <FaEllipsisH {...props} />
+    case "map-marker":
+      return <FaMapMarkerAlt {...props} />
     default:
       return null
   }

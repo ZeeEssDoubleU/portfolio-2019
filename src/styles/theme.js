@@ -13,10 +13,11 @@ export const theme = {
   appTextWhiteL: "white",
   appTextWhiteM: "hsla(0, 0%, 100%, .65)",
   appTextWhiteD: "hsla(0, 0%, 100%, .38)",
+  appShadowWhite: "hsla(0, 0%, 100%, .1)",
 
   // media queries (px)
   mobile: "320",
-  tablet: "769",
+  tablet: "768",
   desktop: "1025",
   widescreen: "1216",
   fullhd: "1408",

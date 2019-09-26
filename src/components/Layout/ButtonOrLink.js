@@ -8,35 +8,41 @@ import Icon from "../Icons/Icon"
 export const Wrapper = styled.div`
   display: ${props => (props.hidden ? "none" : "inherit")};
   justify-self: end;
+  height: 65px;
   color: ${props => props.theme.appBlue};
   font-size: 18px;
   text-decoration: none;
-  background: hsla(0, 0%, 0%, 0.5);
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.5);
   padding: 20px 24px;
-  margin-right: 24px;
   border: none;
   border-radius: 10px;
+  box-shadow: 0 0 10px 0 ${props => props.theme.appShadowWhite};
   cursor: pointer;
   /* hover effect */
-  transition: color 0.2s !important;
+  transition: color 0.3s !important;
   .action-grid {
     display: grid;
     grid-template-columns: auto 0;
     align-items: center;
+    .action-text {
+      margin-right: 0;
+      transition: margin-right 0.3s !important;
+    }
     .action-icon {
-      font-size: 14px;
       justify-self: end;
+      font-size: 14px;
       opacity: 0;
+      transition: opacity 0.2s !important;
     }
   }
   &:hover {
     color: ${props => props.theme.appGreen} !important;
-    .action-grid {
-      grid-template-columns: auto 25px;
+    .action-text {
+      margin-right: 25px;
     }
     .action-icon {
       opacity: 1 !important;
-      transition: opacity 0.3s 0.1s !important;
+      transition: opacity 0.2s 0.2s !important;
     }
   }
 `
@@ -53,7 +59,7 @@ const ButtonOrLink = props => (
     hidden={props.hidden}
   >
     <div className="action-grid">
-      {props.children}
+      <div className="action-text">{props.children}</div>
       <Icon name={props.icon} className="action-icon" />
     </div>
   </Wrapper>

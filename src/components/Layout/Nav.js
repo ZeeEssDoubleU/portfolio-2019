@@ -31,11 +31,14 @@ const NavBar = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
     .nav-center {
       display: ${props => (props.menuExpanded ? "grid" : "none")};
+    }
+    @media (min-width: ${props => props.theme.tablet + "px"}) {
+      padding: 0;
     }
   }
   @media (min-width: ${props => props.theme.tablet + "px"}) {
