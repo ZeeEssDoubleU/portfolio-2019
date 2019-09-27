@@ -61,4 +61,4 @@ const NavLogo = props => {
   )
 }
 
-export default NavLogo
+export default React.memo(NavLogo)

@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { showSection } from "../utils/showSection"
 import { scrollToAnim } from "../utils/scrollToAnim"
 
 // import components

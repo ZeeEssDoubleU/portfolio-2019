@@ -39,7 +39,7 @@ export const Section = styled.section`
   display: grid;
   justify-items: center;
   @media (min-width: ${props => props.theme.tablet + "px"}) {
-    margin: 48px auto;
+    margin: 0 auto 48px;
   }
 `
 export const Layout = styled.div`

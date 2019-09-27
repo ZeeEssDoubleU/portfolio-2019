@@ -78,4 +78,4 @@ const Nav = props => {
   )
 }
 
-export default Nav
+export default React.memo(Nav)

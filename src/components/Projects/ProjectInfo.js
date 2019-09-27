@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
-import { TimelineMax } from "gsap"
+import { TimelineLite } from "gsap"
 
 // import components
 import { Wrapper } from "../Layout/ButtonOrLink"
@@ -108,11 +108,10 @@ const ProjectInfo = props => {
     </li>
   ))
 
-  // animate/show portal when component mounts
-  // timeline destroyed when component unmounts
-  const tl = new TimelineMax().to("#portal", 0.3, {
-    transform: "translateY(-100vh)",
-  })
+  const tl = useRef(null);
+  useEffect(() => {
+    tl.current = new TimelineLite().to("#portal", 0.3, { y: "-100vh"})
+  }, [])
 
   return (
     <Modal>
@@ -146,7 +145,7 @@ const ProjectInfo = props => {
           onClick={() => {
             // timeout set equal to portal gsap animation
             setTimeout(() => props.toggleClass(), 300)
-            tl.reverse()
+            tl.current.reverse()
           }}
         >
           Close

@@ -6,7 +6,6 @@ import Icon from "../Icons/Icon"
 
 // styled components
 export const Wrapper = styled.div`
-  display: ${props => (props.hidden ? "none" : "inherit")};
   justify-self: end;
   height: 65px;
   color: ${props => props.theme.appBlue};
@@ -56,7 +55,6 @@ const ButtonOrLink = props => (
     target={props.target}
     rel={props.rel}
     onClick={props.onClick}
-    hidden={props.hidden}
   >
     <div className="action-grid">
       <div className="action-text">{props.children}</div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
-import { TimelineMax } from "gsap"
+import { TimelineLite } from "gsap"
 
 // styled components
 // variables for quick customization of hamburger
@@ -11,6 +11,7 @@ hamVars.layerWidth = 25
 hamVars.layerRadius = 4
 
 const Container = styled.button`
+  padding: 0;
   background: none;
   border: none;
   cursor: pointer;
@@ -54,11 +55,12 @@ const NavHamburger = props => {
   const top = useRef(null)
   const middle = useRef(null)
   const bottom = useRef(null)
-  const tl = useRef(new TimelineMax({ paused: true }))
+  const tl = useRef(null)
 
   // componentDidMount.  Assign new timeline to tl
+  // prevents re-initialization of timeline on re-renders
   useEffect(() => {
-    tl.current
+    tl.current = new TimelineLite({ paused: true })
       .to([top.current, bottom.current], 0.2, { y: 0 }, 0)
       .to(middle.current, 0.01, { autoAlpha: 0 }, 0.2)
       .to(top.current, 0.2, { rotation: 45 }, 0.2)
@@ -80,12 +82,12 @@ const NavHamburger = props => {
     >
       <Inner>
         {/* bars of hamburger */}
-        <Top ref={top} className={"top" + props.menuState}></Top>
-        <Middle ref={middle} className={"middle" + props.menuState}></Middle>
-        <Bottom ref={bottom} className={"bottom" + props.menuState}></Bottom>
+        <Top ref={top} />
+        <Middle ref={middle} />
+        <Bottom ref={bottom} />
       </Inner>
     </Container>
   )
 }
 
-export default NavHamburger
+export default React.memo(NavHamburger)

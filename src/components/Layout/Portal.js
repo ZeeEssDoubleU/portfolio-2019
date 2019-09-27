@@ -1,4 +1,4 @@
-import { Component, useEffect } from "react"
+import { useEffect } from "react"
 import { createPortal } from "react-dom"
 
 const Portal = props => {
@@ -13,7 +13,7 @@ const Portal = props => {
     portalRoot.appendChild(modal)
     // unmount function
     return () => portalRoot.removeChild(modal)
-  }, [])
+  }, [modal, portalRoot])
 
   // create portal between children and modal
   // (modal appended to portal DOM node in useEffect above)

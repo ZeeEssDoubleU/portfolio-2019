@@ -49,9 +49,7 @@ const Project = props => {
       <Icon
         className="project-ellipsis"
         name="ellipsis"
-        onClick={() => {
-          props.toggleClass(props.index)
-        }}
+        onClick={() => props.toggleClass(props.index)}
       />
       {/* creates modal on portal root if className contains active */}
       {props.className === "active" && (

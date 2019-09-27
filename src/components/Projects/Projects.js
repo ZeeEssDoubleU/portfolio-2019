@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
@@ -8,12 +7,6 @@ import Project from "./Project"
 // import styles
 import GlobalStyle, { Section, Layout, Header, Body } from "../../styles/global"
 
-// styled components
-const Grid = styled.div`
-  display: grid;
-  align-items: end;
-  margin: 30px 24px;
-`
 const Projects = props => {
   // gql query for project data
   const data = useStaticQuery(graphql`
@@ -81,14 +74,16 @@ const Projects = props => {
         <Layout>
           <Header>projects</Header>
           <Body>{projectArray}</Body>
-          <ButtonOrLink
-            button
-            icon="plus"
-            hidden={isHidden}
-            onClick={() => setShowMoreIndex(showMoreIndex + 5)}
-          >
-            show more
-          </ButtonOrLink>
+          {!isHidden && (
+            <ButtonOrLink
+              button
+              icon="plus"
+              hidden={isHidden}
+              onClick={() => setShowMoreIndex(showMoreIndex + 5)}
+            >
+              show more
+            </ButtonOrLink>
+          )}
         </Layout>
       </Section>
     </>

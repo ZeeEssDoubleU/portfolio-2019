@@ -1,4 +1,10 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useRef,
+  useCallback,
+} from "react"
 import { useInView } from "react-intersection-observer"
 import styled, { ThemeContext } from "styled-components"
 import { TimelineMax } from "gsap"
@@ -11,9 +17,8 @@ import Nav from "./Nav"
 const ShowNavIntersection = styled.div`
   position: absolute;
   /* subtract height of Nav bar below */
-  height: calc(100vh - 40px);
+  height: calc(100vh - 90px);
   visibility: hidden;
-  z-index: -1;
 `
 
 // exported component
@@ -23,11 +28,15 @@ const Layout = props => {
   const menuState = menuExpanded ? " is-active" : ""
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
-  const windowMobileCheck = () =>
-    typeof window !== "undefined"
-      ? window.innerWidth < themeContext.tablet
-      : null
-  const [windowMobile, setWindowMobile] = useState(windowMobileCheck())
+  const windowMobileCheck = useCallback(
+    () =>
+      typeof window !== "undefined"
+        ? window.innerWidth < themeContext.tablet
+        : null,
+    [themeContext.tablet]
+  )
+  // prevents re-initialization of timeline on re-renders
+  const [windowMobile, setWindowMobile] = useState(() => windowMobileCheck())
 
   // react-intersection-observer
   const [ref, inView, entry] = useInView()
@@ -48,27 +57,14 @@ const Layout = props => {
         setMenuExpanded(false)
       }
     })
-  }, [windowMobileCheck()])
+  }, [windowMobileCheck])
 
-  // create new timeline instance ON EACH RENDER
-  const tl = new TimelineMax()
-  // gsap animation - mobile menu.  Triggers on menuExpanded
+  const tl = useRef(null)
+  // componentDidMount.  Create nav and menu animation timelines
   useEffect(() => {
-    menuExpanded
-      ? tl.staggerFromTo(
-          ".menu-items",
-          0.5,
-          { autoAlpha: 0, x: -40 },
-          { autoAlpha: 1, x: 0 },
-          0.1,
-          0.3
-        )
-      : tl.set(".menu-items", { autoAlpha: 0, x: -40, immediateRender: true })
-  }, [menuExpanded])
-  // gsap animation - nav header.  Triggers on showNav and windowMobile
-  useEffect(() => {
-    if (showNav)
-      tl.staggerFromTo(
+    tl.current = new TimelineMax({ paused: true })
+      .add("showNav-start") // showNav
+      .staggerFromTo(
         ".logo-items",
         0.5,
         { autoAlpha: 0, x: 0, y: -40 },
@@ -76,23 +72,51 @@ const Layout = props => {
         0.1,
         0
       )
-        .fromTo(
-          ".nav-hamburger",
-          0.5,
-          { autoAlpha: 0, x: 0, y: -40 },
-          { autoAlpha: 1, x: 0, y: 0 },
-          0
-        )
-        .staggerFromTo(
-          ".menu-items",
-          0.5,
-          { autoAlpha: 0, x: 0, y: -40 },
-          { autoAlpha: 1, x: 0, y: 0 },
-          0.1,
-          0
-        )
+      .fromTo(
+        ".nav-hamburger",
+        0.5,
+        { autoAlpha: 0, x: 0, y: -40 },
+        { autoAlpha: 1, x: 0, y: 0 },
+        0
+      )
+      .staggerFromTo(
+        ".menu-items",
+        0.5,
+        { autoAlpha: 0, x: 0, y: -40 },
+        { autoAlpha: 1, x: 0, y: 0 },
+        0.1,
+        0
+      )
+      .add("showNav-end") // showNav
+      .add("menuExpand-start", "+=1") // menuExpand
+      .set(
+        ".menu-items",
+        { autoAlpha: 0, x: -40, immediateRender: true },
+        "menuExpand-start"
+      )
+      .staggerFromTo(
+        ".menu-items",
+        0.5,
+        { autoAlpha: 0, x: -40 },
+        { autoAlpha: 1, x: 0 },
+        0.1,
+        "menuExpand-start += .3"
+      )
+      .add("menuExpand-end") // menuExpand
+  }, [])
+  // gsap animation - nav header.  Triggers on showNav and windowMobile
+  useEffect(() => {
+    showNav
+      ? tl.current.tweenFromTo("showNav-start", "showNav-end")
+      : tl.current.pause("showNav-start")
   }, [showNav, windowMobile])
-  
+  // gsap animation - mobile menu.  Triggers on menuExpanded
+  useEffect(() => {
+    menuExpanded
+      ? tl.current.tweenFromTo("menuExpand-start", "menuExpand-end")
+      : tl.current.pause("menuExpand-start")
+  }, [menuExpanded])
+
   return (
     <>
       <GlobalStyle menuExpanded={menuExpanded} />

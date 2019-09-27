@@ -1,4 +1,4 @@
-import { TweenLite, ScrollToPlugin, Power2 } from "gsap/all"
+import { TweenLite, ScrollToPlugin } from "gsap/all"
 
 // reference plugins to prevent tree shaking
 // (optimization that drops unreferenced modules)
@@ -15,7 +15,6 @@ export const scrollToAnim = (menuExpanded, destination) => {
   //   console.log("target", target)
 
   TweenLite.to(window, duration, {
-    scrollTo: { y: destination, offsetY, autoKill: false },
-    ease: Power2.easeOut,
+    scrollTo: { y: destination, offsetY, autoKill: false }
   })
 }

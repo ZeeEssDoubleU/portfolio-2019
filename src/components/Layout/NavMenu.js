@@ -82,4 +82,4 @@ const NavMenu = props => {
   )
 }
 
-export default NavMenu
+export default React.memo(NavMenu)
