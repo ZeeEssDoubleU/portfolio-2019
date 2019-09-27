@@ -11,6 +11,7 @@ import Landing from "../components/Landing"
 import About from "../components/About"
 import Projects from "../components/Projects/Projects"
 import Contact from "../components/Contact/Contact"
+import { StoreProvider } from "../store/useStore"
 
 const App = () => {
   // let the document know when mouse is being used
@@ -49,12 +50,14 @@ const App = () => {
         />
       </Helmet>
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Landing />
-          <About />
-          <Projects />
-          <Contact />
-        </Layout>
+        <StoreProvider>
+          <Layout>
+            <Landing />
+            <About />
+            <Projects />
+            <Contact />
+          </Layout>
+        </StoreProvider>
       </ThemeProvider>
     </>
   )

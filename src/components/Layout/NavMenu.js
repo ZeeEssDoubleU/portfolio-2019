@@ -1,15 +1,17 @@
 // @ts-nocheck
-import React from "react"
+import React, { useCallback } from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
+// import store
+import { useStore } from "../../store/useStore"
 
 const Container = styled.div`
-  display: ${props => (props.menuExpanded ? "grid" : "none")};
-  grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};
+  display: ${props => (props.menuExpandedState ? "grid" : "none")};
+  grid-area: ${props => (props.menuExpandedState ? "2/1 / 3/3" : "inherit")};
   grid-row-gap: 60px;
   justify-items: center;
   .menu-items {
-    font-size: ${props => (props.menuExpanded ? "1.5em" : "inherit")};
+    font-size: ${props => (props.menuExpandedState ? "1.5em" : "inherit")};
     color: ${props => props.theme.appBlue};
     text-decoration: none;
     cursor: pointer;
@@ -20,7 +22,7 @@ const Container = styled.div`
       color: ${props => props.theme.appGreen} !important;
     }
     &.menu-home {
-      display: ${props => (props.menuExpanded ? "inherit" : "none")};
+      display: ${props => (props.menuExpandedState ? "inherit" : "none")};
     }
   }
   /* NavMenu tablet and bigger */
@@ -32,16 +34,22 @@ const Container = styled.div`
 `
 
 const NavMenu = props => {
+  const { state, dispatch } = useStore()
+  const toggleMenu = useCallback(
+    payload => dispatch({ type: "toggleMenu", payload }),
+    [dispatch]
+  )
+
   // TODO: add active state to menu items when section in view
   return (
-    <Container menuExpanded={props.menuExpanded}>
+    <Container menuExpandedState={state.menuExpanded}>
       <a
         className="menu-items menu-home"
         href="#landing"
         onClick={e => {
           e.preventDefault()
-          props.setMenuExpanded(false)
-          scrollToAnim(props.menuExpanded, "#landing")
+          toggleMenu(false)
+          scrollToAnim(state.menuExpanded, "#landing")
         }}
       >
         Home
@@ -51,8 +59,8 @@ const NavMenu = props => {
         href="#about"
         onClick={e => {
           e.preventDefault()
-          props.setMenuExpanded(false)
-          scrollToAnim(props.menuExpanded, "#about")
+          toggleMenu(false)
+          scrollToAnim(state.menuExpanded, "#about")
         }}
       >
         About
@@ -62,8 +70,8 @@ const NavMenu = props => {
         href="#projects"
         onClick={e => {
           e.preventDefault()
-          props.setMenuExpanded(false)
-          scrollToAnim(props.menuExpanded, "#projects")
+          toggleMenu(false)
+          scrollToAnim(state.menuExpanded, "#projects")
         }}
       >
         Projects
@@ -73,8 +81,8 @@ const NavMenu = props => {
         href="#contact"
         onClick={e => {
           e.preventDefault()
-          props.setMenuExpanded(false)
-          scrollToAnim(props.menuExpanded, "#contact")
+          toggleMenu(false)
+          scrollToAnim(state.menuExpanded, "#contact")
         }}
       >
         Contact

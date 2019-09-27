@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useCallback } from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
-
 // import components
 import Icon from "../Icons/Icon"
+// import store
+import { useStore } from "../../store/useStore"
 
 const Container = styled.a`
   display: grid;
@@ -43,13 +44,19 @@ const Container = styled.a`
 `
 
 const NavLogo = props => {
+  const { state, dispatch } = useStore()
+  const toggleMenu = useCallback(
+    payload => dispatch({ type: "toggleMenu", payload }),
+    [dispatch]
+  )
+
   return (
     <Container
       href="#landing"
       onClick={e => {
         e.preventDefault()
-        props.setMenuExpanded(false)
-        scrollToAnim(props.menuExpanded, "#landing")
+        toggleMenu(false)
+        scrollToAnim(state.menuExpanded, "#landing")
       }}
     >
       <span className="logo-items first-name">Zachary</span>

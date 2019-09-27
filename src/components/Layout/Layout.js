@@ -13,6 +13,8 @@ import { TimelineMax } from "gsap"
 import GlobalStyle from "../../styles/global"
 // import components
 import Nav from "./Nav"
+// import store
+import { useStore } from "../../store/useStore"
 
 // styled components
 const ShowNavIntersection = styled.div`
@@ -24,9 +26,15 @@ const ShowNavIntersection = styled.div`
 
 // exported component
 const Layout = props => {
-  const [showNav, setShowNav] = useState(false)
-  const [menuExpanded, setMenuExpanded] = useState(false)
-  const menuState = menuExpanded ? " is-active" : ""
+  const { state, dispatch } = useStore()
+  const toggleNav = useCallback(
+    payload => dispatch({ type: "toggleNav", payload }),
+    [dispatch]
+  )
+  const toggleMenu = useCallback(
+    payload => dispatch({ type: "toggleMenu", payload }),
+    [dispatch]
+  )
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
   const windowMobileCheck = useCallback(
@@ -44,8 +52,8 @@ const Layout = props => {
 
   // showNav if ShowNavIntersection out of view
   useEffect(() => {
-    if (entry) setShowNav(!inView)
-  }, [inView, entry])
+    if (entry) toggleNav(!inView)
+  }, [inView, entry, toggleNav])
 
   // set window size state
   // shrink mobile menu down to nav bar when screen increases in size
@@ -55,10 +63,10 @@ const Layout = props => {
         setWindowMobile(true)
       } else {
         setWindowMobile(false)
-        setMenuExpanded(false)
+        toggleMenu(false)
       }
     })
-  }, [windowMobileCheck])
+  }, [windowMobileCheck, toggleMenu])
 
   const tl = useRef(null)
   // componentDidMount.  Create nav and menu animation timelines
@@ -107,29 +115,22 @@ const Layout = props => {
   }, [])
   // gsap animation - nav header.  Triggers on showNav and windowMobile
   useEffect(() => {
-    showNav
+    state.navVisible
       ? tl.current.tweenFromTo("showNav-start", "showNav-end")
       : tl.current.pause("showNav-start")
-  }, [showNav, windowMobile])
-  // gsap animation - mobile menu.  Triggers on menuExpanded
+  }, [state.navVisible, windowMobile])
+  // gsap animation - mobile menu.  Triggers on state.menuExpanded
   useEffect(() => {
-    menuExpanded
+    state.menuExpanded
       ? tl.current.tweenFromTo("menuExpand-start", "menuExpand-end")
       : tl.current.pause("menuExpand-start")
-  }, [menuExpanded])
+  }, [state.menuExpanded])
 
   return (
     <>
-      <GlobalStyle menuExpanded={menuExpanded} />
+      <GlobalStyle menuExpanded={state.menuExpanded} />
       <ShowNavIntersection ref={ref} />
-      <Nav
-        role="navigation"
-        aria-label="main navigation"
-        showNav={showNav}
-        menuExpanded={menuExpanded}
-        setMenuExpanded={setMenuExpanded}
-        menuState={menuState}
-      ></Nav>
+      <Nav role="navigation" aria-label="main navigation"></Nav>
       {props.children}
     </>
   )
