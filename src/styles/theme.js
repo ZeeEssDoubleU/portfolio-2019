@@ -14,6 +14,7 @@ export const theme = {
   appTextWhiteM: "hsla(0, 0%, 100%, .65)",
   appTextWhiteD: "hsla(0, 0%, 100%, .38)",
   appShadowWhite: "hsla(0, 0%, 100%, .1)",
+  insetWidth: "1200px",
 
   // media queries (px)
   mobile: "320",

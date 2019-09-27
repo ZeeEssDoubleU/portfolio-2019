@@ -32,6 +32,7 @@ const Container = styled.div`
 `
 
 const NavMenu = props => {
+  // TODO: add active state to menu items when section in view
   return (
     <Container menuExpanded={props.menuExpanded}>
       <a

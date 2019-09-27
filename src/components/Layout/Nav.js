@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
@@ -31,7 +32,7 @@ const NavBar = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    max-width: 1200px;
+    max-width: ${props => props.theme.insetWidth};
     margin: 0 auto;
     padding: 0 24px;
     .nav-center {

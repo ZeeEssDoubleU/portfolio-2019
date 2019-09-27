@@ -1,20 +1,20 @@
+// @ts-nocheck
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { scrollToAnim } from "../utils/scrollToAnim"
 // import components
 import Icon from "./Icons/Icon"
+// import styles
+import { Section, Layout } from "../styles/global"
 
 // styled components
-const Section = styled.section`
+const StyledSection = styled(Section)`
   height: 100vh;
   width: 100vw;
 `
-const Layout = styled.div`
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  display: grid;
+const StyledLayout = styled(Layout)`
+  max-width: none;
   justify-items: center;
   align-content: center;
   background: black bottom/cover url(${props => props.bgSvgUrl});
@@ -22,6 +22,14 @@ const Layout = styled.div`
   @media (min-width: ${props => props.theme.tablet + "px"}) {
     will-change: transform !important;
     position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: black bottom/cover url(${props => props.bgSvgUrl});
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
   }
   .logo {
     width: calc(0.7 * 100vw);
@@ -54,8 +62,8 @@ const Landing = props => {
     }
   `)
   return (
-    <Section id="landing">
-      <Layout bgSvgUrl={data.contentfulAsset.file.url}>
+    <StyledSection id="landing">
+      <StyledLayout bgSvgUrl={data.contentfulAsset.file.url}>
         <Icon name="logo-landing" className="logo" />
         <a
           href="#about"
@@ -67,8 +75,8 @@ const Landing = props => {
         >
           <Icon name="arrow-down" className="arrow-down" />
         </a>
-      </Layout>
-    </Section>
+      </StyledLayout>
+    </StyledSection>
   )
 }
 

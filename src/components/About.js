@@ -1,3 +1,4 @@
+// @ts-check
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
@@ -11,9 +12,6 @@ import Icon from "../components/Icons/Icon"
 import { Section, Layout, Header, Body } from "../styles/global"
 
 // styled components
-const StyledLayout = styled(Layout)`
-  background: none;
-`
 const Bio = styled(Body)`
   display: grid;
   grid-template-rows: auto auto;
@@ -80,7 +78,7 @@ const About = props => {
 
   return (
     <Section id="about">
-      <StyledLayout>
+      <Layout>
         <Header>about</Header>
         <Bio>
           <Selfie
@@ -124,7 +122,7 @@ const About = props => {
         >
           contact me
         </ButtonOrLink>
-      </StyledLayout>
+      </Layout>
     </Section>
   )
 }

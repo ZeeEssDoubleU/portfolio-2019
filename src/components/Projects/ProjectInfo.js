@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"

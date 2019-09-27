@@ -18,9 +18,6 @@ const StyledSection = styled(Section)`
     background: none;
   }
 `
-const StyledLayout = styled(Layout)`
-  background: none;
-`
 const Copyright = styled.p`
   display: grid;
   grid-template-columns: auto auto auto;
@@ -54,7 +51,7 @@ const Contact = props => {
       id="contact"
       bgSvgUrl={data.contentfulAsset.file.url}
     >
-      <StyledLayout>
+      <Layout>
         <Header>get in touch</Header>
         <Body>
           <ContactForm />
@@ -68,7 +65,7 @@ const Contact = props => {
           Copyright
           {" " + currentDate}
         </Copyright>
-      </StyledLayout>
+      </Layout>
     </StyledSection>
   )
 }
