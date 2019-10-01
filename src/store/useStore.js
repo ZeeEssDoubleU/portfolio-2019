@@ -7,10 +7,19 @@ const initState = {
   menuExpanded: false,
 }
 
-const reducer = (state, action) => {
+// context that stores and shares data
+const StoreContext = createContext(initState)
+
+const navReducer = (state, action) => {
   switch (action.type) {
     case "toggleNav":
       return { ...state, navVisible: action.payload }
+    default:
+      return state
+  }
+}
+const menuReducer = (state, action) => {
+  switch (action.type) {
     case "toggleMenu":
       return { ...state, menuExpanded: action.payload }
     default:
@@ -18,13 +27,15 @@ const reducer = (state, action) => {
   }
 }
 
-// context that stores and shares data
-const StoreContext = createContext(initState)
-// const DispatchContext = createContext(null)
-
 // component to wrap upper level root component with Provider
 export const StoreProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initState)
+  const [navVisible, dispatchNav] = useReducer(navReducer, false)
+  const [menuExpanded, dispatchMenu] = useReducer(menuReducer, false)
+
+  // Global Dispatch Function
+  const dispatch = action =>
+    [dispatchNav, dispatchMenu].forEach(fn => fn(action))
+
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
       {children}
@@ -33,12 +44,7 @@ export const StoreProvider = ({ children }) => {
 }
 
 // useStore hook.  Acts as Consumer through useContext
-export const useStore = store => {
+export const useStore = () => {
   const { state, dispatch } = useContext(StoreContext)
   return { state, dispatch }
 }
-
-// export const useDispatch = dispatch => {
-//   const { dispatch } = useContext(DispatchContext)
-//   return dispatch
-// }

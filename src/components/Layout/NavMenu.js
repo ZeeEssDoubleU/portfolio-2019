@@ -1,9 +1,9 @@
 // @ts-nocheck
-import React, { useCallback } from "react"
+import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
-import { useStore } from "../../store/useStore"
+import { useStore, useDispatch } from "../../store/useStore"
 
 const Container = styled.div`
   display: ${props => (props.menuExpandedState ? "grid" : "none")};
@@ -35,10 +35,7 @@ const Container = styled.div`
 
 const NavMenu = props => {
   const { state, dispatch } = useStore()
-  const toggleMenu = useCallback(
-    payload => dispatch({ type: "toggleMenu", payload }),
-    [dispatch]
-  )
+  const toggleMenu = payload => dispatch({ type: "toggleMenu", payload })
 
   // TODO: add active state to menu items when section in view
   return (

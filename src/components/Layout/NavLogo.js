@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
 // import components
@@ -45,10 +45,7 @@ const Container = styled.a`
 
 const NavLogo = props => {
   const { state, dispatch } = useStore()
-  const toggleMenu = useCallback(
-    payload => dispatch({ type: "toggleMenu", payload }),
-    [dispatch]
-  )
+  const toggleMenu = payload => dispatch({ type: "toggleMenu", payload })
 
   return (
     <Container

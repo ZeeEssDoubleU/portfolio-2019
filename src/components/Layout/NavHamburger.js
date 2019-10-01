@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"
 // import store
@@ -55,10 +55,7 @@ const Bottom = styled(Shape)`
 
 const NavHamburger = props => {
   const { state, dispatch } = useStore()
-  const toggleMenu = useCallback(
-    payload => dispatch({ type: "toggleMenu", payload }),
-    [dispatch]
-  )
+  const toggleMenu = payload => dispatch({ type: "toggleMenu", payload })
 
   const top = useRef(null)
   const middle = useRef(null)

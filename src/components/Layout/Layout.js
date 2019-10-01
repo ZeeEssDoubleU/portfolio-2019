@@ -27,6 +27,7 @@ const ShowNavIntersection = styled.div`
 // exported component
 const Layout = props => {
   const { state, dispatch } = useStore()
+  // useCallback used due to React warning
   const toggleNav = useCallback(
     payload => dispatch({ type: "toggleNav", payload }),
     [dispatch]

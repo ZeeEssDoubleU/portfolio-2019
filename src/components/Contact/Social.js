@@ -54,27 +54,46 @@ const Inner = styled.div`
 const Social = props => {
   return (
     <Container>
-      <Border tabIndex={0} aria-label="github profile">
+      <Border
+        tabIndex={0}
+        aria-label="github profile"
+        href="https://github.com/ZeeEssDoubleU"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Inner>
           <Icon name="github" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0} aria-label="linkedin profile">
+      <Border
+        tabIndex={0}
+        aria-label="linkedin profile"
+        href="https://www.linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Inner>
           <Icon name="linkedin" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0} aria-label="dribbble profile">
+      <Border
+        tabIndex={0}
+        aria-label="dribbble profile"
+        href="https://dribbble.com/ZeeEssDoubleU"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Inner>
           <Icon name="dribbble" className="social-icon" />
         </Inner>
       </Border>
-      <Border tabIndex={0} aria-label="twitter profile">
-        <Inner>
-          <Icon name="twitter" className="social-icon" />
-        </Inner>
-      </Border>
-      <Border tabIndex={0} aria-label="email">
+      <Border
+        tabIndex={0}
+        aria-label="email"
+        href="mailto: zak.williams2287@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Inner>
           <Icon name="email" className="social-icon" />
         </Inner>
