@@ -10,16 +10,10 @@ const initState = {
 // context that stores and shares data
 const StoreContext = createContext(initState)
 
-const navReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case "toggleNav":
       return { ...state, navVisible: action.payload }
-    default:
-      return state
-  }
-}
-const menuReducer = (state, action) => {
-  switch (action.type) {
     case "toggleMenu":
       return { ...state, menuExpanded: action.payload }
     default:
@@ -29,12 +23,7 @@ const menuReducer = (state, action) => {
 
 // component to wrap upper level root component with Provider
 export const StoreProvider = ({ children }) => {
-  const [navVisible, dispatchNav] = useReducer(navReducer, false)
-  const [menuExpanded, dispatchMenu] = useReducer(menuReducer, false)
-
-  // Global Dispatch Function
-  const dispatch = action =>
-    [dispatchNav, dispatchMenu].forEach(fn => fn(action))
+  const [state, dispatch] = useReducer(reducer, initState)
 
   return (
     <StoreContext.Provider value={{ state, dispatch }}>

@@ -37,10 +37,8 @@ const Contact = props => {
   const data = useStaticQuery(graphql`
     # query for background image using gatsby-source-contentful
     {
-      contentfulAsset(title: { eq: "stripes" }) {
-        file {
-          url
-        }
+      datoCmsAsset(title: { eq: "stripes background" }) {
+        url
       }
     }
   `)
@@ -49,7 +47,7 @@ const Contact = props => {
     <StyledSection
       tabIndex={-1}
       id="contact"
-      bgSvgUrl={data.contentfulAsset.file.url}
+      bgSvgUrl={data.datoCmsAsset.url}
     >
       <Layout>
         <Header>get in touch</Header>

@@ -54,16 +54,14 @@ const Landing = props => {
   const data = useStaticQuery(graphql`
     # query for background image using gatsby-source-contentful
     {
-      contentfulAsset(title: { eq: "stripes" }) {
-        file {
-          url
-        }
+      datoCmsAsset(title: { eq: "stripes background" }) {
+        url
       }
     }
   `)
   return (
     <StyledSection id="landing">
-      <StyledLayout bgSvgUrl={data.contentfulAsset.file.url}>
+      <StyledLayout bgSvgUrl={data.datoCmsAsset.url}>
         <Icon name="logo-landing" className="logo" />
         <a
           href="#about"

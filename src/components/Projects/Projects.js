@@ -13,17 +13,12 @@ const Projects = props => {
   const data = useStaticQuery(graphql`
     # new query using gatsby-source-contentful
     {
-      allContentfulProject {
+      allDatoCmsProject {
         edges {
           node {
             id
             title
-            description {
-              id
-              internal {
-                content
-              }
-            }
+            description
             tech
             link
             order
@@ -39,10 +34,10 @@ const Projects = props => {
   // display 'show more' button if all projects aren't shown
   // display nothing if all project are shown
   const isHidden =
-    data.allContentfulProject.edges.length <= showMoreIndex ? true : false
+    data.allDatoCmsProject.edges.length <= showMoreIndex ? true : false
 
   // array to display projects below in render
-  const projectArray = data.allContentfulProject.edges
+  const projectArray = data.allDatoCmsProject.edges
     .slice(0, showMoreIndex)
     .map((edge, index) => {
       const project = edge.node
@@ -52,7 +47,7 @@ const Projects = props => {
           index={index}
           order={project.order}
           title={project.title}
-          description={project.description.internal.content}
+          description={project.description}
           tech={project.tech}
           link={project.link}
           toggleClass={result => setActiveIndex(result)}
