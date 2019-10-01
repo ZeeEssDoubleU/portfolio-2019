@@ -2,7 +2,8 @@ import React, { useRef } from "react"
 import styled from "styled-components"
 
 // import utils
-import { pushInquiry } from "../../utils/firebase"
+// // function pushes contact data for Firebase & Firestore
+// import { pushInquiry } from "../../utils/firebase"
 
 const Grid = styled.form`
   display: grid;
@@ -48,6 +49,7 @@ const Grid = styled.form`
 `
 
 const ContactForm = props => {
+  // refs to push contact data to Firebase & Firestore
   const inputName = useRef()
   const inputEmail = useRef()
   const inputSubject = useRef()
@@ -60,15 +62,16 @@ const ContactForm = props => {
       data-netlify="true"
       netlify-honeypot="honeypot-field"
       name="portfolio-contact-form"
-      onSubmit={event => {
-        event.preventDefault()
-        pushInquiry(
-          inputName.current,
-          inputEmail.current,
-          inputSubject.current,
-          inputMessage.current
-        )
-      }}
+      // // logic to push contact data to Firebase & Firestore
+      // onSubmit={event => {
+      //   event.preventDefault()
+      //   pushInquiry(
+      //     inputName.current,
+      //     inputEmail.current,
+      //     inputSubject.current,
+      //     inputMessage.current
+      //   )
+      // }}
     >
       {/* input required by netlify for SSGs like gatsby */}
       <input type="hidden" name="form-name" value="portfolio-contact-form" />
