@@ -16,7 +16,6 @@ const Modal = styled.div`
   width: 100vw;
   color: ${props => props.theme.appTextWhiteL};
   .project-info {
-    /* use vh instead of % because fixed modal */
     height: calc(100% - 70px);
     width: 100%;
     max-width: 1400px;
