@@ -4,7 +4,7 @@ import { scrollToAnim } from "../../utils/scrollToAnim"
 // import components
 import Icon from "../Icons/Icon"
 // import store
-import { useStore } from "../../store/useStore"
+import { useStore, toggleMenu } from "../../store/useStore"
 
 const Container = styled.a`
   display: grid;
@@ -45,14 +45,13 @@ const Container = styled.a`
 
 const NavLogo = props => {
   const { state, dispatch } = useStore()
-  const toggleMenu = payload => dispatch({ type: "toggleMenu", payload })
 
   return (
     <Container
       href="#landing"
       onClick={e => {
         e.preventDefault()
-        toggleMenu(false)
+        toggleMenu(dispatch, false)
         scrollToAnim(state.menuExpanded, "#landing")
       }}
     >

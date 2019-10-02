@@ -46,7 +46,7 @@ const NavBar = styled.div`
 `
 
 const Nav = props => {
-  const { state, dispatch } = useStore()
+  const { state } = useStore()
   // disables body scroll when navmenu expanded
   useEffect(() => {
     const targetElem = document.querySelector(".nav-grid")

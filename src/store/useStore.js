@@ -10,11 +10,22 @@ const initState = {
 // context that stores and shares data
 const StoreContext = createContext(initState)
 
+// action types
+const TOGGLE_NAV = "TOGGLE_NAV"
+const TOGGLE_MENU = "TOGGLE_MENU"
+
+// action creators
+export const toggleNav = (dispatch, payload) =>
+  dispatch({ type: TOGGLE_NAV, payload })
+export const toggleMenu = (dispatch, payload) =>
+  dispatch({ type: TOGGLE_MENU, payload })
+
+// reducer
 const reducer = (state, action) => {
   switch (action.type) {
-    case "toggleNav":
+    case TOGGLE_NAV:
       return { ...state, navVisible: action.payload }
-    case "toggleMenu":
+    case TOGGLE_MENU:
       return { ...state, menuExpanded: action.payload }
     default:
       return state

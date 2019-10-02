@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"
 // import store
-import { useStore } from "../../store/useStore"
+import { useStore, toggleMenu } from "../../store/useStore"
 
 // styled components
 // variables for quick customization of hamburger
@@ -55,7 +55,6 @@ const Bottom = styled(Shape)`
 
 const NavHamburger = props => {
   const { state, dispatch } = useStore()
-  const toggleMenu = payload => dispatch({ type: "toggleMenu", payload })
 
   const top = useRef(null)
   const middle = useRef(null)
@@ -83,7 +82,7 @@ const NavHamburger = props => {
   return (
     <Container
       className="nav-hamburger"
-      onClick={() => toggleMenu(!state.menuExpanded)}
+      onClick={() => toggleMenu(dispatch, !state.menuExpanded)}
     >
       <Inner>
         {/* bars of hamburger */}

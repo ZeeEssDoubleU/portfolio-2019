@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
-import { useStore, useDispatch } from "../../store/useStore"
+import { useStore, toggleMenu } from "../../store/useStore"
 
 const Container = styled.div`
   display: ${props => (props.menuExpandedState ? "grid" : "none")};
@@ -35,7 +35,6 @@ const Container = styled.div`
 
 const NavMenu = props => {
   const { state, dispatch } = useStore()
-  const toggleMenu = payload => dispatch({ type: "toggleMenu", payload })
 
   // TODO: add active state to menu items when section in view
   return (
@@ -45,7 +44,7 @@ const NavMenu = props => {
         href="#landing"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(false)
+          toggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#landing")
         }}
       >
@@ -56,7 +55,7 @@ const NavMenu = props => {
         href="#about"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(false)
+          toggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#about")
         }}
       >
@@ -67,7 +66,7 @@ const NavMenu = props => {
         href="#projects"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(false)
+          toggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#projects")
         }}
       >
@@ -78,7 +77,7 @@ const NavMenu = props => {
         href="#contact"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(false)
+          toggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#contact")
         }}
       >

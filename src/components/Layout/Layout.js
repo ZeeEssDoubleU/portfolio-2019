@@ -14,7 +14,7 @@ import GlobalStyle from "../../styles/global"
 // import components
 import Nav from "./Nav"
 // import store
-import { useStore } from "../../store/useStore"
+import { useStore, toggleNav, toggleMenu } from "../../store/useStore"
 
 // styled components
 const ShowNavIntersection = styled.div`
@@ -27,15 +27,6 @@ const ShowNavIntersection = styled.div`
 // exported component
 const Layout = props => {
   const { state, dispatch } = useStore()
-  // useCallback used due to React warning
-  const toggleNav = useCallback(
-    payload => dispatch({ type: "toggleNav", payload }),
-    [dispatch]
-  )
-  const toggleMenu = useCallback(
-    payload => dispatch({ type: "toggleMenu", payload }),
-    [dispatch]
-  )
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
   const windowMobileCheck = useCallback(
@@ -53,8 +44,8 @@ const Layout = props => {
 
   // showNav if ShowNavIntersection out of view
   useEffect(() => {
-    if (entry) toggleNav(!inView)
-  }, [inView, entry, toggleNav])
+    if (entry) toggleNav(dispatch, !inView)
+  }, [inView, entry, dispatch])
 
   // set window size state
   // shrink mobile menu down to nav bar when screen increases in size
@@ -64,10 +55,10 @@ const Layout = props => {
         setWindowMobile(true)
       } else {
         setWindowMobile(false)
-        toggleMenu(false)
+        toggleMenu(dispatch, false)
       }
     })
-  }, [windowMobileCheck, toggleMenu])
+  }, [windowMobileCheck, dispatch])
 
   const tl = useRef(null)
   // componentDidMount.  Create nav and menu animation timelines
