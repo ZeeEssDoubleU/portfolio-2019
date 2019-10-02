@@ -35,12 +35,12 @@
     "intersection-observer": "^0.7.0",
     "node-sass": "^4.12.0",
     "npm": "^6.11.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-intersection-observer": "^8.24.2",
-    "styled-components": "^4.3.2",
+    "styled-components": "^4.4.0",
     "typescript": "^3.6.3"
   },
   "devDependencies": {
