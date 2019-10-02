@@ -33,6 +33,7 @@ const Container = styled.div`
     grid-column: 2/3;
     align-self: center;
     justify-self: end;
+    font-size: 18px;
     color: ${props => props.theme.appTextWhiteM};
     cursor: pointer;
   }

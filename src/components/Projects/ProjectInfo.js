@@ -1,5 +1,4 @@
-// @ts-nocheck
-import React, { useRef, useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"
 
@@ -17,7 +16,6 @@ const Modal = styled.div`
   width: 100vw;
   color: ${props => props.theme.appTextWhiteL};
   .project-info {
-    /* use vh instead of % because fixed modal */
     height: calc(100% - 70px);
     width: 100%;
     max-width: 1400px;
@@ -109,9 +107,23 @@ const ProjectInfo = props => {
     </li>
   ))
 
-  const tl = useRef(null);
+  // animate/show portal when component mounts
+  const tl = useRef(null)
   useEffect(() => {
-    tl.current = new TimelineLite().to("#portal", 0.3, { y: "-100vh"})
+    tl.current = new TimelineLite().fromTo(
+      "#portal",
+      0.3,
+      {
+        position: "fixed",
+        top: "100%",
+        left: 0,
+        height: "100%",
+        width: "100vh",
+      },
+      {
+        y: "-100%",
+      }
+    )
   }, [])
 
   return (
