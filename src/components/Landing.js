@@ -50,7 +50,7 @@ const StyledLayout = styled(Layout)`
   }
 `
 
-const Landing = props => {
+const Landing = (props, ref) => {
   const data = useStaticQuery(graphql`
     # query for background image using gatsby-source-contentful
     {
@@ -60,6 +60,7 @@ const Landing = props => {
     }
   `)
   return (
+    // ref forwarded from parent
     <StyledSection id="landing">
       <StyledLayout bgSvgUrl={data.datoCmsAsset.url}>
         <Icon name="logo-landing" className="logo" />
@@ -78,4 +79,4 @@ const Landing = props => {
   )
 }
 
-export default Landing
+export default React.memo(Landing)

@@ -4,10 +4,10 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
-import ButtonOrLink from "../Layout/ButtonOrLink"
+import ButtonOrLink from "../elements/ButtonOrLink"
 import Icon from "../Icons/Icon"
 import ContactForm from "./ContactForm"
-import Social from "./Social"
+import Social from "../elements/Social"
 // import styles
 import { Section, Layout, Header, Body } from "../../styles/global"
 
@@ -44,11 +44,7 @@ const Contact = props => {
   `)
 
   return (
-    <StyledSection
-      tabIndex={-1}
-      id="contact"
-      bgSvgUrl={data.datoCmsAsset.url}
-    >
+    <StyledSection tabIndex={-1} id="contact" bgSvgUrl={data.datoCmsAsset.url}>
       <Layout>
         <Header>get in touch</Header>
         <Body>
@@ -68,4 +64,4 @@ const Contact = props => {
   )
 }
 
-export default Contact
+export default React.memo(Contact)

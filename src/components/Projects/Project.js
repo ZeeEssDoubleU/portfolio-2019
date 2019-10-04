@@ -3,7 +3,7 @@ import styled from "styled-components"
 // import components
 import Icon from "../Icons/Icon"
 import ProjectInfo from "./ProjectInfo"
-import Portal from "../Layout/Portal"
+import Portal from "../Portal"
 
 // styled components
 const Container = styled.div`

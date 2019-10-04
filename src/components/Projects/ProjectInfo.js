@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { TimelineLite } from "gsap"
 
 // import components
-import { Wrapper } from "../Layout/ButtonOrLink"
+import { Wrapper } from "../elements/ButtonOrLink"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 

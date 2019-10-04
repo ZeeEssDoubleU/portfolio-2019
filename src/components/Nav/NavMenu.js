@@ -31,6 +31,10 @@ const Container = styled.div`
     grid-template-columns: auto auto auto;
     grid-gap: 30px;
   }
+  /* NavMenu tablet and bigger */
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    grid-template-columns: auto;
+  }
 `
 
 const NavMenu = props => {

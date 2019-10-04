@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
-import ButtonOrLink from "../Layout/ButtonOrLink"
+import ButtonOrLink from "../elements/ButtonOrLink"
 import Project from "./Project"
 // import styles
 import GlobalStyle, { Section, Layout, Header, Body } from "../../styles/global"
@@ -86,4 +86,4 @@ const Projects = props => {
   )
 }
 
-export default Projects
+export default React.memo(Projects)

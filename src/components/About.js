@@ -6,8 +6,8 @@ import Img from "gatsby-image"
 import { scrollToAnim } from "../utils/scrollToAnim"
 
 // import components
-import ButtonOrLink from "./Layout/ButtonOrLink"
-import Icon from "../components/Icons/Icon"
+import ButtonOrLink from "./elements/ButtonOrLink"
+import Icon from "./Icons/Icon"
 // import styles
 import { Section, Layout, Header, Body } from "../styles/global"
 
@@ -127,4 +127,4 @@ const About = props => {
   )
 }
 
-export default About
+export default React.memo(About)

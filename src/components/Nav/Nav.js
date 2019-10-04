@@ -22,10 +22,6 @@ const NavBar = styled.div`
   /* showNav animation */
   opacity: ${props => (props.navVisibleState ? "1" : "0")};
   transition: height 0.4s;
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    transition: opacity 0.3s, height 0.4s;
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
-  }
   .nav-grid {
     display: grid;
     grid-template-columns: auto auto;
@@ -42,6 +38,14 @@ const NavBar = styled.div`
   }
   @media (min-width: ${props => props.theme.tablet + "px"}) {
     height: 80px;
+    background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
+    transition: opacity 0.3s, height 0.4s;
+  }
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    opacity: 1;
+    width: 10vw;
+    height: 100%;
+    background: blue;
   }
 `
 
