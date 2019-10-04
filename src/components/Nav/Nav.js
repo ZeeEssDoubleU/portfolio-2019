@@ -19,7 +19,7 @@ const NavBar = styled.div`
   height: ${props => (props.menuExpanded ? "100%" : "80px")};
   background: ${props => props.theme.appBgDark};
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
-  transition: ${props => (props.menuExpanded ? "height .4s" : "none")};
+  transition: height 0.4s;
   /* showNav animation */
   opacity: ${props => (props.navVisible ? "1" : "0")};
   @media (min-width: ${props => props.theme.tablet + "px"}) {
@@ -50,6 +50,7 @@ const NavGrid = styled.div`
     grid-template-columns: auto;
     grid-template-rows: 144px auto 144px;
     justify-content: center;
+    grid-row-gap: 30px;
   }
 `
 

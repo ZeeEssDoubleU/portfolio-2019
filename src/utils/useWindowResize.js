@@ -1,21 +1,16 @@
-import { useLayoutEffect, useCallback } from "react"
+import { useEffect } from "react"
 import { onWindowResize, onToggleMenu } from "../store/useStore"
-export const useWindowResize = (
-  dispatch,
-  menuExpanded,
-  isMobile,
-  themeContext
-) => {
-  const resizeEffect = useCallback(() => {
-    // updates window state
-    onWindowResize(dispatch, themeContext)
-    // shrinks mobile menu if expanded window to tablet or larger
-    if (menuExpanded && !isMobile) {
-      onToggleMenu(dispatch, false)
+export const useWindowResize = (dispatch, menuExpanded, themeContext) =>
+  useEffect(() => {
+    const resizeEffect = () => {
+      // updates windowSize state
+      onWindowResize(dispatch, themeContext)
+      // shrinks mobile menu if window expanded bigger than tablet
+      if (menuExpanded && window.innerWidth >= themeContext.tablet) {
+        onToggleMenu(dispatch, false)
+      }
     }
-  }, [dispatch, isMobile, menuExpanded, themeContext])
 
-  useLayoutEffect(() => {
     // get window size and add event listener on component mount
     onWindowResize(dispatch, themeContext)
     window.addEventListener("resize", () => {
@@ -26,5 +21,4 @@ export const useWindowResize = (
       window.removeEventListener("resize", () => {
         resizeEffect()
       })
-  }, [themeContext, dispatch, resizeEffect])
-}
+  }, [themeContext, dispatch, menuExpanded])

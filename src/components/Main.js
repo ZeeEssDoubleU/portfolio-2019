@@ -22,7 +22,7 @@ const Main = props => {
   const themeContext = useContext(ThemeContext)
 
   // updates state with useWindowResize
-  useWindowResize(dispatch, state.menuExpanded, state.isMobile, themeContext)
+  useWindowResize(dispatch, state.menuExpanded, themeContext)
 
   // intersection obserserver - toggles Nav
   const ioTarget = useRef(null)

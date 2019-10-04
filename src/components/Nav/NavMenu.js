@@ -36,6 +36,7 @@ const Container = styled.div`
     display: grid;
     grid-area: 2/1 / 3/2;
     grid-template-columns: auto;
+    align-self: start;
     .menu-items {
       opacity: 0;
       &.menu-home {

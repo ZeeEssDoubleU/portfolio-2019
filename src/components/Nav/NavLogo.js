@@ -46,8 +46,8 @@ const Container = styled.a`
     .logo-items {
       opacity: 0;
       .logo {
-        height: 72px;
-        width: 72px;
+        height: 84px;
+        width: 84px;
       }
     }
     .first-name,
