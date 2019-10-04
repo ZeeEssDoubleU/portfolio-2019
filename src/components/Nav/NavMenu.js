@@ -3,15 +3,15 @@ import React from "react"
 import styled from "styled-components"
 import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
-import { useStore, toggleMenu } from "../../store/useStore"
+import { useStore, onToggleMenu } from "../../store/useStore"
 
 const Container = styled.div`
-  display: ${props => (props.menuExpandedState ? "grid" : "none")};
-  grid-area: ${props => (props.menuExpandedState ? "2/1 / 3/3" : "inherit")};
+  display: ${props => (props.menuExpanded ? "grid" : "none")};
+  grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};
   grid-row-gap: 60px;
   justify-items: center;
   .menu-items {
-    font-size: ${props => (props.menuExpandedState ? "1.5em" : "inherit")};
+    font-size: ${props => (props.menuExpanded ? "1.5em" : "inherit")};
     color: ${props => props.theme.appBlue};
     text-decoration: none;
     cursor: pointer;
@@ -22,7 +22,7 @@ const Container = styled.div`
       color: ${props => props.theme.appGreen} !important;
     }
     &.menu-home {
-      display: ${props => (props.menuExpandedState ? "inherit" : "none")};
+      display: ${props => (props.menuExpanded ? "inherit" : "none")};
     }
   }
   /* NavMenu tablet and bigger */
@@ -33,7 +33,15 @@ const Container = styled.div`
   }
   /* NavMenu tablet and bigger */
   @media (min-width: ${props => props.theme.desktop + "px"}) {
+    display: grid;
+    grid-area: 2/1 / 3/2;
     grid-template-columns: auto;
+    .menu-items {
+      opacity: 0;
+      &.menu-home {
+        display: inherit;
+      }
+    }
   }
 `
 
@@ -42,13 +50,13 @@ const NavMenu = props => {
 
   // TODO: add active state to menu items when section in view
   return (
-    <Container menuExpandedState={state.menuExpanded}>
+    <Container menuExpanded={state.menuExpanded}>
       <a
         className="menu-items menu-home"
         href="#landing"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(dispatch, false)
+          onToggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#landing")
         }}
       >
@@ -59,7 +67,7 @@ const NavMenu = props => {
         href="#about"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(dispatch, false)
+          onToggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#about")
         }}
       >
@@ -70,7 +78,7 @@ const NavMenu = props => {
         href="#projects"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(dispatch, false)
+          onToggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#projects")
         }}
       >
@@ -81,7 +89,7 @@ const NavMenu = props => {
         href="#contact"
         onClick={e => {
           e.preventDefault()
-          toggleMenu(dispatch, false)
+          onToggleMenu(dispatch, false)
           scrollToAnim(state.menuExpanded, "#contact")
         }}
       >

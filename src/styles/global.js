@@ -24,7 +24,7 @@ export default createGlobalStyle`
          #portal {
             position: fixed;
             z-index: 999;
-            top: 100vh;
+            top: 100%;
             left: 0;
             /* use 100% vs 100vh because mobile browsers use % to read VISIBLE space */
             height: 100%;

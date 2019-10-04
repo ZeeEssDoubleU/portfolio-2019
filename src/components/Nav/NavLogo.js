@@ -4,7 +4,7 @@ import { scrollToAnim } from "../../utils/scrollToAnim"
 // import components
 import Icon from "../Icons/Icon"
 // import store
-import { useStore, toggleMenu } from "../../store/useStore"
+import { useStore, onToggleMenu } from "../../store/useStore"
 
 const Container = styled.a`
   display: grid;
@@ -41,6 +41,20 @@ const Container = styled.a`
       display: inherit;
     }
   }
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    grid-template-columns: auto;
+    .logo-items {
+      opacity: 0;
+      .logo {
+        height: 72px;
+        width: 72px;
+      }
+    }
+    .first-name,
+    .last-name {
+      display: none;
+    }
+  }
 `
 
 const NavLogo = props => {
@@ -51,7 +65,7 @@ const NavLogo = props => {
       href="#landing"
       onClick={e => {
         e.preventDefault()
-        toggleMenu(dispatch, false)
+        onToggleMenu(dispatch, false)
         scrollToAnim(state.menuExpanded, "#landing")
       }}
     >

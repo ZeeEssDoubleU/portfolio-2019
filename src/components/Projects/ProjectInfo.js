@@ -110,20 +110,10 @@ const ProjectInfo = props => {
   // animate/show portal when component mounts
   const tl = useRef(null)
   useEffect(() => {
-    tl.current = new TimelineLite().fromTo(
-      "#portal",
-      0.3,
-      {
-        position: "fixed",
-        top: "100%",
-        left: 0,
-        height: "100%",
-        width: "100vw",
-      },
-      {
-        y: "-100%",
-      }
-    )
+    // look at global.js for portal starting style
+    tl.current = new TimelineLite().to("#portal", 0.3, {
+      y: "-100%",
+    })
   }, [])
 
   return (

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useContext, useEffect, useRef } from "react"
+import React, { useContext, useRef } from "react"
 import { ThemeContext } from "styled-components"
 // import styles
 import GlobalStyle from "../styles/global"
@@ -10,13 +10,13 @@ import About from "./About"
 import Projects from "./Projects/Projects"
 import Contact from "./Contact/Contact"
 // import store / utils
-import { useStore, toggleNav } from "../store/useStore"
-import { useIntersectionObserver } from "../utils/io.js"
-import { useNavAnims } from "../utils/navAnims.js"
-import { useWindowResize } from "../utils/windowResize"
+import { useStore, onToggleNav } from "../store/useStore"
+import { useIntersectionObserver } from "../utils/useIO"
+import { useNavAnims } from "../utils/useNavAnims"
+import { useWindowResize } from "../utils/useWindowResize"
 
 // exported component
-const App = props => {
+const Main = props => {
   const { state, dispatch } = useStore()
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
@@ -26,7 +26,7 @@ const App = props => {
 
   // intersection obserserver - toggles Nav
   const ioTarget = useRef(null)
-  useIntersectionObserver(dispatch, ioTarget, toggleNav)
+  useIntersectionObserver(dispatch, state.isDesktop, ioTarget, onToggleNav)
 
   // navigation animations
   useNavAnims(state, themeContext)
@@ -44,4 +44,4 @@ const App = props => {
     </>
   )
 }
-export default App
+export default Main

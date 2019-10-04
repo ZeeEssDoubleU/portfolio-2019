@@ -16,36 +16,40 @@ const NavBar = styled.div`
   z-index: 99;
   top: 0;
   width: 100vw;
-  height: ${props => (props.menuExpandedState ? "100vh" : "80px")};
+  height: ${props => (props.menuExpanded ? "100%" : "80px")};
   background: ${props => props.theme.appBgDark};
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
+  transition: ${props => (props.menuExpanded ? "height .4s" : "none")};
   /* showNav animation */
-  opacity: ${props => (props.navVisibleState ? "1" : "0")};
-  transition: height 0.4s;
-  .nav-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 80px auto 80px;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    max-width: ${props => props.theme.insetWidth};
-    margin: 0 auto;
-    padding: 0 24px;
-    .nav-center {
-      display: ${props => (props.menuExpanded ? "grid" : "none")};
-    }
-  }
+  opacity: ${props => (props.navVisible ? "1" : "0")};
   @media (min-width: ${props => props.theme.tablet + "px"}) {
-    height: 80px;
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
-    transition: opacity 0.3s, height 0.4s;
   }
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     opacity: 1;
     width: 10vw;
     height: 100%;
-    background: blue;
+    box-shadow: 0px 0px 10px 0px ${props => props.theme.appShadowWhite};
+    transition: none;
+  }
+`
+const NavGrid = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 80px auto 80px;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: ${props => props.theme.insetWidth};
+  margin: 0 auto;
+  padding: 0 24px;
+  .nav-center {
+    display: ${props => (props.menuExpanded ? "grid" : "none")};
+  }
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    grid-template-columns: auto;
+    grid-template-rows: 144px auto 144px;
+    justify-content: center;
   }
 `
 
@@ -61,16 +65,17 @@ const Nav = props => {
 
   return (
     <NavBar
-      navVisibleState={state.navVisible}
-      menuExpandedState={state.menuExpanded}
+      className="nav-bar"
+      navVisible={state.navVisible}
+      menuExpanded={state.menuExpanded}
       tabIndex={-1}
     >
-      <div className="nav-grid">
+      <NavGrid>
         <NavLogo />
         <NavHamburger />
         <NavMenu />
         <div className="nav-center"></div>
-      </div>
+      </NavGrid>
     </NavBar>
   )
 }

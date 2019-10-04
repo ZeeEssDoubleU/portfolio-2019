@@ -1,18 +1,25 @@
 import { useEffect } from "react"
 import "intersection-observer"
 
-export const useIntersectionObserver = (dispatch, target, fn) => {
+export const useIntersectionObserver = (
+  dispatch,
+  state,
+  target,
+  onToggleNav
+) => {
   useEffect(() => {
     // mount
     const io = new IntersectionObserver(
       ([entry]) => {
         // function dispatches to reducer in useStore.js
-        fn(dispatch, !entry.isIntersecting)
+        if (!state) {
+          onToggleNav(dispatch, !entry.isIntersecting)
+        }
       },
       { rootMargin: "-100px" }
     )
     io.observe(target.current)
     // unmount
     return () => io.disconnect()
-  }, [dispatch, target, fn])
+  }, [dispatch, state, target, onToggleNav])
 }
