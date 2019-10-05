@@ -1,12 +1,7 @@
 import { useEffect } from "react"
 import "intersection-observer"
 
-export const useIntersectionObserver = (
-  dispatch,
-  state,
-  target,
-  onToggleNav
-) => {
+export const useIntersectionObserver = (dispatch, state, target, onToggleNav) =>
   useEffect(() => {
     // mount
     const io = new IntersectionObserver(
@@ -22,4 +17,3 @@ export const useIntersectionObserver = (
     // unmount
     return () => io.disconnect()
   }, [dispatch, state, target, onToggleNav])
-}

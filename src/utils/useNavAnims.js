@@ -94,23 +94,29 @@ export const useNavAnims = state => {
     }
   }, [])
 
+  // set variables for prod env.  Substate undfined on build
+  const navVisible = state.navVisible ? state.navVisible : false
+  const menuExpanded = state.menuExpanded ? state.menuExpanded : false
+  const isMobile = state.isMobile ? state.isMobile : false
+  const isDesktop = state.isDesktop ? state.isDesktop : false
+
   // gsap animation - nav header.  Triggers on showNav and when window is mobile
   useLayoutEffect(() => {
-    if (state.isDesktop) {
+    if (isDesktop) {
       tl_nav_desktop.current.tweenFromTo(
         "showNavElems-desktop-start",
         "showNavElems-desktop-end"
       )
     } else {
-      state.navVisible
+      navVisible
         ? tl_nav.current.tweenFromTo("showNavElems-start", "showNavElems-end")
         : tl_nav.current.pause("showNavElems-start")
     }
-  }, [state.navVisible, state.isMobile, state.isDesktop])
+  }, [navVisible, isMobile, isDesktop])
   // gsap animation - mobile menu.  Triggers on state.menuExpanded
   useLayoutEffect(() => {
-    state.menuExpanded
+    menuExpanded
       ? tl_menu.current.tweenFromTo("menuExpand-start", "menuExpand-end")
       : tl_menu.current.pause("menuExpand-start")
-  }, [state.menuExpanded])
+  }, [menuExpanded])
 }
