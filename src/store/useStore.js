@@ -56,13 +56,16 @@ const reducer = (state, action) => {
 // context that stores and shares data
 const StoreContext = createContext(null)
 
+// init global state and use below
+let initState = {}
+
 // component to wrap upper level root component with Provider
 export const StoreProvider = ({ children }) => {
   const themeContext = useContext(ThemeContext)
 
-  let initState
   if (typeof window !== "undefined") {
     initState = {
+      ...initState,
       navVisible: false,
       menuExpanded: false,
       windowWidth: window.innerWidth,
