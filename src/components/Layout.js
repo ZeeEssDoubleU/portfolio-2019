@@ -1,5 +1,6 @@
 // @ts-nocheck
-import React, { useRef } from "react"
+import React, { useContext, useRef } from "react"
+import { ThemeContext } from "styled-components"
 // import styles
 import GlobalStyle from "../styles/global"
 // import components
@@ -17,16 +18,18 @@ import { useWindowResize } from "../utils/useWindowResize"
 // exported component
 const Layout = props => {
   const { state, dispatch } = useStore()
+  // grab context from theme for use in component
+  const themeContext = useContext(ThemeContext)
 
   // updates state with useWindowResize
-  useWindowResize(dispatch)
+  useWindowResize(dispatch, themeContext)
 
   // intersection obserserver - toggles Nav
   const ioTarget = useRef(null)
   useIntersectionObserver(dispatch, state, ioTarget, onToggleNav)
 
   // navigation animations
-  useNavAnims(state)
+  useNavAnims(state, themeContext)
 
   return (
     <>

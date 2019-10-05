@@ -71,7 +71,7 @@ export const useNavAnims = state => {
       .to(
         ".menu-items",
         0.01,
-        { autoAlpha: 0, x: -40, y: 0 },
+        { autoAlpha: 0, x: -40, y: 0, immediateRender: true },
         "menuExpand-start"
       )
       // TODO: wait for GSAP response
