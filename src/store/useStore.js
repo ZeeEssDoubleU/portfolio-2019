@@ -26,6 +26,11 @@ export const onWindowResize = (dispatch, themeContext) => {
     window.innerWidth >= themeContext.desktop
       ? dispatch({ type: IS_DESKTOP, payload: true })
       : dispatch({ type: IS_DESKTOP, payload: false })
+    // TODO: Dont know why.  But doesn't fire on every all tablet+ resize and make NavMenu disappear at this location.  Does make NavMenu disappear in useWindowResize if proper conditional isn't held
+    // close mobile menu when on tablet or bigger
+    if (window.innerWidth >= themeContext.tablet) {
+      onToggleMenu(dispatch, false)
+    }
   }
 }
 
