@@ -10,6 +10,8 @@ export const useNavAnims = state => {
     // nav animation
     tl_nav.current = new TimelineMax({ paused: true })
       .add("showNavElems-start") // showNav - START
+      // TODO: wait for GSAP response
+      // .to(".nav-bar", 0.01, { autoAlpha: 1 }, "showNavElems-start")
       .staggerFromTo(
         ".logo-items",
         0.5,
@@ -37,7 +39,7 @@ export const useNavAnims = state => {
 
     // nav animation on desktop
     tl_nav_desktop.current = new TimelineMax({ paused: true })
-      .add("showNavElems-desktop-start", "+=1") // showNav - desktop - START
+      .add("showNavElems-desktop-start") // showNav - desktop - START
       .staggerFromTo(
         ".logo-items",
         0.5,
@@ -65,19 +67,23 @@ export const useNavAnims = state => {
 
     // menu expand animation
     tl_menu.current = new TimelineMax({ paused: true })
-      .add("menuExpand-start", "+=1") // menuExpand - START
-      .set(
+      .add("menuExpand-start") // menuExpand - START
+      .to(
         ".menu-items",
+        0.01,
         { autoAlpha: 0, x: -40, y: 0, immediateRender: true },
         "menuExpand-start"
       )
+      // TODO: wait for GSAP response
+      // .to(".nav-bar", 0.3, { height: "100%" }, "menuExpand-start")
+      // .add("menuExpand-close")
       .staggerFromTo(
         ".menu-items",
         0.5,
         { autoAlpha: 0, x: -40, y: 0 },
         { autoAlpha: 1, x: 0, y: 0 },
         0.1,
-        "menuExpand-start += .3"
+        "menuExpand-start+=.2"
       )
       .add("menuExpand-end") // menuExpand - END
 

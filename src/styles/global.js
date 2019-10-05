@@ -37,6 +37,12 @@ export default createGlobalStyle`
 export const Section = styled.section`
   position: relative;
 `
+// wrapper that aligns section layouts correctly for desktop sizes
+export const DesktopWrapper = styled.div`
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    margin-left: 10%;
+  }
+`
 export const Layout = styled.div`
   display: grid;
   height: 100%;

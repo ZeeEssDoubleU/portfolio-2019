@@ -16,7 +16,7 @@ import { useNavAnims } from "../utils/useNavAnims"
 import { useWindowResize } from "../utils/useWindowResize"
 
 // exported component
-const Main = props => {
+const Layout = props => {
   const { state, dispatch } = useStore()
   // grab context from theme for use in component
   const themeContext = useContext(ThemeContext)
@@ -34,7 +34,7 @@ const Main = props => {
   return (
     <>
       <GlobalStyle menuExpanded={state.menuExpanded} />
-      <Nav role="navigation" aria-label="main navigation"></Nav>
+      <Nav role="navigation" aria-label="main navigation" />
       <div id="io-target" ref={ioTarget}>
         <Landing />
       </div>
@@ -44,4 +44,4 @@ const Main = props => {
     </>
   )
 }
-export default Main
+export default Layout

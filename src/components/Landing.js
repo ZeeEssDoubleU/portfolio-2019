@@ -6,12 +6,14 @@ import { scrollToAnim } from "../utils/scrollToAnim"
 // import components
 import Icon from "./Icons/Icon"
 // import styles
-import { Section, Layout } from "../styles/global"
+import { Section, Layout, DesktopWrapper } from "../styles/global"
 
 // styled components
 const StyledSection = styled(Section)`
   height: 100vh;
-  width: 100vw;
+`
+const StyledDesktopWrapper = styled(DesktopWrapper)`
+  height: 100%;
 `
 const StyledLayout = styled(Layout)`
   max-width: none;
@@ -19,18 +21,6 @@ const StyledLayout = styled(Layout)`
   align-content: center;
   background: black bottom/cover url(${props => props.bgSvgUrl});
   /* svg icons down in component */
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    will-change: transform !important;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background: black bottom/cover url(${props => props.bgSvgUrl});
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0;
-  }
   .logo {
     width: calc(0.7 * 100vw);
     max-width: calc(0.4 * 100vh);
@@ -40,13 +30,28 @@ const StyledLayout = styled(Layout)`
     position: absolute;
     width: 30px;
     bottom: 20px;
-    left: 50vw;
+    left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s !important;
     &:hover {
       transform: translateX(-50%) scale(1.1);
     }
+  }
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    will-change: transform !important;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: black bottom/cover url(${props => props.bgSvgUrl});
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    width: 90%;
   }
 `
 
@@ -62,19 +67,21 @@ const Landing = (props, ref) => {
   return (
     // ref forwarded from parent
     <StyledSection id="landing">
-      <StyledLayout bgSvgUrl={data.datoCmsAsset.url}>
-        <Icon name="logo-landing" className="logo" />
-        <a
-          href="#about"
-          onClick={e => {
-            e.preventDefault()
-            if (window.scrollY >= window.innerHeight) return
-            scrollToAnim(null, "#about")
-          }}
-        >
-          <Icon name="arrow-down" className="arrow-down" />
-        </a>
-      </StyledLayout>
+      <StyledDesktopWrapper>
+        <StyledLayout bgSvgUrl={data.datoCmsAsset.url}>
+          <Icon name="logo-landing" className="logo" />
+          <a
+            href="#about"
+            onClick={e => {
+              e.preventDefault()
+              if (window.scrollY >= window.innerHeight) return
+              scrollToAnim(null, "#about")
+            }}
+          >
+            <Icon name="arrow-down" className="arrow-down" />
+          </a>
+        </StyledLayout>
+      </StyledDesktopWrapper>
     </StyledSection>
   )
 }

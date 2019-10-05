@@ -6,7 +6,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import ButtonOrLink from "../elements/ButtonOrLink"
 import Project from "./Project"
 // import styles
-import GlobalStyle, { Section, Layout, Header, Body } from "../../styles/global"
+import GlobalStyle, {
+  Section,
+  Layout,
+  Header,
+  Body,
+  DesktopWrapper,
+} from "../../styles/global"
 
 const Projects = props => {
   // gql query for project data
@@ -67,20 +73,22 @@ const Projects = props => {
     <>
       <GlobalStyle activeIndex={activeIndex} />
       <Section id="projects">
-        <Layout>
-          <Header>projects</Header>
-          <Body>{projectArray}</Body>
-          {!isHidden && (
-            <ButtonOrLink
-              button
-              icon="plus"
-              hidden={isHidden}
-              onClick={() => setShowMoreIndex(showMoreIndex + 5)}
-            >
-              show more
-            </ButtonOrLink>
-          )}
-        </Layout>
+        <DesktopWrapper>
+          <Layout>
+            <Header>projects</Header>
+            <Body>{projectArray}</Body>
+            {!isHidden && (
+              <ButtonOrLink
+                button
+                icon="plus"
+                hidden={isHidden}
+                onClick={() => setShowMoreIndex(showMoreIndex + 5)}
+              >
+                show more
+              </ButtonOrLink>
+            )}
+          </Layout>
+        </DesktopWrapper>
       </Section>
     </>
   )

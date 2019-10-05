@@ -14,7 +14,7 @@ const Container = styled.div`
   color: ${props => props.theme.appTextWhiteL};
   padding: 4px 0;
   margin-top: 20px;
-  transition: color 0.2s;
+  transition: color 0.2s !important;
   .project-title {
     grid-row: 1/2;
     grid-column: 1/2;

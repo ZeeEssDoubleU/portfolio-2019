@@ -9,7 +9,13 @@ import Icon from "../Icons/Icon"
 import ContactForm from "./ContactForm"
 import Social from "../elements/Social"
 // import styles
-import { Section, Layout, Header, Body } from "../../styles/global"
+import {
+  Section,
+  Layout,
+  Header,
+  Body,
+  DesktopWrapper,
+} from "../../styles/global"
 
 // styled components
 const StyledSection = styled(Section)`
@@ -45,21 +51,23 @@ const Contact = props => {
 
   return (
     <StyledSection tabIndex={-1} id="contact" bgSvgUrl={data.datoCmsAsset.url}>
-      <Layout>
-        <Header>get in touch</Header>
-        <Body>
-          <ContactForm />
-        </Body>
-        <ButtonOrLink button icon="check" type="submit" form="contact-form">
-          submit
-        </ButtonOrLink>
-        <Social />
-        <Copyright>
-          Zachary Williams <Icon name="copyright" className="icon-copyright" />{" "}
-          Copyright
-          {" " + currentDate}
-        </Copyright>
-      </Layout>
+      <DesktopWrapper>
+        <Layout>
+          <Header>get in touch</Header>
+          <Body>
+            <ContactForm />
+          </Body>
+          <ButtonOrLink button icon="check" type="submit" form="contact-form">
+            submit
+          </ButtonOrLink>
+          <Social />
+          <Copyright>
+            Zachary Williams{" "}
+            <Icon name="copyright" className="icon-copyright" /> Copyright
+            {" " + currentDate}
+          </Copyright>
+        </Layout>
+      </DesktopWrapper>
     </StyledSection>
   )
 }

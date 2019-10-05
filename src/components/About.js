@@ -9,7 +9,7 @@ import { scrollToAnim } from "../utils/scrollToAnim"
 import ButtonOrLink from "./elements/ButtonOrLink"
 import Icon from "./Icons/Icon"
 // import styles
-import { Section, Layout, Header, Body } from "../styles/global"
+import { Section, Layout, Header, Body, DesktopWrapper } from "../styles/global"
 
 // styled components
 const Bio = styled(Body)`
@@ -78,51 +78,54 @@ const About = props => {
 
   return (
     <Section id="about">
-      <Layout>
-        <Header>about</Header>
-        <Bio>
-          <Selfie
-            title="Selfie"
-            fluid={{ ...data.datoCmsAsset.fluid }}
-            alt="selfie image for about section"
-          />
-          <div>
-            <p className="bio-name">Zachary Williams</p>
-            <p>
-              <Highlight>
-                <Icon name="map-marker" />
-                {"  "}New York, NY, USA
-              </Highlight>
-            </p>
-            <p>
-              My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
-              <Highlight>front-end developer</Highlight> based in New York CIty.
-              {"  "}I enjoy creating clean, intuitive web interfaces that
-              provide a satisfying user experience.
-            </p>
-            <p>
-              If you’re in need of a website, mobile or web application, or just
-              want to say what’s up, give me a shout!
-            </p>
-          </div>
-        </Bio>
-        <ButtonOrLink
-          link
-          icon="email"
-          href="#contact"
-          onClick={e => {
-            e.preventDefault()
-            // only run on mobile mode
-            scrollToAnim(null, "#contact")
-            setTimeout(() => document.querySelector("#name").focus(), 700)
-            // only run on tablet or greater mode
-            // showSection("contact")
-            // setTimeout(() => document.querySelector("#name").focus(), 1000)
-          }}
-        >
-          contact me
-        </ButtonOrLink>
-      </Layout>
+      <DesktopWrapper>
+        <Layout>
+          <Header>about</Header>
+          <Bio>
+            <Selfie
+              title="Selfie"
+              fluid={{ ...data.datoCmsAsset.fluid }}
+              alt="selfie image for about section"
+            />
+            <div>
+              <p className="bio-name">Zachary Williams</p>
+              <p>
+                <Highlight>
+                  <Icon name="map-marker" />
+                  {"  "}New York, NY, USA
+                </Highlight>
+              </p>
+              <p>
+                My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
+                <Highlight>front-end developer</Highlight> based in New York
+                CIty.
+                {"  "}I enjoy creating clean, intuitive web interfaces that
+                provide a satisfying user experience.
+              </p>
+              <p>
+                If you’re in need of a website, mobile or web application, or
+                just want to say what’s up, give me a shout!
+              </p>
+            </div>
+          </Bio>
+          <ButtonOrLink
+            link
+            icon="email"
+            href="#contact"
+            onClick={e => {
+              e.preventDefault()
+              // only run on mobile mode
+              scrollToAnim(null, "#contact")
+              setTimeout(() => document.querySelector("#name").focus(), 700)
+              // only run on tablet or greater mode
+              // showSection("contact")
+              // setTimeout(() => document.querySelector("#name").focus(), 1000)
+            }}
+          >
+            contact me
+          </ButtonOrLink>
+        </Layout>
+      </DesktopWrapper>
     </Section>
   )
 }

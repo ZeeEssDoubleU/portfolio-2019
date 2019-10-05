@@ -6,7 +6,7 @@ import { firebaseInit } from "../utils/firebase"
 // import styles
 import { theme } from "../styles/theme"
 // import components
-import Main from "../components/Main"
+import Layout from "../components/Layout"
 import { StoreProvider } from "../store/useStore"
 
 const App = () => {
@@ -47,7 +47,7 @@ const App = () => {
       </Helmet>
       <ThemeProvider theme={theme}>
         <StoreProvider>
-          <Main />
+          <Layout />
         </StoreProvider>
       </ThemeProvider>
     </>

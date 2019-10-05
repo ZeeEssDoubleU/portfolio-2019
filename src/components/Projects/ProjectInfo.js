@@ -17,7 +17,7 @@ const Modal = styled.div`
   color: ${props => props.theme.appTextWhiteL};
   .project-info {
     height: calc(100% - 70px);
-    width: 100vw;
+    width: 100%;
     max-width: 1400px;
     padding: 30px 24px;
     margin: 0 auto;
@@ -77,7 +77,7 @@ const Modal = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     button {
       color: ${props => props.theme.appTextWhiteL};
       font-size: 20px;

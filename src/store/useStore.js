@@ -56,16 +56,15 @@ const StoreContext = createContext(null)
 export const StoreProvider = ({ children }) => {
   const themeContext = useContext(ThemeContext)
 
-  const initState = () => {
-    if (typeof window !== "undefined") {
-      return {
-        navVisible: false,
-        menuExpanded: false,
-        windowWidth: window.innerWidth,
-        windowHeight: window.innerHeight,
-        isMobile: window.innerWidth < themeContext.tablet,
-        isDesktop: window.innerWidth >= themeContext.desktop,
-      }
+  let initState
+  if (typeof window !== "undefined") {
+    initState = {
+      navVisible: false,
+      menuExpanded: false,
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+      isMobile: window.innerWidth < themeContext.tablet,
+      isDesktop: window.innerWidth >= themeContext.desktop,
     }
   }
 
