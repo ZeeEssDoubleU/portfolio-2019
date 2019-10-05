@@ -10,8 +10,6 @@ export const useNavAnims = state => {
     // nav animation
     tl_nav.current = new TimelineMax({ paused: true })
       .add("showNavElems-start") // showNav - START
-      // TODO: wait for GSAP response
-      // .to(".nav-bar", 0.01, { autoAlpha: 1 }, "showNavElems-start")
       .staggerFromTo(
         ".logo-items",
         0.5,
@@ -74,9 +72,6 @@ export const useNavAnims = state => {
         { autoAlpha: 0, x: -40, y: 0, immediateRender: true },
         "menuExpand-start"
       )
-      // TODO: wait for GSAP response
-      // .to(".nav-bar", 0.3, { height: "100%" }, "menuExpand-start")
-      // .add("menuExpand-close")
       .staggerFromTo(
         ".menu-items",
         0.5,

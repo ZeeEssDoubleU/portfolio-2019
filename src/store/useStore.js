@@ -60,19 +60,15 @@ const StoreContext = createContext(null)
 export const StoreProvider = ({ children }) => {
   const themeContext = useContext(ThemeContext)
 
-  let initState
-  if (typeof window !== "undefined") {
-    initState = {
-      navVisible: false,
-      menuExpanded: false,
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      isMobile: window.innerWidth < themeContext.tablet,
-      isDesktop: window.innerWidth >= themeContext.desktop,
-    }
-  }
-
-  const [state, dispatch] = useReducer(reducer, initState)
+  // useReducer contains initial state
+  const [state, dispatch] = useReducer(reducer, {
+    navVisible: false,
+    menuExpanded: false,
+    windowWidth: window.innerWidth,
+    windowHeight: window.innerHeight,
+    isMobile: window.innerWidth < themeContext.tablet,
+    isDesktop: window.innerWidth >= themeContext.desktop,
+  })
 
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
