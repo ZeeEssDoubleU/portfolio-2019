@@ -16,7 +16,6 @@ const NavBar = styled.div`
   z-index: 99;
   top: 0;
   width: 100vw;
-  /* TODO: check height, transition and desktop height after GSAP response */
   height: ${props => (props.menuExpanded ? "100%" : "80px")};
   background: ${props => props.theme.appBgDark};
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);

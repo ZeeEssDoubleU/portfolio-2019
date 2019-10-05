@@ -56,7 +56,7 @@ const reducer = (state, action) => {
 // context that stores and shares data
 const StoreContext = createContext(null)
 
-// init global state and use below
+// ***init global state OUTSIDE OF STORE PROVIDER so that sub-components state props don't return undefined
 let initState = {}
 
 // component to wrap upper level root component with Provider

@@ -26,7 +26,7 @@ const Layout = props => {
 
   // intersection obserserver - toggles Nav
   const ioTarget = useRef(null)
-  useIntersectionObserver(dispatch, state, ioTarget, onToggleNav)
+  useIntersectionObserver(dispatch, state.isDesktop, ioTarget, onToggleNav)
 
   // navigation animations
   useNavAnims(state, themeContext)

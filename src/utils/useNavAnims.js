@@ -10,8 +10,6 @@ export const useNavAnims = state => {
     // nav animation
     tl_nav.current = new TimelineMax({ paused: true })
       .add("showNavElems-start") // showNav - START
-      // TODO: wait for GSAP response
-      // .to(".nav-bar", 0.01, { autoAlpha: 1 }, "showNavElems-start")
       .staggerFromTo(
         ".logo-items",
         0.5,
@@ -74,9 +72,6 @@ export const useNavAnims = state => {
         { autoAlpha: 0, x: -40, y: 0, immediateRender: true },
         "menuExpand-start"
       )
-      // TODO: wait for GSAP response
-      // .to(".nav-bar", 0.3, { height: "100%" }, "menuExpand-start")
-      // .add("menuExpand-close")
       .staggerFromTo(
         ".menu-items",
         0.5,
@@ -94,29 +89,23 @@ export const useNavAnims = state => {
     }
   }, [])
 
-  // set variables for prod env.  Substate undfined on build
-  const navVisible = state.navVisible ? state.navVisible : false
-  const menuExpanded = state.menuExpanded ? state.menuExpanded : false
-  const isMobile = state.isMobile ? state.isMobile : false
-  const isDesktop = state.isDesktop ? state.isDesktop : false
-
   // gsap animation - nav header.  Triggers on showNav and when window is mobile
   useLayoutEffect(() => {
-    if (isDesktop) {
+    if (state.isDesktop) {
       tl_nav_desktop.current.tweenFromTo(
         "showNavElems-desktop-start",
         "showNavElems-desktop-end"
       )
     } else {
-      navVisible
+      state.navVisible
         ? tl_nav.current.tweenFromTo("showNavElems-start", "showNavElems-end")
         : tl_nav.current.pause("showNavElems-start")
     }
-  }, [navVisible, isMobile, isDesktop])
+  }, [state.navVisible, state.isMobile, state.isDesktop])
   // gsap animation - mobile menu.  Triggers on state.menuExpanded
   useLayoutEffect(() => {
-    menuExpanded
+    state.menuExpanded
       ? tl_menu.current.tweenFromTo("menuExpand-start", "menuExpand-end")
       : tl_menu.current.pause("menuExpand-start")
-  }, [menuExpanded])
+  }, [state.menuExpanded])
 }

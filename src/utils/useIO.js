@@ -1,13 +1,18 @@
 import { useEffect } from "react"
 import "intersection-observer"
 
-export const useIntersectionObserver = (dispatch, state, target, onToggleNav) =>
+export const useIntersectionObserver = (
+  dispatch,
+  isDesktop,
+  target,
+  onToggleNav
+) =>
   useEffect(() => {
     // mount
     const io = new IntersectionObserver(
       ([entry]) => {
         // function dispatches to reducer in useStore.js
-        if (!state.isDesktop) {
+        if (!isDesktop) {
           onToggleNav(dispatch, !entry.isIntersecting)
         }
       },
@@ -16,4 +21,4 @@ export const useIntersectionObserver = (dispatch, state, target, onToggleNav) =>
     io.observe(target.current)
     // unmount
     return () => io.disconnect()
-  }, [dispatch, state, target, onToggleNav])
+  }, [dispatch, isDesktop, target, onToggleNav])
