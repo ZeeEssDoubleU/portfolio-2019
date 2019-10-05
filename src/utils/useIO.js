@@ -21,5 +21,5 @@ export const useIntersectionObserver = (
     io.observe(target.current)
     // unmount
     return () => io.disconnect()
-  }, [dispatch, state.isDesktop, target, onToggleNav])
+  }, [dispatch, state, target, onToggleNav])
 }
