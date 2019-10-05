@@ -1,6 +1,18 @@
 // @ts-nocheck
 import React, { createContext, useReducer, useContext } from "react"
-import { ThemeContext } from "styled-components"
+import { theme } from "../styles/theme"
+
+// combine Init states
+let initState = { navVisible: false, menuExpanded: false }
+if (typeof window !== "undefined") {
+  initState = {
+    ...initState,
+    windowWidth: window.innerWidth,
+    windowHeight: window.innerHeight,
+    isMobile: window.innerWidth < theme.tablet,
+    isDesktop: window.innerWidth >= theme.desktop,
+  }
+}
 
 // action types
 const TOGGLE_NAV = "TOGGLE_NAV"
@@ -16,18 +28,18 @@ export const onToggleNav = (dispatch, payload) =>
 export const onToggleMenu = (dispatch, payload) =>
   dispatch({ type: TOGGLE_MENU, payload })
 
-export const onWindowResize = (dispatch, themeContext) => {
+export const onWindowResize = dispatch => {
   if (typeof window !== "undefined") {
     dispatch({ type: WINDOW_WIDTH, payload: window.innerWidth })
     dispatch({ type: WINDOW_HEIGHT, payload: window.innerHeight })
-    window.innerWidth < themeContext.tablet
+    window.innerWidth < theme.tablet
       ? dispatch({ type: IS_MOBILE, payload: true })
       : dispatch({ type: IS_MOBILE, payload: false })
-    window.innerWidth >= themeContext.desktop
+    window.innerWidth >= theme.desktop
       ? dispatch({ type: IS_DESKTOP, payload: true })
       : dispatch({ type: IS_DESKTOP, payload: false })
     // close mobile menu when on tablet or bigger
-    if (window.innerWidth >= themeContext.tablet) {
+    if (window.innerWidth >= theme.tablet) {
       onToggleMenu(dispatch, false)
     }
   }
@@ -58,20 +70,6 @@ const StoreContext = createContext(null)
 
 // component to wrap upper level root component with Provider
 export const StoreProvider = ({ children }) => {
-  const themeContext = useContext(ThemeContext)
-
-  let initState
-  if (typeof window !== "undefined") {
-    initState = {
-      navVisible: false,
-      menuExpanded: false,
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      isMobile: window.innerWidth < themeContext.tablet,
-      isDesktop: window.innerWidth >= themeContext.desktop,
-    }
-  }
-
   const [state, dispatch] = useReducer(reducer, initState)
 
   return (
