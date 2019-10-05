@@ -95,10 +95,10 @@ export const useNavAnims = state => {
   }, [])
 
   // set variables for prod env.  Substate undfined on build
-  const navVisible = state ? state.navVisible : false
-  const menuExpanded = state ? state.menuExpanded : false
-  const isMobile = state ? state.isMobile : false
-  const isDesktop = state ? state.isDesktop : false
+  const navVisible = state.navVisible ? state.navVisible : false
+  const menuExpanded = state.menuExpanded ? state.menuExpanded : false
+  const isMobile = state.isMobile ? state.isMobile : false
+  const isDesktop = state.isDesktop ? state.isDesktop : false
 
   // gsap animation - nav header.  Triggers on showNav and when window is mobile
   useLayoutEffect(() => {
