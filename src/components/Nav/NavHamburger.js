@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"
 // import store
-import { useStore, onToggleMenu } from "../../store/useStore"
+import { useStore, onToggleMenu } from "../../store/useStore" // import store / utils
+import { useMenuExpandAnim } from "../../utils/useNavAnims"
 
 // styled components
 // variables for quick customization of hamburger
@@ -73,7 +74,7 @@ const NavHamburger = props => {
 
   // componentDidUpdate.  Play/reverse timeline
   useEffect(() => {
-    state.menuExpanded === true ? tl.current.play() : tl.current.reverse()
+    state.menuExpanded ? tl.current.play() : tl.current.reverse()
   }, [state.menuExpanded])
 
   // // DEBUG

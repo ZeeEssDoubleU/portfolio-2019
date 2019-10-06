@@ -6,7 +6,7 @@ export const useIntersectionObserver = (
   isDesktop,
   target,
   onToggleNav
-) =>
+) => {
   useEffect(() => {
     // mount
     const io = new IntersectionObserver(
@@ -22,3 +22,4 @@ export const useIntersectionObserver = (
     // unmount
     return () => io.disconnect()
   }, [dispatch, isDesktop, target, onToggleNav])
+}

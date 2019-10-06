@@ -12,7 +12,6 @@ import Contact from "./Contact/Contact"
 // import store / utils
 import { useStore, onToggleNav } from "../store/useStore"
 import { useIntersectionObserver } from "../utils/useIO"
-import { useNavAnims } from "../utils/useNavAnims"
 import { useWindowResize } from "../utils/useWindowResize"
 
 // exported component
@@ -27,9 +26,6 @@ const Layout = props => {
   // intersection obserserver - toggles Nav
   const ioTarget = useRef(null)
   useIntersectionObserver(dispatch, state.isDesktop, ioTarget, onToggleNav)
-
-  // navigation animations
-  useNavAnims(state, themeContext)
 
   return (
     <>

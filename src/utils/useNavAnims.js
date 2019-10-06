@@ -1,10 +1,9 @@
 import { useLayoutEffect, useRef } from "react"
 import { TimelineMax } from "gsap"
 
-export const useNavAnims = state => {
+export const useShowNavAnim = state => {
   const tl_nav = useRef(null)
   const tl_nav_desktop = useRef(null)
-  const tl_menu = useRef(null)
   // componentDidMount.  Create nav and menu animation timelines
   useLayoutEffect(() => {
     // nav animation
@@ -63,6 +62,30 @@ export const useNavAnims = state => {
       )
       .add("showNavElems-desktop-end") // showNav - desktop - END
 
+    return () => {
+      tl_nav.current.kill()
+      tl_nav_desktop.current.kill()
+    }
+  }, [])
+
+  // gsap animation - nav header.  Triggers on showNav and when window is mobile
+  useLayoutEffect(() => {
+    if (state.isDesktop) {
+      tl_nav_desktop.current.tweenFromTo(
+        "showNavElems-desktop-start",
+        "showNavElems-desktop-end"
+      )
+    } else {
+      state.navVisible
+        ? tl_nav.current.tweenFromTo("showNavElems-start", "showNavElems-end")
+        : tl_nav.current.pause("showNavElems-start")
+    }
+  }, [state.navVisible, state.isMobile, state.isDesktop])
+}
+export const useMenuExpandAnim = state => {
+  const tl_menu = useRef(null)
+  // componentDidMount.  Create nav and menu animation timelines
+  useLayoutEffect(() => {
     // menu expand animation
     tl_menu.current = new TimelineMax({ paused: true })
       .add("menuExpand-start") // menuExpand - START
@@ -83,25 +106,10 @@ export const useNavAnims = state => {
       .add("menuExpand-end") // menuExpand - END
 
     return () => {
-      tl_nav.current.kill()
-      tl_nav_desktop.current.kill()
       tl_menu.current.kill()
     }
   }, [])
 
-  // gsap animation - nav header.  Triggers on showNav and when window is mobile
-  useLayoutEffect(() => {
-    if (state.isDesktop) {
-      tl_nav_desktop.current.tweenFromTo(
-        "showNavElems-desktop-start",
-        "showNavElems-desktop-end"
-      )
-    } else {
-      state.navVisible
-        ? tl_nav.current.tweenFromTo("showNavElems-start", "showNavElems-end")
-        : tl_nav.current.pause("showNavElems-start")
-    }
-  }, [state.navVisible, state.isMobile, state.isDesktop])
   // gsap animation - mobile menu.  Triggers on state.menuExpanded
   useLayoutEffect(() => {
     state.menuExpanded

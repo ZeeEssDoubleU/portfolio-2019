@@ -6,8 +6,9 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import NavLogo from "./NavLogo"
 import NavHamburger from "./NavHamburger"
 import NavMenu from "./NavMenu"
-// import store
+// import store / utils
 import { useStore } from "../../store/useStore"
+import { useShowNavAnim, useMenuExpandAnim } from "../../utils/useNavAnims"
 
 const NavBar = styled.div`
   overflow: auto;
@@ -62,6 +63,10 @@ const Nav = props => {
       ? disableBodyScroll(targetElem)
       : enableBodyScroll(targetElem)
   }, [state.menuExpanded])
+
+  // navigation animations
+  useShowNavAnim(state)
+  useMenuExpandAnim(state)
 
   return (
     <NavBar
