@@ -43,7 +43,7 @@ const Contact = props => {
   const data = useStaticQuery(graphql`
     # query for background image using gatsby-source-contentful
     {
-      datoCmsAsset(title: { eq: "stripes background" }) {
+      datoCmsAsset(path: { regex: "/stripes.svg/" }) {
         url
       }
     }
