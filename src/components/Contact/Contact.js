@@ -39,18 +39,19 @@ const Copyright = styled.p`
 `
 
 const Contact = props => {
-  const currentDate = new Date().getFullYear()
-  const data = useStaticQuery(graphql`
-    # query for background image using gatsby-source-contentful
+  const query = graphql`
     {
       datoCmsAsset(path: { regex: "/stripes.svg/" }) {
         url
       }
     }
-  `)
+  `
+  const { datoCmsAsset } = useStaticQuery(query)
+
+  const currentDate = new Date().getFullYear()
 
   return (
-    <StyledSection tabIndex={-1} id="contact" bgSvgUrl={data.datoCmsAsset.url}>
+    <StyledSection tabIndex={-1} id="contact" bgSvgUrl={datoCmsAsset.url}>
       <DesktopWrapper>
         <Layout>
           <Header>get in touch</Header>

@@ -65,8 +65,7 @@ const Highlight = styled.span`
 `
 
 const About = props => {
-  const data = useStaticQuery(graphql`
-    # query for background image using gatsby-source-contentful
+  const query = graphql`
     {
       datoCmsAsset(path: { regex: "/selfie-tinted.png/" }) {
         fluid(maxWidth: 1400) {
@@ -74,7 +73,8 @@ const About = props => {
         }
       }
     }
-  `)
+  `
+  const { datoCmsAsset } = useStaticQuery(query)
 
   return (
     <Section id="about">
@@ -83,9 +83,9 @@ const About = props => {
           <Header>about</Header>
           <Bio>
             <Selfie
-              title="Selfie"
-              fluid={{ ...data.datoCmsAsset.fluid }}
-              alt="selfie photo of developer"
+              title="selfie"
+              fluid={{ ...datoCmsAsset.fluid }}
+              alt="selfie photo of developer with dark filter"
             />
             <div>
               <p className="bio-name">Zachary Williams</p>

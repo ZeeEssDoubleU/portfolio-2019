@@ -56,19 +56,20 @@ const StyledLayout = styled(Layout)`
 `
 
 const Landing = (props, ref) => {
-  const data = useStaticQuery(graphql`
-    # query for background image using gatsby-source-contentful
+  const query = graphql`
     {
       datoCmsAsset(path: { regex: "/stripes.svg/" }) {
         url
       }
     }
-  `)
+  `
+  const { datoCmsAsset } = useStaticQuery(query)
+
   return (
     // ref forwarded from parent
     <StyledSection id="landing">
       <StyledDesktopWrapper>
-        <StyledLayout bgSvgUrl={data.datoCmsAsset.url}>
+        <StyledLayout bgSvgUrl={datoCmsAsset.url}>
           <Icon name="logo-landing" className="logo" />
           <a
             href="#about"

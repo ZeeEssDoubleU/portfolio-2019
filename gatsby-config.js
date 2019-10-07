@@ -6,8 +6,29 @@ if (process.env.NODE_ENV !== "production") {
 module.exports = {
   siteMetadata: {
     title: `Web Developer | Zachary Williams | New York City`,
+    description:
+      "Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more.",
+    url: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
+    image: "./static/favicon.svg", // Path to your image you placed in the 'static' folder
+    themeColor: "linear-gradient(153deg, #323232 0%, black 100vh)",
+    keywords:
+      "react developer, javascript developer, front end developer, web developer, freelance web developer, web developer new york city, new york city, new york city web development, gatsby developer, developer for hire",
+    lang: "en",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Web Developer | Zachary Williams`,
+        short_name: `Zachary Williams`,
+        start_url: `/`,
+        background_color: `linear-gradient(153deg, #323232 0%, black 100vh)`,
+        theme_color: `#hsl(167, 73%, 60%)`,
+        display: `standalone`,
+        icon: `./static/favicon.svg`, // This path is relative to the root of the site.
+      },
+    },
+    "gatsby-plugin-offline",
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

@@ -15,9 +15,7 @@ import GlobalStyle, {
 } from "../../styles/global"
 
 const Projects = props => {
-  // gql query for project data
-  const data = useStaticQuery(graphql`
-    # new query using gatsby-source-contentful
+  const query = graphql`
     {
       allDatoCmsProject {
         edges {
@@ -32,7 +30,8 @@ const Projects = props => {
         }
       }
     }
-  `)
+  `
+  const { allDatoCmsProject } = useStaticQuery(query)
 
   const [activeIndex, setActiveIndex] = useState()
   const [showMoreIndex, setShowMoreIndex] = useState(5)
@@ -40,10 +39,10 @@ const Projects = props => {
   // display 'show more' button if all projects aren't shown
   // display nothing if all project are shown
   const isHidden =
-    data.allDatoCmsProject.edges.length <= showMoreIndex ? true : false
+    allDatoCmsProject.edges.length <= showMoreIndex ? true : false
 
   // array to display projects below in render
-  const projectArray = data.allDatoCmsProject.edges
+  const projectArray = allDatoCmsProject.edges
     .slice(0, showMoreIndex)
     .map((edge, index) => {
       const project = edge.node
