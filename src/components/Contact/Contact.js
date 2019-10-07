@@ -58,7 +58,13 @@ const Contact = props => {
           <Body>
             <ContactForm />
           </Body>
-          <ButtonOrLink button icon="check" type="submit" form="contact-form">
+          <ButtonOrLink
+            button
+            icon="check"
+            type="submit"
+            form="contact-form"
+            aria-label="submit contact form"
+          >
             submit
           </ButtonOrLink>
           <Social />

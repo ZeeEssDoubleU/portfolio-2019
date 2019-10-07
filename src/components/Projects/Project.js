@@ -50,6 +50,7 @@ const Project = props => {
       <Icon
         className="project-ellipsis"
         name="ellipsis"
+        aria-label={`show ${props.title} project info panel`}
         onClick={() => props.toggleClass(props.index)}
       />
       {/* creates modal on portal root if className contains active */}

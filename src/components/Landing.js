@@ -73,6 +73,7 @@ const Landing = (props, ref) => {
           <Icon name="logo-landing" className="logo" />
           <a
             href="#about"
+            aria-label="scroll to about section"
             onClick={e => {
               e.preventDefault()
               if (window.scrollY >= window.innerHeight) return

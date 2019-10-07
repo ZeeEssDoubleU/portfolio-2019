@@ -55,6 +55,7 @@ const NavMenu = props => {
       <a
         className="menu-items menu-home"
         href="#landing"
+        aria-label="scroll to home section"
         onClick={e => {
           e.preventDefault()
           onToggleMenu(dispatch, false)
@@ -66,6 +67,7 @@ const NavMenu = props => {
       <a
         className="menu-items"
         href="#about"
+        aria-label="scroll to about section"
         onClick={e => {
           e.preventDefault()
           onToggleMenu(dispatch, false)
@@ -77,6 +79,7 @@ const NavMenu = props => {
       <a
         className="menu-items"
         href="#projects"
+        aria-label="scroll to projects section"
         onClick={e => {
           e.preventDefault()
           onToggleMenu(dispatch, false)
@@ -88,6 +91,7 @@ const NavMenu = props => {
       <a
         className="menu-items"
         href="#contact"
+        aria-label="scroll to contact section"
         onClick={e => {
           e.preventDefault()
           onToggleMenu(dispatch, false)

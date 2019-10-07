@@ -112,6 +112,7 @@ const About = props => {
             link
             icon="email"
             href="#contact"
+            aria-label="scroll to contact section"
             onClick={e => {
               e.preventDefault()
               // only run on mobile mode

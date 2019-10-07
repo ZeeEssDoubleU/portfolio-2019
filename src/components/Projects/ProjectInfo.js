@@ -131,6 +131,7 @@ const ProjectInfo = props => {
               link
               as="a"
               href={props.link}
+              aria-label={`external link to ${props.title} project`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -145,6 +146,7 @@ const ProjectInfo = props => {
       </div>
       <div className="project-info-footer">
         <button
+          aria-label={`close ${props.title} project info panel`}
           onClick={() => {
             // timeout set equal to portal gsap animation
             setTimeout(() => props.toggleClass(), 300)

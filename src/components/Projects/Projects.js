@@ -81,6 +81,7 @@ const Projects = props => {
                 button
                 icon="plus"
                 hidden={isHidden}
+                aria-label="show more project"
                 onClick={() => setShowMoreIndex(showMoreIndex + 5)}
               >
                 show more

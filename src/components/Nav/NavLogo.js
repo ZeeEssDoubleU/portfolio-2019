@@ -63,7 +63,7 @@ const NavLogo = props => {
   return (
     <Container
       href="#landing"
-      aria-label='home'
+      aria-label='scroll to home section'
       onClick={e => {
         e.preventDefault()
         onToggleMenu(dispatch, false)
