@@ -22,8 +22,8 @@ const StyledLayout = styled(Layout)`
   background: black bottom/cover url(${props => props.bgSvgUrl});
   /* svg icons down in component */
   .logo {
-    width: calc(0.7 * 100vw);
-    max-width: calc(0.4 * 100vh);
+    width: 70%;
+    max-width: 40%;
     max-height: 868px;
   }
   .arrow-down {

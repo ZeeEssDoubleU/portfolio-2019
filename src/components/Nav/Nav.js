@@ -16,7 +16,7 @@ const NavBar = styled.div`
   position: fixed;
   z-index: 99;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: ${props => (props.menuExpanded ? "100%" : "80px")};
   background: ${props => props.theme.appBgDark};
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);

@@ -29,7 +29,7 @@ export default createGlobalStyle`
             left: 0;
             /* use 100% vs 100vh because mobile browsers use % to read VISIBLE space */
             height: 100%;
-            width: 100vw;
+            width: 100%;
             background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
          }
       }

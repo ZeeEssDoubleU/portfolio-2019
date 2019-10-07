@@ -13,7 +13,7 @@ const Modal = styled.div`
   /* modal positioned relative to #portal */
   position: absolute;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   color: ${props => props.theme.appTextWhiteL};
   .project-info {
     height: calc(100% - 70px);
@@ -35,11 +35,11 @@ const Modal = styled.div`
       justify-items: center;
       grid-gap: 30px;
       .project-image {
-        content: "";
-        width: calc(0.5 * 100vw);
-        height: calc(0.5 * 100vw);
-        max-width: calc(0.3 * 100vh);
-        max-height: calc(0.3 * 100vh);
+        /* TODO: change vw to % when images are added */
+        width: 50vw;
+        height: 50vw;
+        max-width: 30vh;
+        max-height: 30vh;
         background: ${props => props.theme.appGreenBlue};
       }
       .project-info-header {
