@@ -23,7 +23,7 @@ const StyledLayout = styled(Layout)`
   /* svg icons down in component */
   .logo {
     width: 70%;
-    max-width: 40%;
+    max-width: calc(0.4 * 100vh);
     max-height: 868px;
   }
   .arrow-down {

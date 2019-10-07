@@ -11,7 +11,7 @@ const Grid = styled.form`
   .form-label {
     position: absolute;
     top: 0;
-    left: -500vh;
+    left: -100vw;
   }
   .form-field {
     width: 100%;
