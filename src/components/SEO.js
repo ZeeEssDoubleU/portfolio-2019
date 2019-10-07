@@ -26,7 +26,7 @@ const SEO = props => {
       <meta name="description" content={siteMetadata.description} />
       <meta name="image" content={siteMetadata.image} />
       <meta name="theme-color" content={siteMetadata.themeColor} />
-      <meta name="lang" content={siteMetadata.lang} />
+      <html lang={siteMetadata.lang} />
       <meta name="keywords" content={siteMetadata.keywords} />
 
       <meta property="og:url" content={siteMetadata.url} />

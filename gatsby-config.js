@@ -22,8 +22,8 @@ module.exports = {
         name: `Web Developer | Zachary Williams`,
         short_name: `Zachary Williams`,
         start_url: `/`,
-        background_color: `linear-gradient(153deg, #323232 0%, black 100vh)`,
-        theme_color: `#hsl(167, 73%, 60%)`,
+        background_color: `black`,
+        theme_color: `hsl(167, 73%, 60%)`,
         display: `standalone`,
         icon: `./static/favicon.svg`, // This path is relative to the root of the site.
       },
