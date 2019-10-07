@@ -10,7 +10,8 @@ export default createGlobalStyle`
          font-family: Avenir;
          background: black;
          /* handles scroll behavior when app menu is open */
-         overflow: ${props =>
+         overflow-x: hidden;
+         overflow-y: ${props =>
            props.menuExpanded || Number.isInteger(props.activeIndex)
              ? "hidden"
              : "auto"};
