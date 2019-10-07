@@ -7,6 +7,7 @@ export const theme = {
   appGreen: "hsl(167, 73%, 60%)",
   appGreenPartial: "167, 73%, 60%",
   appBlue: "hsl(231, 95%, 62%)",
+  appBlueText: "hsl(231, 95%, 75%)",
   appBluePartial: "231, 95%, 62%",
   appGreenBlue: `linear-gradient(to right, hsl(167, 73%, 60%) 0%, hsl(231, 95%, 62%) 100%)`,
   appBlueGreen: `linear-gradient(to right, hsl(231, 95%, 62%) 0%, hsl(167, 73%, 60%) 100%)`,

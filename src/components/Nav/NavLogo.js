@@ -63,6 +63,7 @@ const NavLogo = props => {
   return (
     <Container
       href="#landing"
+      aria-label='home'
       onClick={e => {
         e.preventDefault()
         onToggleMenu(dispatch, false)

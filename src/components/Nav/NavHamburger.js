@@ -83,6 +83,7 @@ const NavHamburger = props => {
   return (
     <Container
       className="nav-hamburger"
+      aria-label={!state.menuExpanded ? "open nav menu" : "close nav menu"}
       onClick={() => onToggleMenu(dispatch, !state.menuExpanded)}
     >
       <Inner>
