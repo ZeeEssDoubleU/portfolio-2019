@@ -23,7 +23,6 @@ const Border = styled.a`
   border-radius: 50%;
   margin: 10px 10px;
   cursor: pointer;
-  /* hover effect */
   transition: transform 0.2s;
   &:hover,
   &:active {
@@ -38,7 +37,6 @@ const Inner = styled.div`
   height: 38px;
   width: 38px;
   border-radius: 50%;
-  /* hover effect */
   .social-icon {
     position: absolute;
     /* center element */

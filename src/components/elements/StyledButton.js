@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react"
 import styled from "styled-components"
 
@@ -5,19 +6,17 @@ import styled from "styled-components"
 import Icon from "../Icons/Icon"
 
 // styled components
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
   justify-self: end;
   height: 65px;
   color: ${props => props.theme.appBlue};
   font-size: 18px;
-  text-decoration: none;
   background: hsla(${props => props.theme.appBgDarkPartial}, 0.5);
   padding: 20px 24px;
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 ${props => props.theme.appShadowWhite};
   cursor: pointer;
-  /* hover effect */
   transition: color 0.3s;
   .action-grid {
     display: grid;
@@ -46,14 +45,11 @@ export const Wrapper = styled.div`
   }
 `
 
-const ButtonOrLink = props => (
+const Button = props => (
   <Wrapper
-    as={props.link ? "a" : "button"}
     type={props.type}
     form={props.form}
-    href={props.href}
     target={props.target}
-    rel={props.rel}
     onClick={props.onClick}
   >
     <div className="action-grid">
@@ -63,4 +59,4 @@ const ButtonOrLink = props => (
   </Wrapper>
 )
 
-export default ButtonOrLink
+export default Button

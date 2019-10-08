@@ -2,9 +2,9 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import { scrollToAnim } from "../utils/scrollToAnim"
 // import components
 import Icon from "./Icons/Icon"
+import InternalLink from "./elements/InternalLink"
 // import styles
 import { Section, Layout, DesktopWrapper } from "../styles/global"
 
@@ -54,7 +54,7 @@ const StyledLayout = styled(Layout)`
   }
 `
 
-const Landing = (props, ref) => {
+const Landing = props => {
   const query = graphql`
     {
       datoCmsAsset(path: { regex: "/stripes.svg/" }) {
@@ -70,17 +70,12 @@ const Landing = (props, ref) => {
       <StyledDesktopWrapper>
         <StyledLayout bgSvgUrl={datoCmsAsset.url}>
           <Icon name="logo-landing" className="logo" />
-          <a
-            href="#about"
-            aria-label="scroll to about section"
-            onClick={e => {
-              e.preventDefault()
-              if (window.scrollY >= window.innerHeight) return
-              scrollToAnim(null, "#about")
-            }}
+          <InternalLink
+            href="about"
+            cancelParam={() => window.scrollY <= window.innerHeight}
           >
             <Icon name="arrow-down" className="arrow-down" />
-          </a>
+          </InternalLink>
         </StyledLayout>
       </StyledDesktopWrapper>
     </StyledSection>

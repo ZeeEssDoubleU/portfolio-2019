@@ -1,21 +1,22 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
-import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
-import { useStore, onToggleMenu } from "../../store/useStore"
+import { useStore } from "../../store/useStore"
+// import components
+import InternalLink from "../elements/InternalLink"
 
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
   grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};
   grid-row-gap: 60px;
   justify-items: center;
-  .menu-items {
+  .menu-link {
     font-size: ${props => (props.menuExpanded ? "1.5em" : "inherit")};
     color: ${props => props.theme.appBlue};
     text-decoration: none;
     cursor: pointer;
-    /* hover effect */
+    
     transition: color 0.2s;
     &:hover,
     &:active {
@@ -37,7 +38,7 @@ const Container = styled.div`
     grid-area: 2/1 / 3/2;
     grid-template-columns: auto;
     align-self: start;
-    .menu-items {
+    .menu-link {
       opacity: 0;
       &.menu-home {
         display: inherit;
@@ -47,59 +48,23 @@ const Container = styled.div`
 `
 
 const NavMenu = props => {
-  const { state, dispatch } = useStore()
+  const { state } = useStore()
 
   // TODO: add active state to menu items when section in view
   return (
     <Container menuExpanded={state.menuExpanded}>
-      <a
-        className="menu-items menu-home"
-        href="#landing"
-        aria-label="scroll to home section"
-        onClick={e => {
-          e.preventDefault()
-          onToggleMenu(dispatch, false)
-          scrollToAnim(state.menuExpanded, "#landing")
-        }}
-      >
+      <InternalLink className="menu-link menu-home" href="landing">
         Home
-      </a>
-      <a
-        className="menu-items"
-        href="#about"
-        aria-label="scroll to about section"
-        onClick={e => {
-          e.preventDefault()
-          onToggleMenu(dispatch, false)
-          scrollToAnim(state.menuExpanded, "#about")
-        }}
-      >
+      </InternalLink>
+      <InternalLink className="menu-link" href="about">
         About
-      </a>
-      <a
-        className="menu-items"
-        href="#projects"
-        aria-label="scroll to projects section"
-        onClick={e => {
-          e.preventDefault()
-          onToggleMenu(dispatch, false)
-          scrollToAnim(state.menuExpanded, "#projects")
-        }}
-      >
+      </InternalLink>
+      <InternalLink className="menu-link" href="projects">
         Projects
-      </a>
-      <a
-        className="menu-items"
-        href="#contact"
-        aria-label="scroll to contact section"
-        onClick={e => {
-          e.preventDefault()
-          onToggleMenu(dispatch, false)
-          scrollToAnim(state.menuExpanded, "#contact")
-        }}
-      >
+      </InternalLink>
+      <InternalLink className="menu-link" href="contact">
         Contact
-      </a>
+      </InternalLink>
     </Container>
   )
 }

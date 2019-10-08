@@ -25,7 +25,7 @@ export const useShowNavAnim = state => {
         "showNavElems-start"
       )
       .staggerFromTo(
-        ".menu-items",
+        ".menu-link",
         0.5,
         { autoAlpha: 0, x: 0, y: -40 },
         { autoAlpha: 1, x: 0, y: 0 },
@@ -53,7 +53,7 @@ export const useShowNavAnim = state => {
         "showNavElems-desktop-start"
       )
       .staggerFromTo(
-        ".menu-items",
+        ".menu-link",
         0.5,
         { autoAlpha: 0, x: -40, y: 0 },
         { autoAlpha: 1, x: 0, y: 0 },
@@ -90,13 +90,13 @@ export const useMenuExpandAnim = state => {
     tl_menu.current = new TimelineMax({ paused: true })
       .add("menuExpand-start") // menuExpand - START
       .to(
-        ".menu-items",
+        ".menu-link",
         0.01,
         { autoAlpha: 0, x: -40, y: 0, immediateRender: true },
         "menuExpand-start"
       )
       .staggerFromTo(
-        ".menu-items",
+        ".menu-link",
         0.5,
         { autoAlpha: 0, x: -40, y: 0 },
         { autoAlpha: 1, x: 0, y: 0 },

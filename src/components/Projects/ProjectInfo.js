@@ -4,7 +4,8 @@ import styled from "styled-components"
 import { TimelineLite } from "gsap"
 
 // import components
-import { Wrapper } from "../elements/ButtonOrLink"
+import { Wrapper } from "../elements/StyledButton"
+import ExternalLink from "../elements/InternalLink"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 
@@ -90,10 +91,8 @@ const Modal = styled.div`
     }
   }
 `
-// Wrapper styled-component pulled from ButtonOrLink component style
-const ButtonOrLink = styled(Wrapper)`
-  display: inline-block;
-  margin-right: 0;
+// Wrapper styled-component pulled from Button component style
+const ProjectButton = styled(Wrapper)`
   border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
   transition: color 0.2s, border-color 0.2s;
   &:hover {
@@ -130,16 +129,9 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <ButtonOrLink
-              link
-              as="a"
-              href={props.link}
-              aria-label={`external link to ${props.title} project`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              view project
-            </ButtonOrLink>
+            <ExternalLink external href={props.link}>
+              <ProjectButton>view project</ProjectButton>
+            </ExternalLink>
           </div>
           <div className="project-info-details">
             <h3>Development Tools</h3>

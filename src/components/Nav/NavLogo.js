@@ -1,12 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { scrollToAnim } from "../../utils/scrollToAnim"
 // import components
 import Icon from "../Icons/Icon"
-// import store
-import { useStore, onToggleMenu } from "../../store/useStore"
+import InternalLink from "../elements/InternalLink"
 
-const Container = styled.a`
+const Container = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 7px;
@@ -14,7 +12,7 @@ const Container = styled.a`
   height: 80px;
   text-decoration: none;
   cursor: pointer;
-  /* hover effect */
+  
   transition: transform 0.2s, opacity 0.2s;
   &:hover {
     opacity: 0.7;
@@ -58,24 +56,16 @@ const Container = styled.a`
 `
 
 const NavLogo = props => {
-  const { state, dispatch } = useStore()
-
   return (
-    <Container
-      href="#landing"
-      aria-label='scroll to home section'
-      onClick={e => {
-        e.preventDefault()
-        onToggleMenu(dispatch, false)
-        scrollToAnim(state.menuExpanded, "#landing")
-      }}
-    >
-      <span className="logo-items first-name">Zachary</span>
-      <span className="logo-items">
-        <Icon className="logo" name="logo-nav" />
-      </span>
-      <span className="logo-items last-name">Williams</span>
-    </Container>
+    <InternalLink href="landing">
+      <Container>
+        <span className="logo-items first-name">Zachary</span>
+        <span className="logo-items">
+          <Icon className="logo" name="logo-nav" />
+        </span>
+        <span className="logo-items last-name">Williams</span>
+      </Container>
+    </InternalLink>
   )
 }
 

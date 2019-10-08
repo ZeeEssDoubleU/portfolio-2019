@@ -3,15 +3,20 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { scrollToAnim } from "../utils/scrollToAnim"
 
 // import components
-import ButtonOrLink from "./elements/ButtonOrLink"
+import InternalLink from "./elements/InternalLink"
+import StyledButton from "./elements/StyledButton"
 import Icon from "./Icons/Icon"
 // import styles
 import { Section, Layout, Header, Body, DesktopWrapper } from "../styles/global"
 
 // styled components
+const StyledLayout = styled(Layout)`
+  .link-contact-me {
+    justify-self: end;
+  }
+`
 const Bio = styled(Body)`
   display: grid;
   grid-template-rows: auto auto;
@@ -79,7 +84,7 @@ const About = props => {
   return (
     <Section id="about">
       <DesktopWrapper>
-        <Layout>
+        <StyledLayout>
           <Header>about</Header>
           <Bio>
             <Selfie
@@ -108,24 +113,10 @@ const About = props => {
               </p>
             </div>
           </Bio>
-          <ButtonOrLink
-            link
-            icon="email"
-            href="#contact"
-            aria-label="scroll to contact section"
-            onClick={e => {
-              e.preventDefault()
-              // only run on mobile mode
-              scrollToAnim(null, "#contact")
-              setTimeout(() => document.querySelector("#name").focus(), 700)
-              // only run on tablet or greater mode
-              // showSection("contact")
-              // setTimeout(() => document.querySelector("#name").focus(), 1000)
-            }}
-          >
-            contact me
-          </ButtonOrLink>
-        </Layout>
+          <InternalLink href="contact" className="link-contact-me">
+            <StyledButton icon="email">contact me</StyledButton>
+          </InternalLink>
+        </StyledLayout>
       </DesktopWrapper>
     </Section>
   )

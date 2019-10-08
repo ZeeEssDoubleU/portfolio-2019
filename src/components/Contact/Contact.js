@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
-import ButtonOrLink from "../elements/ButtonOrLink"
+import StyledButton from "../elements/StyledButton"
 import Icon from "../Icons/Icon"
 import ContactForm from "./ContactForm"
 import Social from "../elements/Social"
@@ -58,15 +58,15 @@ const Contact = props => {
           <Body>
             <ContactForm />
           </Body>
-          <ButtonOrLink
-            button
+          <StyledButton
             icon="check"
             type="submit"
             form="contact-form"
             aria-label="submit contact form"
+            justifySelf="end"
           >
             submit
-          </ButtonOrLink>
+          </StyledButton>
           <Social />
           <Copyright>
             Zachary Williams{" "}

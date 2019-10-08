@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 // import components
-import ButtonOrLink from "../elements/ButtonOrLink"
+import StyledButton from "../elements/StyledButton"
 import Project from "./Project"
 // import styles
 import GlobalStyle, {
@@ -77,15 +77,14 @@ const Projects = props => {
             <Header>projects</Header>
             <Body>{projectArray}</Body>
             {!isHidden && (
-              <ButtonOrLink
-                button
+              <StyledButton
                 icon="plus"
                 hidden={isHidden}
-                aria-label="show more project"
+                aria-label="show more projects"
                 onClick={() => setShowMoreIndex(showMoreIndex + 5)}
               >
                 show more
-              </ButtonOrLink>
+              </StyledButton>
             )}
           </Layout>
         </DesktopWrapper>
