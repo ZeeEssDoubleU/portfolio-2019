@@ -3,6 +3,7 @@ import styled, { withTheme } from "styled-components"
 
 // import components
 import Icon from "../Icons/Icon"
+import Link from "../elements/Link"
 
 // styled components
 const Container = styled.div`
@@ -11,27 +12,28 @@ const Container = styled.div`
   height: fit-content;
   flex-wrap: wrap;
   justify-content: center;
-`
-const Border = styled.a`
-  position: relative;
-  background: linear-gradient(
-    to left,
-    hsla(${props => props.theme.appGreenPartial}, 0.5),
-    hsla(${props => props.theme.appBluePartial}, 0.5)
-  );
-  padding: 1px;
-  border-radius: 50%;
-  margin: 10px 10px;
-  cursor: pointer;
-  transition: transform 0.2s;
-  &:hover,
-  &:active {
-    transform: scale(1.2);
+  .social-link {
+    position: relative;
+    background: linear-gradient(
+      to left,
+      hsla(${props => props.theme.appGreenPartial}, 0.5),
+      hsla(${props => props.theme.appBluePartial}, 0.5)
+    );
+    padding: 1px;
+    border-radius: 50%;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    &:hover,
+    &:active {
+      transform: scale(1.2);
+    }
+    @media (min-width: ${props => props.theme.tablet + "px"}) {
+      margin: 10px 20px;
+    }
   }
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    margin: 10px 20px;
-  }
 `
+
 const Inner = styled.div`
   background: ${props => props.theme.appBgDark};
   height: 38px;
@@ -52,50 +54,50 @@ const Inner = styled.div`
 const Social = props => {
   return (
     <Container>
-      <Border
+      <Link
+        external
+        className="social-link"
         tabIndex={0}
         aria-label="github profile"
         href="https://github.com/ZeeEssDoubleU"
-        target="_blank"
-        rel="noopener noreferrer"
       >
         <Inner>
           <Icon name="github" className="social-icon" />
         </Inner>
-      </Border>
-      <Border
+      </Link>
+      <Link
+        external
+        className="social-link"
         tabIndex={0}
         aria-label="linkedin profile"
         href="https://www.linkedin.com"
-        target="_blank"
-        rel="noopener noreferrer"
       >
         <Inner>
           <Icon name="linkedin" className="social-icon" />
         </Inner>
-      </Border>
-      <Border
+      </Link>
+      <Link
+        external
+        className="social-link"
         tabIndex={0}
         aria-label="dribbble profile"
         href="https://dribbble.com/ZeeEssDoubleU"
-        target="_blank"
-        rel="noopener noreferrer"
       >
         <Inner>
           <Icon name="dribbble" className="social-icon" />
         </Inner>
-      </Border>
-      <Border
+      </Link>
+      <Link
+        external
+        className="social-link"
         tabIndex={0}
         aria-label="email"
         href="mailto: zak.williams2287@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
       >
         <Inner>
           <Icon name="email" className="social-icon" />
         </Inner>
-      </Border>
+      </Link>
     </Container>
   )
 }

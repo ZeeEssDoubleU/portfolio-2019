@@ -1,11 +1,10 @@
 // @ts-nocheck
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import styled from "styled-components"
-import { TimelineLite } from "gsap"
-
 // import components
 import { Wrapper } from "../elements/StyledButton"
-import ExternalLink from "../elements/InternalLink"
+import Link from "../elements/Link"
+import ProjectInfoFooter from "./ProjectInfoFooter"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 
@@ -73,23 +72,6 @@ const Modal = styled.div`
       }
     }
   }
-  .project-info-footer {
-    display: grid;
-    grid-template-rows: 70px;
-    justify-content: center;
-    align-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    button {
-      color: ${props => props.theme.appTextWhiteL};
-      font-size: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-  }
 `
 // Wrapper styled-component pulled from Button component style
 const ProjectButton = styled(Wrapper)`
@@ -109,15 +91,6 @@ const ProjectInfo = props => {
     </li>
   ))
 
-  // animate/show portal when component mounts
-  const tl = useRef(null)
-  useEffect(() => {
-    // look at global.js for portal starting style
-    tl.current = new TimelineLite().to("#portal", 0.3, {
-      y: "-100%",
-    })
-  }, [])
-
   return (
     <Modal>
       <div className="project-info">
@@ -129,9 +102,14 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <ExternalLink external href={props.link}>
+            <Link
+              external
+              external
+              href={props.link}
+              ariaLabel={`external link to ${props.title} project`}
+            >
               <ProjectButton>view project</ProjectButton>
-            </ExternalLink>
+            </Link>
           </div>
           <div className="project-info-details">
             <h3>Development Tools</h3>
@@ -139,18 +117,7 @@ const ProjectInfo = props => {
           </div>
         </div>
       </div>
-      <div className="project-info-footer">
-        <button
-          aria-label={`close ${props.title} project info panel`}
-          onClick={() => {
-            // timeout set equal to portal gsap animation
-            setTimeout(() => props.toggleClass(), 300)
-            tl.current.reverse()
-          }}
-        >
-          Close
-        </button>
-      </div>
+      <ProjectInfoFooter title={props.title} toggleClass={props.toggleClass} />
     </Modal>
   )
 }

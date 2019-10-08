@@ -117,3 +117,16 @@ export const useMenuExpandAnim = state => {
       : tl_menu.current.pause("menuExpand-start")
   }, [state.menuExpanded])
 }
+
+export const usePortalAnim = () => {
+  const tl_portal = useRef(null)
+  // animate/show portal (project info modal) when component mounts
+  useLayoutEffect(() => {
+    // look at global.js for portal starting style
+    tl_portal.current = new TimelineMax().to("#portal", 0.3, {
+      y: "-100%",
+    })
+  }, [])
+
+  return tl_portal
+}

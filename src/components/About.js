@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 // import components
-import InternalLink from "./elements/InternalLink"
+import Link from "./elements/Link"
 import StyledButton from "./elements/StyledButton"
 import Icon from "./Icons/Icon"
 // import styles
@@ -113,9 +113,9 @@ const About = props => {
               </p>
             </div>
           </Bio>
-          <InternalLink href="contact" className="link-contact-me">
+          <Link href="contact" className="link-contact-me">
             <StyledButton icon="email">contact me</StyledButton>
-          </InternalLink>
+          </Link>
         </StyledLayout>
       </DesktopWrapper>
     </Section>

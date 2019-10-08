@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 // import components
 import Icon from "./Icons/Icon"
-import InternalLink from "./elements/InternalLink"
+import Link from "./elements/Link"
 // import styles
 import { Section, Layout, DesktopWrapper } from "../styles/global"
 
@@ -70,12 +70,12 @@ const Landing = props => {
       <StyledDesktopWrapper>
         <StyledLayout bgSvgUrl={datoCmsAsset.url}>
           <Icon name="logo-landing" className="logo" />
-          <InternalLink
+          <Link
             href="about"
             cancelParam={() => window.scrollY <= window.innerHeight}
           >
             <Icon name="arrow-down" className="arrow-down" />
-          </InternalLink>
+          </Link>
         </StyledLayout>
       </StyledDesktopWrapper>
     </StyledSection>

@@ -8,7 +8,7 @@ import NavHamburger from "./NavHamburger"
 import NavMenu from "./NavMenu"
 // import store / utils
 import { useStore } from "../../store/useStore"
-import { useShowNavAnim, useMenuExpandAnim } from "../../utils/useNavAnims"
+import { useShowNavAnim, useMenuExpandAnim } from "../../utils/animations"
 
 const NavBar = styled.div`
   overflow: auto;

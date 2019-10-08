@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
 // import components
 import StyledButton from "../elements/StyledButton"
 import Project from "./Project"
@@ -14,6 +13,7 @@ import GlobalStyle, {
   DesktopWrapper,
 } from "../../styles/global"
 
+// TODO: need to incorporate Projects states into global state
 const Projects = props => {
   const query = graphql`
     {

@@ -4,7 +4,7 @@ import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore"
 
-const InternalLink = props => {
+const Link = props => {
   const { state, dispatch } = useStore()
   const target = props.href.toLowerCase()
 
@@ -14,11 +14,7 @@ const InternalLink = props => {
       href={props.external ? target : `#${target}`}
       rel={props.external ? "_blank" : null}
       target={props.external ? "noopener noreferrer" : null}
-      aria-label={
-        props.external
-          ? `external link to ${target} project`
-          : `go to ${target} section`
-      }
+      aria-label={props.ariaLabel ? props.ariaLabel : `go to ${target} section`}
       onClick={e => {
         if (props.external) {
           return
@@ -38,4 +34,4 @@ const InternalLink = props => {
   )
 }
 
-export default React.memo(InternalLink)
+export default React.memo(Link)
