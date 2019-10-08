@@ -33,13 +33,13 @@ const StyledLayout = styled(Layout)`
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
-    transition: transform 0.2s !important;
+    transition: transform 0.2s;
     &:hover {
       transform: translateX(-50%) scale(1.1);
     }
   }
   @media (min-width: ${props => props.theme.tablet + "px"}) {
-    will-change: transform !important;
+    will-change: transform;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -48,7 +48,6 @@ const StyledLayout = styled(Layout)`
     border: none;
     border-radius: 0;
     box-shadow: none;
-    margin: 0;
   }
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     width: 90%;

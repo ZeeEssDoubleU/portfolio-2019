@@ -15,10 +15,10 @@ const Container = styled.a`
   text-decoration: none;
   cursor: pointer;
   /* hover effect */
-  transition: transform 0.2s, opacity 0.2s !important;
+  transition: transform 0.2s, opacity 0.2s;
   &:hover {
     opacity: 0.7;
-    transform: scale(1.1) !important;
+    transform: scale(1.1);
   }
   .logo {
     height: 56px;

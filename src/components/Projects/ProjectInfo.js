@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"
@@ -45,7 +46,7 @@ const Modal = styled.div`
       .project-info-header {
         text-align: center;
         .project-info-title {
-          margin-bottom: 8px;
+          margin: 0.5em 0 8px;
         }
         .project-info-desc {
           color: ${props => props.theme.appTextWhiteM};
@@ -54,11 +55,13 @@ const Modal = styled.div`
         }
       }
       .project-info-details {
+        h3 {
+          margin: 1em 0;
+        }
         ul {
           display: grid;
           grid-row-gap: 15px;
-          padding: 0;
-          margin: 0;
+          padding-left: 0;
           list-style: none;
           color: ${props => props.theme.appTextWhiteM};
           li {
@@ -92,7 +95,7 @@ const ButtonOrLink = styled(Wrapper)`
   display: inline-block;
   margin-right: 0;
   border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
-  transition: color 0.2s, border-color 0.2s !important;
+  transition: color 0.2s, border-color 0.2s;
   &:hover {
     border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
   }

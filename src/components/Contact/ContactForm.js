@@ -22,7 +22,6 @@ const Grid = styled.form`
     );
     color: ${props => props.theme.appGreen};
     font-size: 16px;
-    font-family: inherit;
     padding: 12px 24px;
     border: none;
     border-radius: 5px;

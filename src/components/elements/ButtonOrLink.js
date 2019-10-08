@@ -18,30 +18,30 @@ export const Wrapper = styled.div`
   box-shadow: 0 0 10px 0 ${props => props.theme.appShadowWhite};
   cursor: pointer;
   /* hover effect */
-  transition: color 0.3s !important;
+  transition: color 0.3s;
   .action-grid {
     display: grid;
     grid-template-columns: auto 0;
     align-items: center;
     .action-text {
       margin-right: 0;
-      transition: margin-right 0.3s !important;
+      transition: margin-right 0.3s;
     }
     .action-icon {
       justify-self: end;
       font-size: 14px;
       opacity: 0;
-      transition: opacity 0.2s !important;
+      transition: opacity 0.2s;
     }
   }
   &:hover {
-    color: ${props => props.theme.appGreen} !important;
+    color: ${props => props.theme.appGreen};
     .action-text {
       margin-right: 25px;
     }
     .action-icon {
-      opacity: 1 !important;
-      transition: opacity 0.2s 0.2s !important;
+      opacity: 1;
+      transition: opacity 0.2s 0.2s;
     }
   }
 `

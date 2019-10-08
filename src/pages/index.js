@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components"
 // import firebase firestore
 import { firebaseInit } from "../utils/firebase"
 // import styles
+import "../styles/reset.css"
 import { theme } from "../styles/theme"
 // import components
 import Layout from "../components/Layout"

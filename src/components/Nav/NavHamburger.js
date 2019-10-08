@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { TimelineLite } from "gsap"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore" // import store / utils
-import { useMenuExpandAnim } from "../../utils/useNavAnims"
 
 // styled components
 // variables for quick customization of hamburger
@@ -26,7 +25,7 @@ const Inner = styled.div`
   position: relative;
   width: ${hamVars.layerWidth}px;
   height: ${2 * hamVars.layerSpacing + 3 * hamVars.layerHeight}px;
-  transition: transform 0.2s, opacity 0.2s !important;
+  transition: transform 0.2s, opacity 0.2s;
   will-change: transform;
   &:hover {
     opacity: 0.7;

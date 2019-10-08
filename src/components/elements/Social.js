@@ -24,10 +24,10 @@ const Border = styled.a`
   margin: 10px 10px;
   cursor: pointer;
   /* hover effect */
-  transition: transform 0.2s !important;
+  transition: transform 0.2s;
   &:hover,
   &:active {
-    transform: scale(1.2) !important;
+    transform: scale(1.2);
   }
   @media (min-width: ${props => props.theme.tablet + "px"}) {
     margin: 10px 20px;

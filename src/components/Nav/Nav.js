@@ -12,7 +12,7 @@ import { useShowNavAnim, useMenuExpandAnim } from "../../utils/useNavAnims"
 
 const NavBar = styled.div`
   overflow: auto;
-  will-change: transform !important;
+  will-change: transform;
   position: fixed;
   z-index: 99;
   top: 0;

@@ -16,10 +16,10 @@ const Container = styled.div`
     text-decoration: none;
     cursor: pointer;
     /* hover effect */
-    transition: color 0.2s !important;
+    transition: color 0.2s;
     &:hover,
     &:active {
-      color: ${props => props.theme.appGreen} !important;
+      color: ${props => props.theme.appGreen};
     }
     &.menu-home {
       display: ${props => (props.menuExpanded ? "inherit" : "none")};
