@@ -8,6 +8,7 @@ import GlobalStyle from "../styles/global"
 //import component
 import ProjectInfo from "../components/Projects/ProjectInfo"
 
+// ***COMPONENT***
 export default ({ data }) => {
   const project = data.datoCmsProject
   return (
@@ -23,6 +24,7 @@ export default ({ data }) => {
   )
 }
 
+// ***QUERY***
 export const pageQuery = graphql`
   query($slug: String!) {
     datoCmsProject(slug: { eq: $slug }) {
