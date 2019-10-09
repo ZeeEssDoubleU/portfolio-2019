@@ -1,10 +1,54 @@
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { TimelineLite } from "gsap"
-// import store
-import { useStore, onToggleMenu } from "../../store/useStore" // import store / utils
+// import store / utils
+import { useStore, onToggleMenu } from "../../store/useStore"
 
-// styled components
+// ***COMPONENT***
+const NavHamburger = props => {
+  const { state, dispatch } = useStore()
+
+  const top = useRef(null)
+  const middle = useRef(null)
+  const bottom = useRef(null)
+  const tl = useRef(null)
+
+  // componentDidMount.  Assign new timeline to tl
+  // prevents re-initialization of timeline on re-renders
+  useEffect(() => {
+    tl.current = new TimelineLite({ paused: true })
+      .to([top.current, bottom.current], 0.2, { y: 0 }, 0)
+      .to(middle.current, 0.01, { autoAlpha: 0 }, 0.2)
+      .to(top.current, 0.2, { rotation: 45 }, 0.2)
+      .to(bottom.current, 0.2, { rotation: -45 }, 0.2)
+  }, [])
+
+  // componentDidUpdate.  Play/reverse timeline
+  useEffect(() => {
+    state.menuExpanded ? tl.current.play() : tl.current.reverse()
+  }, [state.menuExpanded])
+
+  // // DEBUG
+  // console.log("timeline", tl)
+
+  return (
+    <Container
+      className="nav-hamburger"
+      aria-label={!state.menuExpanded ? "open nav menu" : "close nav menu"}
+      onClick={() => onToggleMenu(dispatch, !state.menuExpanded)}
+    >
+      <Inner>
+        {/* bars of hamburger */}
+        <Top ref={top} />
+        <Middle ref={middle} />
+        <Bottom ref={bottom} />
+      </Inner>
+    </Container>
+  )
+}
+export default React.memo(NavHamburger)
+
+// ***STYLES***
 // variables for quick customization of hamburger
 const hamVars = {}
 hamVars.layerHeight = 2
@@ -52,47 +96,3 @@ const Bottom = styled(Shape)`
   top: calc(50% - ${hamVars.layerHeight / 2}px);
   transform: translateY(400%);
 `
-
-const NavHamburger = props => {
-  const { state, dispatch } = useStore()
-
-  const top = useRef(null)
-  const middle = useRef(null)
-  const bottom = useRef(null)
-  const tl = useRef(null)
-
-  // componentDidMount.  Assign new timeline to tl
-  // prevents re-initialization of timeline on re-renders
-  useEffect(() => {
-    tl.current = new TimelineLite({ paused: true })
-      .to([top.current, bottom.current], 0.2, { y: 0 }, 0)
-      .to(middle.current, 0.01, { autoAlpha: 0 }, 0.2)
-      .to(top.current, 0.2, { rotation: 45 }, 0.2)
-      .to(bottom.current, 0.2, { rotation: -45 }, 0.2)
-  }, [])
-
-  // componentDidUpdate.  Play/reverse timeline
-  useEffect(() => {
-    state.menuExpanded ? tl.current.play() : tl.current.reverse()
-  }, [state.menuExpanded])
-
-  // // DEBUG
-  // console.log("timeline", tl)
-
-  return (
-    <Container
-      className="nav-hamburger"
-      aria-label={!state.menuExpanded ? "open nav menu" : "close nav menu"}
-      onClick={() => onToggleMenu(dispatch, !state.menuExpanded)}
-    >
-      <Inner>
-        {/* bars of hamburger */}
-        <Top ref={top} />
-        <Middle ref={middle} />
-        <Bottom ref={bottom} />
-      </Inner>
-    </Container>
-  )
-}
-
-export default React.memo(NavHamburger)

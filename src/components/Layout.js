@@ -14,7 +14,7 @@ import { useStore, onToggleNav } from "../store/useStore"
 import { useIntersectionObserver } from "../utils/useIO"
 import { useWindowResize } from "../utils/useWindowResize"
 
-// exported component
+// ***COMPONENT***
 const Layout = props => {
   const { state, dispatch } = useStore()
   // grab context from theme for use in component

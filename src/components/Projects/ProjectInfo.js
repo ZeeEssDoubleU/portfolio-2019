@@ -8,7 +8,47 @@ import ProjectInfoFooter from "./ProjectInfoFooter"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 
-// styled components
+// ***COMPONENT***
+const ProjectInfo = props => {
+  // array to display tech stack below in render
+  const techArray = props.tech.map((tech, index) => (
+    <li key={index}>
+      <span>+</span>
+      {tech}
+    </li>
+  ))
+
+  return (
+    <Container>
+      <div className="project-info">
+        <div className="project-info-grid">
+          <div
+            className="project-image"
+            alt={`preview image of ${props.title} project`}
+          ></div>
+          <div className="project-info-header">
+            <h1 className="project-info-title">{props.title}</h1>
+            <div className="project-info-desc">{props.description}</div>
+            <ExternalLink
+              href={props.link}
+              label={`external link to ${props.title} project`}
+            >
+              <ProjectButton>view project</ProjectButton>
+            </ExternalLink>
+          </div>
+          <div className="project-info-details">
+            <h3>Development Tools</h3>
+            <ul>{techArray}</ul>
+          </div>
+        </div>
+      </div>
+      <ProjectInfoFooter title={props.title} />
+    </Container>
+  )
+}
+export default ProjectInfo
+
+// ***STYLES***
 const Container = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
   /* Container positioned relative to #portal */
@@ -81,43 +121,3 @@ const ProjectButton = styled(Wrapper)`
     border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
   }
 `
-
-const ProjectInfo = props => {
-  // array to display tech stack below in render
-  const techArray = props.tech.map((tech, index) => (
-    <li key={index}>
-      <span>+</span>
-      {tech}
-    </li>
-  ))
-
-  return (
-    <Container>
-      <div className="project-info">
-        <div className="project-info-grid">
-          <div
-            className="project-image"
-            alt={`preview image of ${props.title} project`}
-          ></div>
-          <div className="project-info-header">
-            <h1 className="project-info-title">{props.title}</h1>
-            <div className="project-info-desc">{props.description}</div>
-            <ExternalLink
-              href={props.link}
-              label={`external link to ${props.title} project`}
-            >
-              <ProjectButton>view project</ProjectButton>
-            </ExternalLink>
-          </div>
-          <div className="project-info-details">
-            <h3>Development Tools</h3>
-            <ul>{techArray}</ul>
-          </div>
-        </div>
-      </div>
-      <ProjectInfoFooter title={props.title} toggleClass={props.toggleClass} />
-    </Container>
-  )
-}
-
-export default ProjectInfo

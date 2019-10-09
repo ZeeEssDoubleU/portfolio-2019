@@ -10,6 +10,40 @@ import NavMenu from "./NavMenu"
 import { useStore } from "../../store/useStore"
 import { useShowNavAnim, useMenuExpandAnim } from "../../utils/animations"
 
+// ***COMPONENT***
+const Nav = props => {
+  const { state } = useStore()
+  // disables body scroll when navmenu expanded
+  useEffect(() => {
+    const targetElem = document.querySelector(".nav-grid")
+    state.menuExpanded
+      ? disableBodyScroll(targetElem)
+      : enableBodyScroll(targetElem)
+  }, [state.menuExpanded])
+
+  // navigation animations
+  useShowNavAnim(state)
+  useMenuExpandAnim(state)
+
+  return (
+    <NavBar
+      className="nav-bar"
+      navVisible={state.navVisible}
+      menuExpanded={state.menuExpanded}
+      tabIndex={-1}
+    >
+      <NavGrid>
+        <NavLogo />
+        <NavHamburger />
+        <NavMenu />
+        <div className="nav-center"></div>
+      </NavGrid>
+    </NavBar>
+  )
+}
+export default React.memo(Nav)
+
+// ***STYLES***
 const NavBar = styled.div`
   overflow: auto;
   will-change: transform;
@@ -53,36 +87,3 @@ const NavGrid = styled.div`
     grid-row-gap: 30px;
   }
 `
-
-const Nav = props => {
-  const { state } = useStore()
-  // disables body scroll when navmenu expanded
-  useEffect(() => {
-    const targetElem = document.querySelector(".nav-grid")
-    state.menuExpanded
-      ? disableBodyScroll(targetElem)
-      : enableBodyScroll(targetElem)
-  }, [state.menuExpanded])
-
-  // navigation animations
-  useShowNavAnim(state)
-  useMenuExpandAnim(state)
-
-  return (
-    <NavBar
-      className="nav-bar"
-      navVisible={state.navVisible}
-      menuExpanded={state.menuExpanded}
-      tabIndex={-1}
-    >
-      <NavGrid>
-        <NavLogo />
-        <NavHamburger />
-        <NavMenu />
-        <div className="nav-center"></div>
-      </NavGrid>
-    </NavBar>
-  )
-}
-
-export default React.memo(Nav)

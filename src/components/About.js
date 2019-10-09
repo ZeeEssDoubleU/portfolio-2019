@@ -10,7 +10,71 @@ import Icon from "./Icons/Icon"
 // import styles
 import { Section, Layout, Header, Body, DesktopWrapper } from "../styles/global"
 
-// styled components
+// ***COMPONENT***
+const About = props => {
+  const { datoCmsAsset } = useStaticQuery(query)
+
+  return (
+    <Section id="about">
+      <DesktopWrapper>
+        <StyledLayout>
+          <Header>about</Header>
+          <Bio>
+            <Selfie
+              title="selfie"
+              fluid={{ ...datoCmsAsset.fluid }}
+              alt="selfie photo of developer with dark filter"
+            />
+            <div>
+              <p className="bio-name">Zachary Williams</p>
+              <p>
+                <Highlight>
+                  <Icon name="map-marker" />
+                  {"  "}New York, NY, USA
+                </Highlight>
+              </p>
+              <p>
+                My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
+                <Highlight>front-end developer</Highlight> based in New York
+                CIty.
+                {"  "}I enjoy creating clean, intuitive web interfaces that
+                provide a satisfying user experience.
+              </p>
+              <p>
+                If you’re in need of a website, mobile or web application, or
+                just want to say what’s up, give me a shout!
+              </p>
+            </div>
+          </Bio>
+          <InternalLink href="contact" className="link-contact-me">
+            <StyledButton
+              icon="email"
+              onClick={() =>
+                setTimeout(() => document.querySelector("#name").focus(), 700)
+              }
+            >
+              contact me
+            </StyledButton>
+          </InternalLink>
+        </StyledLayout>
+      </DesktopWrapper>
+    </Section>
+  )
+}
+export default React.memo(About)
+
+// ***QUERY***
+const query = graphql`
+  {
+    datoCmsAsset(path: { regex: "/selfie-tinted.png/" }) {
+      fluid(maxWidth: 1400) {
+        ...GatsbyDatoCmsFluid
+      }
+    }
+  }
+`
+
+// ***STYLES***
 const StyledLayout = styled(Layout)`
   .link-contact-me {
     justify-self: end;
@@ -67,65 +131,3 @@ const Selfie = styled(Img)`
 const Highlight = styled.span`
   color: #50e3c2;
 `
-
-const About = props => {
-  const query = graphql`
-    {
-      datoCmsAsset(path: { regex: "/selfie-tinted.png/" }) {
-        fluid(maxWidth: 1400) {
-          ...GatsbyDatoCmsFluid
-        }
-      }
-    }
-  `
-  const { datoCmsAsset } = useStaticQuery(query)
-
-  return (
-    <Section id="about">
-      <DesktopWrapper>
-        <StyledLayout>
-          <Header>about</Header>
-          <Bio>
-            <Selfie
-              title="selfie"
-              fluid={{ ...datoCmsAsset.fluid }}
-              alt="selfie photo of developer with dark filter"
-            />
-            <div>
-              <p className="bio-name">Zachary Williams</p>
-              <p>
-                <Highlight>
-                  <Icon name="map-marker" />
-                  {"  "}New York, NY, USA
-                </Highlight>
-              </p>
-              <p>
-                My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
-                <Highlight>front-end developer</Highlight> based in New York
-                CIty.
-                {"  "}I enjoy creating clean, intuitive web interfaces that
-                provide a satisfying user experience.
-              </p>
-              <p>
-                If you’re in need of a website, mobile or web application, or
-                just want to say what’s up, give me a shout!
-              </p>
-            </div>
-          </Bio>
-          <InternalLink href="contact" className="link-contact-me">
-            <StyledButton
-              icon="email"
-              onClick={() =>
-                setTimeout(() => document.querySelector("#name").focus(), 700)
-              }
-            >
-              contact me
-            </StyledButton>
-          </InternalLink>
-        </StyledLayout>
-      </DesktopWrapper>
-    </Section>
-  )
-}
-
-export default React.memo(About)

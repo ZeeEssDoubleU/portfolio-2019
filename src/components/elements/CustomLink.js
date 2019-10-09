@@ -4,6 +4,7 @@ import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore"
 
+// ***COMPONENT***
 export const InternalLink = props => {
   const { state, dispatch } = useStore()
   const target = props.href.toLowerCase()
@@ -28,6 +29,8 @@ export const InternalLink = props => {
     </a>
   )
 }
+
+// ***COMPONENT***
 export const ExternalLink = props => {
   const target = props.href.toLowerCase()
 

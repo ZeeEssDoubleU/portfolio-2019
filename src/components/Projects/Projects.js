@@ -13,27 +13,10 @@ import GlobalStyle, {
   DesktopWrapper,
 } from "../../styles/global"
 
+// ***COMPONENT***
 // TODO: need to incorporate Projects states into global state
 const Projects = props => {
-  const query = graphql`
-    {
-      allDatoCmsProject {
-        edges {
-          node {
-            id
-            title
-            description
-            tech
-            link
-            order
-          }
-        }
-      }
-    }
-  `
   const { allDatoCmsProject } = useStaticQuery(query)
-
-  const [activeIndex, setActiveIndex] = useState()
   const [showMoreIndex, setShowMoreIndex] = useState(5)
 
   // display 'show more' button if all projects aren't shown
@@ -50,13 +33,11 @@ const Projects = props => {
         <Project
           key={index}
           index={index}
-          order={project.order}
           title={project.title}
           description={project.description}
           tech={project.tech}
           link={project.link}
-          toggleClass={result => setActiveIndex(result)}
-          className={activeIndex === index ? "active" : ""}
+          slug={project.slug}
         ></Project>
       )
     })
@@ -65,12 +46,12 @@ const Projects = props => {
       return b.props.order - a.props.order
     })
 
-  // // debug
-  // console.log("PROJECT ARRAY", projectArray)
-
   return (
     <>
-      <GlobalStyle activeIndex={activeIndex} />
+      <GlobalStyle
+      // TODO: used to preveent scroll under open modal.  Find replacement!!!
+      //  activeIndex={activeIndex}
+      />
       <Section id="projects">
         <DesktopWrapper>
           <Layout>
@@ -92,5 +73,23 @@ const Projects = props => {
     </>
   )
 }
-
 export default React.memo(Projects)
+
+// ***QUERY***
+const query = graphql`
+  {
+    allDatoCmsProject {
+      edges {
+        node {
+          id
+          title
+          description
+          tech
+          link
+          order
+          slug
+        }
+      }
+    }
+  }
+`

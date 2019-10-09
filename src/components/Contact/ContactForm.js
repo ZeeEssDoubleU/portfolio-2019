@@ -1,52 +1,7 @@
 import React, { useRef } from "react"
 import styled from "styled-components"
 
-// import utils
-// // function pushes contact data for Firebase & Firestore
-// import { pushInquiry } from "../../utils/firebase"
-
-const Grid = styled.form`
-  display: grid;
-  grid-row-gap: 20px;
-  .form-label {
-    position: absolute;
-    top: 0;
-    left: -100vw;
-  }
-  .form-field {
-    width: 100%;
-    background: linear-gradient(
-      to left,
-      hsla(${props => props.theme.appGreenPartial}, 0.2),
-      hsla(${props => props.theme.appBluePartial}, 0.2)
-    );
-    color: ${props => props.theme.appGreen};
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    &.form-textarea {
-      height: 120px;
-      resize: none;
-    }
-    &:required {
-      box-shadow: none;
-    }
-    &::placeholder {
-      color: ${props => props.theme.appGreen};
-      opacity: 0.6;
-    }
-    &:focus {
-      transform: scale(1.02);
-      box-shadow: 0 0 0 1px hsla(${props => props.theme.appGreenPartial}, 0.5);
-      &::placeholder {
-        opacity: 0;
-      }
-    }
-  }
-`
-
+// ***COMPONENT***
 const ContactForm = props => {
   // refs to push contact data to Firebase & Firestore
   const inputName = useRef()
@@ -61,16 +16,6 @@ const ContactForm = props => {
       data-netlify="true"
       data-netlify-honeypot="honeypot-field"
       name="portfolio-contact-form"
-      // // logic to push contact data to Firebase & Firestore
-      // onSubmit={event => {
-      //   event.preventDefault()
-      //   pushInquiry(
-      //     inputName.current,
-      //     inputEmail.current,
-      //     inputSubject.current,
-      //     inputMessage.current
-      //   )
-      // }}
     >
       {/* input required by netlify for SSGs like gatsby */}
       <input type="hidden" name="form-name" value="portfolio-contact-form" />
@@ -143,3 +88,46 @@ const ContactForm = props => {
 }
 
 export default ContactForm
+
+// ***STYLES***
+const Grid = styled.form`
+  display: grid;
+  grid-row-gap: 20px;
+  .form-label {
+    position: absolute;
+    top: 0;
+    left: -100vw;
+  }
+  .form-field {
+    width: 100%;
+    background: linear-gradient(
+      to left,
+      hsla(${props => props.theme.appGreenPartial}, 0.2),
+      hsla(${props => props.theme.appBluePartial}, 0.2)
+    );
+    color: ${props => props.theme.appGreen};
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    &.form-textarea {
+      height: 120px;
+      resize: none;
+    }
+    &:required {
+      box-shadow: none;
+    }
+    &::placeholder {
+      color: ${props => props.theme.appGreen};
+      opacity: 0.6;
+    }
+    &:focus {
+      transform: scale(1.02);
+      box-shadow: 0 0 0 1px hsla(${props => props.theme.appGreenPartial}, 0.5);
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+`
