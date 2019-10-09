@@ -14,17 +14,6 @@ export default createGlobalStyle`
          &.using-mouse :focus {
             outline: none !important;
          }
-         /* // hidden out of way initially */
-         #portal {
-            position: fixed;
-            z-index: 999;
-            top: 100%;
-            left: 0;
-            /* use 100% vs 100vh because mobile browsers use % to read VISIBLE space */
-            height: 100%;
-            width: 100%;
-            background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
-         }
       }
 `
 export const Section = styled.section`

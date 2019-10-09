@@ -9,9 +9,9 @@ import ProjectInfoFooter from "./ProjectInfoFooter"
 // import Icon from "../Icons/Icon"
 
 // styled components
-const Modal = styled.div`
+const Container = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
-  /* modal positioned relative to #portal */
+  /* Container positioned relative to #portal */
   position: absolute;
   height: 100%;
   width: 100%;
@@ -92,7 +92,7 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Modal>
+    <Container>
       <div className="project-info">
         <div className="project-info-grid">
           <div
@@ -103,7 +103,6 @@ const ProjectInfo = props => {
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
             <Link
-              external
               external
               href={props.link}
               ariaLabel={`external link to ${props.title} project`}
@@ -118,7 +117,7 @@ const ProjectInfo = props => {
         </div>
       </div>
       <ProjectInfoFooter title={props.title} toggleClass={props.toggleClass} />
-    </Modal>
+    </Container>
   )
 }
 

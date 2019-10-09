@@ -1,23 +1,27 @@
-import { useEffect } from "react"
+import React from "react"
 import { createPortal } from "react-dom"
+import styled from "styled-components"
+import { theme } from "../styles/theme"
+
+const Modal = styled.div`
+  /* hidden out of way initially */
+  position: fixed;
+  z-index: 999;
+  top: 100%;
+  left: 0;
+  /* use 100% vs 100vh because mobile browsers use % to read VISIBLE space */
+  height: 100%;
+  width: 100%;
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
+`
 
 const Portal = props => {
-  // portal destination
-  const portalRoot =
-    typeof document !== "undefined" ? document.querySelector("#portal") : null
-  // create modal element to append to portal
-  const modal =
-    typeof document !== "undefined" ? document.createElement("div") : null
-
-  useEffect(() => {
-    portalRoot.appendChild(modal)
-    // unmount function
-    return () => portalRoot.removeChild(modal)
-  }, [modal, portalRoot])
-
-  // create portal between children and modal
-  // (modal appended to portal DOM node in useEffect above)
-  return modal ? createPortal(props.children, modal) : null
+  return createPortal(
+    <Modal className="portal-modal" theme={theme}>
+      {props.children}
+    </Modal>, // portal root
+    document.querySelector("#portal")
+  )
 }
 
 export default Portal

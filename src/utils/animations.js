@@ -123,7 +123,7 @@ export const usePortalAnim = () => {
   // animate/show portal (project info modal) when component mounts
   useLayoutEffect(() => {
     // look at global.js for portal starting style
-    tl_portal.current = new TimelineMax().to("#portal", 0.3, {
+    tl_portal.current = new TimelineMax().to(".portal-modal", 0.3, {
       y: "-100%",
     })
   }, [])
