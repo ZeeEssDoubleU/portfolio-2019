@@ -113,7 +113,14 @@ const About = props => {
             </div>
           </Bio>
           <InternalLink href="contact" className="link-contact-me">
-            <StyledButton icon="email">contact me</StyledButton>
+            <StyledButton
+              icon="email"
+              onClick={() =>
+                setTimeout(() => document.querySelector("#name").focus(), 700)
+              }
+            >
+              contact me
+            </StyledButton>
           </InternalLink>
         </StyledLayout>
       </DesktopWrapper>
