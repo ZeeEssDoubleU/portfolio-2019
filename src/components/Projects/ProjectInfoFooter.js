@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby-plugin-modal-routing"
 // import util
 import { useModalAnim } from "../../utils/animations"
 
@@ -29,16 +28,17 @@ const ProjectInfoFooter = props => {
 
   return (
     <Container>
-      <Link to="/">
-        <button
-          aria-label={`close ${props.title} project info panel`}
-          onClick={() => {
-            tl_modal.current.reverse()
-          }}
-        >
-          Close
-        </button>
-      </Link>
+      <button
+        aria-label={`close ${props.title} project info panel`}
+        onClick={() => {
+          tl_modal.current.reverse()
+          setTimeout(() => {
+            window.history.back()
+          }, 300)
+        }}
+      >
+        Close
+      </button>
     </Container>
   )
 }

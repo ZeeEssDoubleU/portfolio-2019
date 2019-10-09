@@ -14,11 +14,15 @@ export const InternalLink = React.memo(props => {
       href={`#${target}`}
       aria-label={`go to ${target} section`}
       onClick={e => {
+        console.log("MENU STAT", state.menuExpanded)
+        console.log("TOGGLE STAT", state.toggleMenu)
         e.preventDefault()
         if (props.cancelParam) {
           if (props.cancelParam() === false) return
         }
-        if (state.toggleMenu) onToggleMenu(dispatch, false)
+        if (state.menuExpanded) {
+          onToggleMenu(dispatch, false)
+        }
         scrollToAnim(state.menuExpanded, `#${target}`)
         // window.history.pushState({ section: target }, target, `#${target}`)
       }}

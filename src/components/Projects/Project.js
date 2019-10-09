@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Link, ModalRoutingContext } from "gatsby-plugin-modal-routing"
+import { Link } from "gatsby-plugin-modal-routing"
 // import components
 import Icon from "../Icons/Icon"
 
