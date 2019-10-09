@@ -4,7 +4,7 @@ import styled from "styled-components"
 // import store
 import { useStore } from "../../store/useStore"
 // import components
-import Link from "../elements/Link"
+import { InternalLink } from "../elements/CustomLink"
 
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
@@ -16,7 +16,7 @@ const Container = styled.div`
     color: ${props => props.theme.appBlue};
     text-decoration: none;
     cursor: pointer;
-    
+
     transition: color 0.2s;
     &:hover,
     &:active {
@@ -53,18 +53,18 @@ const NavMenu = props => {
   // TODO: add active state to menu items when section in view
   return (
     <Container menuExpanded={state.menuExpanded}>
-      <Link className="menu-link menu-home" href="landing">
+      <InternalLink className="menu-link menu-home" href="landing">
         Home
-      </Link>
-      <Link className="menu-link" href="about">
+      </InternalLink>
+      <InternalLink className="menu-link" href="about">
         About
-      </Link>
-      <Link className="menu-link" href="projects">
+      </InternalLink>
+      <InternalLink className="menu-link" href="projects">
         Projects
-      </Link>
-      <Link className="menu-link" href="contact">
+      </InternalLink>
+      <InternalLink className="menu-link" href="contact">
         Contact
-      </Link>
+      </InternalLink>
     </Container>
   )
 }

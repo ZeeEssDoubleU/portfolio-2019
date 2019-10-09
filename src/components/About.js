@@ -3,9 +3,8 @@ import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
 // import components
-import Link from "./elements/Link"
+import { InternalLink } from "./elements/CustomLink"
 import StyledButton from "./elements/StyledButton"
 import Icon from "./Icons/Icon"
 // import styles
@@ -113,9 +112,9 @@ const About = props => {
               </p>
             </div>
           </Bio>
-          <Link href="contact" className="link-contact-me">
+          <InternalLink href="contact" className="link-contact-me">
             <StyledButton icon="email">contact me</StyledButton>
-          </Link>
+          </InternalLink>
         </StyledLayout>
       </DesktopWrapper>
     </Section>

@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 // import components
 import Icon from "../Icons/Icon"
-import Link from "../elements/Link"
+import { InternalLink } from "../elements/CustomLink"
 
 const Container = styled.div`
   display: grid;
@@ -12,7 +12,7 @@ const Container = styled.div`
   height: 80px;
   text-decoration: none;
   cursor: pointer;
-  
+
   transition: transform 0.2s, opacity 0.2s;
   &:hover {
     opacity: 0.7;
@@ -57,7 +57,7 @@ const Container = styled.div`
 
 const NavLogo = props => {
   return (
-    <Link href="landing">
+    <InternalLink href="landing">
       <Container>
         <span className="logo-items first-name">Zachary</span>
         <span className="logo-items">
@@ -65,7 +65,7 @@ const NavLogo = props => {
         </span>
         <span className="logo-items last-name">Williams</span>
       </Container>
-    </Link>
+    </InternalLink>
   )
 }
 

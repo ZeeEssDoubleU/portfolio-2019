@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 // import components
 import { Wrapper } from "../elements/StyledButton"
-import Link from "../elements/Link"
+import { ExternalLink } from "../elements/CustomLink"
 import ProjectInfoFooter from "./ProjectInfoFooter"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
@@ -102,13 +102,12 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <Link
-              external
+            <ExternalLink
               href={props.link}
-              ariaLabel={`external link to ${props.title} project`}
+              label={`external link to ${props.title} project`}
             >
               <ProjectButton>view project</ProjectButton>
-            </Link>
+            </ExternalLink>
           </div>
           <div className="project-info-details">
             <h3>Development Tools</h3>

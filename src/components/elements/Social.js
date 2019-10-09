@@ -3,7 +3,7 @@ import styled, { withTheme } from "styled-components"
 
 // import components
 import Icon from "../Icons/Icon"
-import Link from "../elements/Link"
+import { ExternalLink } from "../elements/CustomLink"
 
 // styled components
 const Container = styled.div`
@@ -54,50 +54,46 @@ const Inner = styled.div`
 const Social = props => {
   return (
     <Container>
-      <Link
-        external
+      <ExternalLink
         className="social-link"
         tabIndex={0}
-        aria-label="github profile"
+        label="github profile"
         href="https://github.com/ZeeEssDoubleU"
       >
         <Inner>
           <Icon name="github" className="social-icon" />
         </Inner>
-      </Link>
-      <Link
-        external
+      </ExternalLink>
+      <ExternalLink
         className="social-link"
         tabIndex={0}
-        aria-label="linkedin profile"
+        label="linkedin profile"
         href="https://www.linkedin.com"
       >
         <Inner>
           <Icon name="linkedin" className="social-icon" />
         </Inner>
-      </Link>
-      <Link
-        external
+      </ExternalLink>
+      <ExternalLink
         className="social-link"
         tabIndex={0}
-        aria-label="dribbble profile"
+        label="dribbble profile"
         href="https://dribbble.com/ZeeEssDoubleU"
       >
         <Inner>
           <Icon name="dribbble" className="social-icon" />
         </Inner>
-      </Link>
-      <Link
-        external
+      </ExternalLink>
+      <ExternalLink
         className="social-link"
         tabIndex={0}
-        aria-label="email"
+        label="email"
         href="mailto: zak.williams2287@gmail.com"
       >
         <Inner>
           <Icon name="email" className="social-icon" />
         </Inner>
-      </Link>
+      </ExternalLink>
     </Container>
   )
 }
