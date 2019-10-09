@@ -1,8 +1,9 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby-plugin-modal-routing"
 // import util
-import { usePortalAnim } from "../../utils/animations"
+import { useModalAnim } from "../../utils/animations"
 
 // styled components
 const Container = styled.div`
@@ -24,20 +25,20 @@ const Container = styled.div`
 `
 
 const ProjectInfoFooter = props => {
-  const tl_portal = usePortalAnim()
+  const tl_modal = useModalAnim()
 
   return (
     <Container>
-      <button
-        aria-label={`close ${props.title} project info panel`}
-        onClick={() => {
-          // timeout set equal to portal gsap animation
-          setTimeout(() => props.toggleClass(), 300)
-          tl_portal.current.reverse()
-        }}
-      >
-        Close
-      </button>
+      <Link to="/">
+        <button
+          aria-label={`close ${props.title} project info panel`}
+          onClick={() => {
+            tl_modal.current.reverse()
+          }}
+        >
+          Close
+        </button>
+      </Link>
     </Container>
   )
 }

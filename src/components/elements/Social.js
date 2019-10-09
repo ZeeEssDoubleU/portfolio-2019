@@ -3,7 +3,7 @@ import styled, { withTheme } from "styled-components"
 
 // import components
 import Icon from "../Icons/Icon"
-import Link from "../elements/Link"
+import { ExternalLink } from "./CustomLink"
 
 // styled components
 const Container = styled.div`
@@ -54,7 +54,7 @@ const Inner = styled.div`
 const Social = props => {
   return (
     <Container>
-      <Link
+      <ExternalLink
         external
         className="social-link"
         tabIndex={0}
@@ -64,8 +64,8 @@ const Social = props => {
         <Inner>
           <Icon name="github" className="social-icon" />
         </Inner>
-      </Link>
-      <Link
+      </ExternalLink>
+      <ExternalLink
         external
         className="social-link"
         tabIndex={0}
@@ -75,8 +75,8 @@ const Social = props => {
         <Inner>
           <Icon name="linkedin" className="social-icon" />
         </Inner>
-      </Link>
-      <Link
+      </ExternalLink>
+      <ExternalLink
         external
         className="social-link"
         tabIndex={0}
@@ -86,8 +86,8 @@ const Social = props => {
         <Inner>
           <Icon name="dribbble" className="social-icon" />
         </Inner>
-      </Link>
-      <Link
+      </ExternalLink>
+      <ExternalLink
         external
         className="social-link"
         tabIndex={0}
@@ -97,7 +97,7 @@ const Social = props => {
         <Inner>
           <Icon name="email" className="social-icon" />
         </Inner>
-      </Link>
+      </ExternalLink>
     </Container>
   )
 }

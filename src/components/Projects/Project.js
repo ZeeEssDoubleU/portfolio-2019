@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { Link, ModalRoutingContext } from "gatsby-plugin-modal-routing"
 // import components
 import Icon from "../Icons/Icon"
-import ProjectInfo from "./ProjectInfo"
-import Portal from "../Portal"
 
 // styled components
 const Container = styled.div`
@@ -47,24 +46,13 @@ const Project = props => {
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>
       <div className="project-description">{props.description}</div>
-      <Icon
-        className="project-ellipsis"
-        name="ellipsis"
-        aria-label={`show ${props.title} project info panel`}
-        onClick={() => props.toggleClass(props.index)}
-      />
-      {/* creates modal on portal root if className contains active */}
-      {props.className === "active" && (
-        <Portal>
-          <ProjectInfo
-            toggleClass={props.toggleClass}
-            title={props.title}
-            description={props.description}
-            link={props.link}
-            tech={props.tech}
-          />
-        </Portal>
-      )}
+      <Link to={`/project/${props.slug}`} asModal>
+        <Icon
+          className="project-ellipsis"
+          name="ellipsis"
+          aria-label={`show ${props.title} project info panel`}
+        />
+      </Link>
     </Container>
   )
 }

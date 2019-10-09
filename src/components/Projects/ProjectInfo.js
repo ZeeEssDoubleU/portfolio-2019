@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 // import components
 import { Wrapper } from "../elements/StyledButton"
-import Link from "../elements/Link"
+import { ExternalLink } from "../elements/CustomLink"
 import ProjectInfoFooter from "./ProjectInfoFooter"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
@@ -11,11 +11,14 @@ import ProjectInfoFooter from "./ProjectInfoFooter"
 // styled components
 const Modal = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
-  /* modal positioned relative to #portal */
-  position: absolute;
+  position: fixed;
+  z-index: 999;
+  top: 100%;
+  left: 0;
   height: 100%;
   width: 100%;
   color: ${props => props.theme.appTextWhiteL};
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
   .project-info {
     height: calc(100% - 70px);
     width: 100%;
@@ -92,7 +95,7 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Modal>
+    <Modal className="project-info-modal">
       <div className="project-info">
         <div className="project-info-grid">
           <div
@@ -102,14 +105,12 @@ const ProjectInfo = props => {
           <div className="project-info-header">
             <h1 className="project-info-title">{props.title}</h1>
             <div className="project-info-desc">{props.description}</div>
-            <Link
-              external
-              external
+            <ExternalLink
               href={props.link}
-              ariaLabel={`external link to ${props.title} project`}
+              aria-label={`external link to ${props.title} project`}
             >
               <ProjectButton>view project</ProjectButton>
-            </Link>
+            </ExternalLink>
           </div>
           <div className="project-info-details">
             <h3>Development Tools</h3>
@@ -117,7 +118,7 @@ const ProjectInfo = props => {
           </div>
         </div>
       </div>
-      <ProjectInfoFooter title={props.title} toggleClass={props.toggleClass} />
+      <ProjectInfoFooter title={props.title} />
     </Modal>
   )
 }

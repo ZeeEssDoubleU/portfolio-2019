@@ -63,13 +63,31 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-portal`,
+      resolve: `gatsby-plugin-modal-routing`,
       options: {
-        key: "portal",
-        id: "portal",
+        // A selector to set react-modal's app root to, default is `#___gatsby`
+        // See http://reactcommunity.org/react-modal/accessibility/#app-element
+        appElement: "#___gatsby",
+
+        // Object of props that will be passed to the react-modal container
+        // See http://reactcommunity.org/react-modal/#usage
+        modalProps: {
+          // equivalent to modal close animation in animations.js
+          closeTimeoutMS: 300,
+          style: {
+            overlay: {
+              zIndex: 999,
+              background: "",
+            },
+            content: {
+              background: "",
+              border: "",
+            },
+          },
+        },
       },
     },
-    `gatsby-plugin-react-helmet`,
   ],
 }

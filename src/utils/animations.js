@@ -118,15 +118,15 @@ export const useMenuExpandAnim = state => {
   }, [state.menuExpanded])
 }
 
-export const usePortalAnim = () => {
-  const tl_portal = useRef(null)
-  // animate/show portal (project info modal) when component mounts
+export const useModalAnim = () => {
+  const tl_modal = useRef(null)
+  // animate/show modal (project info) when component mounts
   useLayoutEffect(() => {
-    // look at global.js for portal starting style
-    tl_portal.current = new TimelineMax().to("#portal", 0.3, {
+    // look at global.js for modal starting style
+    tl_modal.current = new TimelineMax().to(".project-info-modal", 0.3, {
       y: "-100%",
     })
   }, [])
 
-  return tl_portal
+  return tl_modal
 }
