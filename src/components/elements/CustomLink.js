@@ -18,7 +18,9 @@ export const InternalLink = props => {
         if (props.cancelParam) {
           if (props.cancelParam() === false) return
         }
-        if (state.toggleMenu) onToggleMenu(dispatch, false)
+        if (state.menuExpanded) {
+          onToggleMenu(dispatch, false)
+        }
         scrollToAnim(state.menuExpanded, `#${target}`)
         // TODO: maybe have page anchors push state in future
         // window.history.pushState({ section: target }, target, `#${target}`)
