@@ -10,7 +10,6 @@ const Container = styled.div`
   grid-gap: 7px;
   align-items: center;
   height: 80px;
-  text-decoration: none;
   cursor: pointer;
 
   transition: transform 0.2s, opacity 0.2s;
@@ -57,7 +56,7 @@ const Container = styled.div`
 
 const NavLogo = props => {
   return (
-    <InternalLink href="landing">
+    <InternalLink href="landing" className="logo-link">
       <Container>
         <span className="logo-items first-name">Zachary</span>
         <span className="logo-items">
