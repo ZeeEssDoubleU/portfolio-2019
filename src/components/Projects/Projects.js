@@ -53,6 +53,7 @@ const Projects = props => {
           tech={project.tech}
           link={project.link}
           slug={project.slug}
+          order={project.order}
         ></Project>
       )
     })
@@ -61,8 +62,8 @@ const Projects = props => {
       return b.props.order - a.props.order
     })
 
-  // // debug
-  // console.log("PROJECT ARRAY", projectArray)
+  // debug
+  console.log("PROJECT ARRAY", projectArray)
 
   return (
     <>
