@@ -13,24 +13,9 @@ import GlobalStyle, {
   DesktopWrapper,
 } from "../../styles/global"
 
+// ***COMPONENT***
 // TODO: need to incorporate Projects states into global state
 const Projects = props => {
-  const query = graphql`
-    {
-      allDatoCmsProject {
-        edges {
-          node {
-            id
-            title
-            description
-            tech
-            link
-            order
-          }
-        }
-      }
-    }
-  `
   const { allDatoCmsProject } = useStaticQuery(query)
 
   const [activeIndex, setActiveIndex] = useState()
@@ -50,7 +35,6 @@ const Projects = props => {
         <Project
           key={index}
           index={index}
-          order={project.order}
           title={project.title}
           description={project.description}
           tech={project.tech}
@@ -60,13 +44,6 @@ const Projects = props => {
         ></Project>
       )
     })
-    .sort((a, b) => {
-      // sort in descending order based on order prop
-      return b.props.order - a.props.order
-    })
-
-  // // debug
-  // console.log("PROJECT ARRAY", projectArray)
 
   return (
     <>
@@ -92,5 +69,22 @@ const Projects = props => {
     </>
   )
 }
-
 export default React.memo(Projects)
+
+// ***QUERY***
+const query = graphql`
+  {
+    allDatoCmsProject(sort: { fields: order, order: DESC }) {
+      edges {
+        node {
+          id
+          title
+          description
+          tech
+          link
+          slug
+        }
+      }
+    }
+  }
+`
