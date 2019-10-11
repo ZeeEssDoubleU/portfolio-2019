@@ -38,13 +38,8 @@ const Projects = props => {
           tech={project.tech}
           link={project.link}
           slug={project.slug}
-          order={project.order}
         ></Project>
       )
-    })
-    .sort((a, b) => {
-      // sort in descending order based on order prop
-      return b.props.order - a.props.order
     })
 
   return (
@@ -79,7 +74,7 @@ export default React.memo(Projects)
 // ***QUERY***
 const query = graphql`
   {
-    allDatoCmsProject {
+    allDatoCmsProject(sort: { fields: order, order: DESC }) {
       edges {
         node {
           id
@@ -87,7 +82,6 @@ const query = graphql`
           description
           tech
           link
-          order
           slug
         }
       }
