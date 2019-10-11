@@ -10,6 +10,7 @@ import ProjectInfo from "../components/Projects/ProjectInfo"
 
 export default ({ data }) => {
   const project = data.datoCmsProject
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

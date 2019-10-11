@@ -9,7 +9,7 @@ import ProjectInfoFooter from "./ProjectInfoFooter"
 // import Icon from "../Icons/Icon"
 
 // styled components
-const Modal = styled.div`
+const Container = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
   position: fixed;
   z-index: 999;
@@ -95,7 +95,7 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Modal className="project-info-modal">
+    <Container className="project-info-modal">
       <div className="project-info">
         <div className="project-info-grid">
           <div
@@ -119,7 +119,7 @@ const ProjectInfo = props => {
         </div>
       </div>
       <ProjectInfoFooter title={props.title} />
-    </Modal>
+    </Container>
   )
 }
 

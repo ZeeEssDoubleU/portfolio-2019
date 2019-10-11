@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
+import { navigate } from "gatsby"
 // import util
 import { useModalAnim } from "../../utils/animations"
 
@@ -33,7 +34,12 @@ const ProjectInfoFooter = props => {
         onClick={() => {
           tl_modal.current.reverse()
           setTimeout(() => {
-            window.history.back()
+            navigate("/", {
+              state: {
+                modal: false,
+                noScroll: true,
+              },
+            })
           }, 300)
         }}
       >

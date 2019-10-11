@@ -41,13 +41,6 @@ const Projects = props => {
         ></Project>
       )
     })
-    .sort((a, b) => {
-      // sort in descending order based on order prop
-      return b.props.order - a.props.order
-    })
-
-  // debug
-  console.log("PROJECT ARRAY", projectArray)
 
   return (
     <>

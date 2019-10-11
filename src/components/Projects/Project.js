@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby-plugin-modal-routing"
+import { Link } from "gatsby"
 // import components
 import Icon from "../Icons/Icon"
 
@@ -46,7 +46,13 @@ const Project = props => {
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>
       <div className="project-description">{props.description}</div>
-      <Link to={`/project/${props.slug}`} asModal>
+      <Link
+        to={`/project/${props.slug}`}
+        state={{
+          modal: true,
+          noScroll: true,
+        }}
+      >
         <Icon
           className="project-ellipsis"
           name="ellipsis"
