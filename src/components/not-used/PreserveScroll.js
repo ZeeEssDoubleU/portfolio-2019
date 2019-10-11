@@ -6,8 +6,8 @@ const PreserveSroll = props => {
   const location = useLocation()
   const scrollPositions = {}
 
-  console.log("history", history)
-  console.log("location", location)
+  // console.log("history", history)
+  // console.log("location", location)
   // console.log("props", props)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const PreserveSroll = props => {
     }
 
     return () => {
-      console.log("component UMOUNT")
+      // console.log("component UMOUNT")
     }
   }, [location.pathname])
 

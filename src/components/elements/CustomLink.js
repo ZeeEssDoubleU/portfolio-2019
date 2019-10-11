@@ -14,8 +14,6 @@ export const InternalLink = React.memo(props => {
       href={`#${target}`}
       aria-label={`go to ${target} section`}
       onClick={e => {
-        console.log("MENU STAT", state.menuExpanded)
-        console.log("TOGGLE STAT", state.toggleMenu)
         e.preventDefault()
         if (props.cancelParam) {
           if (props.cancelParam() === false) return
