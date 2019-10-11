@@ -38,6 +38,7 @@ const Projects = props => {
           tech={project.tech}
           link={project.link}
           slug={project.slug}
+          order={project.order}
         ></Project>
       )
     })
