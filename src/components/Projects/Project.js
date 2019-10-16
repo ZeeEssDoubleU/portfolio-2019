@@ -4,43 +4,7 @@ import { Link } from "gatsby"
 // import components
 import Icon from "../Icons/Icon"
 
-// styled components
-const Container = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 40px;
-  font-size: 16px;
-  color: ${props => props.theme.appTextWhiteL};
-  padding: 4px 0;
-  margin-top: 20px;
-  transition: color 0.2s;
-  .project-title {
-    grid-row: 1/2;
-    grid-column: 1/2;
-  }
-  .project-description {
-    grid-row: 2/3;
-    grid-column: 1/2;
-    font-size: 14px;
-    color: ${props => props.theme.appTextWhiteM};
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .project-ellipsis {
-    grid-row: 1/3;
-    grid-column: 2/3;
-    align-self: center;
-    justify-self: end;
-    font-size: 18px;
-    color: ${props => props.theme.appTextWhiteM};
-    cursor: pointer;
-  }
-  &.active {
-    color: ${props => props.theme.appGreen};
-  }
-`
-
+// ***COMPONENT***
 const Project = props => {
   return (
     <Container className={props.className}>
@@ -62,5 +26,41 @@ const Project = props => {
     </Container>
   )
 }
-
 export default Project
+
+  // ***STYLES***
+  const Container = styled.div`
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 40px;
+    font-size: 16px;
+    color: ${props => props.theme.appTextWhiteL};
+    padding: 4px 0;
+    margin-top: 20px;
+    transition: color 0.2s;
+    .project-title {
+      grid-row: 1/2;
+      grid-column: 1/2;
+    }
+    .project-description {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      font-size: 14px;
+      color: ${props => props.theme.appTextWhiteM};
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .project-ellipsis {
+      grid-row: 1/3;
+      grid-column: 2/3;
+      align-self: center;
+      justify-self: end;
+      font-size: 18px;
+      color: ${props => props.theme.appTextWhiteM};
+      cursor: pointer;
+    }
+    &.active {
+      color: ${props => props.theme.appGreen};
+    }
+  `

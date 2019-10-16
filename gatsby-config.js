@@ -5,7 +5,8 @@ if (process.env.NODE_ENV !== "production") {
 
 module.exports = {
   siteMetadata: {
-    title: `Web Developer | Zachary Williams | New York City`,
+    title: `Web Developer | New York City`,
+    titleTemplate: "%s | Zachary Williams",
     description:
       "Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more.",
     url: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
@@ -98,7 +99,7 @@ module.exports = {
               padding: 0,
               margin: 0,
               border: "none",
-              borderRadius: 'none',
+              borderRadius: "none",
             },
           },
         },

@@ -1,14 +1,12 @@
 import React, { useEffect } from "react"
-import { ThemeProvider } from "styled-components"
+import { graphql } from "gatsby"
 // import styles
 import "../styles/reset.css"
-import { theme } from "../styles/theme"
 // import components
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-// import store
-import { StoreProvider } from "../store/useStore"
 
+// ***COMPONENT***
 const App = () => {
   // let the document know when mouse is being used
   useEffect(() => {
@@ -23,11 +21,7 @@ const App = () => {
   return (
     <>
       <SEO />
-      <ThemeProvider theme={theme}>
-        <StoreProvider>
-          <Layout />
-        </StoreProvider>
-      </ThemeProvider>
+      <Layout />
     </>
   )
 }

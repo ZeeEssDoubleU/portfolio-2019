@@ -10,7 +10,40 @@ import NavMenu from "./NavMenu"
 import { useStore } from "../../store/useStore"
 import { useShowNavAnim, useMenuExpandAnim } from "../../utils/animations"
 
-const NavBar = styled.div`
+// ***COMPONENT***
+const Nav = props => {
+  const { state } = useStore()
+  // disables body scroll when navmenu expanded
+  useEffect(() => {
+    const targetElem = document.querySelector(".nav-grid")
+    state.menuExpanded
+      ? disableBodyScroll(targetElem)
+      : enableBodyScroll(targetElem)
+  }, [state.menuExpanded])
+
+  // navigation animations
+  useShowNavAnim(state)
+  useMenuExpandAnim(state)
+
+  return (
+    <NavBar
+      className="nav-bar"
+      navVisible={state.navVisible}
+      menuExpanded={state.menuExpanded}
+      tabIndex={-1}
+    >
+      <NavGrid>
+        <NavLogo />
+        <NavHamburger />
+        <NavMenu />
+      </NavGrid>
+    </NavBar>
+  )
+}
+export default React.memo(Nav)
+
+// ***STYLES***
+const NavBar = styled.nav`
   overflow: auto;
   will-change: transform;
   position: fixed;
@@ -43,9 +76,6 @@ const NavGrid = styled.div`
   max-width: ${props => props.theme.insetWidth};
   margin: 0 auto;
   padding: 0 24px;
-  .nav-center {
-    display: ${props => (props.menuExpanded ? "grid" : "none")};
-  }
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     grid-template-columns: auto;
     grid-template-rows: 144px auto 144px;
@@ -53,36 +83,3 @@ const NavGrid = styled.div`
     grid-row-gap: 30px;
   }
 `
-
-const Nav = props => {
-  const { state } = useStore()
-  // disables body scroll when navmenu expanded
-  useEffect(() => {
-    const targetElem = document.querySelector(".nav-grid")
-    state.menuExpanded
-      ? disableBodyScroll(targetElem)
-      : enableBodyScroll(targetElem)
-  }, [state.menuExpanded])
-
-  // navigation animations
-  useShowNavAnim(state)
-  useMenuExpandAnim(state)
-
-  return (
-    <NavBar
-      className="nav-bar"
-      navVisible={state.navVisible}
-      menuExpanded={state.menuExpanded}
-      tabIndex={-1}
-    >
-      <NavGrid>
-        <NavLogo />
-        <NavHamburger />
-        <NavMenu />
-        <div className="nav-center"></div>
-      </NavGrid>
-    </NavBar>
-  )
-}
-
-export default React.memo(Nav)

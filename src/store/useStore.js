@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { createContext, useReducer, useContext } from "react"
-import { ThemeContext } from "styled-components"
+import { theme } from "../styles/theme"
 
 // action types
 const TOGGLE_NAV = "TOGGLE_NAV"
@@ -53,28 +53,24 @@ const reducer = (state, action) => {
   }
 }
 
-// context that stores and shares data
-const StoreContext = createContext(null)
+// initial state
+const initState =
+  typeof window !== "undefined"
+    ? {
+        navVisible: false,
+        menuExpanded: false,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        isMobile: window.innerWidth < theme.tablet,
+        isDesktop: window.innerWidth >= theme.desktop,
+      }
+    : null
 
-// ***init global state OUTSIDE OF STORE PROVIDER so that sub-components state props don't return undefined
-let initState = {}
+// context that stores and shares data
+const StoreContext = createContext(initState)
 
 // component to wrap upper level root component with Provider
 export const StoreProvider = ({ children }) => {
-  const themeContext = useContext(ThemeContext)
-
-  if (typeof window !== "undefined") {
-    initState = {
-      ...initState,
-      navVisible: false,
-      menuExpanded: false,
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      isMobile: window.innerWidth < themeContext.tablet,
-      isDesktop: window.innerWidth >= themeContext.desktop,
-    }
-  }
-
   const [state, dispatch] = useReducer(reducer, initState)
 
   return (
