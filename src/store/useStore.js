@@ -54,7 +54,7 @@ const reducer = (state, action) => {
 }
 
 // initial state
-initState =
+const initState =
   typeof window !== "undefined"
     ? {
         navVisible: false,
