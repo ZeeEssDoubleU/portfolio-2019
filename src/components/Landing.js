@@ -19,7 +19,7 @@ const StyledLayout = styled(Layout)`
   max-width: none;
   justify-items: center;
   align-content: center;
-  background: black bottom/cover url(${props => props.bgSvgUrl});
+  background: bottom/cover url(${props => props.bgSvgUrl});
   /* svg icons down in component */
   .logo {
     width: 70%;
