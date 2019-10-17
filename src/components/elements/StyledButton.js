@@ -5,7 +5,23 @@ import styled from "styled-components"
 // import components
 import Icon from "../Icons/Icon"
 
-// styled components
+// ***COMPONENT***
+const Button = props => (
+  <Wrapper
+    type={props.type}
+    form={props.form}
+    target={props.target}
+    onClick={props.onClick}
+  >
+    <div className="action-grid">
+      <div className="action-text">{props.children}</div>
+      <Icon name={props.icon} className="action-icon" />
+    </div>
+  </Wrapper>
+)
+export default Button
+
+// ***STYLES***
 export const Wrapper = styled.button`
   justify-self: end;
   height: 65px;
@@ -44,19 +60,3 @@ export const Wrapper = styled.button`
     }
   }
 `
-
-const Button = props => (
-  <Wrapper
-    type={props.type}
-    form={props.form}
-    target={props.target}
-    onClick={props.onClick}
-  >
-    <div className="action-grid">
-      <div className="action-text">{props.children}</div>
-      <Icon name={props.icon} className="action-icon" />
-    </div>
-  </Wrapper>
-)
-
-export default Button

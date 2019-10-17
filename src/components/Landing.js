@@ -10,13 +10,6 @@ import { Section, Layout, DesktopWrapper } from "../styles/elements"
 
 // ***COMPONENT***
 const Landing = props => {
-  const query = graphql`
-    {
-      datoCmsAsset(path: { regex: "/stripes.svg/" }) {
-        url
-      }
-    }
-  `
   const { datoCmsAsset } = useStaticQuery(query)
 
   return (
@@ -37,6 +30,15 @@ const Landing = props => {
   )
 }
 export default React.memo(Landing)
+
+// ***QUERY***
+const query = graphql`
+  {
+    datoCmsAsset(path: { regex: "/stripes.svg/" }) {
+      url
+    }
+  }
+`
 
 // ***STYLES***
 const StyledSection = styled(Section)`

@@ -4,6 +4,23 @@ import styled from "styled-components"
 import Icon from "../Icons/Icon"
 import { InternalLink } from "../elements/CustomLink"
 
+// ***COMPONENT***
+const NavLogo = props => {
+  return (
+    <InternalLink href="landing">
+      <Container>
+        <span className="logo-items first-name">Zachary</span>
+        <span className="logo-items">
+          <Icon className="logo" name="logo-nav" />
+        </span>
+        <span className="logo-items last-name">Williams</span>
+      </Container>
+    </InternalLink>
+  )
+}
+export default React.memo(NavLogo)
+
+// ***STYLES***
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
@@ -54,19 +71,3 @@ const Container = styled.div`
     }
   }
 `
-
-const NavLogo = props => {
-  return (
-    <InternalLink href="landing">
-      <Container>
-        <span className="logo-items first-name">Zachary</span>
-        <span className="logo-items">
-          <Icon className="logo" name="logo-nav" />
-        </span>
-        <span className="logo-items last-name">Williams</span>
-      </Container>
-    </InternalLink>
-  )
-}
-
-export default React.memo(NavLogo)

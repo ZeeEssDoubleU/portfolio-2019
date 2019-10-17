@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { createPortal } from "react-dom"
 
+// ***COMPONENT***
 const Portal = props => {
   // portal destination
   const portalRoot =
@@ -19,5 +20,4 @@ const Portal = props => {
   // (modal appended to portal DOM node in useEffect above)
   return modal ? createPortal(props.children, modal) : null
 }
-
 export default Portal

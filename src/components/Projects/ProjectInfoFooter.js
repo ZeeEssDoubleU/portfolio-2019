@@ -5,25 +5,7 @@ import { navigate } from "gatsby"
 // import util
 import { useModalAnim } from "../../utils/animations"
 
-// styled components
-const Container = styled.div`
-  display: grid;
-  grid-template-rows: 70px;
-  justify-content: center;
-  align-content: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  button {
-    color: ${props => props.theme.appTextWhiteL};
-    font-size: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-`
-
+// ***COMPONENT***
 const ProjectInfoFooter = props => {
   const tl_modal = useModalAnim()
 
@@ -48,5 +30,23 @@ const ProjectInfoFooter = props => {
     </Container>
   )
 }
-
 export default ProjectInfoFooter
+
+// ***STYLES***
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: 70px;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  button {
+    color: ${props => props.theme.appTextWhiteL};
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+`

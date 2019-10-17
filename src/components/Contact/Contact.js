@@ -18,13 +18,6 @@ import {
 
 // ***COMPONENT***
 const Contact = props => {
-  const query = graphql`
-    {
-      datoCmsAsset(path: { regex: "/stripes.svg/" }) {
-        url
-      }
-    }
-  `
   const { datoCmsAsset } = useStaticQuery(query)
 
   const currentDate = new Date().getFullYear()
@@ -58,6 +51,15 @@ const Contact = props => {
   )
 }
 export default React.memo(Contact)
+
+// ***QUERY***
+const query = graphql`
+  {
+    datoCmsAsset(path: { regex: "/stripes.svg/" }) {
+      url
+    }
+  }
+`
 
 // ***STYLES***
 const StyledSection = styled(Section)`

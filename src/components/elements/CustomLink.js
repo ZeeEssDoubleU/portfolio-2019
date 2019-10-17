@@ -4,6 +4,7 @@ import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore"
 
+// ***COMPONENT***
 export const InternalLink = React.memo(props => {
   const { state, dispatch } = useStore()
   const target = props.href.toLowerCase()
@@ -30,6 +31,7 @@ export const InternalLink = React.memo(props => {
   )
 })
 
+// ***COMPONENT***
 export const ExternalLink = React.memo(props => {
   const target = props.href.toLowerCase()
 

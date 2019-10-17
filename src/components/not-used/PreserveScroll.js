@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useHistory, useLocation, withRouter } from "react-router-dom"
 
+// ***COMPONENT***
 const PreserveSroll = props => {
   const history = useHistory()
   const location = useLocation()

@@ -6,6 +6,31 @@ import { useStore } from "../../store/useStore"
 // import components
 import { InternalLink } from "../elements/CustomLink"
 
+// ***COMPONENT***
+const NavMenu = props => {
+  const { state } = useStore()
+
+  // TODO: add active state to menu items when section in view
+  return (
+    <Container menuExpanded={state.menuExpanded}>
+      <InternalLink className="menu-link menu-home" href="landing">
+        Home
+      </InternalLink>
+      <InternalLink className="menu-link" href="about">
+        About
+      </InternalLink>
+      <InternalLink className="menu-link" href="projects">
+        Projects
+      </InternalLink>
+      <InternalLink className="menu-link" href="contact">
+        Contact
+      </InternalLink>
+    </Container>
+  )
+}
+export default React.memo(NavMenu)
+
+// ***STYLES***
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
   grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};
@@ -46,27 +71,3 @@ const Container = styled.div`
     }
   }
 `
-
-const NavMenu = props => {
-  const { state } = useStore()
-
-  // TODO: add active state to menu items when section in view
-  return (
-    <Container menuExpanded={state.menuExpanded}>
-      <InternalLink className="menu-link menu-home" href="landing">
-        Home
-      </InternalLink>
-      <InternalLink className="menu-link" href="about">
-        About
-      </InternalLink>
-      <InternalLink className="menu-link" href="projects">
-        Projects
-      </InternalLink>
-      <InternalLink className="menu-link" href="contact">
-        Contact
-      </InternalLink>
-    </Container>
-  )
-}
-
-export default React.memo(NavMenu)
