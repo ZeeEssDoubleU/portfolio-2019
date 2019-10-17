@@ -49,11 +49,11 @@ export default createGlobalStyle`
 
    /* remove underline from A elements that have a class */
    a[class] {
-   text-decoration: none;
+      text-decoration: none;
    }
    /* A elements that don't have a class get default styles */
    a:not([class]) {
-   text-decoration-skip-ink: auto;
+      text-decoration-skip-ink: auto;
    }
 
    /* Make images easier to work with */

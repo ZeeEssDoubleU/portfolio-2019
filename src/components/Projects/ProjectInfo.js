@@ -17,9 +17,11 @@ const ProjectInfo = props => {
   // targetRef pointed at Container below
   const targetRef = useRef(null)
   useEffect(() => {
+    // assigned ref to variable at advice of react warning
+    const targetElem = targetRef.current
     // body scroll disabled when component (modal) mounted
-    disableBodyScroll(targetRef.current)
-    return () => enableBodyScroll(targetRef.current)
+    disableBodyScroll(targetElem)
+    return () => enableBodyScroll(targetElem)
   }, [])
 
   // array to display tech stack below in render
