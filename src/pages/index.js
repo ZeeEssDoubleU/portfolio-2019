@@ -1,7 +1,4 @@
 import React, { useEffect } from "react"
-import { graphql } from "gatsby"
-// import styles
-import "../styles/reset.css"
 // import components
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"

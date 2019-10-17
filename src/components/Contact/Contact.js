@@ -2,7 +2,6 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-
 // import components
 import StyledButton from "../elements/StyledButton"
 import Icon from "../Icons/Icon"
@@ -15,29 +14,9 @@ import {
   Header,
   Body,
   DesktopWrapper,
-} from "../../styles/global"
+} from "../../styles/elements"
 
-// styled components
-const StyledSection = styled(Section)`
-  background: bottom/cover url(${props => props.bgSvgUrl});
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    background: none;
-  }
-`
-const Copyright = styled.p`
-  display: grid;
-  grid-template-columns: auto auto auto;
-  color: ${props => props.theme.appGreen};
-  padding: 0 10px;
-  margin: 10px auto;
-  align-items: center;
-  grid-gap: 4px;
-  .icon-copyright {
-    height: 18px;
-    width: 18px;
-  }
-`
-
+// ***COMPONENT***
 const Contact = props => {
   const query = graphql`
     {
@@ -78,5 +57,25 @@ const Contact = props => {
     </StyledSection>
   )
 }
-
 export default React.memo(Contact)
+
+// ***STYLES***
+const StyledSection = styled(Section)`
+  background: bottom/cover url(${props => props.bgSvgUrl});
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    background: none;
+  }
+`
+const Copyright = styled.p`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  color: ${props => props.theme.appGreen};
+  padding: 0 10px;
+  margin: 10px auto;
+  align-items: center;
+  grid-gap: 4px;
+  .icon-copyright {
+    height: 18px;
+    width: 18px;
+  }
+`

@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import { ThemeProvider } from "styled-components"
 // import styles
 import { theme } from "../styles/theme"
-import GlobalStyle from "../styles/global"
 //import component
 import ProjectInfo from "../components/Projects/ProjectInfo"
 import SEO from "../components/SEO"
@@ -21,7 +20,6 @@ export default ({ data }) => {
         keywords={project.tech}
       />
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
         <ProjectInfo
           title={project.title}
           description={project.description}

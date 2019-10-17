@@ -6,9 +6,39 @@ import { useStaticQuery, graphql } from "gatsby"
 import Icon from "./Icons/Icon"
 import { InternalLink } from "./elements/CustomLink"
 // import styles
-import { Section, Layout, DesktopWrapper } from "../styles/global"
+import { Section, Layout, DesktopWrapper } from "../styles/elements"
 
-// styled components
+// ***COMPONENT***
+const Landing = props => {
+  const query = graphql`
+    {
+      datoCmsAsset(path: { regex: "/stripes.svg/" }) {
+        url
+      }
+    }
+  `
+  const { datoCmsAsset } = useStaticQuery(query)
+
+  return (
+    // ref forwarded from parent
+    <StyledSection id="landing">
+      <StyledDesktopWrapper>
+        <StyledLayout bgSvgUrl={datoCmsAsset.url}>
+          <Icon name="logo-landing" className="logo" />
+          <InternalLink
+            href="about"
+            cancelParam={() => window.scrollY <= window.innerHeight}
+          >
+            <Icon name="arrow-down" className="arrow-down" />
+          </InternalLink>
+        </StyledLayout>
+      </StyledDesktopWrapper>
+    </StyledSection>
+  )
+}
+export default React.memo(Landing)
+
+// ***STYLES***
 const StyledSection = styled(Section)`
   height: 100vh;
 `
@@ -53,33 +83,3 @@ const StyledLayout = styled(Layout)`
     width: 90%;
   }
 `
-
-const Landing = props => {
-  const query = graphql`
-    {
-      datoCmsAsset(path: { regex: "/stripes.svg/" }) {
-        url
-      }
-    }
-  `
-  const { datoCmsAsset } = useStaticQuery(query)
-
-  return (
-    // ref forwarded from parent
-    <StyledSection id="landing">
-      <StyledDesktopWrapper>
-        <StyledLayout bgSvgUrl={datoCmsAsset.url}>
-          <Icon name="logo-landing" className="logo" />
-          <InternalLink
-            href="about"
-            cancelParam={() => window.scrollY <= window.innerHeight}
-          >
-            <Icon name="arrow-down" className="arrow-down" />
-          </InternalLink>
-        </StyledLayout>
-      </StyledDesktopWrapper>
-    </StyledSection>
-  )
-}
-
-export default React.memo(Landing)

@@ -5,13 +5,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import StyledButton from "../elements/StyledButton"
 import Project from "./Project"
 // import styles
-import GlobalStyle, {
+import {
   Section,
   Layout,
   Header,
   Body,
   DesktopWrapper,
-} from "../../styles/global"
+} from "../../styles/elements"
 
 // ***COMPONENT***
 // TODO: need to include Projects states into global state
@@ -44,7 +44,6 @@ const Projects = props => {
 
   return (
     <>
-      <GlobalStyle />
       <Section id="projects">
         <DesktopWrapper>
           <Layout>
@@ -66,7 +65,6 @@ const Projects = props => {
     </>
   )
 }
-
 export default React.memo(Projects)
 
 // ***QUERY***

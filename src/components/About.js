@@ -8,7 +8,13 @@ import { InternalLink } from "./elements/CustomLink"
 import StyledButton from "./elements/StyledButton"
 import Icon from "./Icons/Icon"
 // import styles
-import { Section, Layout, Header, Body, DesktopWrapper } from "../styles/global"
+import {
+  Section,
+  Layout,
+  Header,
+  Body,
+  DesktopWrapper,
+} from "../styles/elements"
 
 // ***COMPONENT***
 const About = props => {
