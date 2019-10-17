@@ -44,17 +44,15 @@ const ProjectInfo = props => {
           >
             <ProjectButton>view project</ProjectButton>
           </ExternalLink>
-          <MoreInfo>
-            <div className="project-info-desc">{props.moreInfo}</div>
-            <div className="project-info-details">
-              <h3>Features</h3>
-              <ul>{featuresArray}</ul>
-            </div>
-            <div className="project-info-details">
-              <h3>Development Tools</h3>
-              <ul>{techArray}</ul>
-            </div>
-          </MoreInfo>
+          <div className="project-info-desc">{props.moreInfo}</div>
+          <div className="project-info-list">
+            <h3>Features</h3>
+            <ul>{featuresArray}</ul>
+          </div>
+          <div className="project-info-list">
+            <h3>Development Tools</h3>
+            <ul>{techArray}</ul>
+          </div>
         </Grid>
       </Container>
       <Footer title={props.title} />
@@ -63,81 +61,77 @@ const ProjectInfo = props => {
 }
 export default ProjectInfo
 
-  // ***STYLES***
-  const Modal = styled.div`
-    /* project info originally hidden off screen and revealed when clicked */
-    position: fixed;
-    z-index: 999;
-    top: 100%;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    color: ${props => props.theme.appTextWhiteM};
-    background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
-  `
-  const Container = styled.div`
-    height: calc(100% - 70px);
-    width: 100%;
-    max-width: 1400px;
-    padding: 30px 24px;
-    margin: 0 auto;
-    overflow: auto;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      black 3%,
-      black 97%,
-      transparent 100%
-    );
-    -webkit-overflow-scrolling: touch;
-    h1,
-    h3,
-    h4 {
-      color: ${props => props.theme.appTextWhiteL};
-    }
-  `
-  const Grid = styled.div`
+// ***STYLES***
+const Modal = styled.div`
+  /* project info originally hidden off screen and revealed when clicked */
+  position: fixed;
+  z-index: 999;
+  top: 100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: ${props => props.theme.appTextWhiteM};
+  background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
+`
+const Container = styled.div`
+  height: calc(100% - 70px);
+  width: 100%;
+  max-width: 1400px;
+  padding: 30px 24px;
+  margin: 0 auto;
+  overflow: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 3%,
+    black 97%,
+    transparent 100%
+  );
+  -webkit-overflow-scrolling: touch;
+  h1,
+  h3,
+  h4 {
+    color: ${props => props.theme.appTextWhiteL};
+  }
+`
+const Grid = styled.div`
+  display: grid;
+  justify-items: center;
+  grid-gap: 32px;
+  text-align: center;
+  .project-image {
+    /* TODO: change vw to % when images are added */
+    width: 50vw;
+    height: 50vw;
+    max-width: 30vh;
+    max-height: 30vh;
+    background: ${props => props.theme.appGreenBlue};
+  }
+  .project-info-desc {
+    white-space: pre-wrap;
+  }
+  ul {
     display: grid;
-    justify-items: center;
-    grid-gap: 30px;
-    text-align: center;
-    .project-image {
-      /* TODO: change vw to % when images are added */
-      width: 50vw;
-      height: 50vw;
-      max-width: 30vh;
-      max-height: 30vh;
-      background: ${props => props.theme.appGreenBlue};
-    }
-  `
-  const Header = styled.div`
-    .project-info-title {
-      margin: 0.5em 0 8px;
-    }
-    .project-info-desc {
-      white-space: pre-wrap;
-    }
-  `
-  const MoreInfo = styled.div`
-    display: grid;
-    justify-items: center;
-    grid-gap: 15px;
-    ul {
+    grid-row-gap: 4px;
+    text-align: left;
+    padding: 0;
+    margin: 8px 0 0 0;
+    li {
       display: grid;
-      grid-row-gap: 10px;
-      text-align: left;
-      padding: 0;
-      li {
-        display: grid;
-        grid-template-columns: 20px auto;
-      }
+      grid-template-columns: 20px auto;
     }
-  `
-  // Wrapper styled-component pulled from Button component style
-  const ProjectButton = styled(Wrapper)`
-    border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
-    transition: color 0.2s, border-color 0.2s;
-    &:hover {
-      border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
-    }
-  `
+  }
+`
+const Header = styled.div`
+  .project-info-title {
+    margin: 0.5em 0 8px;
+  }
+`
+// Wrapper styled-component pulled from Button component style
+const ProjectButton = styled(Wrapper)`
+  border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+  &:hover {
+    border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
+  }
+`
