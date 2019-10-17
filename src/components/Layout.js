@@ -2,7 +2,6 @@
 import React, { useContext, useRef } from "react"
 import { ThemeContext } from "styled-components"
 // import styles
-import ResetStyle from "../styles/reset"
 import GlobalStyle from "../styles/global"
 // import components
 import Nav from "./Nav/Nav"
@@ -30,7 +29,6 @@ const Layout = props => {
 
   return (
     <>
-      <ResetStyle />
       <GlobalStyle menuExpanded={state.menuExpanded} />
       <Nav role="navigation" aria-label="main navigation" />
       <div id="io-target" ref={ioTarget}>

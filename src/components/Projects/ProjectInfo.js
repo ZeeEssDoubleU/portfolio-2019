@@ -1,6 +1,10 @@
 // @ts-nocheck
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
+import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
+// import styles
+import GlobalStyle from "../../styles/global"
 // import components
 import { Wrapper } from "../elements/StyledButton"
 import { ExternalLink } from "../elements/CustomLink"
@@ -10,6 +14,14 @@ import Footer from "./ProjectInfoFooter"
 
 // ***COMPONENT***
 const ProjectInfo = props => {
+  // targetRef pointed at Container below
+  const targetRef = useRef(null)
+  useEffect(() => {
+    // body scroll disabled when component (modal) mounted
+    disableBodyScroll(targetRef.current)
+    return () => enableBodyScroll(targetRef.current)
+  }, [])
+
   // array to display tech stack below in render
   const techArray = props.tech.map((tech, index) => (
     <li key={index}>
@@ -27,36 +39,42 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Modal className="project-info-modal">
-      <Container className="project-info">
-        <Grid>
-          <div
-            className="project-image"
-            alt={`preview image of ${props.title} project`}
-          ></div>
-          <Header>
-            <h1 className="project-info-title">{props.title}</h1>
-            <div className="project-info-desc">{props.description}</div>
-          </Header>
-          <ExternalLink
-            href={props.link}
-            aria-label={`external link to ${props.title} project`}
-          >
-            <ProjectButton>view project</ProjectButton>
-          </ExternalLink>
-          <div className="project-info-desc">{props.moreInfo}</div>
-          <div className="project-info-list">
-            <h3>Features</h3>
-            <ul>{featuresArray}</ul>
-          </div>
-          <div className="project-info-list">
-            <h3>Development Tools</h3>
-            <ul>{techArray}</ul>
-          </div>
-        </Grid>
-      </Container>
-      <Footer title={props.title} />
-    </Modal>
+    <ModalRoutingContext.Consumer>
+      {/* Modal state read from ModalRoutingContext.Consumer to disable body scroll when modal is open */}
+      {modal => (
+        <Modal className="project-info-modal">
+          <GlobalStyle modal={modal} />
+          <Container className="project-info" ref={targetRef}>
+            <Grid>
+              <div
+                className="project-image"
+                alt={`preview image of ${props.title} project`}
+              ></div>
+              <Header>
+                <h1 className="project-info-title">{props.title}</h1>
+                <div className="project-info-desc">{props.description}</div>
+              </Header>
+              <ExternalLink
+                href={props.link}
+                aria-label={`external link to ${props.title} project`}
+              >
+                <ProjectButton>view project</ProjectButton>
+              </ExternalLink>
+              <div className="project-info-desc">{props.moreInfo}</div>
+              <div className="project-info-list">
+                <h3>Features</h3>
+                <ul>{featuresArray}</ul>
+              </div>
+              <div className="project-info-list">
+                <h3>Development Tools</h3>
+                <ul>{techArray}</ul>
+              </div>
+            </Grid>
+          </Container>
+          <Footer title={props.title} />
+        </Modal>
+      )}
+    </ModalRoutingContext.Consumer>
   )
 }
 export default ProjectInfo

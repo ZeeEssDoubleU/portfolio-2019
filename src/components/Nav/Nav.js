@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 // import components
@@ -13,12 +13,13 @@ import { useShowNavAnim, useMenuExpandAnim } from "../../utils/animations"
 // ***COMPONENT***
 const Nav = props => {
   const { state } = useStore()
-  // disables body scroll when navmenu expanded
+  // targetRef pointed at NavBar below
+  const targetRef = useRef(null)
   useEffect(() => {
-    const targetElem = document.querySelector(".nav-grid")
+    // disables body scroll when navmenu expanded
     state.menuExpanded
-      ? disableBodyScroll(targetElem)
-      : enableBodyScroll(targetElem)
+      ? disableBodyScroll(targetRef.current)
+      : enableBodyScroll(targetRef.current)
   }, [state.menuExpanded])
 
   // navigation animations
@@ -31,6 +32,7 @@ const Nav = props => {
       navVisible={state.navVisible}
       menuExpanded={state.menuExpanded}
       tabIndex={-1}
+      ref={targetRef}
     >
       <NavGrid>
         <NavLogo />
@@ -76,6 +78,7 @@ const NavGrid = styled.div`
   max-width: ${props => props.theme.insetWidth};
   margin: 0 auto;
   padding: 0 24px;
+  -webkit-overflow-scrolling: touch;
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     grid-template-columns: auto;
     grid-template-rows: 144px auto 144px;

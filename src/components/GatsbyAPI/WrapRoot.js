@@ -2,12 +2,18 @@ import React from "react"
 import { ThemeProvider } from "styled-components"
 import { StoreProvider } from "../../store/useStore"
 // import styles
+import ResetStyle from "../../styles/reset"
+import GlobalStyle from "../../styles/global"
 import { theme } from "../../styles/theme"
 
 export default ({ element }) => {
   return (
     <ThemeProvider theme={theme}>
-      <StoreProvider>{element}</StoreProvider>
+      <StoreProvider>
+        <ResetStyle />
+        <GlobalStyle />
+        {element}
+      </StoreProvider>
     </ThemeProvider>
   )
 }
