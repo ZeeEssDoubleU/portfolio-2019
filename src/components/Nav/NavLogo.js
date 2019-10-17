@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react"
 import styled from "styled-components"
 // import components
@@ -7,7 +8,7 @@ import { InternalLink } from "../elements/CustomLink"
 // ***COMPONENT***
 const NavLogo = props => {
   return (
-    <InternalLink href="landing">
+    <InternalLink href="landing" className="logo-link">
       <Container>
         <span className="logo-items first-name">Zachary</span>
         <span className="logo-items">
