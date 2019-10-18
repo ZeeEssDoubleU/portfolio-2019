@@ -10,6 +10,7 @@ module.exports = {
     description:
       "Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more.",
     url: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
+    siteUrl: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
     image: "./static/favicon.svg", // Path to your image you placed in the 'static' folder
     themeColor: "linear-gradient(153deg, #323232 0%, black 100vh)",
     keywords:
@@ -17,6 +18,11 @@ module.exports = {
     lang: "en",
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -36,10 +42,6 @@ module.exports = {
         pure: true,
       },
     },
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-datocms`,
       options: {

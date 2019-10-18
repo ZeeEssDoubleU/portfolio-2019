@@ -24,7 +24,7 @@ const SEO = props => {
       <meta name="keywords" content={props.keywords || siteMetadata.keywords} />
 
       {/* facebook */}
-      <meta property="og:url" content={props.url || siteMetadata.url} />
+      <meta property="og:url" content={props.url || siteMetadata.siteUrl} />
       <meta property="og:title" content={props.title || siteMetadata.title} />
       <meta
         property="og:description"
