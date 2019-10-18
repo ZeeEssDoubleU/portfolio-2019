@@ -9,7 +9,6 @@ module.exports = {
     titleTemplate: "%s | Zachary Williams",
     description:
       "Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more.",
-    url: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
     siteUrl: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
     image: "./static/favicon.svg", // Path to your image you placed in the 'static' folder
     themeColor: "linear-gradient(153deg, #323232 0%, black 100vh)",
@@ -23,6 +22,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
+    "gatsby-plugin-offline",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -35,7 +36,6 @@ module.exports = {
         icon: `./static/favicon.svg`, // This path is relative to the root of the site.
       },
     },
-    "gatsby-plugin-offline",
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -66,7 +66,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-modal-routing`,
       options: {

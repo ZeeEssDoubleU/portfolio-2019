@@ -53,7 +53,7 @@ const query = graphql`
         title
         titleTemplate
         description
-        url
+        siteUrl
         image
         keywords
         themeColor
