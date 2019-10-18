@@ -17,13 +17,14 @@ module.exports = {
     lang: "en",
   },
   plugins: [
-    `gatsby-transformer-sharp`,
-    `gatsby-transformer-json`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-sitemap`,
+    "gatsby-transformer-sharp",
+    "gatsby-transformer-json",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-robots-txt"
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -45,22 +46,8 @@ module.exports = {
     {
       resolve: `gatsby-source-datocms`,
       options: {
-        // You can find your read-only API token under the Settings > API tokens
-        // section of your administrative area:
         apiToken: process.env.DATO_API_TOKEN,
-
-        // If you are working on development/staging environment, you might want to
-        // preview the latest version of records instead of the published one:
-        previewMode: false,
-
-        // Disable automatic reloading of content when some change occurs on DatoCMS:
-        disableLiveReload: false,
-
-        // Custom API base URL
         apiUrl: "https://site-api.datocms.com",
-
-        // Setup locale fallbacks
-        // In this example, if some field value is missing in Italian, fall back to English
         localeFallbacks: {
           it: ["en"],
         },
@@ -69,12 +56,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-modal-routing`,
       options: {
-        // A selector to set react-modal's app root to, default is `#___gatsby`
-        // See http://reactcommunity.org/react-modal/accessibility/#app-element
+        // where to append modal to
         appElement: "#___gatsby",
-
-        // Object of props that will be passed to the react-modal container
-        // See http://reactcommunity.org/react-modal/#usage
         modalProps: {
           // equivalent to modal close animation in animations.js
           closeTimeoutMS: 300,
