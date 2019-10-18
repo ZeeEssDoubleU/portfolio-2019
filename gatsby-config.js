@@ -17,14 +17,14 @@ module.exports = {
     lang: "en",
   },
   plugins: [
-    "gatsby-transformer-sharp",
-    "gatsby-transformer-json",
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-robots-txt"
+    "gatsby-plugin-robots-txt",
+    "gatsby-transformer-sharp",
+    "gatsby-transformer-json",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -47,7 +47,6 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATO_API_TOKEN,
-        apiUrl: "https://site-api.datocms.com",
         localeFallbacks: {
           it: ["en"],
         },
