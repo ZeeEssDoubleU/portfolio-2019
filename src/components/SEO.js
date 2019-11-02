@@ -13,6 +13,11 @@ const SEO = props => {
       titleTemplate={siteMetadata.titleTemplate}
     >
       <html lang={siteMetadata.lang} />
+      {/* google site ownership verification */}
+      <meta
+        name="google-site-verification"
+        content="XEZHILEk_i7LvZufBFhG3Qskxmyq73hQ_-1TmLHjzkw"
+      />
 
       {/* serp */}
       <meta
