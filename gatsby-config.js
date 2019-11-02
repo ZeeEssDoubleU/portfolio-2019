@@ -9,7 +9,7 @@ module.exports = {
     titleTemplate: "%s | Zachary Williams",
     description:
       "Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more.",
-    siteUrl: "https://www.zswportfolio.netlify.com", // No trailing slash allowed!
+    siteUrl: "https://zswportfolio.netlify.com", // No trailing slash allowed!
     image: "./static/favicon.svg", // Path to your image you placed in the 'static' folder
     themeColor: "linear-gradient(153deg, #323232 0%, black 100vh)",
     keywords:
