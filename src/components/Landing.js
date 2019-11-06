@@ -67,7 +67,7 @@ const StyledLayout = styled(Layout)`
     cursor: pointer;
     transition: transform 0.2s;
     &:hover {
-      transform: translateX(-50%) scale(1.1);
+      transform: translateX(-50%) scale(1.2);
     }
   }
   @media (min-width: ${props => props.theme.tablet + "px"}) {

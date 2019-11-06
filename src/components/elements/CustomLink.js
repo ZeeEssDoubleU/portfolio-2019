@@ -16,6 +16,7 @@ export const InternalLink = React.memo(props => {
       aria-label={`go to ${target} section`}
       onClick={e => {
         e.preventDefault()
+        // if cancelParam present, prevent Link from working when cancelParam === false
         if (props.cancelParam) {
           if (props.cancelParam() === false) return
         }
