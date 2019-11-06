@@ -27,7 +27,7 @@ export const Wrapper = styled.button`
   height: 65px;
   color: ${props => props.theme.appBlue};
   font-size: 18px;
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.5);
+  background: black;
   padding: 20px 24px;
   border: none;
   border-radius: 10px;

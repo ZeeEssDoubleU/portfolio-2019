@@ -35,8 +35,6 @@ const Projects = props => {
           index={index}
           title={project.title}
           description={project.description}
-          tech={project.tech}
-          link={project.link}
           slug={project.slug}
         ></Project>
       )
@@ -75,8 +73,6 @@ const query = graphql`
         node {
           title
           description
-          tech
-          link
           slug
         }
       }

@@ -25,7 +25,8 @@ export default ({ data }) => {
           description={project.description}
           moreInfo={project.moreInfo}
           features={project.features}
-          link={project.link}
+          projectLink={project.projectLink}
+          codeLink={project.codeLink}
           tech={project.tech}
         />
       </ThemeProvider>
@@ -42,7 +43,8 @@ export const pageQuery = graphql`
       moreInfo
       features
       tech
-      link
+      projectLink
+      codeLink
       slug
     }
   }

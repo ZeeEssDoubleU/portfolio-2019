@@ -56,12 +56,20 @@ const ProjectInfo = props => {
                 <h1 className="project-info-title">{props.title}</h1>
                 <div className="project-info-desc">{props.description}</div>
               </Header>
-              <ExternalLink
-                href={props.link}
-                aria-label={`external link to ${props.title} project`}
-              >
-                <ProjectButton>view project</ProjectButton>
-              </ExternalLink>
+              <Links>
+                <ExternalLink
+                  href={props.projectLink}
+                  aria-label={`external link to ${props.title} project`}
+                >
+                  <ViewProject>view project</ViewProject>
+                </ExternalLink>
+                <ExternalLink
+                  href={props.codeLink}
+                  aria-label={`external link to ${props.title}'s Github repository`}
+                >
+                  <ViewCode>view code</ViewCode>
+                </ExternalLink>
+              </Links>
               <div className="project-info-desc">{props.moreInfo}</div>
               <div className="project-info-list">
                 <h3>Features</h3>
@@ -147,9 +155,23 @@ const Header = styled.div`
     margin: 0.5em 0 8px;
   }
 `
+const Links = styled.div`
+  display: grid;
+`
 // Wrapper styled-component pulled from Button component style
-const ProjectButton = styled(Wrapper)`
+const ViewProject = styled(Wrapper)`
+  width: 150px;
   border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
+  border-radius: 10px 10px 0 0;
+  transition: color 0.2s, border-color 0.2s;
+  &:hover {
+    border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
+  }
+`
+const ViewCode = styled(Wrapper)`
+  width: 150px;
+  border: 1px solid hsla(${props => props.theme.appBluePartial}, 0.3);
+  border-radius: 0 0 10px 10px;
   transition: color 0.2s, border-color 0.2s;
   &:hover {
     border: 1px solid hsla(${props => props.theme.appGreenPartial}, 0.3);
