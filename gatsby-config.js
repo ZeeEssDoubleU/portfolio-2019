@@ -20,7 +20,6 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-robots-txt",
     "gatsby-transformer-sharp",
@@ -37,6 +36,7 @@ module.exports = {
         icon: `./static/favicon.svg`, // This path is relative to the root of the site.
       },
     },
+    "gatsby-plugin-offline", // load after manifest (above) so manifest can be cached
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

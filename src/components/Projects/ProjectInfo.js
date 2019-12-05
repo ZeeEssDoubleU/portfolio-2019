@@ -138,15 +138,16 @@ const Grid = styled.div`
   .project-info-desc {
     white-space: pre-wrap;
   }
-  ul {
-    display: grid;
-    grid-row-gap: 4px;
-    text-align: left;
-    padding: 0;
-    margin: 8px 0 0 0;
-    li {
-      display: grid;
-      grid-template-columns: 20px auto;
+  .project-info-list {
+    ul {
+      width: fit-content;
+      padding: 0;
+      margin: 8px auto 0;
+      li {
+        display: grid;
+        text-align: left;
+        grid-template-columns: 20px auto;
+      }
     }
   }
 `

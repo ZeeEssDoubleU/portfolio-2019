@@ -24,7 +24,7 @@ const SEO = props => {
         name="description"
         content={props.description || siteMetadata.description}
       />
-      <meta name="image" content={props.image || siteMetadata.image} />
+      {/* <meta name="image" content={props.image || siteMetadata.image} /> */}
       <meta name="theme-color" content={siteMetadata.themeColor} />
       <meta name="keywords" content={props.keywords || siteMetadata.keywords} />
 
@@ -35,7 +35,7 @@ const SEO = props => {
         property="og:description"
         content={props.description || siteMetadata.description}
       />
-      <meta property="og:image" content={props.image || siteMetadata.image} />
+      {/* <meta property="og:image" content={props.image || siteMetadata.image} /> */}
 
       {/* twitter */}
       <meta name="twitter:card" content="summary" />
@@ -44,7 +44,7 @@ const SEO = props => {
         name="twitter:description"
         content={props.description || siteMetadata.description}
       />
-      <meta name="twitter:image" content={props.image || siteMetadata.image} />
+      {/* <meta name="twitter:image" content={props.image || siteMetadata.image} /> */}
     </Helmet>
   )
 }

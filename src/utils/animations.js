@@ -122,7 +122,6 @@ export const useModalAnim = () => {
   const tl_modal = useRef(null)
   // animate/show modal (project info) when component mounts
   useLayoutEffect(() => {
-    // look at global.js for modal starting style
     tl_modal.current = new TimelineMax().to(".project-info-modal", 0.3, {
       y: "-100%",
     })

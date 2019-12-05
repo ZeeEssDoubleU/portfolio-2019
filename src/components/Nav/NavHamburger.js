@@ -48,51 +48,53 @@ const NavHamburger = props => {
 }
 export default React.memo(NavHamburger)
 
-  // ***STYLES***
-  // variables for quick customization of hamburger
-  const hamVars = {}
-  hamVars.layerHeight = 2
-  hamVars.layerSpacing = 3 * hamVars.layerHeight
-  hamVars.layerWidth = 25
-  hamVars.layerRadius = 4
-  
-  const Container = styled.button`
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    @media (min-width: ${props => props.theme.tablet + "px"}) {
-      display: none;
-    }
-  `
-  const Inner = styled.div`
-    position: relative;
-    width: ${hamVars.layerWidth}px;
-    height: ${2 * hamVars.layerSpacing + 3 * hamVars.layerHeight}px;
-    transition: transform 0.2s, opacity 0.2s;
-    will-change: transform;
-    &:hover {
-      opacity: 0.7;
-      transform: scale(1.2);
-    }
-  `
-  const Shape = styled.div`
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: ${hamVars.layerHeight}px;
-    background: ${props => props.theme.appBlueGreen};
-    border: none;
-    border-radius: ${hamVars.layerRadius}px;
-  `
-  const Top = styled(Shape)`
-    top: calc(50% - ${hamVars.layerHeight / 2}px);
-    transform: translateY(-400%);
-  `
-  const Middle = styled(Shape)`
-    top: calc(50% - ${hamVars.layerHeight / 2}px);
-  `
-  const Bottom = styled(Shape)`
-    top: calc(50% - ${hamVars.layerHeight / 2}px);
-    transform: translateY(400%);
-  `
+// ***STYLES***
+// variables for quick customization of hamburger
+const hamVars = {}
+hamVars.layerHeight = 2
+hamVars.layerSpacing = 3 * hamVars.layerHeight
+hamVars.layerWidth = 25
+hamVars.layerRadius = 4
+
+const Container = styled.button`
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  @media (min-width: ${props => props.theme.tablet + "px"}) {
+    display: none;
+  }
+`
+// sizing of hamburger
+const Inner = styled.div`
+  position: relative;
+  width: ${hamVars.layerWidth}px;
+  height: ${2 * hamVars.layerSpacing + 3 * hamVars.layerHeight}px;
+  transition: transform 0.2s, opacity 0.2s;
+  will-change: transform;
+  &:hover {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+`
+// shape of each hamburger bar
+const Shape = styled.div`
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: ${hamVars.layerHeight}px;
+  background: ${props => props.theme.appBlueGreen};
+  border: none;
+  border-radius: ${hamVars.layerRadius}px;
+`
+const Top = styled(Shape)`
+  top: calc(50% - ${hamVars.layerHeight / 2}px);
+  transform: translateY(-400%);
+`
+const Middle = styled(Shape)`
+  top: calc(50% - ${hamVars.layerHeight / 2}px);
+`
+const Bottom = styled(Shape)`
+  top: calc(50% - ${hamVars.layerHeight / 2}px);
+  transform: translateY(400%);
+`
