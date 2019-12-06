@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 // import styles
@@ -48,10 +49,11 @@ const ProjectInfo = props => {
           <GlobalStyle modal={modal} />
           <Container className="project-info" ref={targetRef}>
             <Grid>
-              <div
-                className="project-image"
+              <Thumbnail
+                title={`${props.title} thumbnail`}
+                fluid={{ ...props.image.fluid }}
                 alt={`preview image of ${props.title} project`}
-              ></div>
+              />
               <Header>
                 <h1 className="project-info-title">{props.title}</h1>
                 <div className="project-info-desc">{props.description}</div>
@@ -127,14 +129,6 @@ const Grid = styled.div`
   justify-items: center;
   grid-gap: 32px;
   text-align: center;
-  .project-image {
-    /* TODO: change vw to % when images are added */
-    width: 50vw;
-    height: 50vw;
-    max-width: 30vh;
-    max-height: 30vh;
-    background: ${props => props.theme.appGreenBlue};
-  }
   .project-info-desc {
     white-space: pre-wrap;
   }
@@ -150,6 +144,25 @@ const Grid = styled.div`
       }
     }
   }
+`
+const Thumbnail = styled(Img)`
+  /* TODO: change vw to % when images are added */
+  width: 25vw;
+  height: 25vw;
+  img {
+    mask-image: linear-gradient(
+    to left,
+    transparent -5%,
+    black,
+    transparent 105%
+  );
+    object-fit: cover;
+    object-position: 0% 0% !important;
+    transform-origin: 0% 0%;
+  }
+  background: black;
+  border: none;
+  /* box-shadow: 0 0 10px 0 ${props => props.theme.appShadowWhite}; */
 `
 const Header = styled.div`
   .project-info-title {

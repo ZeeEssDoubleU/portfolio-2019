@@ -1,7 +1,24 @@
+const axios = require(`axios`)
+const fs = require("fs")
+
 // dotenv needed to protect contentful API keys
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv/config")
+if (process.env.NODE_ENV !== `production`) {
+  require(`dotenv/config`)
 }
+
+// creates favicon.svg and faviconShare.svg file for gatsby-plugin-manifest
+const saveIcons = async () => {
+  const favicon = await axios.get(
+    `https://www.datocms-assets.com/16519/1575643152-logo-favicon.svg`
+  )
+  fs.writeFile(
+    "./src/components/Icons/favicon.svg",
+    favicon.data,
+    err => console.log(err),
+    res => console.log("Favicon was saved!")
+  )
+}
+saveIcons()
 
 module.exports = {
   siteMetadata: {
@@ -10,7 +27,7 @@ module.exports = {
     description:
       "Zachary Williams is a web developer in New York City.  Contact him here for front-end engineering help with React, Gatsby, Next and more.",
     siteUrl: "https://zswportfolio.netlify.com", // No trailing slash allowed!
-    image: "./static/favicon.svg", // Path to your image you placed in the 'static' folder
+    image: `./src/components/Icons/favicon.svg`, // declared in globalSEO on DatoCMS
     themeColor: "linear-gradient(153deg, #323232 0%, black 100vh)",
     keywords:
       "react developer, javascript developer, front end developer, web developer, freelance web developer, web developer new york city, new york city, new york city web development, gatsby developer, developer for hire",
@@ -33,7 +50,7 @@ module.exports = {
         background_color: `black`,
         theme_color: `hsl(167, 73%, 60%)`,
         display: `standalone`,
-        icon: `./static/favicon.svg`, // This path is relative to the root of the site.
+        icon: `./src/components/Icons/favicon.svg`, // declared in globalSEO on DatoCMS
       },
     },
     "gatsby-plugin-offline", // load after manifest (above) so manifest can be cached

@@ -27,6 +27,7 @@ export default ({ data }) => {
           features={project.features}
           projectLink={project.projectLink}
           codeLink={project.codeLink}
+          image={project.image}
           tech={project.tech}
         />
       </ThemeProvider>
@@ -45,6 +46,11 @@ export const pageQuery = graphql`
       tech
       projectLink
       codeLink
+      image {
+        fluid(maxWidth: 1400) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       slug
     }
   }
