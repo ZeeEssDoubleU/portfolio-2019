@@ -147,22 +147,25 @@ const Grid = styled.div`
 `
 const Thumbnail = styled(Img)`
   /* TODO: change vw to % when images are added */
-  width: 25vw;
-  height: 25vw;
+  width: 50vw;
+  height: 50vw;
   img {
     mask-image: linear-gradient(
-    to left,
-    transparent -5%,
-    black,
-    transparent 105%
-  );
+      to left,
+      transparent -10%,
+      black,
+      transparent 110%
+    );
     object-fit: cover;
     object-position: 0% 0% !important;
     transform-origin: 0% 0%;
   }
   background: black;
   border: none;
-  /* box-shadow: 0 0 10px 0 ${props => props.theme.appShadowWhite}; */
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    width: 30vw;
+    height: 30vw;
+  }
 `
 const Header = styled.div`
   .project-info-title {
