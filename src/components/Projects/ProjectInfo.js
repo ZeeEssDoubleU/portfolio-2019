@@ -47,13 +47,13 @@ const ProjectInfo = props => {
       {modal => (
         <Modal className="project-info-modal">
           <GlobalStyle modal={modal} />
+          <Thumbnail
+            title={`${props.title} thumbnail`}
+            fluid={{ ...props.image.fluid }}
+            alt={`preview image of ${props.title} project`}
+          />
           <Container className="project-info" ref={targetRef}>
             <Grid>
-              <Thumbnail
-                title={`${props.title} thumbnail`}
-                fluid={{ ...props.image.fluid }}
-                alt={`preview image of ${props.title} project`}
-              />
               <Header>
                 <h1 className="project-info-title">{props.title}</h1>
                 <div className="project-info-desc">{props.description}</div>
@@ -101,15 +101,45 @@ const Modal = styled.div`
   height: 100%;
   width: 100%;
   color: ${props => props.theme.appTextWhiteM};
-  background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
+  background: black;
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    padding-top: 24px;
+  }
+`
+const Thumbnail = styled(Img)`
+  /* TODO: change vw to % when images are added */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vw;
+  img {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black,
+      transparent 100%
+    );
+    object-fit: cover;
+    object-position: 0% 0% !important;
+    transform-origin: 0% 0%;
+  }
+  background: black;
+  border: none;
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    width: 30vw;
+    height: 30vw;
+    margin: 0 auto;
+  }
 `
 const Container = styled.div`
+  position: absolute;
+  top: 0;
   height: calc(100% - 70px);
   width: 100%;
   max-width: 1400px;
-  padding: 30px 24px;
   margin: 0 auto;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
@@ -117,18 +147,26 @@ const Container = styled.div`
     black 97%,
     transparent 100%
   );
-  -webkit-overflow-scrolling: touch;
   h1,
   h3,
   h4 {
     color: ${props => props.theme.appTextWhiteL};
   }
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `
 const Grid = styled.div`
+  position: absolute;
+  top: 60vw;
   display: grid;
+  width: 100%;
   justify-items: center;
   grid-gap: 32px;
   text-align: center;
+  padding: 96px 24px 24px;
+  background: linear-gradient(to bottom, transparent 0, black 216px);
   .project-info-desc {
     white-space: pre-wrap;
   }
@@ -144,27 +182,12 @@ const Grid = styled.div`
       }
     }
   }
-`
-const Thumbnail = styled(Img)`
-  /* TODO: change vw to % when images are added */
-  width: 50vw;
-  height: 50vw;
-  img {
-    mask-image: linear-gradient(
-      to left,
-      transparent -10%,
-      black,
-      transparent 110%
-    );
-    object-fit: cover;
-    object-position: 0% 0% !important;
-    transform-origin: 0% 0%;
-  }
-  background: black;
-  border: none;
   @media (min-width: ${props => props.theme.desktop + "px"}) {
-    width: 30vw;
-    height: 30vw;
+    top: 30vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 24px 24px;
+    background: linear-gradient(to bottom, transparent 0, black 72px);
   }
 `
 const Header = styled.div`

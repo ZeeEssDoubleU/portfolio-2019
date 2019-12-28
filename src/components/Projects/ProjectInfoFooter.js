@@ -45,7 +45,7 @@ const Container = styled.div`
   button {
     color: ${props => props.theme.appTextWhiteL};
     font-size: 20px;
-    background: none;
+    background: black;
     border: none;
     cursor: pointer;
   }
