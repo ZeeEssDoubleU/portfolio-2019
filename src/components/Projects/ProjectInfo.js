@@ -112,6 +112,7 @@ const Thumbnail = styled(Img)`
   top: 0;
   width: 100%;
   height: 100vw;
+  max-height: calc(100% - 70px);
   img {
     mask-image: linear-gradient(
       to bottom,
