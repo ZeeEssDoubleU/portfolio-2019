@@ -75,8 +75,6 @@ module.exports = {
         // where to append modal to
         appElement: "#___gatsby",
         modalProps: {
-          // equivalent to modal close animation in animations.js
-          closeTimeoutMS: 300,
           style: {
             overlay: {
               zIndex: 999,

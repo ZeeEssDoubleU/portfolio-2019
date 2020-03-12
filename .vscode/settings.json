@@ -1,6 +1,6 @@
 {
 	"workbench.iconTheme": "vscode-great-icons",
-	"window.zoomLevel": 0,
+	"window.zoomLevel": -1,
 	"atomKeymap.promptV3Features": true,
 	"editor.smoothScrolling": true,
 	"editor.tabSize": 3,
@@ -32,7 +32,6 @@
 	"path-intellisense.autoSlashAfterDirectory": true,
 	"path-intellisense.extensionOnImport": true,
 	"npm-intellisense.packageSubfoldersIntellisense": true,
-	"prettier.eslintIntegration": true,
 	"prettier.jsxBracketSameLine": true,
 	"prettier.tabWidth": 3,
 	"prettier.trailingComma": "all",
