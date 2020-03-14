@@ -1,32 +1,27 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
-import { navigate } from "gatsby"
+import { Link, navigate } from "gatsby"
 // import util
-import { useModalAnim } from "../../utils/animations"
+import { useAnim_modalFromBottom } from "../../utils/animations"
 
 // ***COMPONENT***
 const ProjectInfoFooter = props => {
-  const tl_modal = useModalAnim()
+  const tl_modal = useAnim_modalFromBottom()
 
   return (
     <Container>
-      <button
+      <Link
+        to="/"
         aria-label={`close ${props.title} project info panel`}
-        onClick={() => {
+        onClick={event => {
+          event.preventDefault()
           tl_modal.current.reverse()
-          setTimeout(() => {
-            navigate("/", {
-              state: {
-                modal: false,
-                noScroll: true,
-              },
-            })
-          }, 300)
+          setTimeout(() => navigate("/"), 300)
         }}
       >
-        Close
-      </button>
+        <button>Close</button>
+      </Link>
     </Container>
   )
 }

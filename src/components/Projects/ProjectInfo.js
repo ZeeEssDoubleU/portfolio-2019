@@ -41,7 +41,7 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Container className="project-info-modal">
+    <Container className="modal-from-bottom">
       <Thumbnail
         title={`${props.title} thumbnail`}
         fluid={{ ...props.image.fluid }}

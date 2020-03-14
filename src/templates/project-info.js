@@ -38,7 +38,7 @@ export default ({ data }) => {
     },
   }
 
-  // PageRenderer stuff.
+  // PageRenderer stuff
   const building = typeof window === "undefined"
   const [indexPageData, setIndexPageData] = useState(
     !building && window.indexPageData
@@ -49,13 +49,9 @@ export default ({ data }) => {
     }
   }, [])
 
-  // Modal stuff.
+  // Modal stuff
   const [modalOpen, setModalOpen] = useState(true)
   const modalCloseTimeout = 300
-  const closeModal = () => {
-    setModalOpen(false)
-    setTimeout(() => navigate(`/`), modalCloseTimeout)
-  }
 
   return (
     <>
@@ -67,7 +63,7 @@ export default ({ data }) => {
       />
       <Modal
         isOpen={modalOpen}
-        onRequestClose={closeModal}
+        onRequestClose={() => setModalOpen(false)}
         style={modalStyles}
         contentLabel="Modal"
         closeTimeoutMS={modalCloseTimeout}

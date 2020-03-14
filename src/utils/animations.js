@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from "react"
 import { TimelineMax } from "gsap"
 
-export const useShowNavAnim = state => {
+export const useAnim_showNav = state => {
   const tl_nav = useRef(null)
   const tl_nav_desktop = useRef(null)
   // componentDidMount.  Create nav and menu animation timelines
@@ -82,7 +82,7 @@ export const useShowNavAnim = state => {
     }
   }, [state.navVisible, state.isMobile, state.isDesktop])
 }
-export const useMenuExpandAnim = state => {
+export const useAnim_expandMenu = state => {
   const tl_menu = useRef(null)
   // componentDidMount.  Create nav and menu animation timelines
   useLayoutEffect(() => {
@@ -118,11 +118,11 @@ export const useMenuExpandAnim = state => {
   }, [state.menuExpanded])
 }
 
-export const useModalAnim = () => {
+export const useAnim_modalFromBottom = () => {
   const tl_modal = useRef(null)
   // animate/show modal (project info) when component mounts
   useLayoutEffect(() => {
-    tl_modal.current = new TimelineMax().to(".project-info-modal", 0.3, {
+    tl_modal.current = new TimelineMax().to(".modal-from-bottom", 0.3, {
       y: "-100%",
     })
   }, [])

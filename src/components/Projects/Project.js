@@ -10,13 +10,7 @@ const Project = props => {
     <Container className={props.className}>
       <div className="project-title">{props.title}</div>
       <div className="project-description">{props.description}</div>
-      <Link
-        to={`/project/${props.slug}`}
-        state={{
-          modal: true,
-          noScroll: true,
-        }}
-      >
+      <Link to={`/project/${props.slug}`}>
         <Icon
           className="project-ellipsis"
           name="ellipsis"
@@ -28,39 +22,39 @@ const Project = props => {
 }
 export default Project
 
-  // ***STYLES***
-  const Container = styled.div`
-    position: relative;
-    display: grid;
-    grid-template-columns: auto 40px;
-    font-size: 16px;
-    color: ${props => props.theme.appTextWhiteL};
-    padding: 4px 0;
-    margin-top: 20px;
-    transition: color 0.2s;
-    .project-title {
-      grid-row: 1/2;
-      grid-column: 1/2;
-    }
-    .project-description {
-      grid-row: 2/3;
-      grid-column: 1/2;
-      font-size: 14px;
-      color: ${props => props.theme.appTextWhiteM};
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .project-ellipsis {
-      grid-row: 1/3;
-      grid-column: 2/3;
-      align-self: center;
-      justify-self: end;
-      font-size: 18px;
-      color: ${props => props.theme.appTextWhiteM};
-      cursor: pointer;
-    }
-    &.active {
-      color: ${props => props.theme.appGreen};
-    }
-  `
+// ***STYLES***
+const Container = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 40px;
+  font-size: 16px;
+  color: ${props => props.theme.appTextWhiteL};
+  padding: 4px 0;
+  margin-top: 20px;
+  transition: color 0.2s;
+  .project-title {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  .project-description {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 14px;
+    color: ${props => props.theme.appTextWhiteM};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .project-ellipsis {
+    grid-row: 1/3;
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: end;
+    font-size: 18px;
+    color: ${props => props.theme.appTextWhiteM};
+    cursor: pointer;
+  }
+  &.active {
+    color: ${props => props.theme.appGreen};
+  }
+`

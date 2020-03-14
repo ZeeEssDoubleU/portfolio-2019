@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 // import components
-import Layout from "../components/Layout"
+import Main from "../components/Main"
 import SEO from "../components/SEO"
 
 // ***COMPONENT***
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <SEO />
-      <Layout />
+      <Main />
     </>
   )
 }

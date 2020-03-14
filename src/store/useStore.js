@@ -9,13 +9,14 @@ const WINDOW_WIDTH = "WINDOW_WIDTH"
 const WINDOW_HEIGHT = "WINDOW_HEIGHT"
 const IS_DESKTOP = "IS_DESKTOP"
 const IS_MOBILE = "IS_MOBILE"
+const SET_PATHNAME = "SET_PATHNAME"
+const SET_PREV_PATHNAME = "SET_PREV_PATHNAME"
 
 // action creators
 export const onToggleNav = (dispatch, payload) =>
   dispatch({ type: TOGGLE_NAV, payload })
 export const onToggleMenu = (dispatch, payload) =>
   dispatch({ type: TOGGLE_MENU, payload })
-
 export const onWindowResize = (dispatch, themeContext) => {
   if (typeof window !== "undefined") {
     dispatch({ type: WINDOW_WIDTH, payload: window.innerWidth })
@@ -31,6 +32,12 @@ export const onWindowResize = (dispatch, themeContext) => {
       onToggleMenu(dispatch, false)
     }
   }
+}
+export const setPrevPathname = (dispatch, payload) => {
+  dispatch({ type: SET_PREV_PATHNAME, payload })
+}
+export const setPathname = (dispatch, payload) => {
+  dispatch({ type: SET_PATHNAME, payload })
 }
 
 // reducer
@@ -48,6 +55,10 @@ const reducer = (state, action) => {
       return { ...state, isMobile: action.payload }
     case IS_DESKTOP:
       return { ...state, isDesktop: action.payload }
+    case SET_PATHNAME:
+      return { ...state, pathname: action.payload }
+    case SET_PREV_PATHNAME:
+      return { ...state, prevPathname: action.payload }
     default:
       return state
   }
@@ -63,6 +74,8 @@ const initState =
         windowHeight: window.innerHeight,
         isMobile: window.innerWidth < theme.tablet,
         isDesktop: window.innerWidth >= theme.desktop,
+        pathname: null,
+        prevPathname: null,
       }
     : {} // fallback to {} so that sub states don't return null
 

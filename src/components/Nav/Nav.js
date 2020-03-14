@@ -8,7 +8,7 @@ import NavHamburger from "./NavHamburger"
 import NavMenu from "./NavMenu"
 // import store / utils
 import { useStore } from "../../store/useStore"
-import { useShowNavAnim, useMenuExpandAnim } from "../../utils/animations"
+import { useAnim_showNav, useAnim_expandMenu } from "../../utils/animations"
 
 // ***COMPONENT***
 const Nav = props => {
@@ -23,8 +23,8 @@ const Nav = props => {
   }, [state.menuExpanded])
 
   // navigation animations
-  useShowNavAnim(state)
-  useMenuExpandAnim(state)
+  useAnim_showNav(state)
+  useAnim_expandMenu(state)
 
   return (
     <NavBar
