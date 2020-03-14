@@ -3,22 +3,12 @@ import React, { useEffect } from "react"
 import { useStore, setPathname, setPrevPathname } from "../../store/useStore"
 
 // ***WRAP PAGE***
-export default ({ element }) => <Functions>{element}</Functions>
+export default ({ element }) => <Layout>{element}</Layout>
 
 // ***COMPONENT***
 // used in wrap page component above
-const Functions = ({ children }) => {
-  const { dispatch } = useStore()
-  const { pathname } = children.props.location
+const Layout = ({ children }) => {
+  console.log("children", children)
 
-  useEffect(() => {
-    sessionStorage.setItem("current_path", pathname)
-    setPathname(dispatch, pathname)
-    return () => {
-      sessionStorage.setItem("current_path", pathname)
-      setPrevPathname(dispatch, pathname)
-    }
-  }, [pathname])
-
-  return children
+  return <>{children}</>
 }
