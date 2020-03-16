@@ -119,8 +119,8 @@ export const useAnim_expandMenu = state => {
 }
 
 // // reveal project info animation
-// // DEPRECATED gsap version
-// // replaced with framer-motion (layout.js)
+// // *** DEPRECATED gsap version
+// // *** replaced with framer-motion (layout.js)
 // export const useAnim_modalFromBottom = () => {
 //   const tl_modal = useRef(null)
 //   // animate/show modal (project info) when component mounts

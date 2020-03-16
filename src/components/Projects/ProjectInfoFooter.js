@@ -1,13 +1,23 @@
 // @ts-nocheck
 import React from "react"
 import styled from "styled-components"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
+import { navigate } from "@reach/router"
 
 // ***COMPONENT***
 const ProjectInfoFooter = props => {
   return (
     <Container>
-      <Link to="/" aria-label={`close ${props.title} project info panel`}>
+      <Link
+        to="/"
+        aria-label={`close ${props.title} project info panel`}
+        onClick={e => {
+          e.preventDefault()
+          // use navigate from reach router instead of gatsby for back (-1) functionality
+          // Gatsby still not updated with latest version
+          navigate(-1)
+        }}
+      >
         <button>Close</button>
       </Link>
     </Container>

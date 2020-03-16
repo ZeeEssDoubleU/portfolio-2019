@@ -11,13 +11,15 @@ import { useStore } from "../store/useStore"
 const Layout = ({ children, location }) => {
   const { state } = useStore()
   const { pathname } = location
-  const duration = .3
+  const duration = 0.3
   const slideUp = {
     initial: {
+      position: "fixed",
       zIndex: 2,
       y: "100%",
     },
     enter: {
+      position: "fixed",
       zIndex: 2,
       y: 0,
       transition: {
@@ -25,12 +27,16 @@ const Layout = ({ children, location }) => {
       },
     },
     exit: {
+      position: "fixed",
       zIndex: 2,
       y: "100%",
       transition: { duration: duration },
     },
   }
-  const still = {
+  const fixed = {
+    initial: {
+      zIndex: 1,
+    },
     enter: {
       zIndex: 1,
       transition: {
@@ -52,7 +58,7 @@ const Layout = ({ children, location }) => {
         <PageTransition
           id="page-transition"
           key={pathname}
-          variants={pathname.includes("project") ? slideUp : still}
+          variants={pathname.includes("project") ? slideUp : fixed}
           initial="initial"
           animate="enter"
           exit="exit"
@@ -66,16 +72,8 @@ const Layout = ({ children, location }) => {
 export default Layout
 
 // ***STYLES***
-const Container = styled.div`
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-`
-
 const PageTransition = styled(motion.div)`
   position: absolute;
-  overflow: scroll;
   width: 100%;
   height: 100%;
 `
