@@ -34,7 +34,6 @@ module.exports = {
     lang: "en",
   },
   plugins: [
-    "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-react-helmet",

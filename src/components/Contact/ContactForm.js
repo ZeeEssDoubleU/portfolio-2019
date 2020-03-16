@@ -15,10 +15,10 @@ const ContactForm = props => {
   return (
     <Grid
       id="contact-form"
+      name="contact-form"
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="honeypot-field"
-      name="portfolio-contact-form"
       // // logic to push contact data to Firebase & Firestore
       // onSubmit={event => {
       //   event.preventDefault()
@@ -31,63 +31,51 @@ const ContactForm = props => {
       // }}
     >
       {/* input required by netlify for SSGs like gatsby */}
-      <input type="hidden" name="form-name" value="portfolio-contact-form" />
+      <input type="hidden" name="form-name" value="contact-form" />
       {/* hidden honeypot field meant to capture bots */}
-      <input
-        className="form-field"
-        name="honeypot-field"
-        style={{ display: "none" }}
-      />
+      <input name="honeypot-field" style={{ display: "none" }} />
       <div className="form-div">
-        <label className="form-label" htmlFor="name">
-          Name
-        </label>
         <input
           className="form-field"
           type="text"
           name="name"
           id="name"
+          aria-label="name"
           placeholder="Name"
           ref={inputName}
           required
         />
       </div>
       <div className="form-div">
-        <label className="form-label" htmlFor="email">
-          Email
-        </label>
         <input
           className="form-field"
           type="email"
           name="email"
           id="email"
+          aria-label="email"
           placeholder="Email"
           ref={inputEmail}
           required
         />
       </div>
       <div className="form-div">
-        <label className="form-label" htmlFor="subject">
-          Subject
-        </label>
         <input
           className="form-field"
           type="text"
           name="subject"
           id="subject"
+          aria-label="subject"
           placeholder="Subject"
           ref={inputSubject}
           required
         />
       </div>
       <div className="form-div">
-        <label className="form-label" htmlFor="message">
-          Message
-        </label>
         <textarea
           className="form-field form-textarea"
           name="message"
           id="message"
+          aria-label="message"
           placeholder="Message"
           ref={inputMessage}
           required
@@ -105,11 +93,6 @@ export default ContactForm
 const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;
-  .form-label {
-    position: absolute;
-    top: 0;
-    left: -100vw;
-  }
   .form-field {
     width: 100%;
     background: linear-gradient(
