@@ -44,7 +44,7 @@ const App = () => {
     <>
       <SEO />
       <Nav role="navigation" aria-label="main navigation" />
-      <Main>
+      <Main id="main">
         {/* ref forwarded to div INSIDE landing component */}
         <Landing ref={ioTarget} id="io-target" />
         <About />

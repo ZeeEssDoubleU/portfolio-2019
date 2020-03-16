@@ -24,7 +24,6 @@ export const InternalLink = React.memo(props => {
           onToggleMenu(dispatch, false)
         }
         scrollToAnim(state.menuExpanded, `#${target}`)
-        // window.history.pushState({ section: target }, target, `#${target}`)
       }}
     >
       {props.children}

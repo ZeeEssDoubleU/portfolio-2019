@@ -14,7 +14,10 @@ export const scrollToAnim = (menuExpanded, destination) => {
   //   console.log("destination", destination)
   //   console.log("target", target)
 
-  TweenLite.to(window, duration, {
-    scrollTo: { y: destination, offsetY, autoKill: false }
+  // required because framer-motion creates new scrollable area (layout.js)
+  const destinationFrame = document.querySelector("#page-transition")
+  // checks if destinationFrame available.  If not, use window
+  TweenLite.to(destinationFrame || window, duration, {
+    scrollTo: { y: destination, offsetY, autoKill: false },
   })
 }

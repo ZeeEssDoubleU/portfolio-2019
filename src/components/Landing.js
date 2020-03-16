@@ -18,6 +18,7 @@ const Landing = React.forwardRef((props, ref) => {
   return (
     // ref forwarded from parent
     <Section ref={ref} id="landing">
+      {/* background relocates to layout.js when NOT mobile */}
       {state.isMobile && <Background />}
     </Section>
   )

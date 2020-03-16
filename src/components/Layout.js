@@ -46,10 +46,11 @@ const Layout = ({ children, location }) => {
   return (
     <Container>
       {/* <Nav role="navigation" aria-label="main navigation" /> */}
+      {/* background relocates to landing.js when mobile */}
       {!state.isMobile && <Background />}
       <AnimatePresence>
         <PageTransition
-          className="framer-motion"
+          id="page-transition"
           key={pathname}
           variants={pathname.includes("project") ? slideUp : still}
           initial="initial"
@@ -72,7 +73,7 @@ const Container = styled.div`
   overflow-x: hidden;
 `
 
-const PageTransition = styled(motion.main)`
+const PageTransition = styled(motion.div)`
   position: absolute;
   overflow: scroll;
   width: 100%;
