@@ -8,13 +8,7 @@ import { InternalLink } from "./elements/CustomLink"
 import StyledButton from "./elements/StyledButton"
 import Icon from "./Icons/Icon"
 // import styles
-import {
-  Section,
-  Layout,
-  Header,
-  Body,
-  DesktopWrapper,
-} from "../styles/elements"
+import { Layout, Header, Body } from "../styles/elements"
 
 // ***COMPONENT***
 const About = props => {
@@ -22,48 +16,43 @@ const About = props => {
 
   return (
     <Section id="about">
-      <DesktopWrapper>
-        <StyledLayout>
-          <Header>about</Header>
-          <Bio>
-            <Selfie
-              title="selfie"
-              fluid={{ ...datoCmsAsset.fluid }}
-              alt="selfie photo of developer with dark filter"
-            />
-            <div>
-              <p className="bio-name">Zachary Williams</p>
-              <p>
-                <Highlight>
-                  <Icon name="map-marker" />
-                  {"  "}New York, NY, USA
-                </Highlight>
-              </p>
-              <p>
-                My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
-                <Highlight>front-end developer</Highlight> based in New York
-                CIty.
-                {"  "}I enjoy creating clean, intuitive web interfaces that
-                provide a satisfying user experience.
-              </p>
-              <p>
-                If you’re in need of a website, mobile or web application, or
-                just want to say what’s up, give me a shout!
-              </p>
-            </div>
-          </Bio>
-          <InternalLink href="contact" className="link-contact-me">
-            <StyledButton
-              icon="email"
-              onClick={() =>
-                setTimeout(() => document.querySelector("#name").focus(), 700)
-              }
-            >
-              contact me
-            </StyledButton>
-          </InternalLink>
-        </StyledLayout>
-      </DesktopWrapper>
+      <Header>about</Header>
+      <Bio>
+        <Selfie
+          title="selfie"
+          fluid={{ ...datoCmsAsset.fluid }}
+          alt="selfie photo of developer with dark filter"
+        />
+        <div>
+          <p className="bio-name">Zachary Williams</p>
+          <p>
+            <Highlight>
+              <Icon name="map-marker" />
+              {"  "}New York, NY, USA
+            </Highlight>
+          </p>
+          <p>
+            My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
+            <Highlight>front-end developer</Highlight> based in New York CIty.
+            {"  "}I enjoy creating clean, intuitive web interfaces that provide
+            a satisfying user experience.
+          </p>
+          <p>
+            If you’re in need of a website, mobile or web application, or just
+            want to say what’s up, give me a shout!
+          </p>
+        </div>
+      </Bio>
+      <InternalLink href="contact" className="link-contact-me">
+        <StyledButton
+          icon="email"
+          onClick={() =>
+            setTimeout(() => document.querySelector("#name").focus(), 700)
+          }
+        >
+          contact me
+        </StyledButton>
+      </InternalLink>
     </Section>
   )
 }
@@ -81,7 +70,7 @@ const query = graphql`
 `
 
 // ***STYLES***
-const StyledLayout = styled(Layout)`
+const Section = styled(Layout)`
   .link-contact-me {
     justify-self: end;
   }

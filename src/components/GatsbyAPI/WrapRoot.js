@@ -6,7 +6,7 @@ import ResetStyle from "../../styles/reset"
 import GlobalStyle from "../../styles/global"
 import { theme } from "../../styles/theme"
 
-// ***WRAP ROOT***
+// ***COMPONENT***
 export default ({ element }) => {
   return (
     <ThemeProvider theme={theme}>

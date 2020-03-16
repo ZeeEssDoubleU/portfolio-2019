@@ -41,7 +41,7 @@ const ProjectInfo = props => {
   ))
 
   return (
-    <Container className="modal-from-bottom">
+    <Container>
       <Thumbnail
         title={`${props.title} thumbnail`}
         fluid={{ ...props.image.fluid }}
@@ -87,11 +87,9 @@ export default ProjectInfo
 // ***STYLES***
 const Container = styled.div`
   /* project info originally hidden off screen and revealed when clicked */
-  position: fixed;
-  top: 100%;
-  left: 0;
   height: 100%;
   width: 100%;
+
   color: ${props => props.theme.appTextWhiteM};
   background: black;
   @media (min-width: ${props => props.theme.desktop + "px"}) {

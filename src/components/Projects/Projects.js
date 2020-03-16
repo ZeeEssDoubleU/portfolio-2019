@@ -1,17 +1,12 @@
 // @ts-nocheck
 import React, { useState } from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 // import components
 import StyledButton from "../elements/StyledButton"
 import Project from "./Project"
 // import styles
-import {
-  Section,
-  Layout,
-  Header,
-  Body,
-  DesktopWrapper,
-} from "../../styles/elements"
+import { Layout, Header, Body } from "../../styles/elements"
 
 // ***COMPONENT***
 // TODO: need to include Projects states into global state
@@ -41,29 +36,26 @@ const Projects = props => {
     })
 
   return (
-    <>
-      <Section id="projects">
-        <DesktopWrapper>
-          <Layout>
-            <Header>projects</Header>
-            <Body>{projectArray}</Body>
-            {!isHidden && (
-              <StyledButton
-                icon="plus"
-                hidden={isHidden}
-                aria-label="show more projects"
-                onClick={() => setShowMoreIndex(showMoreIndex + 5)}
-              >
-                show more
-              </StyledButton>
-            )}
-          </Layout>
-        </DesktopWrapper>
-      </Section>
-    </>
+    <Section id="projects">
+      <Header>projects</Header>
+      <Body>{projectArray}</Body>
+      {!isHidden && (
+        <StyledButton
+          icon="plus"
+          hidden={isHidden}
+          aria-label="show more projects"
+          onClick={() => setShowMoreIndex(showMoreIndex + 5)}
+        >
+          show more
+        </StyledButton>
+      )}
+    </Section>
   )
 }
 export default React.memo(Projects)
+
+// ***STYLED***
+const Section = styled(Layout)``
 
 // ***QUERY***
 const query = graphql`

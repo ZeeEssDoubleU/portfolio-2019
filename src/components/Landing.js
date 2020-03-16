@@ -4,84 +4,28 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 // import components
 import Icon from "./Icons/Icon"
+import { Background } from "./elements/Background"
 import { InternalLink } from "./elements/CustomLink"
 // import styles
-import { Section, Layout, DesktopWrapper } from "../styles/elements"
+import { Layout } from "../styles/elements"
+// import store
+import { useStore } from "../store/useStore"
 
 // ***COMPONENT***
-const Landing = props => {
-  const { datoCmsAsset } = useStaticQuery(query)
+const Landing = React.forwardRef((props, ref) => {
+  const { state } = useStore()
 
   return (
     // ref forwarded from parent
-    <StyledSection id="landing">
-      <StyledDesktopWrapper>
-        <StyledLayout bgSvgUrl={datoCmsAsset.url}>
-          <Icon name="logo-landing" className="logo" />
-          <InternalLink
-            href="about"
-            cancelParam={() => window.scrollY <= window.innerHeight}
-          >
-            <Icon name="arrow-down" className="arrow-down" />
-          </InternalLink>
-        </StyledLayout>
-      </StyledDesktopWrapper>
-    </StyledSection>
+    <Section ref={ref} id="landing">
+      {state.isMobile && <Background />}
+    </Section>
   )
-}
+})
 export default React.memo(Landing)
 
-// ***QUERY***
-const query = graphql`
-  {
-    datoCmsAsset(path: { regex: "/stripes.svg/" }) {
-      url
-    }
-  }
-`
-
 // ***STYLES***
-const StyledSection = styled(Section)`
+const Section = styled.section`
   height: 100vh;
-`
-const StyledDesktopWrapper = styled(DesktopWrapper)`
-  height: 100%;
-`
-const StyledLayout = styled(Layout)`
-  max-width: none;
-  justify-items: center;
-  align-content: center;
-  background: bottom/cover url(${props => props.bgSvgUrl});
-  /* svg icons down in component */
-  .logo {
-    width: 70%;
-    max-width: calc(0.4 * 100vh);
-    max-height: 868px;
-  }
-  .arrow-down {
-    position: absolute;
-    width: 30px;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
-    transition: transform 0.2s;
-    &:hover {
-      transform: translateX(-50%) scale(1.2);
-    }
-  }
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    will-change: transform;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: black bottom/cover url(${props => props.bgSvgUrl});
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  @media (min-width: ${props => props.theme.desktop + "px"}) {
-    width: 90%;
-  }
+  width: 100%;
 `

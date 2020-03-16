@@ -8,13 +8,7 @@ import Icon from "../Icons/Icon"
 import ContactForm from "./ContactForm"
 import Social from "../elements/Social"
 // import styles
-import {
-  Section,
-  Layout,
-  Header,
-  Body,
-  DesktopWrapper,
-} from "../../styles/elements"
+import { Layout, Header, Body } from "../../styles/elements"
 
 // ***COMPONENT***
 const Contact = props => {
@@ -23,31 +17,27 @@ const Contact = props => {
   const currentDate = new Date().getFullYear()
 
   return (
-    <StyledSection tabIndex={-1} id="contact" bgSvgUrl={datoCmsAsset.url}>
-      <DesktopWrapper>
-        <Layout>
-          <Header>get in touch</Header>
-          <Body>
-            <ContactForm />
-          </Body>
-          <StyledButton
-            icon="check"
-            type="submit"
-            form="contact-form"
-            aria-label="submit contact form"
-            justifySelf="end"
-          >
-            submit
-          </StyledButton>
-          <Social />
-          <Copyright>
-            Zachary Williams{" "}
-            <Icon name="copyright" className="icon-copyright" /> Copyright
-            {" " + currentDate}
-          </Copyright>
-        </Layout>
-      </DesktopWrapper>
-    </StyledSection>
+    <Section tabIndex={-1} id="contact" bgSvgUrl={datoCmsAsset.url}>
+      <Header>get in touch</Header>
+      <Body>
+        <ContactForm />
+      </Body>
+      <StyledButton
+        icon="check"
+        type="submit"
+        form="contact-form"
+        aria-label="submit contact form"
+        justifySelf="end"
+      >
+        submit
+      </StyledButton>
+      <Social />
+      <Copyright>
+        Zachary Williams <Icon name="copyright" className="icon-copyright" />{" "}
+        Copyright
+        {" " + currentDate}
+      </Copyright>
+    </Section>
   )
 }
 export default React.memo(Contact)
@@ -62,11 +52,8 @@ const query = graphql`
 `
 
 // ***STYLES***
-const StyledSection = styled(Section)`
+const Section = styled(Layout)`
   background: bottom/cover url(${props => props.bgSvgUrl});
-  @media (min-width: ${props => props.theme.tablet + "px"}) {
-    background: none;
-  }
 `
 const Copyright = styled.p`
   display: grid;

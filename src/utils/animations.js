@@ -118,14 +118,17 @@ export const useAnim_expandMenu = state => {
   }, [state.menuExpanded])
 }
 
-export const useAnim_modalFromBottom = () => {
-  const tl_modal = useRef(null)
-  // animate/show modal (project info) when component mounts
-  useLayoutEffect(() => {
-    tl_modal.current = new TimelineMax().to(".modal-from-bottom", 0.3, {
-      y: "-100%",
-    })
-  }, [])
+// // reveal project info animation
+// // DEPRECATED gsap version
+// // replaced with framer-motion (layout.js)
+// export const useAnim_modalFromBottom = () => {
+//   const tl_modal = useRef(null)
+//   // animate/show modal (project info) when component mounts
+//   useLayoutEffect(() => {
+//     tl_modal.current = new TimelineMax().from(".modal-from-bottom", 0.3, {
+//       y: "100%",
+//     })
+//   }, [])
 
-  return tl_modal
-}
+//   return tl_modal
+// }

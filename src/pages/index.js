@@ -1,10 +1,12 @@
 // @ts-nocheck
 import React, { useContext, useEffect, useRef } from "react"
+import styled from "styled-components"
 import { ThemeContext } from "styled-components"
 // import styles
 import GlobalStyle from "../styles/global"
 // import components
 import SEO from "../components/SEO"
+import { Background } from "../components/elements/Background"
 import Nav from "../components/Nav/Nav"
 import Landing from "../components/Landing"
 import About from "../components/About"
@@ -35,24 +37,29 @@ const App = () => {
   // updates state with useWindowResize
   useWindowResize(dispatch, themeContext)
   // intersection obserserver - toggles Nav
-  const ioTarget = useRef(null)
+  const ioTarget = useRef()
   useIntersectionObserver(dispatch, state.isDesktop, ioTarget, onToggleNav)
 
   return (
     <>
-      <GlobalStyle menuExpanded={state.menuExpanded} />
       <SEO />
       <Nav role="navigation" aria-label="main navigation" />
-      <main>
-        <div id="io-target" ref={ioTarget}>
-          <Landing />
-        </div>
+      <Main>
+        {/* ref forwarded to div INSIDE landing component */}
+        <Landing ref={ioTarget} id="io-target" />
         <About />
         <Projects />
         <Contact />
-      </main>
+      </Main>
     </>
   )
 }
 
 export default App
+
+// ***STYLES***
+const Main = styled.main`
+  @media (min-width: ${props => props.theme.desktop + "px"}) {
+    margin-left: 10%;
+  }
+`

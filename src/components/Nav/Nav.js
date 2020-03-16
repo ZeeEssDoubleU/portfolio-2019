@@ -13,7 +13,7 @@ import { useAnim_showNav, useAnim_expandMenu } from "../../utils/animations"
 // ***COMPONENT***
 const Nav = props => {
   const { state } = useStore()
-  // targetRef pointed at NavBar below
+  // targetRef pointed at Container below
   const targetRef = useRef(null)
   useEffect(() => {
     // disables body scroll when navmenu expanded
@@ -27,7 +27,7 @@ const Nav = props => {
   useAnim_expandMenu(state)
 
   return (
-    <NavBar
+    <Container
       className="nav-bar"
       navVisible={state.navVisible}
       menuExpanded={state.menuExpanded}
@@ -39,13 +39,13 @@ const Nav = props => {
         <NavHamburger />
         <NavMenu />
       </NavGrid>
-    </NavBar>
+    </Container>
   )
 }
 export default React.memo(Nav)
 
 // ***STYLES***
-const NavBar = styled.nav`
+const Container = styled.nav`
   overflow: auto;
   will-change: transform;
   position: fixed;
