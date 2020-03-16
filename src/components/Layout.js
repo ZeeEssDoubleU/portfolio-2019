@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { motion, AnimatePresence } from "framer-motion"
 // import components
-import Nav from "../components/Nav/Nav"
 import { Background } from "./elements/Background"
 // import store
 import { useStore } from "../store/useStore"
@@ -51,7 +50,6 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      {/* <Nav role="navigation" aria-label="main navigation" /> */}
       {/* background relocates to landing.js when mobile */}
       {!state.isMobile && <Background />}
       <AnimatePresence>

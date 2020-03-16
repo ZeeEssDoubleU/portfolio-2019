@@ -3,8 +3,6 @@ import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
-// import styles
-import GlobalStyle from "../../styles/global"
 // import components
 import { Wrapper } from "../elements/StyledButton"
 import { ExternalLink } from "../elements/CustomLink"

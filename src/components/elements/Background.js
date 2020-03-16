@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { motion, AnimatePresence } from "framer-motion"
 import { useStaticQuery, graphql } from "gatsby"
 // import components
 import Icon from "../Icons/Icon"

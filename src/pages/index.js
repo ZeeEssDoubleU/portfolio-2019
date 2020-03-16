@@ -2,11 +2,8 @@
 import React, { useContext, useEffect, useRef } from "react"
 import styled from "styled-components"
 import { ThemeContext } from "styled-components"
-// import styles
-import GlobalStyle from "../styles/global"
 // import components
 import SEO from "../components/SEO"
-import { Background } from "../components/elements/Background"
 import Nav from "../components/Nav/Nav"
 import Landing from "../components/Landing"
 import About from "../components/About"
