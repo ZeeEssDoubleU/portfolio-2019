@@ -49,7 +49,7 @@ module.exports = {
         start_url: `/`,
         background_color: `black`,
         theme_color: `hsl(167, 73%, 60%)`,
-        display: `standalone`,
+        display: `minimal-ui`,
         icon: `./src/components/Icons/favicon.svg`, // declared in globalSEO on DatoCMS
       },
     },

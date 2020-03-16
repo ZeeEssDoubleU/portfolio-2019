@@ -11,7 +11,7 @@ import { useStore } from "../store/useStore"
 const Layout = ({ children, location }) => {
   const { state } = useStore()
   const { pathname } = location
-  const duration = 0.3
+  const duration = .3
   const slideUp = {
     initial: {
       zIndex: 2,
@@ -44,7 +44,7 @@ const Layout = ({ children, location }) => {
   }
 
   return (
-    <Container>
+    <>
       {/* <Nav role="navigation" aria-label="main navigation" /> */}
       {/* background relocates to landing.js when mobile */}
       {!state.isMobile && <Background />}
@@ -60,7 +60,7 @@ const Layout = ({ children, location }) => {
           {children}
         </PageTransition>
       </AnimatePresence>
-    </Container>
+    </>
   )
 }
 export default Layout
@@ -68,8 +68,8 @@ export default Layout
 // ***STYLES***
 const Container = styled.div`
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
 `
 

@@ -86,7 +86,6 @@ export default ProjectInfo
 
 // ***STYLES***
 const Container = styled.div`
-  /* project info originally hidden off screen and revealed when clicked */
   height: 100%;
   width: 100%;
 

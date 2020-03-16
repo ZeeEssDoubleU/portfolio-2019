@@ -46,15 +46,16 @@ export default React.memo(Nav)
 
 // ***STYLES***
 const Container = styled.nav`
-  overflow: auto;
   will-change: transform;
   position: fixed;
-  z-index: 99;
+  z-index: 1;
   top: 0;
-  width: 100%;
   height: ${props => (props.menuExpanded ? "100%" : "80px")};
-  background: ${props => props.theme.appBgDark};
+  width: 100%;
   border-bottom: solid 1px hsla(0, 0%, 8%, 1);
+  overflow: auto;
+
+  background: ${props => props.theme.appBgDark};
   transition: height 0.3s;
   /* showNav animation */
   opacity: ${props => (props.navVisible ? "1" : "0")};
@@ -62,22 +63,25 @@ const Container = styled.nav`
     background: hsla(${props => props.theme.appBgDarkPartial}, 0.9);
   }
   @media (min-width: ${props => props.theme.desktop + "px"}) {
-    opacity: 1;
-    width: 10%;
     height: 100%;
+    width: 10%;
+
+    opacity: 1;
     box-shadow: 0px 0px 10px 0px ${props => props.theme.appShadowWhite};
   }
 `
 const NavGrid = styled.div`
+  height: 100%;
+  max-width: ${props => props.theme.insetWidth};
+  padding: 0 24px;
+  margin: 0 auto;
+
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 80px auto 80px;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
-  max-width: ${props => props.theme.insetWidth};
-  margin: 0 auto;
-  padding: 0 24px;
+
   -webkit-overflow-scrolling: touch;
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     grid-template-columns: auto;
