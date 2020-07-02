@@ -5,7 +5,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Icon from "../Icons/Icon"
 import { InternalLink } from "./CustomLink"
 
-// ***COMPONENT***
+// ************************
+// COMPONENT
+// ************************
 export const Background = () => {
   const { datoCmsAsset } = useStaticQuery(query)
 
@@ -22,7 +24,9 @@ export const Background = () => {
   )
 }
 
-// ***STYLES***
+// ************************
+// STYLES
+// ************************
 const Container = styled.div`
   height: 100%;
   width: 100%;

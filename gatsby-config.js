@@ -3,11 +3,11 @@ const fs = require("fs")
 
 // dotenv needed to protect contentful API keys
 if (process.env.NODE_ENV !== `production`) {
-  require(`dotenv/config`)
+  require("dotenv").config()
 }
 
 // creates favicon.svg and faviconShare.svg file for gatsby-plugin-manifest
-const saveIcons = async () => {
+const saveIcons = (async () => {
   const favicon = await axios.get(
     `https://www.datocms-assets.com/16519/1575643152-logo-favicon.svg`
   )
@@ -17,8 +17,7 @@ const saveIcons = async () => {
     err => console.log(err),
     res => console.log("Favicon was saved!")
   )
-}
-saveIcons()
+})()
 
 module.exports = {
   siteMetadata: {

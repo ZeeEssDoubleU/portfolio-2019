@@ -14,7 +14,9 @@ import { useStore, onToggleNav } from "../store/useStore"
 import { useIntersectionObserver } from "../utils/useIO"
 import { useWindowResize } from "../utils/useWindowResize"
 
-// ***COMPONENT***
+// ************************
+// COMPONENT
+// ************************
 const App = () => {
   // let the document know when mouse is being used
   useEffect(() => {
@@ -34,8 +36,13 @@ const App = () => {
   // updates state with useWindowResize
   useWindowResize(dispatch, themeContext)
   // intersection obserserver - toggles Nav
-  const ioTarget = useRef()
-  useIntersectionObserver(dispatch, state.isDesktop, ioTarget, onToggleNav)
+  const intersectionObserverRef = useRef()
+  useIntersectionObserver(
+    dispatch,
+    state.isDesktop,
+    intersectionObserverRef,
+    onToggleNav
+  )
 
   return (
     <>
@@ -43,7 +50,7 @@ const App = () => {
       <Nav role="navigation" aria-label="main navigation" />
       <Main id="main">
         {/* ref forwarded to div INSIDE landing component */}
-        <Landing ref={ioTarget} id="io-target" />
+        <Landing ref={intersectionObserverRef} id="io-target" />
         <About />
         <Projects />
         <Contact />
@@ -54,7 +61,9 @@ const App = () => {
 
 export default App
 
-// ***STYLES***
+// ************************
+// STYLES
+// ************************
 const Main = styled.main`
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     margin-left: 10%;
