@@ -1,11 +1,11 @@
 {
 	"workbench.iconTheme": "vscode-great-icons",
-	"window.zoomLevel": -1,
+	"window.zoomLevel": 0,
 	"atomKeymap.promptV3Features": true,
 	"editor.smoothScrolling": true,
 	"editor.tabSize": 3,
 	"editor.cursorBlinking": "phase",
-	"workbench.colorTheme": "One Dark Pro",
+	"workbench.colorTheme": "Activate UMBRA protocol",
 	"workbench.fontAliasing": "auto",
 	"breadcrumbs.enabled": true,
 	"workbench.editor.highlightModifiedTabs": true,

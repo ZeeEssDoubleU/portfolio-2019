@@ -10,7 +10,10 @@ import Social from "../elements/Social"
 // import styles
 import { Layout, Header, Body } from "../../styles/elements"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const Contact = props => {
   const { datoCmsAsset } = useStaticQuery(query)
 
@@ -42,7 +45,10 @@ const Contact = props => {
 }
 export default React.memo(Contact)
 
-// ***QUERY***
+// **********
+// query
+// **********
+
 const query = graphql`
   {
     datoCmsAsset(path: { regex: "/stripes.svg/" }) {
@@ -51,7 +57,10 @@ const query = graphql`
   }
 `
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Section = styled(Layout)`
   background: bottom/cover url(${props => props.bgSvgUrl});
 `

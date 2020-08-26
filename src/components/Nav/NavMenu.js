@@ -6,7 +6,10 @@ import { useStore } from "../../store/useStore"
 // import components
 import { InternalLink } from "../elements/CustomLink"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const NavMenu = props => {
   const { state } = useStore()
 
@@ -30,7 +33,10 @@ const NavMenu = props => {
 }
 export default React.memo(NavMenu)
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.div`
   display: ${props => (props.menuExpanded ? "grid" : "none")};
   grid-area: ${props => (props.menuExpanded ? "2/1 / 3/3" : "inherit")};

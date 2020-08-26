@@ -4,7 +4,10 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { navigate } from "@reach/router"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const ProjectInfoFooter = props => {
   return (
     <Container>
@@ -25,7 +28,10 @@ const ProjectInfoFooter = props => {
 }
 export default ProjectInfoFooter
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.div`
   position: absolute;
   bottom: 0;

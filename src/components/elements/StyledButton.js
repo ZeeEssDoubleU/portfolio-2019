@@ -5,7 +5,10 @@ import styled from "styled-components"
 // import components
 import Icon from "../Icons/Icon"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const Button = props => (
   <Wrapper
     type={props.type}
@@ -21,7 +24,10 @@ const Button = props => (
 )
 export default Button
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 export const Wrapper = styled.button`
   justify-self: end;
   height: 65px;

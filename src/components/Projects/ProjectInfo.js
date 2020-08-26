@@ -10,7 +10,10 @@ import Footer from "./ProjectInfoFooter"
 // TODO: Import icons for tech stack
 // import Icon from "../Icons/Icon"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const ProjectInfo = props => {
   // targetRef pointed at Container below
   const targetRef = useRef(null)
@@ -82,7 +85,10 @@ const ProjectInfo = props => {
 }
 export default ProjectInfo
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.div`
   height: 100%;
   width: 100%;

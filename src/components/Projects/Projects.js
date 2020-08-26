@@ -8,7 +8,10 @@ import Project from "./Project"
 // import styles
 import { Layout, Header, Body } from "../../styles/elements"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 // TODO: need to include Projects states into global state
 const Projects = props => {
   const { allDatoCmsProject } = useStaticQuery(query)
@@ -57,7 +60,10 @@ export default React.memo(Projects)
 // ***STYLED***
 const Section = styled(Layout)``
 
-// ***QUERY***
+// **********
+// query
+// **********
+
 const query = graphql`
   {
     allDatoCmsProject(sort: { fields: order, order: DESC }) {

@@ -4,7 +4,10 @@ import { Link } from "gatsby"
 // import components
 import Icon from "../Icons/Icon"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const Project = props => {
   return (
     <Container className={props.className}>
@@ -22,7 +25,10 @@ const Project = props => {
 }
 export default Project
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.div`
   position: relative;
   display: grid;

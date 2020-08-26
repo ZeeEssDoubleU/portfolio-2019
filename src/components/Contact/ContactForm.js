@@ -4,7 +4,10 @@ import styled from "styled-components"
 // // function pushes contact data for Firebase & Firestore
 // import { pushInquiry } from "../../utils/firebase"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const ContactForm = props => {
   // refs to push contact data to Firebase & Firestore
   const inputName = useRef()
@@ -89,7 +92,10 @@ const ContactForm = props => {
 }
 export default ContactForm
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Grid = styled.form`
   display: grid;
   grid-row-gap: 20px;

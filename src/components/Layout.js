@@ -6,7 +6,10 @@ import { Background } from "./elements/Background"
 // import store
 import { useStore } from "../store/useStore"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const Layout = ({ children, location }) => {
   const { state } = useStore()
   const { pathname } = location
@@ -69,7 +72,10 @@ const Layout = ({ children, location }) => {
 }
 export default Layout
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const PageTransition = styled(motion.div)`
   position: absolute;
   width: 100%;

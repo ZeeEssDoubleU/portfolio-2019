@@ -10,7 +10,10 @@ import NavMenu from "./NavMenu"
 import { useStore } from "../../store/useStore"
 import { useAnim_showNav, useAnim_expandMenu } from "../../utils/animations"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const Nav = props => {
   const { state } = useStore()
   // targetRef pointed at Container below
@@ -44,7 +47,10 @@ const Nav = props => {
 }
 export default React.memo(Nav)
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.nav`
   will-change: transform;
   position: fixed;

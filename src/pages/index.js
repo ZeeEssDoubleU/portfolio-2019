@@ -14,9 +14,9 @@ import { useStore, onToggleNav } from "../store/useStore"
 import { useIntersectionObserver } from "../utils/useIO"
 import { useWindowResize } from "../utils/useWindowResize"
 
-// ************************
-// COMPONENT
-// ************************
+// **********
+// component
+// **********
 const App = () => {
   // let the document know when mouse is being used
   useEffect(() => {
@@ -61,9 +61,9 @@ const App = () => {
 
 export default App
 
-// ************************
-// STYLES
-// ************************
+// **********
+// styles
+// **********
 const Main = styled.main`
   @media (min-width: ${props => props.theme.desktop + "px"}) {
     margin-left: 10%;

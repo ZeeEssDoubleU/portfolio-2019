@@ -5,7 +5,10 @@ import styled from "styled-components"
 import Icon from "../Icons/Icon"
 import { InternalLink } from "../elements/CustomLink"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const NavLogo = props => {
   return (
     <InternalLink href="landing" className="logo-link">
@@ -21,7 +24,10 @@ const NavLogo = props => {
 }
 export default React.memo(NavLogo)
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;

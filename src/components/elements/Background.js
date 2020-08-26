@@ -5,9 +5,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import Icon from "../Icons/Icon"
 import { InternalLink } from "./CustomLink"
 
-// ************************
-// COMPONENT
-// ************************
+// **********
+// component
+// **********
 export const Background = () => {
   const { datoCmsAsset } = useStaticQuery(query)
 
@@ -24,9 +24,9 @@ export const Background = () => {
   )
 }
 
-// ************************
-// STYLES
-// ************************
+// **********
+// styles
+// **********
 const Container = styled.div`
   height: 100%;
   width: 100%;
@@ -66,7 +66,10 @@ const Container = styled.div`
   }
 `
 
-// ***QUERY***
+// **********
+// query
+// **********
+
 const query = graphql`
   {
     datoCmsAsset(path: { regex: "/stripes.svg/" }) {

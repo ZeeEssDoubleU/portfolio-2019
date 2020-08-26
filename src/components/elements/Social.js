@@ -4,7 +4,10 @@ import styled, { withTheme } from "styled-components"
 import Icon from "../Icons/Icon"
 import { ExternalLink } from "./CustomLink"
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const Social = props => {
   return (
     <Container>
@@ -57,7 +60,10 @@ const Social = props => {
 }
 export default withTheme(Social)
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 const Container = styled.div`
   display: flex;
   margin: 20px auto;

@@ -4,7 +4,10 @@ import { TimelineLite } from "gsap"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore" // import store / utils
 
-// ***COMPONENT***
+// **********
+// component
+// **********
+
 const NavHamburger = props => {
   const { state, dispatch } = useStore()
 
@@ -48,7 +51,10 @@ const NavHamburger = props => {
 }
 export default React.memo(NavHamburger)
 
-// ***STYLES***
+// **********
+// styles
+// **********
+
 // variables for quick customization of hamburger
 const hamVars = {}
 hamVars.layerHeight = 2

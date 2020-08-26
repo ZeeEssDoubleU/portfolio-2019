@@ -6,9 +6,10 @@ import { Background } from "./elements/Background"
 // import store
 import { useStore } from "../store/useStore"
 
-// ************************
-// COMPONENT
-// ************************ƒ
+// **********
+// component
+// **********
+
 const Landing = memo(
   forwardRef((props, ref) => {
     const { state } = useStore()
@@ -24,9 +25,10 @@ const Landing = memo(
 )
 export default Landing
 
-// ************************
-// STYLES
-// ************************
+// **********
+// styles
+// **********
+
 const Section = styled.section`
   height: 100vh;
   width: 100%;
