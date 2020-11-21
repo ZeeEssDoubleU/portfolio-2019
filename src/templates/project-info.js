@@ -48,7 +48,7 @@ export const pageQuery = graphql`
 			projectLink
 			codeLink
 			image {
-				fluid(maxWidth: 1400, imgixParams: { fm: "jpg" }) {
+				fluid(imgixParams: { auto: "format", q: 0 }) {
 					...GatsbyDatoCmsFluid
 				}
 			}

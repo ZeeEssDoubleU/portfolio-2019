@@ -68,7 +68,7 @@ export default React.memo(About);
 const query = graphql`
 	{
 		datoCmsAsset(path: { regex: "/selfie-tinted.png/" }) {
-			fluid(maxWidth: 1400, imgixParams: { fm: "jpg" }) {
+			fluid(imgixParams: { auto: "format", q: 0 }) {
 				...GatsbyDatoCmsFluid
 			}
 		}
