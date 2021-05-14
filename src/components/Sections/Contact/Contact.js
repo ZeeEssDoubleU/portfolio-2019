@@ -62,12 +62,14 @@ const query = graphql`
 // **********
 
 const Section = styled(Layout)`
-	background: bottom/cover url(${(props) => props.bgSvgUrl});
+	@media (max-width: ${(props) => props.theme.tablet}) {
+		background: bottom/cover url(${(props) => props.bgSvgUrl});
+	}
 `
 const Copyright = styled.p`
 	display: grid;
 	grid-template-columns: auto auto auto;
-	color: ${(props) => props.theme.appGreen};
+	color: ${({ theme }) => theme.appGreen};
 	padding: 0 10px;
 	margin: 10px auto;
 	align-items: center;

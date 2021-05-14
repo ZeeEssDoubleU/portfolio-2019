@@ -2501,11 +2501,11 @@ const theme = {
   appShadowWhite: "hsla(0, 0%, 100%, .1)",
   insetWidth: "1200px",
   // media queries (px)
-  mobile: "320",
-  tablet: "768",
-  desktop: "1025",
-  widescreen: "1216",
-  fullhd: "1408"
+  mobile: "320px",
+  tablet: "768px",
+  desktop: "1025px",
+  widescreen: "1216px",
+  fullhd: "1408px"
 }; // *** Spacing and sizing guide
 // 4px		0.25rem
 // 8px		0.5rem

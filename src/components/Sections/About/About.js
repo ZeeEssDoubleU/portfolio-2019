@@ -101,7 +101,7 @@ const Bio = styled(Body)`
 	p {
 		margin: 12px 0;
 	}
-	@media (min-width: ${(props) => props.theme.tablet + "px"}) {
+	@media (min-width: ${(props) => props.theme.tablet}) {
 		grid-template-rows: auto;
 		grid-template-columns: auto auto;
 		align-items: center;
@@ -122,7 +122,7 @@ const Selfie = styled(Img)`
 		object-position: 80% 50% !important;
 	}
 	/* creates fade to black effect on background image */
-	@media (min-width: ${(props) => props.theme.tablet + "px"}) {
+	@media (min-width: ${(props) => props.theme.tablet}) {
 		height: 240px;
 		width: 240px;
 		mask-image: radial-gradient(black 30%, transparent 100%);

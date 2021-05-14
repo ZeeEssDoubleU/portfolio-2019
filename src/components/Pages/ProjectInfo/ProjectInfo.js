@@ -103,7 +103,7 @@ const Container = styled.div`
 
 	color: ${(props) => props.theme.appTextWhiteM};
 	background: black;
-	@media (min-width: ${(props) => props.theme.desktop + "px"}) {
+	@media (min-width: ${(props) => props.theme.desktop}) {
 		padding-top: 24px;
 	}
 `
@@ -127,7 +127,7 @@ const Thumbnail = styled(Img)`
 	}
 	background: black;
 	border: none;
-	@media (min-width: ${(props) => props.theme.desktop + "px"}) {
+	@media (min-width: ${(props) => props.theme.desktop}) {
 		width: 30vw;
 		height: 30vw;
 		margin: 0 auto;
@@ -154,7 +154,7 @@ const Main = styled.main`
 	h4 {
 		color: ${(props) => props.theme.appTextWhiteL};
 	}
-	@media (min-width: ${(props) => props.theme.desktop + "px"}) {
+	@media (min-width: ${(props) => props.theme.desktop}) {
 		left: 50%;
 		transform: translateX(-50%);
 	}
@@ -184,7 +184,7 @@ const Grid = styled.div`
 			}
 		}
 	}
-	@media (min-width: ${(props) => props.theme.desktop + "px"}) {
+	@media (min-width: ${(props) => props.theme.desktop}) {
 		top: 30vw;
 		left: 50%;
 		transform: translateX(-50%);

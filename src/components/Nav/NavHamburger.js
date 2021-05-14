@@ -67,7 +67,7 @@
 // 	background: none;
 // 	border: none;
 // 	cursor: pointer;
-// 	@media (min-width: ${(props) => props.theme.tablet + "px"}) {
+// 	@media (min-width: ${(props) => props.theme.tablet}) {
 // 		display: none;
 // 	}
 // `

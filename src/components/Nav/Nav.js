@@ -67,10 +67,10 @@ const Container = styled.nav`
 	transition: height 0.3s;
 	/* showNav animation */
 	opacity: ${(props) => (props.navVisible ? "1" : "0")};
-	@media (min-width: ${(props) => props.theme.tablet + "px"}) {
+	@media (min-width: ${(props) => props.theme.tablet}) {
 		background: hsla(${(props) => props.theme.appBgDarkPartial}, 0.9);
 	}
-	@media (min-width: ${(props) => props.theme.desktop + "px"}) {
+	@media (min-width: ${(props) => props.theme.desktop}) {
 		height: 100%;
 		width: 10%;
 
@@ -91,7 +91,7 @@ const NavGrid = styled.div`
 	align-items: center;
 
 	-webkit-overflow-scrolling: touch;
-	@media (min-width: ${(props) => props.theme.desktop + "px"}) {
+	@media (min-width: ${(props) => props.theme.desktop}) {
 		grid-template-columns: auto;
 		grid-template-rows: 144px auto 144px;
 		justify-content: center;

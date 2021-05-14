@@ -64,7 +64,7 @@ export default function Index() {
 // **********
 
 const Main = styled.main`
-	@media (min-width: ${({ theme }) => theme.desktop + "px"}) {
+	@media (min-width: ${({ theme }) => theme.desktop}) {
 		margin-left: 10%;
 	}
 `

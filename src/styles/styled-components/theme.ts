@@ -18,11 +18,11 @@ export const theme = {
 	insetWidth: "1200px",
 
 	// media queries (px)
-	mobile: "320",
-	tablet: "768",
-	desktop: "1025",
-	widescreen: "1216",
-	fullhd: "1408",
+	mobile: "320px",
+	tablet: "768px",
+	desktop: "1025px",
+	widescreen: "1216px",
+	fullhd: "1408px",
 }
 
 // *** Spacing and sizing guide
