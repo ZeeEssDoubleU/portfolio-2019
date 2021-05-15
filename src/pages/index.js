@@ -10,8 +10,8 @@ import Projects from "../components/Sections/Projects"
 import Contact from "../components/Sections/Contact"
 // import store / utils
 import { useStore, onToggleNav } from "../store/useStore"
-import { useIntersectionObserver } from "../utils/useIO"
-import { useWindowResize } from "../utils/useWindowResize"
+import { useIntersectionObserver } from "../hooks/useIO"
+import { useWindowResize } from "../hooks/useWindowResize"
 
 // **********
 // component
@@ -28,12 +28,12 @@ export default function Index() {
 	}, [])
 
 	// grab context from theme for use in component
-	const themeContext = useContext(ThemeContext)
+	const theme = useContext(ThemeContext)
 
 	// store and util functions
 	const { state, dispatch } = useStore()
 	// updates state with useWindowResize
-	useWindowResize(dispatch, themeContext)
+	useWindowResize(dispatch, theme)
 	// intersection obserserver - toggles Nav
 	const intersectionObserverRef = useRef()
 	useIntersectionObserver(
@@ -63,7 +63,7 @@ export default function Index() {
 // **********
 
 const Main = styled.main`
-	@media (min-width: ${({ theme }) => theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		margin-left: 10%;
 	}
 `

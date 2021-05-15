@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { Background } from "../../elements/Background"
 // import store
 import { useStore } from "../../../store/useStore"
+import { theme } from "../../../styles/styled-components"
 
 // **********
 // component
@@ -12,6 +13,7 @@ import { useStore } from "../../../store/useStore"
 const Landing = memo(
 	forwardRef((props, ref) => {
 		const { state } = useStore()
+		// console.log("state:", state) // ? debug
 
 		return (
 			// ref forwarded from parent

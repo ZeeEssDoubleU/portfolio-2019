@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import StyledButton from "../../elements/StyledButton"
 import Icon from "../../Icons/Icon"
 import ContactForm from "./ContactForm"
-import Social from "../../elements/Social"
+import Socials from "../../Socials"
 // import styles
 import { Layout, Header, Body } from "../../../styles/elements"
 
@@ -33,7 +33,7 @@ export function Contact() {
 			>
 				submit
 			</StyledButton>
-			<Social />
+			<Socials />
 			<Copyright>
 				Zachary Williams{" "}
 				<Icon name="copyright" className="icon-copyright" /> Copyright
@@ -61,14 +61,14 @@ const query = graphql`
 // **********
 
 const Section = styled(Layout)`
-	@media (max-width: ${(props) => props.theme.tablet}) {
-		background: bottom/cover url(${(props) => props.bgSvgUrl});
+	@media (max-width: ${({ theme }) => theme.media.tablet}px) {
+		background: bottom/cover url(${({ bgSvgUrl }) => bgSvgUrl});
 	}
 `
 const Copyright = styled.p`
 	display: grid;
 	grid-template-columns: auto auto auto;
-	color: ${({ theme }) => theme.appGreen};
+	color: ${({ theme }) => theme.color.app_green};
 	padding: 0 10px;
 	margin: 10px auto;
 	align-items: center;

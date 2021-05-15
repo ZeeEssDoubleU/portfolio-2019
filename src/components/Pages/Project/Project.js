@@ -20,21 +20,20 @@ export default function Project({
 	image,
 	tech,
 }) {
-	// targetRef pointed at Container below
 	const targetRef = useRef(null)
+	// effect disables/enables scrolling of page under modal
+	// disables when modal mounted
+	// enables when modal unmounted
 	useEffect(() => {
-		// assigned ref to variable at advice of react warning
 		const targetElem = targetRef.current
-		// body scroll disabled when component (modal) mounted
 		disableBodyScroll(targetElem)
 		return () => enableBodyScroll(targetElem)
 	}, [])
 
 	return (
-		<Container>
+		<Container ref={targetRef}>
 			<Hero {...{ title, image }} />
 			<ProjectContent
-				ref={targetRef}
 				{...{
 					title,
 					description,
@@ -58,9 +57,9 @@ const Container = styled.div`
 	height: 100%;
 	width: 100%;
 
-	color: ${({ theme }) => theme.appTextWhiteM};
+	color: ${({ theme }) => theme.color.font_white_med};
 	background: black;
-	@media (min-width: ${({ theme }) => theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		padding-top: 24px;
 	}
 `

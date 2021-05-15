@@ -41,7 +41,7 @@ const Image = styled(Img)`
 	}
 	background: black;
 	border: none;
-	@media (min-width: ${({ theme }) => theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		width: 30vw;
 		height: 30vw;
 		margin: 0 auto;

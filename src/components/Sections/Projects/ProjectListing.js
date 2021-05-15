@@ -38,7 +38,7 @@ const Container = styled.div`
 	display: grid;
 	grid-template-columns: auto 40px;
 	font-size: 16px;
-	color: ${(props) => props.theme.appTextWhiteL};
+	color: ${({ theme }) => theme.color.font_white_light};
 	padding: 4px 0;
 	margin-top: 20px;
 	transition: color 0.2s;
@@ -50,7 +50,7 @@ const Container = styled.div`
 		grid-row: 2/3;
 		grid-column: 1/2;
 		font-size: 14px;
-		color: ${(props) => props.theme.appTextWhiteM};
+		color: ${({ theme }) => theme.color.font_white_med};
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -61,10 +61,10 @@ const Container = styled.div`
 		align-self: center;
 		justify-self: end;
 		font-size: 18px;
-		color: ${(props) => props.theme.appTextWhiteM};
+		color: ${({ theme }) => theme.color.font_white_med};
 		cursor: pointer;
 	}
 	&.active {
-		color: ${(props) => props.theme.appGreen};
+		color: ${({ theme }) => theme.color.app_green};
 	}
 `

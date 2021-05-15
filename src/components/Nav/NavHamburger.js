@@ -67,7 +67,7 @@
 // 	background: none;
 // 	border: none;
 // 	cursor: pointer;
-// 	@media (min-width: ${(props) => props.theme.tablet}) {
+// 	@media (min-width: ${({theme}) => theme.media.tablet}px) {
 // 		display: none;
 // 	}
 // `
@@ -89,7 +89,7 @@
 // 	left: 0;
 // 	width: 100%;
 // 	height: ${hamVars.layerHeight}px;
-// 	background: ${(props) => props.theme.appBlueGreen};
+// 	background: ${({theme}) => theme.color.app_blueGreen_gradient};
 // 	border: none;
 // 	border-radius: ${hamVars.layerRadius}px;
 // `

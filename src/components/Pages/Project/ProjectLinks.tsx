@@ -37,19 +37,19 @@ const Container = styled.div`
 // Wrapper styled-component pulled from Button component style
 const ViewProject = styled(Wrapper)`
 	width: 150px;
-	border: 1px solid hsla(${(props) => props.theme.appBluePartial}, 0.3);
+	border: 1px solid hsla(${({ theme }) => theme.color.app_blue_hsl}, 0.3);
 	border-radius: 10px 10px 0 0;
 	transition: color 0.2s, border-color 0.2s;
 	&:hover {
-		border: 1px solid hsla(${(props) => props.theme.appGreenPartial}, 0.3);
+		border: 1px solid hsla(${({ theme }) => theme.color.app_green_hsl}, 0.3);
 	}
 `
 const ViewCode = styled(Wrapper)`
 	width: 150px;
-	border: 1px solid hsla(${(props) => props.theme.appBluePartial}, 0.3);
+	border: 1px solid hsla(${({ theme }) => theme.color.app_blue_hsl}, 0.3);
 	border-radius: 0 0 10px 10px;
 	transition: color 0.2s, border-color 0.2s;
 	&:hover {
-		border: 1px solid hsla(${(props) => props.theme.appGreenPartial}, 0.3);
+		border: 1px solid hsla(${({ theme }) => theme.color.app_green_hsl}, 0.3);
 	}
 `

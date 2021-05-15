@@ -8,11 +8,13 @@ import { InternalLink } from "./CustomLink"
 // **********
 // component
 // **********
-export const Background = () => {
-	const { datoCmsAsset } = useStaticQuery(query)
+export function Background() {
+	const {
+		datoCmsAsset: { image },
+	} = useStaticQuery(query)
 
 	return (
-		<Container bgSvgUrl={datoCmsAsset.url}>
+		<Container bgSvgUrl={image.url}>
 			<Icon name="logo-landing" className="logo" />
 			<InternalLink
 				href="about"
@@ -27,10 +29,11 @@ export const Background = () => {
 // **********
 // styles
 // **********
+
 const Container = styled.div`
 	height: 100%;
 	width: 100%;
-	background: black bottom/cover url(${(props) => props.bgSvgUrl});
+	background: black bottom/cover url(${({ bgSvgUrl }) => bgSvgUrl});
 	/* svg icons down in component */
 	.logo {
 		position: absolute;
@@ -54,13 +57,13 @@ const Container = styled.div`
 			transform: translateX(-50%) scale(1.2);
 		}
 	}
-	@media (min-width: ${(props) => props.theme.tablet}) {
+	@media (min-width: ${({ theme }) => theme.media.tablet}px) {
 		position: fixed;
 		will-change: transform;
 		overflow: auto;
 		height: 100vh;
 	}
-	@media (min-width: ${(props) => props.theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		width: 90%;
 		margin-left: 10%;
 	}
@@ -71,9 +74,12 @@ const Container = styled.div`
 // **********
 
 const query = graphql`
-	{
-		datoCmsAsset(path: { regex: "/stripes.svg/" }) {
-			url
+	query Background {
+		datoCmsAsset(title: { eq: "Background" }) {
+			title
+			image {
+				url
+			}
 		}
 	}
 `

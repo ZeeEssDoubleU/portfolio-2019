@@ -57,29 +57,29 @@ const Container = styled.nav`
 	position: fixed;
 	z-index: 1;
 	top: 0;
-	height: ${(props) => (props.menuExpanded ? "100%" : "80px")};
+	height: ${({ menuExpanded }) => (menuExpanded ? "100%" : "80px")};
 	width: 100%;
 	border-bottom: solid 1px hsla(0, 0%, 8%, 1);
 	overflow: auto;
 
-	background: ${(props) => props.theme.appBgDark};
+	background: ${({ theme }) => theme.color.app_dark};
 	transition: height 0.3s;
 	/* showNav animation */
 	opacity: ${(props) => (props.navVisible ? "1" : "0")};
-	@media (min-width: ${(props) => props.theme.tablet}) {
-		background: hsla(${(props) => props.theme.appBgDarkPartial}, 0.9);
+	@media (min-width: ${({ theme }) => theme.media.tablet}px) {
+		background: hsla(${({ theme }) => theme.color.app_dark_hsl}, 0.9);
 	}
-	@media (min-width: ${(props) => props.theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		height: 100%;
 		width: 10%;
 
 		opacity: 1;
-		box-shadow: 0px 0px 10px 0px ${(props) => props.theme.appShadowWhite};
+		box-shadow: 0px 0px 10px 0px ${({ theme }) => theme.color.shadow_white};
 	}
 `
 const NavGrid = styled.div`
 	height: 100%;
-	max-width: ${(props) => props.theme.insetWidth};
+	max-width: ${({ theme }) => theme.spacing.inset_width};
 	padding: 0 24px;
 	margin: 0 auto;
 
@@ -90,7 +90,7 @@ const NavGrid = styled.div`
 	align-items: center;
 
 	-webkit-overflow-scrolling: touch;
-	@media (min-width: ${(props) => props.theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		grid-template-columns: auto;
 		grid-template-rows: 144px auto 144px;
 		justify-content: center;

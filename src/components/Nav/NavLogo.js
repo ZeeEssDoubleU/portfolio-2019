@@ -49,20 +49,20 @@ const Container = styled.div`
 	}
 	.first-name {
 		display: none;
-		color: ${(props) => props.theme.appGreen};
+		color: ${({ theme }) => theme.color.app_green};
 	}
 	.last-name {
 		display: none;
-		color: ${(props) => props.theme.appBlue};
+		color: ${({ theme }) => theme.color.app_blue};
 	}
 	/* NavLogo tablet and bigger */
-	@media (min-width: ${(props) => props.theme.tablet}) {
+	@media (min-width: ${({ theme }) => theme.media.tablet}px) {
 		.first-name,
 		.last-name {
 			display: inherit;
 		}
 	}
-	@media (min-width: ${(props) => props.theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		grid-template-columns: auto;
 		.logo-items {
 			opacity: 0;

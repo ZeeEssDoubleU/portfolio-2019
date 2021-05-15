@@ -3918,32 +3918,51 @@ function SCProvider({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "app_dark_hsl": () => (/* binding */ app_dark_hsl),
+/* harmony export */   "app_green_hsl": () => (/* binding */ app_green_hsl),
+/* harmony export */   "app_blue_hsl": () => (/* binding */ app_blue_hsl),
+/* harmony export */   "font_white_hsl": () => (/* binding */ font_white_hsl),
+/* harmony export */   "font_blue_hsl": () => (/* binding */ font_blue_hsl),
 /* harmony export */   "theme": () => (/* binding */ theme)
 /* harmony export */ });
+// constants
+const app_dark_hsl = "0, 0%, 0%";
+const app_green_hsl = "167, 73%, 60%";
+const app_blue_hsl = "231, 95%, 62%";
+const font_white_hsl = "0, 0%, 100%";
+const font_blue_hsl = "231, 95%, 75%"; // declare theme
+
 const theme = {
-  // general
-  appBgDark: "black",
-  appBgDarkPartial: "0, 0%, 0%",
-  appBgDarkGrad: "linear-gradient(153deg, #323232 0%, black 100vh)",
-  appBgLight: "white",
-  appGreen: "hsl(167, 73%, 60%)",
-  appGreenPartial: "167, 73%, 60%",
-  appBlue: "hsl(231, 95%, 62%)",
-  appBlueText: "hsl(231, 95%, 75%)",
-  appBluePartial: "231, 95%, 62%",
-  appGreenBlue: `linear-gradient(to right, hsl(167, 73%, 60%) 0%, hsl(231, 95%, 62%) 100%)`,
-  appBlueGreen: `linear-gradient(to right, hsl(231, 95%, 62%) 0%, hsl(167, 73%, 60%) 100%)`,
-  appTextWhiteL: "white",
-  appTextWhiteM: "hsla(0, 0%, 100%, .65)",
-  appTextWhiteD: "hsla(0, 0%, 100%, .38)",
-  appShadowWhite: "hsla(0, 0%, 100%, .1)",
-  insetWidth: "1200px",
-  // media queries (px)
-  mobile: "320px",
-  tablet: "768px",
-  desktop: "1025px",
-  widescreen: "1216px",
-  fullhd: "1408px"
+  color: {
+    app_dark: "black",
+    app_dark_hsl: app_dark_hsl,
+    app_dark_gradient: "linear-gradient(153deg, #323232 0%, black 100vh)",
+    app_light: "white",
+    app_green: `hsla(${app_green_hsl}, 1.0)`,
+    app_green_hsl: app_green_hsl,
+    app_blue: `hsla(${app_blue_hsl}, 1.0)`,
+    app_blue_hsl: app_blue_hsl,
+    app_greenBlue_gradient: `linear-gradient(to right, hsl(${app_green_hsl}) 0%, hsl(${app_blue_hsl}) 100%)`,
+    app_blueGreen_gradient: `linear-gradient(to right, hsl(${app_blue_hsl}) 0%, hsl(${app_green_hsl}) 100%)`,
+    font_white_light: `hsla(${font_white_hsl}, 1.0)`,
+    font_white_med: `hsla(${font_white_hsl}, .65)`,
+    font_white_dark: `hsla(${font_white_hsl}, .38)`,
+    font_blue: `hsla(${font_blue_hsl}, 1.0)`,
+    shadow_white: "hsla(0, 0%, 100%, .1)"
+  },
+  duration: {},
+  element: {},
+  font: {},
+  media: {
+    mobile: 320,
+    tablet: 768,
+    desktop: 1025,
+    widescreen: 1216,
+    fullhd: 1408
+  },
+  spacing: {
+    inset_width: "1200px"
+  }
 }; // *** Spacing and sizing guide
 // 4px		0.25rem
 // 8px		0.5rem
@@ -6015,7 +6034,7 @@ const onToggleMenu = (dispatch, payload) => dispatch({
   type: TOGGLE_MENU,
   payload
 });
-const onWindowResize = (dispatch, themeContext) => {
+const onWindowResize = (dispatch, theme) => {
   if (typeof window !== "undefined") {
     dispatch({
       type: WINDOW_WIDTH,
@@ -6025,14 +6044,14 @@ const onWindowResize = (dispatch, themeContext) => {
       type: WINDOW_HEIGHT,
       payload: window.innerHeight
     });
-    window.innerWidth < themeContext.tablet ? dispatch({
+    window.innerWidth < theme.media.tablet ? dispatch({
       type: IS_MOBILE,
       payload: true
     }) : dispatch({
       type: IS_MOBILE,
       payload: false
     });
-    window.innerWidth >= themeContext.desktop ? dispatch({
+    window.innerWidth >= theme.media.desktop ? dispatch({
       type: IS_DESKTOP,
       payload: true
     }) : dispatch({
@@ -6040,7 +6059,7 @@ const onWindowResize = (dispatch, themeContext) => {
       payload: false
     }); // close mobile menu when on tablet or bigger
 
-    if (window.innerWidth >= themeContext.tablet) {
+    if (window.innerWidth >= theme.media.tablet) {
       onToggleMenu(dispatch, false);
     }
   }
@@ -6061,6 +6080,8 @@ const setPathname = (dispatch, payload) => {
 // ************
 
 const reducer = (state, action) => {
+  console.log("action:", action); // ? debug
+
   switch (action.type) {
     case TOGGLE_NAV:
       return { ...state,
@@ -6115,8 +6136,8 @@ const initState = typeof window !== "undefined" ? {
   menuExpanded: false,
   windowWidth: window.innerWidth,
   windowHeight: window.innerHeight,
-  isMobile: window.innerWidth < _styles_styled_components__WEBPACK_IMPORTED_MODULE_1__.theme.tablet,
-  isDesktop: window.innerWidth >= _styles_styled_components__WEBPACK_IMPORTED_MODULE_1__.theme.desktop,
+  isMobile: window.innerWidth < _styles_styled_components__WEBPACK_IMPORTED_MODULE_1__.theme.media.tablet,
+  isDesktop: window.innerWidth >= _styles_styled_components__WEBPACK_IMPORTED_MODULE_1__.theme.media.desktop,
   pathname: null,
   prevPathname: null
 } : {}; // fallback to {} so that sub states don't return null

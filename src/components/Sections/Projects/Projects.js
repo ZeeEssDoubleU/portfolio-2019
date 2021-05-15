@@ -30,7 +30,7 @@ export function Projects() {
 				<ProjectListing
 					key={index}
 					index={index}
-					title={ProjectListing.title}
+					title={project.title}
 					description={project.description}
 					slug={project.slug}
 				></ProjectListing>

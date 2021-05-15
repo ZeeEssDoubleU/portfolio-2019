@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import styled from "styled-components"
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 // import components
 import Links from "./ProjectLinks"
 import Info from "./ProjectInfo"
@@ -18,16 +17,6 @@ export default function ProjectContent({
 	codeLink,
 	tech,
 }) {
-	// targetRef pointed at Container below
-	const targetRef = useRef(null)
-	useEffect(() => {
-		// assigned ref to variable at advice of react warning
-		const targetElem = targetRef.current
-		// body scroll disabled when component (modal) mounted
-		disableBodyScroll(targetElem)
-		return () => enableBodyScroll(targetElem)
-	}, [])
-
 	return (
 		<Container>
 			<Grid>
@@ -65,9 +54,9 @@ const Container = styled.main`
 	h1,
 	h3,
 	h4 {
-		color: ${({ theme }) => theme.appTextWhiteL};
+		color: ${({ theme }) => theme.color.font_white_light};
 	}
-	@media (min-width: ${({ theme }) => theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		left: 50%;
 		transform: translateX(-50%);
 	}
@@ -84,7 +73,7 @@ const Grid = styled.div`
 	padding: 96px 24px 24px;
 	background: linear-gradient(to bottom, transparent 0, black 216px);
 
-	@media (min-width: ${({ theme }) => theme.desktop}) {
+	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		top: 30vw;
 		left: 50%;
 		transform: translateX(-50%);

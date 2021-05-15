@@ -22,18 +22,18 @@ export const onToggleNav = (dispatch, payload) =>
 	dispatch({ type: TOGGLE_NAV, payload })
 export const onToggleMenu = (dispatch, payload) =>
 	dispatch({ type: TOGGLE_MENU, payload })
-export const onWindowResize = (dispatch, themeContext) => {
+export const onWindowResize = (dispatch, theme) => {
 	if (typeof window !== "undefined") {
 		dispatch({ type: WINDOW_WIDTH, payload: window.innerWidth })
 		dispatch({ type: WINDOW_HEIGHT, payload: window.innerHeight })
-		window.innerWidth < themeContext.tablet
+		window.innerWidth < theme.media.tablet
 			? dispatch({ type: IS_MOBILE, payload: true })
 			: dispatch({ type: IS_MOBILE, payload: false })
-		window.innerWidth >= themeContext.desktop
+		window.innerWidth >= theme.media.desktop
 			? dispatch({ type: IS_DESKTOP, payload: true })
 			: dispatch({ type: IS_DESKTOP, payload: false })
 		// close mobile menu when on tablet or bigger
-		if (window.innerWidth >= themeContext.tablet) {
+		if (window.innerWidth >= theme.media.tablet) {
 			onToggleMenu(dispatch, false)
 		}
 	}
@@ -50,6 +50,8 @@ export const setPathname = (dispatch, payload) => {
 // ************
 
 const reducer = (state, action) => {
+	console.log("action:", action) // ? debug
+
 	switch (action.type) {
 		case TOGGLE_NAV:
 			return { ...state, navVisible: action.payload }
@@ -83,8 +85,8 @@ const initState =
 				menuExpanded: false,
 				windowWidth: window.innerWidth,
 				windowHeight: window.innerHeight,
-				isMobile: window.innerWidth < theme.tablet,
-				isDesktop: window.innerWidth >= theme.desktop,
+				isMobile: window.innerWidth < theme.media.tablet,
+				isDesktop: window.innerWidth >= theme.media.desktop,
 				pathname: null,
 				prevPathname: null,
 		  }
