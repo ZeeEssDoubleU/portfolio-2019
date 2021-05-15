@@ -13,7 +13,12 @@ export default function Project(props) {
 		<Container className={props.className}>
 			<div className="project-title">{props.title}</div>
 			<div className="project-description">{props.description}</div>
-			<Link to={`/project/${props.slug}`}>
+			<Link
+				to={`/project/${props.slug}`}
+				state={{
+					modal: true,
+				}}
+			>
 				<Icon
 					className="project-ellipsis"
 					name="ellipsis"

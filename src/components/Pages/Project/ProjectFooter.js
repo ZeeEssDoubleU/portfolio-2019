@@ -1,14 +1,13 @@
-// @ts-nocheck
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { navigate } from "@reach/router"
+import { navigate } from "gatsby"
 
 // **********
 // component
 // **********
 
-export default function ProjectInfoFooter(props) {
+export default function ProjectFooter(props) {
 	return (
 		<Container>
 			<Link
@@ -16,9 +15,10 @@ export default function ProjectInfoFooter(props) {
 				aria-label={`close ${props.title} project info panel`}
 				onClick={(e) => {
 					e.preventDefault()
-					// use navigate from reach router instead of gatsby for back (-1) functionality
-					// Gatsby still not updated with latest version
-					navigate(-1)
+					// navigate back (-1)
+					navigate(-1, {
+						state: { noScroll: true },
+					})
 				}}
 			>
 				<button>Close</button>
@@ -44,7 +44,7 @@ const Container = styled.div`
 	button {
 		border: none;
 
-		color: ${(props) => props.theme.appTextWhiteL};
+		color: ${({ theme }) => theme.appTextWhiteL};
 		font-size: 20px;
 		background: black;
 		cursor: pointer;

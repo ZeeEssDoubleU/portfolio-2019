@@ -1,15 +1,14 @@
-// @ts-nocheck
 import React from "react"
 import { graphql } from "gatsby"
 //import component
-import ProjectInfo from "../components/Pages/ProjectInfo"
+import Project from "../components/Pages/Project"
 import SEO from "../components/SEO"
 
 // **********
 // component
 // **********
 
-export default function ProjectInfoPage({ data }) {
+export default function ProjectPage({ data }) {
 	const project = data.datoCmsProject
 	// console.log("data:", data) // ? debug
 
@@ -20,7 +19,7 @@ export default function ProjectInfoPage({ data }) {
 				description={project.description}
 				keywords={project.tech}
 			/>
-			<ProjectInfo
+			<Project
 				title={project.title}
 				description={project.description}
 				moreInfo={project.moreInfo}

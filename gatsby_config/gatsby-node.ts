@@ -1,11 +1,15 @@
 import path from "path"
-import { CreatePagesArgs, CreateWebpackConfigArgs } from "gatsby"
+import { CreatePagesArgs } from "gatsby"
 
 // ************
 // lifecyle hook
 // ************
 
-export async function createPages({ actions, graphql, reporter }) {
+export async function createPages({
+	actions,
+	graphql,
+	reporter,
+}: CreatePagesArgs): Promise<void> {
 	const { data } = await graphql(`
 		query AllDatoCmsProjectBySlug {
 			allDatoCmsProject {
@@ -29,7 +33,7 @@ export async function createPages({ actions, graphql, reporter }) {
 
 		actions.createPage({
 			path: `/project/${slug}`,
-			component: path.resolve(`./src/templates/ProjectInfo.js`),
+			component: path.resolve(`./src/templates/Project.js`),
 			context: {
 				slug: slug,
 			},

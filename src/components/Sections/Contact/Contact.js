@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
@@ -14,7 +13,7 @@ import { Layout, Header, Body } from "../../../styles/elements"
 // component
 // **********
 
-const Contact = (props) => {
+export function Contact() {
 	const { datoCmsAsset } = useStaticQuery(query)
 
 	const currentDate = new Date().getFullYear()

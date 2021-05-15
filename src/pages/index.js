@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useContext, useEffect, useRef } from "react"
 import styled from "styled-components"
 import { ThemeContext } from "styled-components"

@@ -35,6 +35,8 @@ export default {
 				icon: faviconPath, // declared in globalSEO on DatoCMS
 			},
 		},
+		`gatsby-plugin-image`,
+		"gatsby-plugin-modal-routing",
 		"gatsby-plugin-offline", // load after manifest (above) so manifest can be cached
 		{
 			resolve: `gatsby-plugin-styled-components`,

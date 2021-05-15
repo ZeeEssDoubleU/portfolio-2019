@@ -1,10 +1,9 @@
-// @ts-nocheck
 import React, { useState } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 // import components
 import StyledButton from "../../elements/StyledButton"
-import Project from "./Project"
+import ProjectListing from "./ProjectListing"
 // import styles
 import { Layout, Header, Body } from "../../../styles/elements"
 
@@ -13,7 +12,7 @@ import { Layout, Header, Body } from "../../../styles/elements"
 // **********
 
 // TODO: need to include Projects states into global state
-const Projects = (props) => {
+export function Projects() {
 	const { allDatoCmsProject } = useStaticQuery(query)
 	const [showMoreIndex, setShowMoreIndex] = useState(5)
 
@@ -28,13 +27,13 @@ const Projects = (props) => {
 		.map((edge, index) => {
 			const project = edge.node
 			return (
-				<Project
+				<ProjectListing
 					key={index}
 					index={index}
-					title={project.title}
+					title={ProjectListing.title}
 					description={project.description}
 					slug={project.slug}
-				></Project>
+				></ProjectListing>
 			)
 		})
 
