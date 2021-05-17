@@ -1,6 +1,5 @@
-import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import Link from "next/link"
 // import components
 import Icon from "../../Icons/Icon"
 
@@ -13,17 +12,21 @@ export default function Project(props) {
 		<Container className={props.className}>
 			<div className="project-title">{props.title}</div>
 			<div className="project-description">{props.description}</div>
+			{/* // TODO: convert to next link */}
 			<Link
-				to={`/project/${props.slug}`}
-				state={{
-					modal: true,
-				}}
+				href={`/project/${props.slug}`}
+				// TODO: implement modal
+				// state={{
+				// 	modal: true,
+				// }}
 			>
-				<Icon
-					className="project-ellipsis"
-					name="ellipsis"
-					aria-label={`show ${props.title} project info panel`}
-				/>
+				<a>
+					<Icon
+						className="project-ellipsis"
+						name="ellipsis"
+						aria-label={`show ${props.title} project info panel`}
+					/>
+				</a>
 			</Link>
 		</Container>
 	)

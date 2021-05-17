@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 // TODO: convert to GatsbyImage
 import Img from "gatsby-image"

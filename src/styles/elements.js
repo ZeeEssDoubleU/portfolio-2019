@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
-export const Layout = styled.section`
+// ************
+// styled elements
+// ************
+
+export const Section = styled.section`
 	position: relative;
 	display: grid;
 	/* height: 100%; */

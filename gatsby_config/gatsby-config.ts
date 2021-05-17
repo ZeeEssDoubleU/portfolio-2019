@@ -1,5 +1,7 @@
 import "dotenv/config"
 
+// TODO: need to migrate config data
+
 // import icon paths
 import { faviconPath } from "./prebuild"
 

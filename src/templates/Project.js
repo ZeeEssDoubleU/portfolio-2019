@@ -1,5 +1,3 @@
-import React from "react"
-import { graphql } from "gatsby"
 //import component
 import Project from "../components/Pages/Project"
 import SEO from "../components/SEO"
@@ -32,27 +30,3 @@ export default function ProjectPage({ data }) {
 		</>
 	)
 }
-
-// **********
-// query
-// **********
-
-export const query = graphql`
-	query DatoCmsProjectBySlug($slug: String!) {
-		datoCmsProject(slug: { eq: $slug }) {
-			title
-			description
-			moreInfo
-			features
-			tech
-			projectLink
-			codeLink
-			image {
-				fluid(imgixParams: { auto: "format", q: 0 }) {
-					...GatsbyDatoCmsFluid
-				}
-			}
-			slug
-		}
-	}
-`

@@ -1,8 +1,8 @@
-import React from "react"
 import styled from "styled-components"
+import { useRouter } from "next/router"
 import { motion, AnimatePresence } from "framer-motion"
 // import components
-import { Background } from "../elements/Background"
+import Background from "./Background"
 // import store
 import { useStore } from "../../store/useStore"
 
@@ -10,9 +10,10 @@ import { useStore } from "../../store/useStore"
 // component
 // **********
 
-const Layout = ({ children, location }) => {
+export default function Layout({ children }) {
+	const { pathname } = useRouter()
 	const { state } = useStore()
-	const { pathname } = location
+
 	const duration = 0.3
 	const slideUp = {
 		initial: {
@@ -70,7 +71,6 @@ const Layout = ({ children, location }) => {
 		</>
 	)
 }
-export default Layout
 
 // **********
 // styles

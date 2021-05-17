@@ -1,6 +1,8 @@
 import { RenderBodyArgs } from "gatsby"
-import React from "react"
+
 import WrapRoot from "../src/GatsbyAPI/WrapRoot"
+
+// TODO: need to migrate preloads
 
 // root element
 export const wrapRootElement = WrapRoot

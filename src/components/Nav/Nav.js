@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 // import components
-import NavLogo from "./NavLogo"
+// TODO: reimplement nav components
+// import NavLogo from "./NavLogo"
 // import NavHamburger from "./NavHamburger"
-import NavMenu from "./NavMenu"
+// import NavMenu from "./NavMenu"
 // import store / utils
 import { useStore } from "../../store/useStore"
 // TODO: fix nav show anim
@@ -14,7 +15,7 @@ import { useStore } from "../../store/useStore"
 // component
 // **********
 
-const Nav = (props) => {
+export default function Nav(props) {
 	const { state } = useStore()
 	// targetRef pointed at Container below
 	const targetRef = useRef(null)
@@ -38,15 +39,14 @@ const Nav = (props) => {
 			ref={targetRef}
 		>
 			<NavGrid>
-				<NavLogo />
+				{/* <NavLogo /> */}
 				{/* // TODO: fix nav hamburger */}
 				{/* <NavHamburger /> */}
-				<NavMenu />
+				{/* <NavMenu /> */}
 			</NavGrid>
 		</Container>
 	)
 }
-export default React.memo(Nav)
 
 // **********
 // styles

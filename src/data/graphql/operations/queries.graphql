@@ -1,0 +1,59 @@
+# # ************
+# # queries
+# # ************
+
+# # background (landing) / contact
+# query Background {
+# 	asset(title: { eq: "Background" }) {
+# 		title
+# 		image {
+# 			url
+# 		}
+# 	}
+# }
+
+# # about
+# query Selfie {
+# 	asset(path: { regex: "/selfie-tinted.png/" }) {
+# 		url
+# 	}
+# }
+
+# # landing / contact
+# query Stripes {
+# 	asset(path: { regex: "/stripes.svg/" }) {
+# 		url
+# 	}
+# }
+
+# # projects
+# query AllProjects {
+# 	project(sort: { fields: order, order: DESC }) {
+# 		edges {
+# 			node {
+# 				title
+# 				description
+# 				slug
+# 			}
+# 		}
+# 	}
+# }
+
+# # project
+# query ProjectBySlug($slug: String!) {
+# 	project(slug: { eq: $slug }) {
+# 		title
+# 		description
+# 		moreInfo
+# 		features
+# 		tech
+# 		projectLink
+# 		codeLink
+# 		image {
+# 			fluid(imgixParams: { auto: "format", q: 0 }) {
+# 				...GatsbyDatoCmsFluid
+# 			}
+# 		}
+# 		slug
+# 	}
+# }

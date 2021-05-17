@@ -1,27 +1,41 @@
-import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
+import Image from "next/image"
 // import components
 import StyledButton from "../../elements/StyledButton"
 import Icon from "../../Icons/Icon"
 import ContactForm from "./ContactForm"
 import Socials from "../../Socials"
 // import styles
-import { Layout, Header, Body } from "../../../styles/elements"
+import { Section, Header, Body } from "../../../styles/elements"
+// import queries
+import { useHomeData } from "../../../data/hooks"
+// import store
+import { useStore } from "../../../store/useStore"
 
 // **********
 // component
 // **********
 
-export function Contact() {
-	const { datoCmsAsset } = useStaticQuery(query)
+export default function Contact() {
+	const {
+		state: { isMobile },
+	} = useStore()
+	const { backgroundImage } = useHomeData()
 
 	const currentDate = new Date().getFullYear()
 
 	return (
-		<Section tabIndex={-1} id="contact" bgSvgUrl={datoCmsAsset.url}>
+		<Container tabIndex={-1} id="contact">
+			{isMobile && (
+				<Image
+					layout="fill"
+					objectFit="cover"
+					src={backgroundImage.image.url}
+				/>
+			)}
 			<Header>get in touch</Header>
 			<Body>
+				{/* // TODO: fields not working on mobile */}
 				<ContactForm />
 			</Body>
 			<StyledButton
@@ -39,32 +53,15 @@ export function Contact() {
 				<Icon name="copyright" className="icon-copyright" /> Copyright
 				{" " + currentDate}
 			</Copyright>
-		</Section>
+		</Container>
 	)
 }
-export default React.memo(Contact)
-
-// **********
-// query
-// **********
-
-const query = graphql`
-	{
-		datoCmsAsset(path: { regex: "/stripes.svg/" }) {
-			url
-		}
-	}
-`
 
 // **********
 // styles
 // **********
 
-const Section = styled(Layout)`
-	@media (max-width: ${({ theme }) => theme.media.tablet}px) {
-		background: bottom/cover url(${({ bgSvgUrl }) => bgSvgUrl});
-	}
-`
+const Container = styled(Section)``
 const Copyright = styled.p`
 	display: grid;
 	grid-template-columns: auto auto auto;

@@ -5,7 +5,7 @@ import { onWindowResize } from "../store/useStore"
 // hook
 // ************
 
-export const useWindowResize = (dispatch, theme) => {
+export function useWindowResize(dispatch, theme) {
 	useEffect(() => {
 		// get window size and add event listener on component mount
 		onWindowResize(dispatch, theme)

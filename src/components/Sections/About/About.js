@@ -1,30 +1,39 @@
-import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Image from "next/image"
 // import components
 import { InternalLink } from "../../elements/CustomLink"
 import StyledButton from "../../elements/StyledButton"
 import Icon from "../../Icons/Icon"
 // import styles
-import { Layout, Header, Body } from "../../../styles/elements"
+import { Section, Header, Body } from "../../../styles/elements"
+// import queries
+import { useHomeData } from "../../../data/hooks"
+import { useStore } from "../../../store/useStore"
 
 // **********
 // component
 // **********
 
-function About(props) {
-	const { datoCmsAsset } = useStaticQuery(query)
+export default function About() {
+	const {
+		state: { isMobile },
+	} = useStore()
+	const { profileImage } = useHomeData()
 
 	return (
-		<Section id="about">
+		<Container id="about">
 			<Header>about</Header>
 			<Bio>
-				<Selfie
-					title="selfie"
-					fluid={{ ...datoCmsAsset.fluid }}
-					alt="selfie photo of developer with dark filter"
-				/>
+				<ImageWrapper>
+					<ProfilePic
+						layout="fill"
+						objectFit="cover"
+						objectPosition={isMobile ? "80% center" : "right center"}
+						src={profileImage.url}
+						title="selfie"
+						alt="developer self portrait"
+					/>
+				</ImageWrapper>
 				<div>
 					<p className="bio-name">Zachary Williams</p>
 					<p>
@@ -34,10 +43,9 @@ function About(props) {
 						</Highlight>
 					</p>
 					<p>
-						My name is Zachary Williams, or Zak for short.{"  "}I’m a{" "}
+						My name is Zachary Williams, or Zak for short. I’m a{" "}
 						<Highlight>front-end developer</Highlight> based in New York
-						CIty.
-						{"  "}I enjoy creating clean, intuitive web interfaces that
+						CIty. I enjoy creating clean, intuitive web interfaces that
 						provide a satisfying user experience.
 					</p>
 					<p>
@@ -56,30 +64,15 @@ function About(props) {
 					contact me
 				</StyledButton>
 			</InternalLink>
-		</Section>
+		</Container>
 	)
 }
-export default React.memo(About)
-
-// **********
-// query
-// **********
-
-const query = graphql`
-	{
-		datoCmsAsset(path: { regex: "/selfie-tinted.png/" }) {
-			fluid(imgixParams: { auto: "format", q: 0 }) {
-				...GatsbyDatoCmsFluid
-			}
-		}
-	}
-`
 
 // **********
 // styles
 // **********
 
-const Section = styled(Layout)`
+const Container = styled(Section)`
 	.link-contact-me {
 		justify-self: end;
 	}
@@ -106,10 +99,22 @@ const Bio = styled(Body)`
 		align-items: center;
 	}
 `
-const Selfie = styled(Img)`
+const ImageWrapper = styled.div`
 	/* stretch image across background */
+	position: relative;
 	height: 240px;
 	width: 100%;
+	overflow: hidden;
+
+	/* creates fade to black effect on background image */
+	@media (min-width: ${({ theme }) => theme.media.tablet}px) {
+		height: 240px;
+		width: 240px;
+		border-radius: 50%;
+		margin-right: 36px;
+	}
+`
+const ProfilePic = styled(Image)`
 	/* creates fade to black effect on background image */
 	mask-image: linear-gradient(
 		to bottom,
@@ -117,17 +122,11 @@ const Selfie = styled(Img)`
 		black,
 		transparent 110%
 	);
-	img {
-		object-position: 80% 50% !important;
-	}
+
 	/* creates fade to black effect on background image */
 	@media (min-width: ${({ theme }) => theme.media.tablet}px) {
-		height: 240px;
-		width: 240px;
+		/* // TODO: consider a triangle clip pattern */
 		mask-image: radial-gradient(black 30%, transparent 100%);
-		img {
-			object-position: 100% 50% !important;
-		}
 		border-radius: 50%;
 		margin-right: 36px;
 	}

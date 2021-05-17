@@ -1,5 +1,5 @@
-import React, { createContext, useReducer, useContext } from "react"
-import { theme } from "../styles/styled-components"
+import { createContext, useReducer, useContext } from "react"
+import { theme } from "../styles/theme"
 
 // ************
 // action types

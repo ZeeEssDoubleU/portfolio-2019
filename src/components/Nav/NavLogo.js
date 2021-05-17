@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 // import components
 import Icon from "../Icons/Icon"
@@ -8,7 +7,7 @@ import { InternalLink } from "../elements/CustomLink"
 // component
 // **********
 
-const NavLogo = (props) => {
+export default function NavLogo(props) {
 	return (
 		<InternalLink href="landing" className="logo-link">
 			<Container>
@@ -21,7 +20,6 @@ const NavLogo = (props) => {
 		</InternalLink>
 	)
 }
-export default React.memo(NavLogo)
 
 // **********
 // styles

@@ -1,4 +1,4 @@
-import React from "react"
+import { memo } from "react"
 import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore"
@@ -7,11 +7,12 @@ import { useStore, onToggleMenu } from "../../store/useStore"
 // component
 // **********
 
-export const InternalLink = React.memo((props) => {
+export function InternalLink(props) {
 	const { state, dispatch } = useStore()
 	const target = props.href.toLowerCase()
 
 	return (
+		// TODO: consider using next link
 		<a
 			className={props.className}
 			href={`#${target}`}
@@ -31,13 +32,13 @@ export const InternalLink = React.memo((props) => {
 			{props.children}
 		</a>
 	)
-})
+}
 
 // **********
 // component
 // **********
 
-export const ExternalLink = React.memo((props) => {
+export function ExternalLink(props) {
 	const target = props.href.toLowerCase()
 
 	return (
@@ -50,4 +51,4 @@ export const ExternalLink = React.memo((props) => {
 			{props.children}
 		</a>
 	)
-})
+}

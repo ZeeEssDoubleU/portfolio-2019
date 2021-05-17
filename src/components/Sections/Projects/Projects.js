@@ -1,31 +1,29 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 // import components
 import StyledButton from "../../elements/StyledButton"
 import ProjectListing from "./ProjectListing"
 // import styles
-import { Layout, Header, Body } from "../../../styles/elements"
+import { Section, Header, Body } from "../../../styles/elements"
+import { useHomeData } from "../../../data/hooks"
 
 // **********
 // component
 // **********
 
-// TODO: need to include Projects states into global state
-export function Projects() {
-	const { allDatoCmsProject } = useStaticQuery(query)
+export default function Projects() {
+	const { allProjects } = useHomeData()
+	console.log("allProjects:", allProjects) // ? debug
 	const [showMoreIndex, setShowMoreIndex] = useState(5)
 
 	// display 'show more' button if all projects aren't shown
 	// display nothing if all project are shown
-	const isHidden =
-		allDatoCmsProject.edges.length <= showMoreIndex ? true : false
+	const isHidden = allProjects.length <= showMoreIndex ? true : false
 
 	// array to display projects below in render
-	const projectArray = allDatoCmsProject.edges
+	const projectArray = allProjects
 		.slice(0, showMoreIndex)
-		.map((edge, index) => {
-			const project = edge.node
+		.map((project, index) => {
 			return (
 				<ProjectListing
 					key={index}
@@ -38,7 +36,7 @@ export function Projects() {
 		})
 
 	return (
-		<Section id="projects">
+		<Container id="projects">
 			<Header>projects</Header>
 			<Body>{projectArray}</Body>
 			{!isHidden && (
@@ -46,36 +44,20 @@ export function Projects() {
 					icon="plus"
 					hidden={isHidden}
 					aria-label="show more projects"
+					// TODO: add show more animation
+					// slide container down
+					// stagger fade in new projects
 					onClick={() => setShowMoreIndex(showMoreIndex + 5)}
 				>
 					show more
 				</StyledButton>
 			)}
-		</Section>
+		</Container>
 	)
 }
-export default React.memo(Projects)
 
 // **********
 // styles
 // **********
 
-const Section = styled(Layout)``
-
-// **********
-// query
-// **********
-
-const query = graphql`
-	{
-		allDatoCmsProject(sort: { fields: order, order: DESC }) {
-			edges {
-				node {
-					title
-					description
-					slug
-				}
-			}
-		}
-	}
-`
+const Container = styled(Section)``

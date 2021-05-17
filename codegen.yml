@@ -1,0 +1,29 @@
+overwrite: true
+generates:
+   # datocms graphql
+   ./src/graphql/@types/datocms.ts:
+      schema: "./src/graphql/schema/index.graphql"
+      documents:
+         - "./src/graphql/operations/*.graphql"
+      hooks:
+         afterOneFileWrite:
+            - prettier --write
+      plugins:
+         - typescript
+         - typescript-operations
+         # - typescript-graphql-request
+         - typescript-react-query
+      config:
+         declarationKind: interface
+         fetcher: graphql-request # ? react-query
+         # flattenGeneratedTypes: true
+         fragmentVariableSuffix: Fragment
+         # onlyOperationTypes: true # ! removed necessary types
+         preResolveTypes: true
+         # scalars: # ? scalars changed from any
+         #    DateTime: string
+         #    Decimal: string
+         #    HTML: string
+         #    Money: string
+         #    URL: string
+         skipTypename: true

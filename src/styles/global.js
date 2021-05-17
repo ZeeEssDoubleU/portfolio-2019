@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 
-export default createGlobalStyle`
+// ************
+// style
+// ************
+
+export const GlobalStyle = createGlobalStyle`
       html, body {
          font-family: Avenir;
          background: black;

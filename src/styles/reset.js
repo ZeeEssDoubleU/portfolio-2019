@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 
-export default createGlobalStyle`
+// ************
+// style
+// ************
+
+export const ResetStyle = createGlobalStyle`
    /* Box sizing rules */
    *,
    *::before,

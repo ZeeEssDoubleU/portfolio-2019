@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 // import components
 // TODO: import icons for tech stack

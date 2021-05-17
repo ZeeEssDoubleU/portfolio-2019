@@ -22,6 +22,7 @@ module.exports = {
 	rules: {
 		"react/prop-types": "off", // typescript will take care of type-checking
 		"react/display-name": "off", // to allow anonymous functions
+		"react/react-in-jsx-scope": "off", // global in next.js
 	},
 	overrides: [
 		{
