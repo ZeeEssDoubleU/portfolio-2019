@@ -29,7 +29,7 @@ export default function About() {
 						layout="fill"
 						objectFit="cover"
 						objectPosition={isMobile ? "80% center" : "right center"}
-						src={profileImage.url}
+						src={profileImage.image.url}
 						title="selfie"
 						alt="developer self portrait"
 					/>

@@ -38,6 +38,7 @@ export default function Contact() {
 				{/* // TODO: fields not working on mobile */}
 				<ContactForm />
 			</Body>
+			{/* // TODO: fix button style */}
 			<StyledButton
 				icon="check"
 				type="submit"

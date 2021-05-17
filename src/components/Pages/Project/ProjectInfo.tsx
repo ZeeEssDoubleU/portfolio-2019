@@ -9,7 +9,7 @@ import styled from "styled-components"
 
 export default function ProjectInfo({ moreInfo, features, tech }) {
 	// array to display tech stack below in render
-	const techArray = JSON.parse(tech).map((tech, index) => (
+	const techArray = tech.map((tech, index) => (
 		<li key={index}>
 			<span>+</span>
 			{tech}
@@ -17,7 +17,7 @@ export default function ProjectInfo({ moreInfo, features, tech }) {
 	))
 
 	// array to display tech stack below in render
-	const featuresArray = JSON.parse(features).map((feature, index) => (
+	const featuresArray = features.map((feature, index) => (
 		<li key={index}>
 			<span>&#10003;</span>
 			{feature}

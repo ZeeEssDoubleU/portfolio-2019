@@ -16,6 +16,7 @@ export default function ProjectFooter(props) {
 
 	return (
 		<Container>
+			{/* // TODO: fix close style */}
 			<Link
 				href="/"
 				aria-label={`close ${props.title} project info panel`}
@@ -44,18 +45,25 @@ const Container = styled.div`
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	height: 100px;
 
 	display: grid;
-	grid-template-rows: 70px;
 	justify-content: center;
 	align-content: center;
+
+	background: black;
+	mask-image: linear-gradient(
+		to top,
+		black 0%,
+		black calc(100% - 20px),
+		transparent 100%
+	);
 	// TODO: make sure a tag styled right
 	a {
 		border: none;
 
 		color: ${({ theme }) => theme.color.font_white_light};
 		font-size: 20px;
-		background: black;
 		cursor: pointer;
 	}
 `

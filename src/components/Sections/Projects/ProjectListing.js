@@ -14,7 +14,7 @@ export default function Project(props) {
 			<div className="project-description">{props.description}</div>
 			{/* // TODO: convert to next link */}
 			<Link
-				href={`/project/${props.slug}`}
+				href={`/projects/${props.slug}`}
 				// TODO: implement modal
 				// state={{
 				// 	modal: true,

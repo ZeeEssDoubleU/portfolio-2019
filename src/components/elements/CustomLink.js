@@ -1,4 +1,3 @@
-import { memo } from "react"
 import { scrollToAnim } from "../../utils/scrollToAnim"
 // import store
 import { useStore, onToggleMenu } from "../../store/useStore"

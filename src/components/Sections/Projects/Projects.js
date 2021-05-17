@@ -13,7 +13,6 @@ import { useHomeData } from "../../../data/hooks"
 
 export default function Projects() {
 	const { allProjects } = useHomeData()
-	console.log("allProjects:", allProjects) // ? debug
 	const [showMoreIndex, setShowMoreIndex] = useState(5)
 
 	// display 'show more' button if all projects aren't shown

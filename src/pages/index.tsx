@@ -28,11 +28,8 @@ export default function HomePage({ data }) {
 // ************
 
 export async function getStaticProps() {
-	const { data } = await getHomeData()
-
 	return {
 		props: {
-			data,
 			dehydratedState: await prefetchQuery_serverSide(
 				"homeData",
 				getHomeData,

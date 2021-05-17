@@ -1,6 +1,5 @@
 import styled from "styled-components"
-// TODO: convert to GatsbyImage
-import Img from "gatsby-image"
+import Image from "next/image"
 
 // **********
 // component
@@ -8,11 +7,16 @@ import Img from "gatsby-image"
 
 export default function ProjectHero({ title, image }) {
 	return (
-		<Image
-			title={`${title} image`}
-			fluid={{ ...image.fluid }}
-			alt={`preview image of ${title} project`}
-		/>
+		<Container>
+			<Hero
+				layout="fill"
+				objectFit="cover"
+				objectPosition="center top"
+				src={image.url}
+				title={`${title} hero image`}
+				alt={`preview image of ${title} project`}
+			/>
+		</Container>
 	)
 }
 
@@ -20,29 +24,25 @@ export default function ProjectHero({ title, image }) {
 // styles
 // **********
 
-const Image = styled(Img)`
-	// TODO: change vw to % when images are added
-	position: fixed;
-	top: 0;
+const Container = styled.div`
+	position: relative;
 	width: 100%;
 	height: 100vw;
-	max-height: calc(100% - 70px);
-	img {
-		mask-image: linear-gradient(
-			to bottom,
-			transparent 0%,
-			black,
-			transparent 100%
-		);
-		object-fit: cover;
-		object-position: 0% 0% !important;
-		transform-origin: 0% 0%;
-	}
+	/* max-height: calc(100% - 70px); */
 	background: black;
-	border: none;
+
 	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		width: 30vw;
 		height: 30vw;
 		margin: 0 auto;
 	}
+`
+const Hero = styled(Image)`
+	// TODO: change vw to % when images are added
+	mask-image: linear-gradient(
+		to bottom,
+		transparent 0%,
+		black,
+		transparent 100%
+	);
 `

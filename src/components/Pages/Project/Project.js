@@ -2,24 +2,28 @@ import { useEffect, useRef } from "react"
 import styled from "styled-components"
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock"
 // import components
-import Hero from "./ProjectHero"
-import Footer from "./ProjectFooter"
+// TODO: reimplement hero
+import ProjectHero from "./ProjectHero"
 import ProjectContent from "./ProjectContent"
+import ProjectFooter from "./ProjectFooter"
 
 // **********
 // component
 // **********
 
-export default function Project({
-	title,
-	description,
-	moreInfo,
-	features,
-	projectLink,
-	codeLink,
-	image,
-	tech,
-}) {
+export default function Project({ project }) {
+	// console.log("project:", project) // ? debug
+	const {
+		title,
+		description,
+		moreInfo,
+		features,
+		projectLink,
+		codeLink,
+		image,
+		tech,
+	} = project
+
 	const targetRef = useRef(null)
 	// effect disables/enables scrolling of page under modal
 	// disables when modal mounted
@@ -32,7 +36,7 @@ export default function Project({
 
 	return (
 		<Container ref={targetRef}>
-			<Hero {...{ title, image }} />
+			<ProjectHero {...{ title, image }} />
 			<ProjectContent
 				{...{
 					title,
@@ -44,7 +48,7 @@ export default function Project({
 					tech,
 				}}
 			/>
-			<Footer {...{ title }} />
+			<ProjectFooter {...{ title }} />
 		</Container>
 	)
 }
@@ -57,8 +61,10 @@ const Container = styled.div`
 	height: 100%;
 	width: 100%;
 
-	color: ${({ theme }) => theme.color.font_white_med};
+	/* // TODO: investigate blurred background */
 	background: black;
+	color: ${({ theme }) => theme.color.font_white_med};
+
 	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		padding-top: 24px;
 	}

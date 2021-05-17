@@ -1,7 +1,8 @@
 import styled from "styled-components"
 // import components
-import Links from "./ProjectLinks"
-import Info from "./ProjectInfo"
+import ProjectLinks from "./ProjectLinks"
+import ProjectInfo from "./ProjectInfo"
+import Divider from "../../elements/Divider"
 
 // **********
 // component
@@ -23,8 +24,9 @@ export default function ProjectContent({
 					<Title>{title}</Title>
 					<Description>{description}</Description>
 				</Header>
-				<Links {...{ title, projectLink, codeLink }} />
-				<Info {...{ moreInfo, features, tech }} />
+				<ProjectLinks {...{ title, projectLink, codeLink }} />
+				<ProjectInfo {...{ moreInfo, features, tech }} />
+				<Divider />
 			</Grid>
 		</Container>
 	)
@@ -43,13 +45,7 @@ const Container = styled.main`
 	margin: 0 auto;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
-	mask-image: linear-gradient(
-		to bottom,
-		transparent 0%,
-		black 3%,
-		black 97%,
-		transparent 100%
-	);
+	mask-image: linear-gradient(to bottom, transparent 0%, black 3%, black 100%);
 	h1,
 	h3,
 	h4 {
@@ -69,14 +65,14 @@ const Grid = styled.div`
 	justify-items: center;
 	text-align: center;
 	grid-gap: 32px;
-	padding: 96px 24px 24px;
+	padding: 96px 24px 48px;
 	background: linear-gradient(to bottom, transparent 0, black 216px);
 
 	@media (min-width: ${({ theme }) => theme.media.desktop}px) {
 		top: 30vw;
 		left: 50%;
 		transform: translateX(-50%);
-		padding: 0 24px 24px;
+		padding: 0 24px 48px;
 		background: linear-gradient(to bottom, transparent 0, black 72px);
 	}
 `

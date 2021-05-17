@@ -2,7 +2,7 @@ import fs from "fs"
 import axios from "axios"
 import "dotenv/config"
 
-const token = process.env.DATOCMS_API_TOKEN
+const token = process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN
 
 // write file to local filesystem
 export async function downloadAsset(asset, fileName, filePath) {

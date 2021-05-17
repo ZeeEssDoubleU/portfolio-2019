@@ -1,21 +1,19 @@
 import { GraphQLClient } from "graphql-request"
 import axios from "axios"
 
-// env vars
-const token = process.env.DATOCMS_API_TOKEN
+// datocms details
+export const datocmsToken = process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN
+export const datocmsEndpoint = `https://graphql.datocms.com/`
 
 // ************
 // graphql client
 // ************
 
-// datocms details
-const endpoint = `https://graphql.datocms.com/`
-
 // init shopify graphql client
-export const datocmsGraphQLClient = new GraphQLClient(endpoint)
+export const datocmsGraphQLClient = new GraphQLClient(datocmsEndpoint)
 
 datocmsGraphQLClient.setHeaders({
-	authorization: token,
+	authorization: datocmsToken,
 	Accept: "application/json",
 } as HeadersInit) // ! for TS warning
 
@@ -26,7 +24,7 @@ datocmsGraphQLClient.setHeaders({
 export const datocmsAxiosClient = axios.create({
 	baseURL: `https://graphql.datocms.com/`,
 	headers: {
-		authorization: `Bearer ${token}`,
+		authorization: `Bearer ${datocmsToken}`,
 	},
 })
 
@@ -36,6 +34,5 @@ export async function getDatocmsData(query) {
 		data: { query },
 	})
 
-	// console.log("data:", data) // ? debug
 	return data
 }

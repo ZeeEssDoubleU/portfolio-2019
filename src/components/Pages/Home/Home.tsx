@@ -19,7 +19,7 @@ import { theme } from "../../../styles/theme"
 // component
 // **********
 
-export default function HomePage({ allProjects }) {
+export default function HomePage() {
 	// store and util functions
 	const { state, dispatch } = useStore()
 
@@ -37,7 +37,7 @@ export default function HomePage({ allProjects }) {
 
 	return (
 		<>
-			{/* // TODO: convert seo to next head */}
+			{/* // TODO: convert to next/head */}
 			{/* <SEO /> */}
 			<Nav role="navigation" aria-label="main navigation" />
 			<Main id="main">

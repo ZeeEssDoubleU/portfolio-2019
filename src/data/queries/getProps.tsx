@@ -1,5 +1,6 @@
-import axios from "axios"
+import { getDatocmsData } from "../datocmsClient"
 
+// TODO: convert to .graphql files and react-query codegen
 // ************
 // graphql queries
 // ************
@@ -13,9 +14,11 @@ export const backgroundQuery = `
 	}
 `
 export const aboutQuery = `
-	profileImage: upload(filter: {filename: {matches: {pattern: "selfie-tinted.png"}}}) {
+	profileImage: asset(filter: {title: {eq: "Avatar"}}) {
 		title
-		url
+		image {
+			url
+		}
 	}
 `
 export const allProjectsQuery = `
@@ -25,46 +28,6 @@ export const allProjectsQuery = `
 		slug
 	}
 `
-export const projectQuery = `
-	query ProjectBySlug($slug: String!) {
-		project(slug: { eq: $slug }) {
-			title
-			description
-			moreInfo
-			features
-			tech
-			projectLink
-			codeLink
-			image {
-				fluid(imgixParams: { auto: "format", q: 0 }) {
-					...GatsbyDatoCmsFluid
-				}
-			}
-			slug
-		}
-	}
-`
-
-// ************
-// get data - datocms
-// ************
-
-export async function getDatocmsData(query) {
-	const token = process.env.DATOCMS_API_TOKEN
-	const { data } = await axios({
-		url: `https://graphql.datocms.com/`,
-		method: "POST",
-		headers: {
-			authorization: `Bearer ${token}`,
-		},
-		data: {
-			query: query,
-		},
-	})
-
-	// console.log("data:", data) // ? debug
-	return data
-}
 
 // ************
 // home page
@@ -84,3 +47,38 @@ export async function getHomeData() {
 // ************
 // project page
 // ************
+
+export const projectQuery = (slug) => `
+	{
+		${backgroundQuery}
+		project(filter: {slug: {eq: "${slug}"}}) {
+			title
+			description
+			moreInfo
+			features
+			tech
+			projectLink
+			codeLink
+			image {
+				title
+				alt
+				blurUpThumb
+				blurhash
+				responsiveImage {
+					alt
+					base64
+					bgColor
+					title
+				}
+				url
+				}
+			slug
+		}
+	}
+`
+
+export async function getProjectData(slug) {
+	const query = projectQuery(slug)
+
+	return await getDatocmsData(query)
+}

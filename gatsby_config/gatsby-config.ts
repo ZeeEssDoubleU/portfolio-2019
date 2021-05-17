@@ -49,7 +49,7 @@ export default {
 		{
 			resolve: `gatsby-source-datocms`,
 			options: {
-				apiToken: process.env.DATOCMS_API_TOKEN,
+				apiToken: process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN,
 				localeFallbacks: {
 					it: ["en"],
 				},
