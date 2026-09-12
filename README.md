@@ -2,10 +2,10 @@
 
 The original personal portfolio for Zak (Zachary) Williams. This repository preserves the Gatsby implementation and its design, branding, biography and project history.
 
-- **Website:** https://zswportfolio.netlify.app/
+- **Website:** https://zswportfolio-2019.netlify.app/
 - **Source branch:** `master`
 - **Next.js successor:** [portfolio-2026](https://github.com/ZeeEssDoubleU/portfolio-2026/tree/main)
-- **Successor website:** https://zsw-portfolio-2026.netlify.app/
+- **Successor website:** https://zswportfolio.netlify.app/
 
 ## Technology
 
